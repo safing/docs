@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include header.html %}
+
+  <div class="container">
+    <div class="row">
+      <div id="page-menu" class="col-lg-3 col-md-4">
+        {% include menu.html %}
+      </div>
+      <div id="page-content" class="col-lg-9 col-md-8">
+        <div class="page-header">
+          <h1>
+            {{ page.title }}
+          </h1>
+          {% if page.source-code %}
+          <p class="coderef">
+            src:
+            {% for source in page.source-code %}
+            <a target="_blank" href="https://godoc.org/github.com/Safing/safing-core/{{ source }}">
+              <code class="highlighter-rouge">
+                {{ source }}
+              </code>
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
+        </div>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+</body>

@@ -1,0 +1,25 @@
+- name: main
+  title: ""
+  prepend:
+    - title: "Main Website"
+      url: "https://safing.io"
+
+- name: guides
+  title: User Guides
+
+- name: core
+  title: "Docs: Core"
+
+- name: portmaster
+  title: "Docs: Portmaster"
+
+- name: port17
+  title: "Docs: Port17"
+
+- name: misc
+  title: "<hr>"
+  append:
+    - title: "Source Code Docs"
+      url: "https://godoc.org/github.com/Safing/safing-core"
+    - title: "Community Hub"
+      url: "https://safing.io/community-hub/"
