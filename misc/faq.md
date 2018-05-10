@@ -1,7 +1,7 @@
 ---
 title: FAQ
 section: misc
-order: 2
+order: 1
 layout: base
 ---
 

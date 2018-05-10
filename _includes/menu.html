@@ -14,7 +14,7 @@
 
     {% comment %} prepended links {% endcomment %}
     {% for entry in section.prepend %}
-    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    <li><a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a></li>
     {% endfor %}
 
     {% comment %} pages {% endcomment %}
@@ -27,7 +27,7 @@
 
     {% comment %} appended links {% endcomment %}
     {% for entry in section.append %}
-    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    <li><a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a></li>
     {% endfor %}
 
     </ul>

@@ -49,6 +49,18 @@ a:hover {
   background-color: #1fa787;
 }
 
+#page-content table {
+  margin: 5px;
+  margin-bottom: 25px;
+}
+
+#page-content table td, #page-content table th {
+  padding: 3px 10px;
+}
+
+#page-content table td {
+  border-top: 1px solid rgba(0,0,0,0.4);
+}
 
 /* Github flavour */
 

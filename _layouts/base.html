@@ -14,13 +14,17 @@
       <div id="page-content" class="col-lg-9 col-md-8">
         <div class="page-header">
           <h1>
-            {{ page.title }}
+            {% if page.pagetitle %}
+              {{ page.pagetitle }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
           </h1>
-          {% if page.source-code %}
+          {% if page.source-docs %}
           <p class="coderef">
             src:
-            {% for source in page.source-code %}
-            <a target="_blank" href="https://godoc.org/github.com/Safing/safing-core/{{ source }}">
+            {% for source in page.source-docs %}
+            <a target="_blank" href="{{ site.source-docs_base_url }}/{{ source }}">
               <code class="highlighter-rouge">
                 {{ source }}
               </code>

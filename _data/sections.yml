@@ -1,7 +1,7 @@
 - name: main
   title: ""
   prepend:
-    - title: "Main Website"
+    - title: "safing.io"
       url: "https://safing.io"
 
 - name: guides

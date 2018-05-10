@@ -3,7 +3,7 @@ title: OS Integration
 section: portmaster
 order: 10
 layout: base
-source-code:
+source-docs:
   - firewall/interception/nfqueue
 ---
 
