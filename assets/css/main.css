@@ -1,5 +1,10 @@
 body {
-  font-family: 'Roboto' !important;
+  font-family: 'Roboto';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 40px;
+  margin-bottom: 15px;
 }
 
 #page-menu {
@@ -34,19 +39,8 @@ a:hover {
   color: #1fa787;
 }
 
-#page-content .coderef {
-}
-
-#page-content .coderef a {
-  text-decoration: none;
-}
-
 #page-content .page-header {
   padding: 30px 20px;
-}
-
-#page-content a>code:hover {
-  background-color: #1fa787;
 }
 
 #page-content table {
@@ -61,6 +55,49 @@ a:hover {
 #page-content table td {
   border-top: 1px solid rgba(0,0,0,0.4);
 }
+
+/* Source docs ref */
+
+.coderef span {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  padding: 2px 8px;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 1px;
+  white-space: nowrap;
+  /* border-right: 1px solid rgba(31,167,135,0.5); */
+  /* border-bottom: 1px solid rgba(31,167,135,1); */
+}
+
+.coderef a:hover span {
+  background-color: #1fa787;
+}
+
+.coderef a {
+  color: rgb(33, 37, 41);
+}
+
+.coderef a:hover {
+  text-decoration: none;
+}
+
+.coderef i {
+  color: #1fa787;
+}
+
+.coderef a:hover i {
+  color: #fff;
+}
+
+.inlineref {
+  font-size: 13px;
+  margin-left: 20px;
+  opacity: 0.8;
+}
+
+h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inlineref, h5:hover .inlineref, h6:hover .inlineref {
+  opacity: 1;
+}
+
 
 /* Github flavour */
 

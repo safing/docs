@@ -17,7 +17,7 @@ _coming soon_
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables
+##### iptables {% include source-docs.html a="firewall/interception/nfqueue" %}
 
 If DNS is resolved for a connection, Portmaster replies with `127.0.0.17` if the connection should be routed through the Port17 network.
 If connecting to an IP address directly, the Portmaster marks the connection with `1717` and the iptables rules below will redirect the connection.

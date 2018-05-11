@@ -22,12 +22,9 @@
           </h1>
           {% if page.source-docs %}
           <p class="coderef">
-            src:
             {% for source in page.source-docs %}
             <a target="_blank" href="{{ site.source-docs_base_url }}/{{ source }}">
-              <code class="highlighter-rouge">
-                {{ source }}
-              </code>
+              <span><i class="fa fa-code"></i>&nbsp;{{ source }}</span>
             </a>
             {% endfor %}
           </p>

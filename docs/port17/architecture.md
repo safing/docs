@@ -12,7 +12,7 @@ Port17 employs a static - but dynamically created - mesh network. Clients may on
 
 [DRAFT]
 
-## Bootstrapping
+## Bootstrapping {% include source-docs.html a="port17/manager" %}
 
 When a Port17 Node comes online for the first time, it needs to bootstrap itself to the network.
 
@@ -38,7 +38,7 @@ New connections are always first reviewed by Portmaster to determine if and how 
 
 Upon accepting a new connection, Port17 matches it to the information received by Portmaster and sets possible custom options. The `port17/navigator` is then asked to calculate a route which is then built and the connection is then forwarded.
 
-## Bottles (Gossip)
+## Bottles (Gossip) {% include source-docs.html a="port17/bottle" %}
 
 Nodes exchange information about themselves by passing `Bottles` around. These `Bottles` are both sent to all connected nodes and are multicasted to the local network.
 
@@ -71,7 +71,7 @@ If a `local` `Bottle` is received it is handled like this:
 
 [DRAFT]
 
-## Routing
+## Routing {% include source-docs.html a="port17/navigator" b="port17/manager" %}
 
 [DRAFT]
 

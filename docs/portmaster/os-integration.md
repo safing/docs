@@ -4,7 +4,7 @@ section: portmaster
 order: 10
 layout: base
 source-docs:
-  - firewall/interception/nfqueue
+  - firewall/interception
 ---
 
 ## Windows
@@ -19,7 +19,7 @@ _coming soon_
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue
+##### iptables with nfqueue {% include source-docs.html a="firewall/interception/nfqueue" %}
 
 Portmaster uses iptables and nfqueue to inspect and control network traffic. The nfqueue allows packets to be handed over to user space and return a verdict and set a mark on that connection.
 
