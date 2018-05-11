@@ -75,14 +75,13 @@ If a `local` `Bottle` is received it is handled like this:
 
 [DRAFT]
 
-Routes are chosen by the clients:
+Routes are entirely chosen by the clients:
 
-When
-
--
+- Exit nodes are chosen in proximity to the destination in order to protect the connection as long as possible.
+- Node ownership is diversified.
+- The fastest route with at least 3 hops is chosen.
 
 In the future, users will have multiple options to influence how routes through the network are calculated:
+
 - Exclude nodes by name or group
 - Exclude areas by AS-Number, Country or IP range
-
-They calculate their route through the network depending on  

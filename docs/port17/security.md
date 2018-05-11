@@ -16,13 +16,15 @@ Let's look at an example of how attack costs are estimated: If an attack require
 __Legal__  
 We will not break any laws. Our systems are designed to collect as little personal information as possible and we continually evaluate concepts to further decentralize our control over the Port17 network. Should we ever be forced to break the system or collect data on you, Safing (the company) will _hara-kiri_.
 
-## Confidentiality and Integrity
+## Privacy
 
-[DRAFT]
+To protect your privacy, we use a double ratchet based protocol to provide _perfect forward and backward_ secrecy. Used algorithms can be easily changed to address new threats and trust issues. If you want to dig deeper, check out our crypto libarary: [Tinker]({% link docs/core/tinker.md %})
+
+Your private data is perfectly safe within Port17.
 
 ## Anonymity
 
-In order to anonymize connections, they are routed through
+In order to anonymize connections, they are routed through multiple network nodes, encrypting/decrypting your data at every node. This proven method, known as onion-routing, is the state-of-the-art for anonymity networks - which has well known weaknesses.
 
 There are three possible attacks to break this anonymity:
 
@@ -30,7 +32,9 @@ __Rogue Nodes__
 
 The obvious threat to anonymity are nodes that are compromised or silently collude. These nodes then extract session data and if a route is chosen that consists _entirely_ of such nodes, the attacker can link the source to the destination.
 
-[DRAFT]
+The best way to tackle this problem is have a great community which hosts a lot of nodes. Node owners are encouraged to mark their nodes as a group. Clients will then aim to diversify node ownership  when calculating routes through the network.
+
+At least for the first phase of operation, we will have to ability to _moderate_ community nodes so that we can blacklist nodes that do not act in the interest of the community. We are looking into options how to decentralize this control over the network.
 
 __Traffic Analysis__
 
@@ -58,11 +62,9 @@ __Data Leaks__
 
 Not so obvious, but very dangerous attacks on the anonymity in the network are data leaks. As these happened so often with other networks in the past, we made sure we could address these optimally.
 
-1. Because Port17 does not forward layer 4 network data, no data can leak from that layer into the Port17 network and beyond.
-2. bla
-3. Let's take a tour of what other data may leak and how Port17 (together with Portmaster) protects you:
-  - WebRTC: WebRTC is a communication framework used within browsers. Portmaster blocks WebRTC.
-  - Interface addresses: When using a domain to connect to a server (which is almost always), the local connection only uses local addresses, so the application only binds to a local address instead of a site-local or global one. This prevents applications from sharing their network location by reading the address of their bound interface.
-  - Portmaster/Port17 crashes: In the event of a crash, connections are not automatically routed over the open Internet, but will be cut off. Connectivity will be lost until Portmaster/Port17 restarts.
+1. Port17 does not forward layer 4 network data, so no data can leak from that layer into the Port17 network and beyond.
+2. In case of a crash (should that ever happen), connections are not automatically rerouted over the open Internet, but are terminated. Connectivity will be lost until Portmaster/Port17 restarts for security reasons.
+3. Other data leaks are more complex to address and are - to some extent - a cat-and-mouse game:
+  - WebRTC uses STUN/TURN servers to find your network location. Portmaster will block / answer these requests.
 
 > Please note that this is about data leaks of networking (meta)data. Port17 cannot protect you from sharing your data or using applications that make you easily identifiable, like your browser, if not configured correctly.
