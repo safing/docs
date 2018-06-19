@@ -9,7 +9,7 @@ Here is short and very technical overview of the three components that make Safi
 
 ## Portmaster
 
-Portmaster is an application firewall that enforces application profiles on processes.
+The Portmaster is an application firewall that enforces application profiles on processes.
 
 Being an application firewall means tightly integrating with the kernel of the underlying OS <span class="text-lighter">(via network filter APIs or kernel modules)</span> to gain needed information <span class="text-lighter">(associate network packets to processes)</span> and control <span class="text-lighter">(block or deny network connections)</span>.
 

@@ -5,6 +5,10 @@ order: 2
 layout: base
 ---
 
+<div class="alert alert-info" role="alert">
+  If you not have read the <a href="/main/tech-overview.html">Tech Overview</a>, please start there.
+</div>
+
 ## Our Promise
 
 We know that every complex system can be broken, Port17 is no different. We do the best we can and we think we're doing quite good. Nevertheless we have to set limits to what extent we can and to which lengths we will go to protect you. Here we want to clearly communicate these limits:
@@ -63,7 +67,7 @@ __Data Leaks__
 Not so obvious, but very dangerous attacks on the anonymity in the network are data leaks. As these happened so often with other networks in the past, we made sure we could address these optimally.
 
 1. Port17 does not forward layer 4 network data, so no data can leak from that layer into the Port17 network and beyond.
-2. In case of a crash (should that ever happen), connections are not automatically rerouted over the open Internet, but are terminated. Connectivity will be lost until Portmaster/Port17 restarts for security reasons.
+2. In case of a crash, connections are not automatically rerouted over the open Internet, but are terminated.
 3. Other data leaks are more complex to address and are - to some extent - a cat-and-mouse game:
   - WebRTC uses STUN/TURN servers to find your network location. Portmaster will block / answer these requests.
 

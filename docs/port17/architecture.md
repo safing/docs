@@ -10,8 +10,6 @@ layout: base
 
 Port17 employs a static - but dynamically created - mesh network. Clients may only move within existing connections and will never trigger a new layer 4 connection to be established.
 
-[DRAFT]
-
 ## Bootstrapping {% include source-docs.html a="port17/manager" %}
 
 When a Port17 Node comes online for the first time, it needs to bootstrap itself to the network.
@@ -48,12 +46,11 @@ Nodes exchange information about themselves by passing `Bottles` around. These `
 
 If a `public` `Bottle` is received it is handled like this:
 
-- `port17/manager` The bottle is parsed.
-- `port17/bottle` Signature is checked. If invalid, abort.
+- `port17/manager` Bottle is received
+- `port17/bottle` Bottle is parsed, signature and validity is checked
 - `port17/bottlerack` Bottle is compared to stored version, continue if new or changed.
 - `port17/manager` verify new/changed advertised IP addresses
   - if verification failed, forward bottle as distrusted.
-- `port17/manager` if PortName changed, verify if name is unique, otherwise, abort.
 - `port17/manager` forward bottle to all connected nodes and clients, as well as locally
 
 `local` `Bottles` represent nodes in the local network.
@@ -69,11 +66,7 @@ If a `local` `Bottle` is received it is handled like this:
 - `port17/manager` if PortName changed, verify if name is unique, otherwise, abort.
 - `port17/manager` forward bottle to all connected nodes and clients, as well as locally
 
-[DRAFT]
-
 ## Routing {% include source-docs.html a="port17/navigator" b="port17/manager" %}
-
-[DRAFT]
 
 Routes are entirely chosen by the clients:
 
@@ -85,3 +78,5 @@ In the future, users will have multiple options to influence how routes through 
 
 - Exclude nodes by name or group
 - Exclude areas by AS-Number, Country or IP range
+
+    This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
