@@ -1,6 +1,6 @@
 ---
 title: OS Integration
-section: port17
+section: gate17
 order: 10
 layout: base
 ---
@@ -12,7 +12,7 @@ layout: base
 ##### WinDivert {% include source-docs.html a="firewall/interception/windivert" %}
 
 If DNS is resolved for a connection, Portmaster replies with an IP address in the `127.17/16` range. This enables the Portmaster to distinguish between domains even if they resolve to the same IP address.
-These connections are then rerouted to the Port17 entry point (`127.0.0.17:1117`) by `NAT`ing and reinjecting them.
+These connections are then rerouted to the Gate17 entry point (`127.0.0.17:1117`) by `NAT`ing and reinjecting them.
 
 If connecting to an IP address directly, the Portmaster directly `NAT`s to `127.0.0.17:1117`.
 
@@ -29,7 +29,7 @@ On Linux we aim to provide two ways of OS integration:
 ##### iptables {% include source-docs.html a="firewall/interception/nfqueue" %}
 
 If DNS is resolved for a connection, Portmaster replies with an IP address in the `127.17/16` range. This enables the Portmaster to distinguish between domains even if they resolve to the same IP address.
-These connections are then rerouted to the Port17 entry point (`127.0.0.17:1117`) by marking them with `1717`.
+These connections are then rerouted to the Gate17 entry point (`127.0.0.17:1117`) by marking them with `1717`.
 
 If connecting to an IP address directly, the Portmaster marks the connection with `1717` and the iptables rules below will redirect the connection.
 

@@ -69,14 +69,14 @@ mangle INPUT -j C171
 filter OUTPUT -j C17
 filter INPUT -j C17
 nat OUTPUT -p udp --dport 53 -m mark --mark 1799 -j DNAT --to {127.0.0.1:53|[::1]:53}
-nat OUTPUT -m mark --mark 1717 -p {tcp|udp} -j DNAT --to-destination 127.0.0.17:1117 # for Port17
-nat OUTPUT -m mark --mark 1717 -j DNAT --to-destination 127.0.0.17 # for Port17
+nat OUTPUT -m mark --mark 1717 -p {tcp|udp} -j DNAT --to-destination 127.0.0.17:1117 # for Gate17
+nat OUTPUT -m mark --mark 1717 -j DNAT --to-destination 127.0.0.17 # for Gate17
 ```
 
 Explanation of Nfqueue Numbers:
 
 `17040` breaks up into:
-- `17` is an identifier, so that you can easily spot what belongs to Portmaster/Port17
+- `17` is an identifier, so that you can easily spot what belongs to Portmaster/Gate17
 - `0` for ouput, `1` for input
 - `4` for IPv4, `6` for IPv6
 - `0` id for multi-threaded nfqueue (currently only one thread is used)
@@ -90,7 +90,7 @@ Explanation of Connmark Numbers:
 1710 Permanent Accept
 1711 Permanent Block
 1712 Permanent Drop
-1717 Reroute to Port17
+1717 Reroute to Gate17
 1799 Reroute to nameserver (for astray DNS queries)
 ```
 

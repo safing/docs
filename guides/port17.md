@@ -1,13 +1,13 @@
 ---
-title: Port17
-pagetitle: Introduction to Port17
+title: Gate17
+pagetitle: Introduction to Gate17
 section: guides
 order: 2
 layout: base
 ---
 
 <div class="alert alert-warning" role="alert">
-  Port17 is currently still in Tech-Preview phase. When trying out the technology, please keep this in mind - it may be a bit rough around the edges. Also, only the base features are implemented - the UI (and this guide) hint at many other features that are not yet implemented.
+  Gate17 is currently still in Tech-Preview phase. When trying out the technology, please keep this in mind - it may be a bit rough around the edges. Also, only the base features are implemented - the UI (and this guide) hint at many other features that are not yet implemented.
 </div>
 
 ## Installation
@@ -18,8 +18,8 @@ Please a keep a close eye on the console output of the daemon, as it will show y
 
 ## Testing
 
-As we do not yet provide a network for Port17 testing, you will have to create your own. This is easiest done with Docker. In the `safing-core` repo you can find a small guide and readme in the directory `port17/testing/simple` to get started.
+As we do not yet provide a network for Gate17 testing, you will have to create your own. This is easiest done with Docker. In the `safing-core` repo you can find a small guide and readme in the directory `gate17/testing/simple` to get started.
 
-You can then start the Portmaster with Port17 on the host and connect it to the network using the `-bootstrap` parameter to give the daemon the IP address of an initial Port17 it will connect to.
+You can then start the Portmaster with Gate17 on the host and connect it to the network using the `-bootstrap` parameter to give the daemon the IP address of an initial Gate17 it will connect to.
 
-If you do not feel tech savvy enough, we would recommend to wait for the alpha release, which will also feature a ready-to-use test network with several Port17 nodes.
+If you do not feel tech savvy enough, we would recommend to wait for the alpha release, which will also feature a ready-to-use test network with several Gate17 nodes.

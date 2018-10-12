@@ -30,7 +30,7 @@ Verdicts may be:
 - __PermanentBlock__: This packet is blocked, as well as all future packets of this `Link`.
 - __PermanentDrop__: This packet is dropped, as well as all future packets of this `Link`.
 - __RerouteToNameserver__: Reroute this packet to the local nameserver for handling.
-- __RerouteToTunnel__: Reroute this packet (and its `Link`) to the local Port17 entry point for further handling.
+- __RerouteToTunnel__: Reroute this packet (and its `Link`) to the local Gate17 entry point for further handling.
 
 The _permanent_ editions of verdicts were created to drastically improve performance of the portmaster, as such `Links` will be "handed over" back to the OS and will not be intercepted by the Portmaster anymore. The trade-off here is that connections cannot be killed, should the user or software change it's mind about it later on - but this is usually not the case.
 

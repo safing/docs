@@ -13,8 +13,8 @@
 - name: portmaster
   title: "Docs: Portmaster"
 
-- name: port17
-  title: "Docs: Port17"
+- name: gate17
+  title: "Docs: Gate17"
 
 - name: misc
   title: "<hr>"
