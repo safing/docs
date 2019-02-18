@@ -10,7 +10,7 @@ layout: base
 
 Gate17 employs a static - but dynamically created - mesh network. Clients may only move within existing connections and will never trigger a new layer 4 connection to be established.
 
-## Bootstrapping <!-- {% include code_ref.html a="gate17/manager" %} -->
+## Bootstrapping {% comment %} {% include code_ref.html a="gate17/manager" %} {% endcomment %}
 
 When a Gate17 Node comes online for the first time, it needs to bootstrap itself to the network.
 
@@ -36,7 +36,7 @@ New connections are always first reviewed by Portmaster to determine if and how 
 
 Upon accepting a new connection, Gate17 matches it to the information received by Portmaster and sets possible custom options. The `gate17/navigator` is then asked to calculate a route which is then built and the connection is then forwarded.
 
-## Bottles (Gossip) <!-- {% include code_ref.html a="gate17/bottle" %} -->
+## Bottles (Gossip) {% comment %} {% include code_ref.html a="gate17/bottle" %} {% endcomment %}
 
 Nodes exchange information about themselves by passing `Bottles` around. These `Bottles` are both sent to all connected nodes and are multicasted to the local network.
 
@@ -66,7 +66,7 @@ If a `local` `Bottle` is received it is handled like this:
 - `gate17/manager` if PortName changed, verify if name is unique, otherwise, abort.
 - `gate17/manager` forward bottle to all connected nodes and clients, as well as locally
 
-## Routing <!-- {% include code_ref.html a="gate17/navigator" b="gate17/manager" %} -->
+## Routing {% comment %} {% include code_ref.html a="gate17/navigator" b="gate17/manager" %} {% endcomment %}
 
 Routes are entirely chosen by the clients:
 
