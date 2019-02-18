@@ -10,15 +10,9 @@ code_ref:
 
 ## Windows
 
-##### WinDivert {% include code_ref.html github-portmaster="firewall/interception/windivert" %}
+##### Kernel Extension
 
-The WinDivert API and kernel driver offer a similar interface to packet interception on Windows as divert socket.
-
-While this works well, it's rather slow, so we are planning drastic performance improvements in the near future.
-
-##### IP Helper API {% include code_ref.html github-portmaster="process/iphelper" %}
-
-The Windows API `IpHlpApi.dll` is used to fetch the table of current connections and get PID that belongs to the intercepted packet.
+We are currently developing a kernel extension for integration with the Windows kernel. _update coming soon_
 
 ## macOS
 
@@ -77,7 +71,7 @@ Explanation of Nfqueue Numbers:
 
 `17040` breaks up into:
 - `17` is an identifier, so that you can easily spot what belongs to Portmaster/Gate17
-- `0` for ouput, `1` for input
+- `0` for output, `1` for input
 - `4` for IPv4, `6` for IPv6
 - `0` id for multi-threaded nfqueue (currently only one thread is used)
 
@@ -96,8 +90,8 @@ Explanation of Connmark Numbers:
 
 ##### kernel module
 
-We will provide an alternative to `iptables` by writing a kernel module to handle the needed packet interception in the future. Depending on the performance and stability of the `iptables` integration this might come sooner or later.
+We will provide an alternative to the `iptables` integration by writing a kernel module to handle the needed packet interception in the future. Depending on the performance and stability of the `iptables` integration this might come sooner or later.
 
-##### proc/net {% include code_ref.html github-portmaster="process/proc" %}
+##### proc/net {% include code_ref.html godoc-portmaster="process/proc" %}
 
 In order to find out which process a packet belongs to, the proc filesystem is first parsed to find the socket id of the intercepted packet, then the process directory is search for the matching PID.

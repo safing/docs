@@ -30,7 +30,7 @@ This is the emergency mode and should be used in highly untrusted environments, 
 
 ## Autopilot
 
-To assist you in choosing the correct mode for different situations, the Portmaster will detect threats and set the Security Level accordingly, as well as notify the user about what is happening. If you do not agree with what the Portmaster is doing, you can simply override the Security Level. To learn more about attack detection, refer to [Advanced Inspection](/portmaster/advanced-inspection.html).
+To assist you in choosing the correct mode for different situations, the Portmaster will detect threats and set the Security Level accordingly, as well as notify the user about what is happening. If you do not agree with what the Portmaster is doing, you can simply override the Security Level. To learn more about attack detection, refer to [Advanced Inspection](/docs/portmaster/advanced-inspection.html).
 
 ## Configuration
 

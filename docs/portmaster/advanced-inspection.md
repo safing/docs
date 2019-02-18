@@ -10,6 +10,7 @@ source-docs:
 In order to better secure you from attacks and ensure that connections are genuine, the Portmaster supports packet inspection. The Portmaster will never break any encryption or weaken it - on the contrary - this system is designed to ensure and enforce good, valid and secure connections.
 
 This framework allows to easily plug in new modules that check for various kinds of network attacks or verify connections.
+Here we are the modules that come with the Portmaster:
 
 ## TLS Verification {% include code_ref.html godoc-portmaster="firewall/inspection/tls" github-portmaster="firewall/inspection/tls" %}
 
@@ -21,7 +22,7 @@ This module fully verifies TLS connections to ensure that all programs use the b
 
 ## Planned
 
-These modules are planned and will be implement at some point in time.
+These modules are planned and will be implemented at some point in time.
 
 - ARP Attack Detection: detect and mititage ARP-based MITM attacks.
 - Portscan Detection: detect portscans and block the attacking host.
