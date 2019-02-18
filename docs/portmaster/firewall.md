@@ -31,15 +31,15 @@ Packets are intercepted and then handled by the Portmaster.
 
 ## Decision Making {% include code_ref.html godoc-portmaster="firewall" github-portmaster="firewall/master.go" %}
 
-The Portmaster makes decisions about a connection in multiple stages:
+The Portmaster makes decisions about a connection at multiple stages:
 
 - Before resolving DNS / fetching Stamp data
-  - `Communication` level: `DecideOnCommunicationBeforeIntel`
+  - `Communication` level: function `DecideOnCommunicationBeforeIntel`
 - After resolving DNS / fetching Stamp data
-  - `Communication` level: `DecideOnCommunicationAfterIntel`
+  - `Communication` level: function `DecideOnCommunicationAfterIntel`
 - With the interception of the first packet
-  - `Communication` level: `DecideOnCommunication`
-  - `Link` level: `DecideOnLink`
+  - `Communication` level: function `DecideOnCommunication`
+  - `Link` level: function `DecideOnLink`
 - On every packet until all inspection subsystems are finished (`Link` level)
 
 ## Decision Flow
@@ -71,8 +71,12 @@ This little story of a packet aims to illustrate how the Portmaster works. Pleas
 
 You fire up Firefox to access a web page on the Internet. After clicking on the bookmark you want, Firefox sends a DNS request to resolve the website/domain you are accessing: `example.com.`.
 
-The Portmaster takes over this request and first checks if Firefox is allowed to talk to `example.com.`. After verifying that this is the case, the Portmaster concurrently resolves the query and requests any intelligence data from Stamp. With these, the permission to access `example.com.` is checked again - with the newly gained data. When all this goes well, the Portmaster returns the DNS answer to Firefox.
+_Before resolving DNS_  
+The Portmaster takes over this request and first checks if Firefox is allowed to talk to `example.com.`. After verifying that this is the case, the Portmaster concurrently resolves the query and requests any intelligence data from Stamp.  
+_After resolving DNS_  
+With these, the permission to access `example.com.` is checked again - with the newly gained data. When all this goes well, the Portmaster returns the DNS answer to Firefox.
 
+_interception of the first packet_  
 Firefox then opens a connection to the server behind `example.com.`. The Portmaster intercepts the packet and checks if it already knows what to with it. The packet is put "on hold", while the Portmaster decides what to do. The Portmaster then finally marks the connection as permitted and the packet can continue.
 
 But it's not quite over yet. The Portmaster may still further inspect packets to ensure your privacy or detect attacks. One of these things is to check if connections are encrypted (with TLS) and block them if they are not, but you require that.

@@ -34,4 +34,4 @@ To assist you in choosing the correct mode for different situations, the Portmas
 
 ## Configuration
 
-How the Security Levels behave and what features are activated can be configured to some extent in the Portmaster settings. Please note that certain features cannot be turned off in the Fortress mode in order to prevent misconfiguration and provide the same _Fortress_ experience across installations for when you are using another's computer or assisting with tech support.
+How the Security Levels behave and what features are activated can be configured in the Portmaster settings. Please note that certain features cannot be turned off in the Fortress mode in order to prevent misconfiguration and provide the same _Fortress_ experience across installations for when you are using another's computer or assisting with tech support.
