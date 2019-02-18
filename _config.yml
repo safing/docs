@@ -25,7 +25,8 @@ assets_url: "/assets/"
 vendor_url: "/vendor/"
 community_hub_url: "https://safing.io/community-hub/"
 url: "https://docs.safing.io" # the base hostname & protocol for your site
-source-docs_base_url: "https://godoc.org/github.com/Safing/safing-core" # do not forget to also change the menu in _data/sections.yml
+github_ref_base_url: "https://github.com/Safing"
+godoc_ref_base_url: "https://godoc.org/github.com/Safing"
 
 # Build settings
 markdown: kramdown

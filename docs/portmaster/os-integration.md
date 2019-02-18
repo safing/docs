@@ -3,20 +3,20 @@ title: OS Integration
 section: portmaster
 order: 10
 layout: base
-source-docs:
-  - firewall/interception
-  - process
+code_ref:
+  github-portmaster-1: firewall/interception
+  github-portmaster-2: process
 ---
 
 ## Windows
 
-##### WinDivert {% include source-docs.html a="firewall/interception/windivert" %}
+##### WinDivert {% include code_ref.html github-portmaster="firewall/interception/windivert" %}
 
 The WinDivert API and kernel driver offer a similar interface to packet interception on Windows as divert socket.
 
 While this works well, it's rather slow, so we are planning drastic performance improvements in the near future.
 
-##### IP Helper API {% include source-docs.html a="process/iphelper" %}
+##### IP Helper API {% include code_ref.html github-portmaster="process/iphelper" %}
 
 The Windows API `IpHlpApi.dll` is used to fetch the table of current connections and get PID that belongs to the intercepted packet.
 
@@ -28,7 +28,7 @@ _coming soon_
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue {% include source-docs.html a="firewall/interception/nfqueue" %}
+##### iptables with nfqueue {% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
 
 Portmaster uses iptables and nfqueue to inspect and control network traffic. The nfqueue allows packets to be handed over to user space and return a verdict and set a mark on that connection.
 
@@ -98,6 +98,6 @@ Explanation of Connmark Numbers:
 
 We will provide an alternative to `iptables` by writing a kernel module to handle the needed packet interception in the future. Depending on the performance and stability of the `iptables` integration this might come sooner or later.
 
-##### proc/net {% include source-docs.html a="process/proc" %}
+##### proc/net {% include code_ref.html github-portmaster="process/proc" %}
 
 In order to find out which process a packet belongs to, the proc filesystem is first parsed to find the socket id of the intercepted packet, then the process directory is search for the matching PID.

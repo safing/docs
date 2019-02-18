@@ -52,7 +52,6 @@ GEM
     less (2.6.0)
       commonjs (~> 0.2.7)
     libv8 (3.16.14.19)
-    libv8 (3.16.14.19-x86_64-linux)
     liquid (4.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)

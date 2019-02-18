@@ -20,10 +20,15 @@
               {{ page.title }}
             {% endif %}
           </h1>
-          {% if page.source-docs %}
+          {% if page.godoc_ref or page.github_ref %}
           <p class="coderef">
-            {% for source in page.source-docs %}
-            <a target="_blank" href="{{ site.source-docs_base_url }}/{{ source }}">
+            {% for source in page.godoc_ref %}
+            <a target="_blank" href="{{ site.godoc_ref_base_url }}/{{ source }}">
+              <span><i class="fa fa-book"></i>&nbsp;{{ source }}</span>
+            </a>
+            {% endfor %}
+            {% for source in page.github_ref %}
+            <a target="_blank" href="{{ site.github_ref_base_url }}/{{ source }}">
               <span><i class="fa fa-code"></i>&nbsp;{{ source }}</span>
             </a>
             {% endfor %}

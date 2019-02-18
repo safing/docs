@@ -19,7 +19,7 @@
 - name: misc
   title: "<hr>"
   append:
-    - title: "Source Code Docs"
-      url: "https://godoc.org/github.com/Safing/safing-core"
+    - title: "Source Code"
+      url: "https://github.com/Safing"
     - title: "Community Hub"
       url: "https://safing.io/community-hub/"

@@ -4,60 +4,95 @@ section: portmaster
 order: 3
 layout: base
 source-docs:
-  - profiles
+   profiles
 ---
 
-Application Profiles are how you can control which application is allowed to connect to the Internet and how. Applications are matched by their installation path - be sure to have to path to the binary right to have a Profile applied (you can check the logs or the monitor tab in the UI).
+Application Profiles are used to apply specific settings to applications. Whenever an application first becomes active on the network, the Portmaster creates and loads the corresponding Profile that should be applied.
 
-## Properties {% include source-docs.html a="profiles#Profile" %}
+## Profile Types
 
-All of the properties are explained where they are appear on settings page (press the small _i_ icon), here we will go through them in some more detail:
+There are four profile types. When making decisions, the Portmaster merges these profiles together and draws preferences from this set. The following list is displayed in the correct precedence.
 
-- __Name:__ Name of the application.
-- __Description:__ Description of the application. Meant for when users discover applications they know nothing about in the monitoring tool in the UI.
-- __Security Level:__ Define the minimum Security Level (and it's configured features) that should be applied with this Profile.
-- __Default:__ Define this profile as a default Profile. See explanation in section _Default Profiles_ below.
-- __Framework, Find, Build, Virtual, Find parent level, Merge with parent:__ These are some kind of Helper-Profiles used to rematch special applications to correct profiles. See explanation in section _Framework Profiles_ below.
-- __Domain Whitelist__: Define a domain whitelist for this Profile, connections to all other domains will be denied.
-- __ConnectPorts:__: Define a whitelist of remote TCP/UDP ports that applications are allowed to connect to.
-- __ListenPorts:__: Define a whitelist of local TCP/UDP ports applications may listen on. Please note that the `Service` Flag needs to be set in order to allow listening at all.
+The “default profile” is the combination of the Global and the Fallback Profile. The difference is that the __Global Profile__ will overrule the Stamp Profile while the __Fallback Profile__ may be overridden by Stamp Profile settings.
 
-## Flags {% include source-docs.html a="profiles#Profile" %}
+__User Profiles__  
+The User Profile is the application's _own_ profile. It overrides all other profiles.
 
-Flags are an easy way to require or constraint to an application to a certain behavior.
+__Global Profile__  
+The Global Profile is shared among all applications and overrides the community supplied Stamp Profile.
 
-- Executing User
-  - __System:__ System apps must be run by system user, else deny
-  - __Admin:__ Admin apps must be run by user with admin privileges, else deny
-  - __User:__ User apps must be run by user (identified by having an active safing UI), else deny
-- Network Scope
-  - __Internet:__ Internet apps may connect to the Internet, if unset, all connections to the Internet are denied
-  - __LocalNet:__ LocalNet apps may connect to the local network (i.e. private IP address spaces), if unset, all connections to the local network are denied
-- Network Destinations
-  - __Strict:__ Strict apps may only connect to domains that are related to themselves
-  - __Service:__ Service apps may accept incoming connections
-  - __Direct Connect:__ These apps may directly connect to an IP address, without resolving DNS first. This is unusual and makes it harder to protect privacy, but may be required for P2P applications.
-- Special
-  - __Gateway:__ Gateway apps will connect to user-defined servers. Currently not in use.
-  - __Browser:__ Browsers are special in that their behavior cannot really be defined. Currently not in use.
+__Stamp Profiles__  
+These Profiles are built and managed by the [Stamp Community](https://stamp.community). These profiles are especially helpful if you are not very adept technically and generally give you good baseline of a Profile. _(coming soon)_
 
-## Default Profiles {% include source-docs.html a="profiles#Profile" %}
+__Fallback Profile__  
+This profile is also shared among all applications and holds sensible defaults for applications that have no other more specific settings applied to it.
 
-Because it is infeasible to have a separate Application Profile for every program you directly or indirectly use, you can also define a Profile for whole folders. These Profiles are called `Default` Profiles and are matched on a path prefix basis instead of an exact match basis.
+## Security Level
 
-## Framework Profiles {% include source-docs.html a="profiles#Framework" %}
+In addition to the global Security Level, you may also define a minimum Security Level for an application in it's profile.
 
-This system is work in progress.
+## Flags
 
-Sometimes a program path may not be the real entity that is executing code. Framework Profiles provide a means to identify the real actor behind a program. For example, when a python script is executed, the program path will be python interpreter, but we actually want to match against the script that is executing, not the interpreter.
+Flags allow you to quickly define basic behavior.
 
-- __Framework:__ Defines that this Profile is a Framework profile. The program path will be rewritten and a new match will be tried. Should the new path not produce a match, this profile will be used as a fallback.
+#### Profile Mode
+
+The Profile Mode defines how the Endpoint list below should be treated.
+Whitelist takes precedence before Prompt takes precedence before Blacklist.
+
+  - Blacklist: Only block denied entries, allow everything else.
+  - Prompt: Ask if endpoint is not found in list.
+  - Whitelist: Only allow permitted entires, block everything else.
+
+#### Network Locations
+
+Define the network scope for this application.
+
+  - Internet: Only allow permitted entires, block everything else.
+  - LAN: Only allow permitted entires, block everything else.
+  - Localhost: Only allow permitted entires, block everything else.
+
+#### Special Flags
+
+Define special behaviour.
+
+  - Related: When prompting, automatically allow domains that are related to the program.
+  - PeerToPeer: Allow program to directly communicate with peers (ie. anyone in the permitted network scope), without resolving DNS first.
+  - Service: Allow program to accept incoming connections and act as a server for other devices.
+  - Independent: Ignore profile settings coming from the (Stamp) Community.
+  - RequireGate17: Require all connections to go over Gate17. (Not quite yet)
+
+## Labels
+
+You can block labels defined by Stamp. _(coming soon)_
+
+## Endpoints
+
+If the Flags and Labels were not detailed enough for you, here you can really get down to it. An Endpoint is a single or a collection of Internet entities:
+
+- Domain
+- IPv4/6
+- Network _(coming soon)_
+- Autonomous System _(coming soon)_
+- A whole country _(coming soon)_
+
+Any of these may also additionally and optionally specify an IP protocol and a port range.
+
+There is a second list, called __Service Endpoints__ that controls inbound connections.
+
+## Framework
+
+_This system is work in progress and is currently not part of the Portmaster. Please participate in discussion on our forum._
+
+Sometimes a program path may not be the real entity that is executing code. The Framework settings provides a mean to identify the real actor behind a program. For example, when a python script is executed, the program path will be that of the python interpreter, but we actually want to match against the script that is executing, not the interpreter.
+
+When a Profile with a Framework is evaluated, the executable path will be rewritten and the a new Profile will be searched for with this path.
 
 Going _down_ the process tree - eg. finding the actual script of an interpreter:
 
 - __Find:__ Regex to find match groups within the path.
 - __Build:__ String that uses the regex match groups to build a new path. The resulting path is checked if it exists.
-- __Virtual:__ Do not check if the built path exists. This is useful to construct virtual namespaces for special categories of applications, like containerized/sandboxed applications.
+- __Virtual:__ Do not check if the built path exists. This is useful to construct virtual namespaces for special categories of applications, like containerized/sandboxed applications. Usual the current Profile would be used if the resulting path does not exist.
 
 Going _up_ the process tree, using the path of the parent process to match a profile:
 

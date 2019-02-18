@@ -4,8 +4,7 @@ pagetitle: Gate17 Network Stack
 section: gate17
 order: 4
 layout: base
-source-docs:
-  - gate17
+code_ref:
 ---
 
 
@@ -33,7 +32,7 @@ source-docs:
 ```
 
 
-## Ships {% include source-docs.html a="gate17/ships" %}
+## Ships <!-- {% include code_ref.html a="gate17/ships" %} -->
 
 A `Ship` in Gate17 represents an IP based connection between two nodes. There are several `Ship` types ie. protocols. A node listens on multiple ports, every port can handle any ship (ie. protocol) of its type (packet or stream based). The first packet received must somehow hint at what protocol should be used.
 
@@ -54,7 +53,7 @@ Planned `Ship` types:
 - SMTPS (faked): SMTP init with STARTTLS, then simulated TLS
 - SMTPS: SMTP init with STARTTLS, then use real TLS
 
-## Cranes {% include source-docs.html a="gate17#Crane" %}
+## Cranes <!-- {% include code_ref.html a="gate17#Crane" %} -->
 
 A `Crane` in Gate17 handles the loading and unloading of a single docked `Ship`.
 
@@ -64,19 +63,19 @@ It is responsible for:
 
 `Cranes` encrypt all data they dispatch and only send fixed-sized messages to protect against traffic analysis attacks. A `Crane` can theoretically handle unlimited sub-connections: `Conveyors`.
 
-## Conveyors {% include source-docs.html a="gate17#Conveyor" b="gate17#ConveyorLine" c="gate17#SimpleConveyorLine" %}
+## Conveyors <!-- {% include code_ref.html a="gate17#Conveyor" b="gate17#ConveyorLine" c="gate17#SimpleConveyorLine" %} -->
 
 `Conveyors` transport containers from and to ships and normally have an API handler at the end. In between they may have any number and combination of `Conveyor Belts`.
 
 `Conveyors` are normally represented by a `ConveyorLine`, which is also responsible for flow-control: Check that data is only forwarded as fast as it can be handled by the next node/component.
 
-## Conveyor Belts {% include source-docs.html a="gate17" b="gate17#TinkerConveyor" %}
+## Conveyor Belts <!-- {% include code_ref.html a="gate17" b="gate17#TinkerConveyor" %} -->
 
 `Conveyor Belts` perform various actions on the containers.
 Currently, the only available `Conveyor Belt` is the `Tinker`, which is responsible for encryption, verification and session key management.
 Others - like compression - are planned.
 
-## API {% include source-docs.html a="gate17#API" %}
+## API <!-- {% include code_ref.html a="gate17#API" %} -->
 
 The Gate17 API interacts with the client and has a couple of Endpoints:
 
