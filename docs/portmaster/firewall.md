@@ -8,9 +8,8 @@ code_ref:
   godoc-portmaster-1:  firewall
   godoc-portmaster-2:  network
   github-portmaster-1: firewall
-  github-portmaster-2: firewall/interception
-  github-portmaster-3: network
-  github-portmaster-4: network/packet
+  github-portmaster-2: network
+  github-portmaster-3: network/packet
 ---
 
 <div class="alert alert-info" role="alert">

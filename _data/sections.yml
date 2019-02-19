@@ -4,17 +4,14 @@
     - title: "safing.io"
       url: "https://safing.io"
 
-- name: guides
-  title: User Guides
-
 - name: core
-  title: "Docs: Core"
+  title: "Core"
 
 - name: portmaster
-  title: "Docs: Portmaster"
+  title: "Portmaster"
 
 - name: gate17
-  title: "Docs: Gate17"
+  title: "Gate17"
 
 - name: misc
   title: "<hr>"
