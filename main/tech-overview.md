@@ -54,6 +54,6 @@ The new spicy twist 🌶️:
 
 ## Stamp
 
-Stamp is an online community where participants _"stamp"_ <span class="text-lighter">(ie. tag, categorize)</span> domains and applications <span class="text-lighter">(used by Portmaster for application profiles)</span> to serve as a data source for any kind of network filter. Contributions are rewarded with reputation that gives them more influence on the platform. This reputation system will be blockchain-based in the future. Stamp is a separate project that is backed by Safing.
+Stamp is an online Community, which crowd-sources web & application intelligence. Users are rewarded with reputation for their good contributions, which in return gives them more influence on the platform. Its current main purpose is to collect data for Portmaster. Check it our [here](https://stamp.community/).
 
 <hr>
