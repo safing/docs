@@ -60,9 +60,10 @@ a:hover {
 
 .coderef span {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  margin: 0 2px;
   padding: 2px 8px;
-  background-color: rgba(0,0,0,0.04);
-  border-radius: 1px;
+  background-color: rgba(0,0,0,0.07);
+  border-radius: 0.4rem;
   white-space: nowrap;
   /* border-right: 1px solid rgba(31,167,135,0.5); */
   /* border-bottom: 1px solid rgba(31,167,135,1); */
@@ -227,4 +228,11 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
 
 #page-content hr {
   border-bottom-color: #eee;
+}
+
+#page-content .updated {
+  float: right;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #0008;
 }

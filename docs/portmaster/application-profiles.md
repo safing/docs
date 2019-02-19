@@ -3,8 +3,10 @@ title: Application Profiles
 section: portmaster
 order: 3
 layout: base
-source-docs:
-   profiles
+updated: 19.02.2019
+code_ref:
+ godoc-portmaster-1:  profiles
+ github-portmaster-1: profiles
 ---
 
 Application Profiles are used to apply specific settings to applications. Whenever an application first becomes active on the network, the Portmaster creates and loads the corresponding Profile that should be applied.

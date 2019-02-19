@@ -9,14 +9,9 @@ layout: base
 
 ## Windows
 
-##### WinDivert {% include code_ref.html github-portmaster="firewall/interception/windivert" %}
+##### Kernel Extension
 
-If DNS is resolved for a connection, Portmaster replies with an IP address in the `127.17/16` range. This enables the Portmaster to distinguish between domains even if they resolve to the same IP address.
-These connections are then rerouted to the Gate17 entry point (`127.0.0.17:1117`) by `NAT`ing and reinjecting them.
-
-If connecting to an IP address directly, the Portmaster directly `NAT`s to `127.0.0.17:1117`.
-
-While this works well, it's rather slow, so we are planning drastic performance improvements in the near future.
+We are currently developing a kernel extension for integration with the Windows kernel. _(update coming soon)_
 
 ## macOS
 

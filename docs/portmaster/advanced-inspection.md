@@ -3,8 +3,10 @@ title: Advanced Inspection
 section: portmaster
 order: 4
 layout: base
-source-docs:
-  - firewall/inspection
+updated: 19.02.2019
+code_ref:
+  godoc-portmaster-1:  firewall/inspection
+  github-portmaster-1: firewall/inspection
 ---
 
 In order to better secure you from attacks and ensure that connections are genuine, the Portmaster supports packet inspection. The Portmaster will never break any encryption or weaken it - on the contrary - this system is designed to ensure and enforce good, valid and secure connections.

@@ -3,6 +3,7 @@ title: Security Levels
 section: portmaster
 order: 2
 layout: base
+updated: 19.02.2019
 ---
 
 Security Levels give you an easy and quick way to adapt to different environments and quickly react to threats.
