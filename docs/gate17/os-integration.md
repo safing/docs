@@ -3,6 +3,7 @@ title: OS Integration
 section: gate17
 order: 10
 layout: base
+updated: old
 ---
 
 ## Cross-platform

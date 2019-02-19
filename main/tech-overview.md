@@ -3,9 +3,10 @@ title: Tech Overview
 section: main
 order: 1
 layout: base
+updated: 19.02.2019
 ---
 
-Here is short and very technical overview of the three components that make Safing awesome.
+Here is short and very technical overview of the Portmaster, Gate17 and Stamp.
 
 ## Portmaster
 

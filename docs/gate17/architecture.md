@@ -4,6 +4,7 @@ pagetitle: Gate17 Architecture
 section: gate17
 order: 3
 layout: base
+updated: old
 ---
 
 ## The Mesh Network

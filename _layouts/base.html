@@ -16,9 +16,11 @@
 
           <div class="updated">
             {% if page.updated %}
-              Updated on {{ page.updated }}
-            {% else %}
-              Page may be out of date
+              {% if page.updated == "old" %}
+                Page may be out of date
+              {% else %}
+                Updated on {{ page.updated }}
+              {% endif %}
             {% endif %}
           </div>
 

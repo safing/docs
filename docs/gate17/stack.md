@@ -4,6 +4,7 @@ pagetitle: Gate17 Network Stack
 section: gate17
 order: 4
 layout: base
+updated: old
 code_ref:
 ---
 

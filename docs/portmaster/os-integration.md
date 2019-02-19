@@ -13,7 +13,7 @@ code_ref:
 
 ##### Kernel Extension
 
-We are currently developing a kernel extension for integration with the Windows kernel. _update coming soon_
+We are currently developing a kernel extension for integration with the Windows kernel. _(update coming soon)_
 
 ## macOS
 
