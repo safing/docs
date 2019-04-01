@@ -9,6 +9,30 @@ code_ref:
   github-portmaster-2: process
 ---
 
+## General
+
+##### TCP/UDP Ports
+
+The Portmaster (with Gate17) uses the following ports:
+- ` 17` Gate17 port for connecting to Gate17 nodes
+- ` 53` DNS server (local only)
+- `717` Gate17 entrypoint as the local endpoint for tunneled connections (local only)
+- `817` Portmaster API for integration with UI elements and other helpers (local only)
+
+Gate17 additionally uses other common ports like `80` and `443` to provide access in restricted network environments.
+
+All these ports are in the System Ports range (0-1023) for additional security. These ports require administrator privileges to be used. This adds another layer of protection against processes that try to trick the User Interface components into thinking that everything is OK, while it is not.
+
+Some of you will note that these port numbers are not registered by us. That is true:
+- Port `17` is assigned to the (historic) `Quote of the Day` protocol. This was primarily used for debugging network problems, and Gate17 is backward compatible!
+- Ports `717` and `817` are currently unassigned by the IANA.
+See the full list [here](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml).
+
+The [IANA](https://www.iana.org/) [states](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml) that "both System and User ports `SHOULD NOT` be used without or prior to IANA registration.". `SHOULD NOT` is defined as "NOT RECOMMENDED", but acknowledges that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but should be carefully weighed. While we are planning to start the registration process soon, we believe that we are RFC compliant nevertheless, because the ports `717` and `718`:
+- will only be used locally,
+- will not be exposed to the Internet and
+- are important for security reasons.
+
 ## Windows
 
 ##### Kernel Extension
