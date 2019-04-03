@@ -6,7 +6,9 @@ layout: base
 updated: old
 ---
 
-## Cross-platform
+## General
+
+Please refer to the [corresponding Portmaster Docs](/docs/portmaster/os-integration.html) for this section.
 
 ## Windows
 
