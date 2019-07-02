@@ -5,4 +5,4 @@
 
 - question: "Where is the specification?"
   answer: >
-    This site ([docs.safing.io](https://docs.safing.io)) describes how Safing works and is the authoritative documentation/specification - if the source code deviates, it's a bug. We do not go into very fine technical detail here because we do not want to replicate information already provided by the great [GoDoc](https://godoc.org/github.com/Safing/safing-core) tool. We will refer to documentation within GoDoc where appropriate.
+    This site ([docs.safing.io](https://docs.safing.io)) describes how Safing works and is the authoritative documentation/specification - if the source code deviates, it's a bug. We do not go into very fine technical detail here because we do not want to replicate information already provided by the great [GoDoc](https://godoc.org/github.com/safing/portmaster) tool. We will refer to documentation within GoDoc where appropriate.
