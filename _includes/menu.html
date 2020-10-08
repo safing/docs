@@ -7,30 +7,31 @@
 </div> -->
 
 <ul class="nav-sidebar">
-{% for section in site.data.sections %}
-  <li class="nav-sidebar-header">
-    {{ section.title }}
-    <ul class="nav-sidebar">
+  <li><a href="/">Home</a></li>
+  {% for section in site.data.sections %}
+    <li class="nav-sidebar-header">
+      {{ section.title }}
 
-    {% comment %} prepended links {% endcomment %}
-    {% for entry in section.prepend %}
-    <li><a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a></li>
-    {% endfor %}
+      <ul class="nav-sidebar">
+        {% for entry in section.prepend %}
+          <li>
+            <a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
+        {% endfor %}
 
-    {% comment %} pages {% endcomment %}
-    {% assign sitepages = site.pages | where:"section",section.name | sort: 'order' %}
-    {% for sitepage in sitepages %}
-      <li {% if page.url == sitepage.url %} class="active"{% endif %}>
-        <a href="{{ sitepage.url }}">{{ sitepage.title }}</a>
-      </li>
-    {% endfor %}
+        {% assign sitepages = site.pages | where:"section",section.name | sort: 'order' %}
+        {% for sitepage in sitepages %}
+          <li {% if page.url == sitepage.url %} class="active"{% endif %}>
+            <a href="{{ sitepage.url }}">{{ sitepage.title }}</a>
+          </li>
+        {% endfor %}
 
-    {% comment %} appended links {% endcomment %}
-    {% for entry in section.append %}
-    <li><a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a></li>
-    {% endfor %}
-
-    </ul>
-  </li>
-{% endfor %}
+        {% for entry in section.append %}
+          <li>
+            <a target="_blank" href="{{ entry.url }}">{{ entry.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
 </ul>
