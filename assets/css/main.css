@@ -21,10 +21,20 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 10px;
 }
 
-.nav-sidebar-header {
-  padding-top: 10px;
+.nav-sidebar li.active {
   font-weight: bold;
+}
+
+li.li-nesting-1 {
+  padding-top: 10px;
+}
+
+li.li-nesting-1 > a {
   color: #888;
+}
+
+li.li-nesting-2 > a {
+  font-style: oblique;
 }
 
 .primary-color {
