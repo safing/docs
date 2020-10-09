@@ -1,0 +1,4 @@
+navbar:
+  - title: "safing.io"
+    url: "https://safing.io"
+    identifier: mainpage
