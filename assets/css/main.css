@@ -34,7 +34,7 @@ li.li-nesting-1 > a {
 }
 
 li.li-nesting-2 > a {
-  font-style: oblique;
+  text-decoration: underline overline;
 }
 
 .primary-color {
