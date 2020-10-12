@@ -1,6 +1,5 @@
 ---
 title: Safing
-menus: safing
 layout: base
 ---
 

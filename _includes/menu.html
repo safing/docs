@@ -1,11 +1,28 @@
 <ul class="nav-sidebar">
-  {% for item in menu %}
-    <li class="li-nesting-{{ include.nesting_level }} page-item {% if page.url == item.url %}active{% endif %}">
-      <a href="{{ item.url }}" title="Go to {{ item.title }}">{{ item.title }}</a>
+  {% for item in items %}
+    {% if item.path %}
+      {% assign item_path = item.path %}
+    {% else %}
+      {% assign item_path = item.title | downcase | replace: " ", "-" %}
+    {% endif %}
+
+    {% if include.previous_path %}
+      {% assign full_path = include.previous_path | append: "/" | append: item_path %}
+    {% else %}
+      {% assign full_path = item_path %}
+    {% endif %}
+
+    {% assign item_url = full_path | prepend: "/"  | append: "/" %}
+    {% assign page_url = page.url | replace: ".html", "/" %}
+
+    <li class="li-nesting-{{ include.nesting_level }} page-item {% if page_url == item_url %}active{% endif %}">
+      <a href="{{ item_url }}" title="Go to {{ item.title }}">{{ item.title }}</a>
       {% if item.children %}
-        {% assign menu = item.children %}
+        {% assign items = item.children %}
         {% assign nesting_level = include.nesting_level | plus: 1 %}
-        {% include menu.html nesting_level=nesting_level %}
+        {% if nesting_level <= 4 %}
+          {% include menu.html nesting_level=nesting_level previous_path=full_path %}
+        {% endif %}
       {% endif %}
     </li>
   {% endfor %}

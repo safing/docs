@@ -34,8 +34,6 @@ GEM
       terminal-table (~> 1.8)
     jekyll-feed (0.15.1)
       jekyll (>= 3.7, < 5.0)
-    jekyll-menus (0.6.1)
-      jekyll (>= 3.6, < 5.0)
     jekyll-minifier (0.1.10)
       cssminify2 (~> 2.0)
       htmlcompressor (~> 0.4)
@@ -87,7 +85,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-feed
-  jekyll-menus
   jekyll-minifier
   jekyll-paginate
   therubyracer

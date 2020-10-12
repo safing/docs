@@ -1,6 +1,5 @@
 ---
 title: SPN
-menus: spn
 layout: base
 ---
 

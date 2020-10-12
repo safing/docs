@@ -1,4 +1,20 @@
-navbar:
-  - title: "safing.io"
-    url: "https://safing.io"
-    identifier: mainpage
+items:
+  - title: Safing
+  - title: Portmaster
+    children:
+      - title: Guides
+        children:
+          - title: Installation
+          - title: Bug Reporting
+          - title: DNS Configuration
+          - title: Uninstallation
+      - title: Implementation
+        children:
+          - title: Modules
+            children:
+              - title: Core
+              - title: Privacy Filter
+              - title: Secure DNS
+              - title: SPN
+          - title: Logging
+            path: logs
