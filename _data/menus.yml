@@ -10,11 +10,14 @@ items:
           - title: Uninstallation
       - title: Implementation
         children:
+          - title: Overview
           - title: Modules
             children:
               - title: Core
               - title: Privacy Filter
               - title: Secure DNS
               - title: SPN
+          - title: User Interface
           - title: Logging
             path: logs
+  - title: SPN
