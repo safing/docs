@@ -9,6 +9,7 @@ items:
           - title: DNS Configuration
           - title: Uninstallation
       - title: Implementation
+        extra_path: overview
         children:
           - title: Overview
           - title: Modules
