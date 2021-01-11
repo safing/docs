@@ -13,6 +13,7 @@ items:
         children:
           - title: Overview
           - title: Modules
+            extra_path: core
             children:
               - title: Core
               - title: Privacy Filter
