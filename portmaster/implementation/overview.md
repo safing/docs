@@ -3,13 +3,13 @@ title: Implementation Overview
 layout: base
 ---
 
-Before diving into details it is important to understand the big picture. Just as any machine, the Portmaster has many parts and gears that have to work together seamlessly to deliver the privacy you deserve. Take a look:
+Before diving into details it is important to understand the big picture. As any machine, the Portmaster has many parts and gears that have to work together seamlessly to deliver the privacy you deserve. Take a look:
 
 ![Portmaster Big Picture](/assets/images/big_picture.jpg)
 
 ### User Interface
 
-The User Interface allows you to seamlessly interact with the Portmaster's technical might. Easily view activities on your device, configure settings or define rules.
+The User Interface allows you to seamlessly interact with the Portmaster's technical might. Easily view activities on your device, block domains, configure settings and rules.
 
 [Read details on how this is implemented](/portmaster/implementation/user-interface/)
 
