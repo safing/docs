@@ -11,7 +11,9 @@ Before diving into details it is important to understand the big picture. Just a
 
 The User Interface allows you to seamlessly interact with the Portmaster's technical might. Easily view activities on your device, configure settings or define rules.
 
-[Read all about how this is implemented](/portmaster/implementation/user-interface/)
+[Read details on how this is implemented](/portmaster/implementation/user-interface/)
+
+- Link to UI Repo
 
 ### Modules
 
@@ -19,8 +21,13 @@ Where the heavy lifting happens. The `core` module contains most of the groundwo
 
 [Dive deep into the Portmaster's technology](/portmaster/implementation/modules/core/)
 
+- Link to Portbase repo
+- Link to Portmaster repo
+
 ### Logging
 
-Every component writes logs so you understand what is going on. This also can crucially help us when debugging issues that arise.
+Every component writes logs so you can understand what is going on. This also crucially helps us when debugging issues that arise.
 
 [Find out how this is achieved](/portmaster/implementation/logs/)
+
+- Link to Portbase repo
