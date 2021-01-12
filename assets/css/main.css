@@ -113,6 +113,64 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
   opacity: 1;
 }
 
+/* Setting ref */
+
+.settingsref span {
+  margin: 0 2px;
+  padding: 2px 8px;
+  background-color: rgba(0,0,0,0.07);
+  border-radius: 0.4rem;
+  white-space: nowrap;
+}
+
+.settingsref a:hover span {
+  background-color: #1fa787;
+}
+
+.settingsref a {
+  color: rgb(33, 37, 41);
+}
+
+.settingsref a:hover {
+  text-decoration: none;
+}
+
+.settingsref i {
+  color: #1fa787;
+}
+
+.settingsref a:hover i {
+  color: #fff;
+}
+
+/* Setting brief */
+
+.settingsbrief {
+  margin: 5px 5px;
+  padding: 5px 12px;
+  background-color: rgba(0,0,0,0.07);
+  border-radius: 0.4rem;
+}
+
+.settingsbrief span {
+  font-weight: bold;
+}
+
+.settingsbrief a {
+  color: rgb(33, 37, 41);
+}
+
+.settingsbrief i {
+  color: #1fa787;
+}
+
+.settingsbrief p {
+  margin-bottom: 0;
+}
+
+/* Setting list */
+
+
 
 /* Github flavour */
 

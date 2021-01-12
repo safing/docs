@@ -26,7 +26,7 @@ vendor_url: "/vendor/"
 community_hub_url: "https://safing.io/community-hub/"
 url: "https://docs.safing.io" # the base hostname & protocol for your site
 github_ref_base_url: "https://github.com/safing"
-godoc_ref_base_url: "https://godoc.org/github.com/safing"
+godoc_ref_base_url: "https://pkg.go.dev/github.com/safing"
 
 # Build settings
 markdown: kramdown

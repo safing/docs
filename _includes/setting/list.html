@@ -1,0 +1,29 @@
+<div class="settingslist">
+{% for option in site.data.config-options %}
+  {% if
+    option.Key contains include.prefix and
+    option.ExpertiseLevel <= include.expertise and
+    option.ReleaseLevel <= include.release
+  %}
+  <div class="setting">
+    <h5>{{ option.Name }}</h5>
+    <p>
+      {{ option.Description }}
+    </p>
+    <p>
+      Attributes:
+      <ul>
+        <li>Key: {{ option.Key }}</li>
+        <li>Description: {{ option.Description }}</li>
+        <li>Help: {{ option.Help }}</li>
+        <li>OptType: {{ option.OptType }}</li>
+        <li>ExpertiseLevel: {{ option.ExpertiseLevel }}</li>
+        <li>ReleaseLevel: {{ option.ReleaseLevel }}</li>
+        <li>RequiresRestart: {{ option.RequiresRestart }}</li>
+        <li>DefaultValue: {{ option.DefaultValue }}</li>
+      </ul>
+    </p>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>

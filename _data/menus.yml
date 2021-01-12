@@ -6,9 +6,10 @@ items:
         children:
           - title: Installation
           - title: Bug Reporting
+          - title: Settings Overview
           - title: DNS Configuration
           - title: Uninstallation
-      - title: Implementation
+      - title: Architecture
         extra_path: overview
         children:
           - title: Overview
@@ -19,6 +20,7 @@ items:
               - title: Privacy Filter
               - title: Secure DNS
               - title: SPN
+          - title: OS Integration
           - title: User Interface
           - title: Logging
             path: logs
