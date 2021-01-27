@@ -8,6 +8,19 @@
   opacity: 0.55;
 }
 
+.notification {
+  position: relative;
+  opacity: 0;
+  animation: notification 0.5s forwards ease-in;
+  animation-delay: 0.1s;
+}
+
+@keyframes notification {
+  100% {
+    opacity: 1;
+  }
+}
+
 /* TEMPORARY HACKS TO OVERWRITE CSS FRAMEWORKS OVERWRITING EACHOTHER */
 
 ol li {
