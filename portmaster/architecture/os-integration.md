@@ -4,7 +4,6 @@ layout: base
 code_ref:
   github-portmaster-1: firewall/interception
   github-portmaster-2: process
-updated: 19.02.2019
 ---
 
 ## General
@@ -143,7 +142,7 @@ Depending on the performance and stability of the `iptables` integration, this w
 
 ##### proc/net {% include code_ref.html godoc-portmaster="process/proc" %}
 
-In order to find out which process a packet belongs to, the `proc` filesystem is first parsed to find the socket ID of the intercepted packet, then the process directory is search for the matching PID.
+In order to find out which process a packet belongs to, the `proc` filesystem is first parsed to find the socket ID of the intercepted packet, then the process directory is searched for the matching PID.
 This is a bit cumbersome, but unfortunately, no better way of acquiring this information is available.
 
 ## Used TCP/UDP Ports

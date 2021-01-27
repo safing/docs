@@ -3,4 +3,4 @@ title: SPN
 layout: base
 ---
 
-SPN Baaaase
+SPN Base Page
