@@ -27,8 +27,45 @@ assets_url: /assets/
 img_url: /assets/img/
 vendor_url: /vendor/
 
+### external
+account_server_url: https://account.safing.io/
+assets_server_url: https://assets.safing.io/
+company_agreement_url: https://www.firmenmonitor.at/Secure/CompanyDetail.aspx?CID=761761
+download_linux_url: https://updates.safing.io/latest/linux_amd64/packages/portmaster-installer.deb
+download_windows_url: https://updates.safing.io/latest/windows_amd64/packages/portmaster-installer.exe
+github_url: https://github.com/safing
+github_linux_wiki_url: https://github.com/safing/portmaster/wiki/Linux
+github_windows_wiki_url: https://github.com/safing/portmaster/wiki/Windows
+invidious_channel_url: https://invidio.us/channel/UC_6TW053IlS4M22g7CxnukA
+kickstarter_url: https://www.kickstarter.com/projects/safingio/spn
+reddit_url: https://reddit.com/r/safing
+twitter_url: https://twitter.com/SafingIO
+youtube_channel_url: https://www.youtube.com/channel/UC_6TW053IlS4M22g7CxnukA
 
-community_hub_url: "https://safing.io/community-hub/"
+### website pages
+website_url: https://safing.io/
+about_url: https://safing.io/about/
+blog_url: https://safing.io/blog/
+backlog_url: https://safing.io/backlog/
+community_hub_url: https://safing.io/community-hub/
+contact_url: https://safing.io/contact/
+esa_bic_url: https://safing.io/esa-bic/
+help_url: https://safing.io/support/
+newsletter_url: https://safing.io/newsletter/
+ownership_url: https://safing.io/ownership/
+business_model_url: https://safing.io/business-model/
+podcast_url: https://safing.io/podcast/
+portmaster_url: https://safing.io/portmaster/
+privacy_url: https://safing.io/privacy/
+next_page_url: https://safing.io/next/
+spn_url: https://safing.io/spn/
+team_url: https://safing.io/team/
+terms_url: https://safing.io/terms/
+video_url: https://safing.io/video/
+whitepaper_url: https://safing.io/files/whitepaper/Gate17.pdf
+vpn_comparison_url: https://safing.io/blog/2020/01/22/how-the-spn-compares-to-vpns/
+tor_comparison_url: https://safing.io/blog/2020/01/22/how-the-spn-compares-to-tor/
+
 url: "https://docs.safing.io" # the base hostname & protocol for your site
 github_ref_base_url: "https://github.com/safing"
 godoc_ref_base_url: "https://pkg.go.dev/github.com/safing"
