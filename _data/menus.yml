@@ -14,8 +14,9 @@ items:
         children:
           - title: Overview
           - title: Modules
-            extra_path: core
+            extra_path: fundamentals
             children:
+              - title: Fundamentals
               - title: Core
               - title: Privacy Filter
               - title: Secure DNS
