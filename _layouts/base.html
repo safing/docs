@@ -4,9 +4,12 @@
   {% include head.html %}
 </head>
 <body>
-  {% include header.html %}
+  {% include nav.html %}
 
   <div class="container">
+    <link rel="stylesheet" href="{{ site.vendor_url }}css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="{{ site.assets_url }}css/main.css" type="text/css">
+
     <div class="row">
       {% include navbar.html %}
       <div id="page-content" class="col-lg-9 col-md-8">
