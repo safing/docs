@@ -22,6 +22,4 @@ items:
               - title: SPN
           - title: OS Integration
           - title: User Interface
-          - title: Logging
-            path: logs
   - title: SPN
