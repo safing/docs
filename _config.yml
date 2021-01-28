@@ -19,7 +19,7 @@ lang: "en"
 email: hello@safing.io
 emailobfuscated: "=b!isfg>#nbjmup;ifmmpAtbgjoh/jp#?ifmmpAtbgjoh/jp=0b?"
 description: > # this means to ignore newlines until "base_url:"
-  Documentation for Safing Portmaster and Gate17
+  Documentation for Safing Portmaster
 base_url: "/" # the subpath of your site, e.g. /blog
 
 ### assets
