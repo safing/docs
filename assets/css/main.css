@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-menu {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 3em;
 }
 
 #page-content {
