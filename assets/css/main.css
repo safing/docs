@@ -28,6 +28,11 @@ ol li {
   list-style: decimal;
 }
 
+ul li {
+  margin-left: 1.5em;
+  list-style: initial;
+}
+
 .container {
   min-height: 60em;
 }
