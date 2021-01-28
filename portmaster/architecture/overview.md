@@ -12,7 +12,7 @@ Before diving into details it is important to understand the big picture.
 As any machine, the Portmaster Application has many parts and gears that have to work together seamlessly to deliver the privacy you deserve.
 Take a look:
 
-![Portmaster Big Picture](/assets/images/big_picture.jpg)
+![Portmaster Architecture Overview](/assets/img/portmaster-architecture-diagram-simple.png)
 
 ### Portmaster Core Service
 
