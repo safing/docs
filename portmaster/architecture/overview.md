@@ -22,11 +22,11 @@ As a system service it starts together with your device and ensures your privacy
 
 The Portmaster Core Service is divided into modules, which allows you to easily adapt the Portmaster Application to your preferences and threat model. You can dive deeper into each Module and explore its underlying tech.
 
-- [**Fundamentals**\*: Provides all the basic internals.](../core-service/fundamentals/)
-- [**Core**\*: Integrates with the Operating System to get you back in control.](../core-service/core/)
-- [**Secure DNS**\*: Secures one of the most important types of traffic: DNS Requests.](../core-service/secure-dns/)
-- [**Privacy Filter**: Protects your privacy by blocking unwanted connections.](../core-service/privacy-filter/)
-- [**Safing Privacy Network**: A powerful VPN alternative.](../core-service/spn/)
+- [**Fundamentals**\*: Provides all the basic internals.](../core-service/fundamentals)
+- [**Core**\*: Integrates with the Operating System to get you back in control.](../core-service/core)
+- [**Secure DNS**\*: Secures one of the most important types of traffic: DNS Requests.](../core-service/secure-dns)
+- [**Privacy Filter**: Protects your privacy by blocking unwanted connections.](../core-service/privacy-filter)
+- [**Safing Privacy Network**: A powerful VPN alternative.](../core-service/spn)
 
 <small>\*Mandatory Module</small>
 
@@ -53,4 +53,4 @@ It works closely together with the Operating System's Core - the Kernel.
 
 On Windows, this even requires that one part of the Portmaster Application runs directly within the OS Kernel itself, making it very powerful.
 
-[Dive into how the how the Portmaster Application integrates with different Operating Systems.](../os-integration/)
+[Dive into how the how the Portmaster Application integrates with different Operating Systems.](../os-integration)
