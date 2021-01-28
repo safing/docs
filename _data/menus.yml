@@ -6,8 +6,7 @@ items:
         extra_path: overview
         children:
           - title: Overview
-          - title: Modules
-            extra_path: fundamentals
+          - title: Core Service
             children:
               - title: Fundamentals
               - title: Core

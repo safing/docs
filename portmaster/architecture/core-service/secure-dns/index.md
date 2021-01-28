@@ -3,6 +3,9 @@ title: Secure DNS
 layout: base
 ---
 
+1. TOC
+{:toc}
+
 ##### Secure DNS Resolver {% include code_ref.html godoc_portmaster="resolver" %}
 
 This module provides secure domain resolving. Most prominently, it uses the DNS-over-TLS protocol by default in order to protect your precious DNS queries from prying eyes.

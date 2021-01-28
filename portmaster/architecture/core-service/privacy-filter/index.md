@@ -3,6 +3,9 @@ title: Privacy Filter
 layout: base
 ---
 
+1. TOC
+{:toc}
+
 ##### Privacy Filter {% include code_ref.html godoc_portmaster="firewall" github_portmaster="firewall/master.go" %}
 
 The Privacy Filter is one of the most important parts of the Portmaster: It protects your privacy by blocking connections that are deemed a privacy intrusion deemed by you or the Portmaster itself.
