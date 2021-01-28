@@ -119,4 +119,4 @@ We will provide an alternative to the `iptables` integration by writing a kernel
 
 ##### proc/net {% include code_ref.html godoc-portmaster="process/proc" %}
 
-In order to find out which process a packet belongs to, the proc filesystem is first parsed to find the socket id of the intercepted packet, then the process directory is search for the matching PID.
+In order to find out which process a packet belongs to, the proc filesystem is first parsed to find the socket id of the intercepted packet, then the process directory is searched for the matching PID.

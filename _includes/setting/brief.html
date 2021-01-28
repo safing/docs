@@ -1,0 +1,18 @@
+{% for source in include %}
+  {% for option in site.data.config-options %}
+    {% if source[1] == option.Key %}
+<div class="settingsbrief">
+  <a href="/settings-overview/#{{ option.Key }}">
+    <span>
+      <i class="fa fa-cog"></i>
+        &nbsp;
+      {{ option.Name }}
+    </span>
+  </a>
+  <p>
+    {{ option.Description }}
+  </p>
+</div>
+    {% endif %}
+  {% endfor %}
+{% endfor %}

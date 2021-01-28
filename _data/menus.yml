@@ -1,0 +1,18 @@
+items:
+  - title: Portmaster
+    extra_path: "architecture/overview"
+    children:
+      - title: Architecture
+        extra_path: overview
+        children:
+          - title: Overview
+          - title: Core Service
+            children:
+              - title: Fundamentals
+              - title: Core
+              - title: Privacy Filter
+              - title: Secure DNS
+              - title: SPN
+          - title: OS Integration
+          - title: User Interface
+          - title: Notifier

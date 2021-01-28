@@ -1,0 +1,1083 @@
+[
+  {
+    "Name": "Automatic Updates",
+    "Key": "core/automaticUpdates",
+    "Description": "Enable automatic checking, downloading and applying of updates. This affects all kinds of updates, including intelligence feeds and broadcast notifications.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Updates",
+      "safing/portbase:ui:order": -12
+    }
+  },
+  {
+    "Name": "Development Mode",
+    "Key": "core/devMode",
+    "Description": "In Development Mode, security restrictions are lifted/softened to enable easier access to Portmaster for debugging and testing purposes.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:order": 512
+    }
+  },
+  {
+    "Name": "Process Detection",
+    "Key": "core/enableProcessDetection",
+    "Description": "This option enables the attribution of network traffic to processes. This should always be enabled, and effectively disables app profiles if disabled.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:order": 528
+    }
+  },
+  {
+    "Name": "UI Mode",
+    "Key": "core/expertiseLevel",
+    "Description": "Control the default amount of settings and information shown. Hidden settings are still in effect. Can be changed temporarily in the top right corner.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "user",
+    "ValidationRegex": "^(user|expert|developer)$",
+    "PossibleValues": [
+      {
+        "Name": "Simple",
+        "Description": "Hide complex settings and information.",
+        "Value": "user"
+      },
+      {
+        "Name": "Advanced",
+        "Description": "Show technical details.",
+        "Value": "expert"
+      },
+      {
+        "Name": "Developer",
+        "Description": "Developer mode. Please be careful!",
+        "Value": "developer"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "User Interface",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": -16
+    }
+  },
+  {
+    "Name": "API Listen Address",
+    "Key": "core/listenAddress",
+    "Description": "Defines the IP address and port on which the internal API listens.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": "127.0.0.1:817",
+    "ValidationRegex": "^([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}:[0-9]{1,5}|\\[[:0-9A-Fa-f]+\\]:[0-9]{1,5})$",
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:order": 513
+    }
+  },
+  {
+    "Name": "Network Service",
+    "Key": "core/networkService",
+    "Description": "Use the Portmaster as a network service, where applicable. You will have to take care of lots of network setup yourself in order to run this properly and securely.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 2,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Network Service",
+      "safing/portbase:ui:order": 513
+    }
+  },
+  {
+    "Name": "Release Channel",
+    "Key": "core/releaseChannel",
+    "Description": "Switch release channel.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 2,
+    "RequiresRestart": false,
+    "DefaultValue": "stable",
+    "ValidationRegex": "^(stable|beta)$",
+    "PossibleValues": [
+      {
+        "Name": "Stable",
+        "Description": "",
+        "Value": "stable"
+      },
+      {
+        "Name": "Beta",
+        "Description": "",
+        "Value": "beta"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Updates",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": -4
+    }
+  },
+  {
+    "Name": "Feature Stability",
+    "Key": "core/releaseLevel",
+    "Description": "May break things. Decide if you want to experiment with unstable features. \"Beta\" has been tested roughly by the Safing team while \"Experimental\" is really raw. When \"Beta\" or \"Experimental\" are disabled, their settings use the default again.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "stable",
+    "ValidationRegex": "^(stable|beta|experimental)$",
+    "PossibleValues": [
+      {
+        "Name": "Stable",
+        "Description": "Only show stable features.",
+        "Value": "stable"
+      },
+      {
+        "Name": "Beta",
+        "Description": "Show stable and beta features.",
+        "Value": "beta"
+      },
+      {
+        "Name": "Experimental",
+        "Description": "Show all features",
+        "Value": "experimental"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Updates",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": -8
+    }
+  },
+  {
+    "Name": "Desktop Notifications",
+    "Key": "core/useSystemNotifications",
+    "Description": "In addition to showing notifications in the Portmaster App, also send them to the Desktop. This requires the Portmaster Notifier to be running.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "User Interface",
+      "safing/portbase:ui:order": -15
+    }
+  },
+  {
+    "Name": "Block Unofficial TLDs",
+    "Key": "dns/dontResolveSpecialDomains",
+    "Description": "Block .onion, .bit. Unofficial domains may pose a security risk. This does not affect .onion domains in the Tor Browser.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(0|7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "",
+        "Value": 0
+      },
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Resolving",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 16
+    }
+  },
+  {
+    "Name": "Internal DNS Server Listen Address",
+    "Key": "dns/listenAddress",
+    "Description": "Defines the IP address and port on which the internal DNS Server listens.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": "localhost:53",
+    "ValidationRegex": "^(localhost|[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}|\\[[:0-9A-Fa-f]+\\]):[0-9]{1,5}$",
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:order": 514
+    }
+  },
+  {
+    "Name": "Retry Timeout",
+    "Key": "dns/nameserverRetryRate",
+    "Description": "Timeout between retries when a DNS server fails.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 300,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Servers",
+      "safing/portbase:ui:order": 32,
+      "safing/portbase:ui:unit": "seconds"
+    }
+  },
+  {
+    "Name": "DNS Servers",
+    "Key": "dns/nameservers",
+    "Description": "DNS Servers to use for resolving DNS requests.",
+    "Help": "DNS Servers are used in the order as entered. The first one will be used as the primary DNS Server. Only if it fails, will the other servers be used as a fallback - in their respective order. If all fail, or if no DNS Server is configured here, the Portmaster will use the one configured in your system or network.\n\nAdditionally, if it is more likely that the DNS Server of your system or network has a (better) answer to a request, they will be asked first. This will be the case for special local domains and domain spaces announced on the current network.\n\nDNS Servers are configured in a URL format. This allows you to specify special settings for a resolver. If you just want to use a resolver at IP 10.2.3.4, please enter: `dns://10.2.3.4`  \nThe format is: `protocol://ip:port?parameter=value\u0026parameter=value`  \n\n- Protocol\n\t- `dot`: DNS-over-TLS (recommended)  \n\t- `dns`: plain old DNS  \n\t- `tcp`: plain old DNS over TCP\n- IP: always use the IP address and _not_ the domain name!\n- Port: optionally define a custom port\n- Parameters:\n\t- `name`: give your DNS Server a name that is used for messages and logs\n\t- `verify`: domain name to verify for `dot`, required and only valid for protocol `dot`\n\t- `blockedif`: detect if the name server blocks a query, options:\n\t\t- `empty`: server replies with NXDomain status, but without any other record in any section\n\t\t- `refused`: server replies with Refused status\n\t\t- `zeroip`: server replies with an IP address, but it is zero\n",
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [
+      "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
+    ],
+    "ValidationRegex": "^(dot|dns|tcp)://.*",
+    "Annotations": {
+      "safing/portbase:ui:category": "Servers",
+      "safing/portbase:ui:display-hint": "ordered",
+      "safing/portbase:ui:order": 0,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "Quad9",
+          "Value": [
+            "dot://9.9.9.9:853?verify=dns.quad9.net\u0026name=Quad9\u0026blockedif=empty",
+            "dot://149.112.112.112:853?verify=dns.quad9.net\u0026name=Quad9\u0026blockedif=empty"
+          ],
+          "Action": "replace"
+        },
+        {
+          "Name": "AdGuard",
+          "Value": [
+            "dot://94.140.14.14:853?verify=dns.adguard.com\u0026name=AdGuard\u0026blockedif=zeroip",
+            "dot://94.140.15.15:853?verify=dns.adguard.com\u0026name=AdGuard\u0026blockedif=zeroip"
+          ],
+          "Action": "replace"
+        },
+        {
+          "Name": "Foundation for Applied Privacy",
+          "Value": [
+            "dot://94.130.106.88:853?verify=dot1.applied-privacy.net\u0026name=AppliedPrivacy",
+            "dot://94.130.106.88:443?verify=dot1.applied-privacy.net\u0026name=AppliedPrivacy"
+          ],
+          "Action": "replace"
+        },
+        {
+          "Name": "Cloudflare",
+          "Value": [
+            "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
+            "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
+          ],
+          "Action": "replace"
+        }
+      ]
+    }
+  },
+  {
+    "Name": "Ignore System/Network Servers",
+    "Key": "dns/noAssignedNameservers",
+    "Description": "Ignore DNS servers configured in your system or network.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 6,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Servers",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 1
+    }
+  },
+  {
+    "Name": "Enforce Secure DNS",
+    "Key": "dns/noInsecureProtocols",
+    "Description": "Never resolve using insecure protocols, ie. plain DNS.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 6,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Resolving",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 3
+    }
+  },
+  {
+    "Name": "Ignore Multicast DNS",
+    "Key": "dns/noMulticastDNS",
+    "Description": "Do not resolve using Multicast DNS. This may break certain Plug and Play devices or services.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 6,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Resolving",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 2
+    }
+  },
+  {
+    "Name": "Prompt Timeout",
+    "Key": "filter/askTimeout",
+    "Description": "How long the Portmaster will wait for a reply to a prompt notification. Please note that Desktop Notifications might not respect this or have their own limits.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 20,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:order": 3,
+      "safing/portbase:ui:unit": "seconds"
+    }
+  },
+  {
+    "Name": "Prompt Desktop Notifications",
+    "Key": "filter/askWithSystemNotifications",
+    "Description": "In addition to showing prompt notifications in the Portmaster App, also send them to the Desktop. This requires the Portmaster Notifier to be running. Requires Desktop Notifications to be enabled.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:config:requires": {
+        "Key": "core/useSystemNotifications",
+        "Value": true
+      },
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:order": 2
+    }
+  },
+  {
+    "Name": "Block Incoming Connections",
+    "Key": "filter/blockInbound",
+    "Description": "Connections initiated towards your device from the LAN or Internet. This will usually only be the case if you are running a network service or are using peer to peer software. Is stronger than Rules (see below).",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 6,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Connection Types",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 20
+    }
+  },
+  {
+    "Name": "Block Internet Access",
+    "Key": "filter/blockInternet",
+    "Description": "Block connections from and to the Internet. Is stronger than Rules (see below).",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 0,
+    "ValidationRegex": "^(0|7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "",
+        "Value": 0
+      },
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Network Scope",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 16
+    }
+  },
+  {
+    "Name": "Block LAN",
+    "Key": "filter/blockLAN",
+    "Description": "Block all connections from and to the Local Area Network. Is stronger than Rules (see below).",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 6,
+    "ValidationRegex": "^(0|7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "",
+        "Value": 0
+      },
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Network Scope",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 17
+    }
+  },
+  {
+    "Name": "Block Device-Local Connections",
+    "Key": "filter/blockLocal",
+    "Description": "Block all internal connections on your own device, ie. localhost. Is stronger than Rules (see below).",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 0,
+    "ValidationRegex": "^(0|7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "",
+        "Value": 0
+      },
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Network Scope",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 18
+    }
+  },
+  {
+    "Name": "Block P2P/Direct Connections",
+    "Key": "filter/blockP2P",
+    "Description": "These are connections that are established directly to an IP address or peer on the Internet without resolving a domain name via DNS first. Is stronger than Rules (see below).",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 4,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Connection Types",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 19
+    }
+  },
+  {
+    "Name": "Default Action",
+    "Key": "filter/defaultAction",
+    "Description": "The default action when nothing else permits or blocks an outgoing connection. Incoming connections are always blocked by default.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "permit",
+    "ValidationRegex": "^(permit|block|ask)$",
+    "PossibleValues": [
+      {
+        "Name": "Permit",
+        "Description": "Permit all connections",
+        "Value": "permit"
+      },
+      {
+        "Name": "Block",
+        "Description": "Block all connections",
+        "Value": "block"
+      },
+      {
+        "Name": "Prompt",
+        "Description": "Prompt for decisions",
+        "Value": "ask"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": 1
+    }
+  },
+  {
+    "Name": "Disable Auto Permit",
+    "Key": "filter/disableAutoPermit",
+    "Description": "Auto Permit searches for a relation between an app and the destination of a connection - if there is a correlation, the connection will be permitted.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 1,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Advanced",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 65
+    }
+  },
+  {
+    "Name": "Enable Domain Heuristics",
+    "Key": "filter/domainHeuristics",
+    "Description": "Checks for suspicious domain names and blocks them. This option currently targets domain names generated by malware and DNS data exfiltration channels.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(0|7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "",
+        "Value": 0
+      },
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "DNS Filtering",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 51
+    }
+  },
+  {
+    "Name": "Privacy Filter",
+    "Key": "filter/enable",
+    "Description": "Enable the DNS and Network Filter.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 1,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "General"
+    }
+  },
+  {
+    "Name": "Outgoing Rules",
+    "Key": "filter/endpoints",
+    "Description": "Rules that apply to outgoing network connections. Cannot overrule Network Scopes and Connection Types (see above).",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nIn this case the rule is only matched if the protocol and port also match.  \nExample: `192.168.0.1 TCP/HTTP`\n",
+    "OptType": 2,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9/]+)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 32
+    }
+  },
+  {
+    "Name": "Block Domain Aliases",
+    "Key": "filter/includeCNAMEs",
+    "Description": "Block a domain if a resolved CNAME (alias) is blocked by a rule or filter list.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "DNS Filtering",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 48
+    }
+  },
+  {
+    "Name": "Block Subdomains of Filter List Entries",
+    "Key": "filter/includeSubdomains",
+    "Description": "Additionally block all subdomains of entries in selected filter lists.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 35
+    }
+  },
+  {
+    "Name": "Filter Lists",
+    "Key": "filter/lists",
+    "Description": "Block connections that match enabled filter lists.",
+    "Help": "Filter lists contain domains and IP addresses that are known to be used adversarial. The data is collected from many public sources and put into the following categories. In order to active a category, add it's `ID` to the list.\n\n**Ads \u0026 Trackers** - ID: `TRAC`  \nServices that track and profile people online, including as ads, analytics and telemetry.\n\n**Malware** - ID: `MAL`  \nServices that are (ab)used for attacking devices through technical means.\n\n**Deception** - ID: `DECEP`  \nServices that trick humans into thinking the service is genuine, while it is not, including phishing, fake news and fraud.\n\n**Bad Stuff (Mixed)** - ID: `BAD`  \nMiscellaneous services that are believed to be harmful to security or privacy, but their exact use is unknown, not categorized, or lists have mixed categories.\n\n**NSFW** - ID: `NSFW`  \nServices that are generally not accepted in work environments, including pornography, violence and gambling.\n\nThe lists are automatically updated every hour using incremental updates.  \n[See here](https://github.com/safing/intel-data) for more detail about these lists, their sources and how to help to improve them.\n",
+    "OptType": 2,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [
+      "TRAC",
+      "MAL",
+      "BAD"
+    ],
+    "ValidationRegex": "^[a-zA-Z0-9\\-]+$",
+    "Annotations": {
+      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:display-hint": "filter list",
+      "safing/portbase:ui:order": 34
+    }
+  },
+  {
+    "Name": "Permanent Verdicts",
+    "Key": "filter/permanentVerdicts",
+    "Description": "The Portmaster's system integration intercepts every single packet. Usually the first packet is enough for the Portmaster to set the verdict for a connection - ie. to allow or deny it. Making these verdicts permanent means that the Portmaster will tell the system integration that is does not want to see any more packets of that single connection. This brings a major performance increase.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 2,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Advanced",
+      "safing/portbase:ui:order": 96
+    }
+  },
+  {
+    "Name": "Block Bypassing",
+    "Key": "filter/preventBypassing",
+    "Description": "Prevent apps from bypassing the privacy filter.  \nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 1,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Advanced",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 64
+    }
+  },
+  {
+    "Name": "Reject Blocked IPs",
+    "Key": "filter/removeBlockedDNS",
+    "Description": "Reject blocked IP addresses directly from the DNS response instead of handing them over to the app and blocking a resulting connection.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "DNS Filtering",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 50
+    }
+  },
+  {
+    "Name": "Enforce Global/Private Split-View",
+    "Key": "filter/removeOutOfScopeDNS",
+    "Description": "Reject private IP addresses (RFC1918 et al.) from public DNS responses.",
+    "Help": "",
+    "OptType": 3,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 7,
+    "ValidationRegex": "^(7|6|4)$",
+    "PossibleValues": [
+      {
+        "Name": "Normal",
+        "Description": "",
+        "Value": 7
+      },
+      {
+        "Name": "High",
+        "Description": "",
+        "Value": 6
+      },
+      {
+        "Name": "Extreme",
+        "Description": "",
+        "Value": 4
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "DNS Filtering",
+      "safing/portbase:ui:display-hint": "security level",
+      "safing/portbase:ui:order": 49
+    }
+  },
+  {
+    "Name": "Incoming Rules",
+    "Key": "filter/serviceEndpoints",
+    "Description": "Rules that apply to incoming network connections. Cannot overrule Network Scopes and Connection Types (see above). Also note that the default action for incoming connections is to always block.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nIn this case the rule is only matched if the protocol and port also match.  \nExample: `192.168.0.1 TCP/HTTP`\n",
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [
+      "+ Localhost"
+    ],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9/]+)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 33,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "SSH",
+          "Value": [
+            "+ * tcp/22"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "HTTP/s",
+          "Value": [
+            "+ * tcp/80",
+            "+ * tcp/443"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "RDP",
+          "Value": [
+            "+ * */3389"
+          ],
+          "Action": "merge-top"
+        }
+      ]
+    }
+  },
+  {
+    "Name": "Enable SPN",
+    "Key": "spn/enable",
+    "Description": "Enable the Safing Privacy Network.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:order": 128
+    }
+  },
+  {
+    "Name": "Special Access Code",
+    "Key": "spn/specialAccessCode",
+    "Description": "Special Access Codes grant access to the SPN for testing or evaluation purposes.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "none",
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Advanced",
+      "safing/portbase:ui:order": 144
+    }
+  },
+  {
+    "Name": "Use SPN",
+    "Key": "spn/useSPN",
+    "Description": "Route connections through the Safing Privacy Network. If it is disabled or unavailable for any reason, connections will be blocked.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:order": 129
+    }
+  }
+]
