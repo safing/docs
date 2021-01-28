@@ -9,4 +9,4 @@ Depending on your threat model, the SPN can be configured with different routing
 
 The SPN supports both TCP and UDP connections, albeit currently only with a single endpoint. Applications can be individually configured for the SPN and even be excluded if needed. Similar to the Resolver module, the SPN uses a split-view and does not route connections for local network via the SPN.
 
-Until this page is expanded to hold all the details, you can read through our Whitepaper: ...
+_Until this page is expanded to hold all the details, you can [read through our Whitepaper]({{ site.whitepaper_url }})._
