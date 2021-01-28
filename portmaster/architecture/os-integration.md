@@ -6,6 +6,9 @@ code_ref:
   github-portmaster-2: process
 ---
 
+1. Numbered
+{:toc}
+
 ## General
 
 This page covers all the OS integration, including the SPN.
@@ -70,7 +73,9 @@ Please note that disabling this service is safe, as its primary function is a DN
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue {% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
+##### iptables with nfqueue
+
+{% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
 
 Portmaster uses iptables and nfqueue to inspect and control network traffic. The nfqueue allows packets to be handed over to user space and return a verdict and set a mark on that connection.
 
@@ -140,7 +145,9 @@ __Explanation of Connmark Numbers__
 We plan to provide an alternative to the `iptables` integration by writing a kernel module to handle the needed packet interception in the future.
 Depending on the performance and stability of the `iptables` integration, this will be tackled sooner or later.
 
-##### proc/net {% include code_ref.html godoc-portmaster="process/proc" %}
+##### proc/net
+
+{% include code_ref.html godoc-portmaster="process/proc" %}
 
 In order to find out which process a packet belongs to, the `proc` filesystem is first parsed to find the socket ID of the intercepted packet, then the process directory is searched for the matching PID.
 This is a bit cumbersome, but unfortunately, no better way of acquiring this information is available.
