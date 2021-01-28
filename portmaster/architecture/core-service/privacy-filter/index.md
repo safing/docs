@@ -6,7 +6,9 @@ layout: base
 1. TOC
 {:toc}
 
-##### Privacy Filter {% include code_ref.html godoc_portmaster="firewall" github_portmaster="firewall/master.go" %}
+##### Privacy Filter
+
+{% include code_ref.html godoc_portmaster="firewall" github_portmaster="firewall/master.go" %}
 
 The Privacy Filter is one of the most important parts of the Portmaster: It protects your privacy by blocking connections that are deemed a privacy intrusion deemed by you or the Portmaster itself.
 
@@ -67,7 +69,9 @@ This a convenience feature that aims to reduce the amount of user interaction fo
 **Default Action**  
 If nothing up to this point wanted to have a say in the decision, the default action is applied.
 
-##### Filter Lists {% include code_ref.html godoc_portmaster="intel/filterlists" %}
+##### Filter Lists
+
+{% include code_ref.html godoc_portmaster="intel/filterlists" %}
 
 The Filter Lists module is responsible for fetching the filter lists, managing them and providing lightning fast access to them.
 
@@ -79,7 +83,9 @@ These incremental updates are then "stitched back together" in the Portmaster, a
 
 The filter lists can be configured in the settings and can be selected by category or indiviually.
 
-##### IP Metadata {% include code_ref.html godoc_portmaster="intel/geoip" %}
+##### IP Metadata
+
+{% include code_ref.html godoc_portmaster="intel/geoip" %}
 
 This modules provides IP address metadata. This is usually referred to as "GeoIP", but in reality there is much more important information in there than just location.
 

@@ -6,7 +6,9 @@ layout: base
 1. TOC
 {:toc}
 
-##### Secure DNS Resolver {% include code_ref.html godoc_portmaster="resolver" %}
+##### Secure DNS Resolver
+
+{% include code_ref.html godoc_portmaster="resolver" %}
 
 This module provides secure domain resolving. Most prominently, it uses the DNS-over-TLS protocol by default in order to protect your precious DNS queries from prying eyes.
 
@@ -29,7 +31,9 @@ Relevant settings:
 
 {% endcomment %}
 
-##### Nameserver {% include code_ref.html godoc_portmaster="nameserver" %}
+##### Nameserver
+
+{% include code_ref.html godoc_portmaster="nameserver" %}
 
 This module is kind of the other end of the resolver. It listens locally for DNS requests from processes and lets the resolver come up with an answer.
 
@@ -39,7 +43,9 @@ Similarly to the firewall module, it first attributes the request to a process a
 
 ### Components
 
-##### Nameserver {not shown in UI, because it's the "main" of Secure DNS}
+##### Nameserver
+
+{not shown in UI, because it's the "main" of Secure DNS}
 -> local DNS server (recursive stub)  
 -> every DNS query goes through the same as the firewall  
 -> first "network module" for connection  
