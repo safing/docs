@@ -53,6 +53,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 3em;
 }
 
+#page-menu ul li {
+  list-style: unset;
+  margin-left: 0.5em;
+}
+
 #page-content {
   padding-left: 40px;
 }
