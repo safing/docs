@@ -28,7 +28,7 @@ ol li {
   list-style: decimal;
 }
 
-ul li {
+.container ul li {
   margin-left: 1.5em;
   list-style: initial;
 }
