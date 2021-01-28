@@ -1,9 +1,9 @@
 items:
   - title: Portmaster
-    extra_path: "architecture/overview"
+    extra_path: "/architecture/overview"
     children:
       - title: Architecture
-        extra_path: overview
+        extra_path: "/overview"
         children:
           - title: Overview
           - title: Core Service
