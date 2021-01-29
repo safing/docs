@@ -46,7 +46,7 @@ You do not have to open the full Portmaster UI for more details or to make chang
 
 _Extended documentation of the Notifier are yet to be written. You can [check out its source code](https://github.com/safing/portmaster-ui/tree/develop/notifier) in the mean time._
 
-### OS Integration / Kext
+### OS Integration / Kernel Extension
 
 The Portmaster Core Service cannot do all this magic by itself.
 It works closely together with the Operating System's Core - the Kernel.
