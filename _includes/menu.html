@@ -13,9 +13,30 @@
     {% endif %}
 
     {% assign item_url = full_path | prepend: "/" %}
-    {% assign page_url = page.url | replace: ".html", "/" %}
 
-    <li class="li-nesting-{{ include.nesting_level }} page-item {% if page_url == item_url %}active{% endif %}">
+    {% comment %}
+      page.url is not a consistent method:
+        index pages inside a folder get returned with: /path/to/page/
+        while other pages inside folders get returned with: /path/to/page.html
+
+      This makes it hard to check whether the current page is an item in the left menu.
+      To resolve this we:
+        1) grab the last 5 characters of the page.url
+        2) check if they are ".html"
+        2.1) If so, set comparison_page_url to (page.url - ".html")
+        2.2) If not, set comparison_page_url to (page.url - the last "/")
+          -> here we use a trick too in order to just replace the last instead of all slashes "/"
+    {% endcomment %}
+
+    {% assign last_characters = page.url | slice: -5, 5 %}
+
+    {% if last_characters == ".html" %}
+      {% assign comparison_page_url = page.url | replace: ".html", "" %}
+    {% else %}
+      {% assign comparison_page_url = page.url | append: "17" | replace: "/17", "" %}
+    {% endif %}
+
+    <li class="li-nesting-{{ include.nesting_level }} page-item {% if comparison_page_url == item_url %}active{% endif %}">
       {% if item.extra_path %}
         {% assign item_url = item_url | append: item.extra_path %}
       {% endif %}
