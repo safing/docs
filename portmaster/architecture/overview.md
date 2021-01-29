@@ -53,4 +53,4 @@ It works closely together with the Operating System's Core - the Kernel.
 
 On Windows, this even requires that one part of the Portmaster Application runs directly within the OS Kernel itself, making it very powerful.
 
-[Dive into how the how the Portmaster Application integrates with different Operating Systems.](../os-integration)
+[Dive into how the how the Portmaster Application integrates with different Operating Systems.](os-integration)
