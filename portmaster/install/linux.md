@@ -22,15 +22,18 @@ The installers should take care of any needed dependencies. Please report if it 
 
 #### Compatibility
 
-| | Version | Comment |
-|:--|:--|:--|
-| Linux Kernel | >= v5.7 | v2.4-v5.5 might also work, see this issue |
-
-- Linux Kernel: v2.4-v5.5, v5.7-
-- Gnome 3: 
-- KDE:
-- Budgie:
-- XFCE:
+| System | Version | Notes |
+|:--|:-:|:--|
+| Linux Kernel | >= 5.7 | 2.4-5.5 might also work, see issue [core#82](https://github.com/safing/portmaster/issues/82) |
+| Gnome | >= 3? |
+| KDE | ? |
+| MATE | ? |
+| Cinnamon | ? |
+| Budgie | ? | Issues: [ui#111](https://github.com/safing/portmaster-ui/issues/111) |
+| LXDE | ? |
+| LXQt | ? |
+| XFCE | ? | Seen working. |
+| Deepin DE | ? |
 
 #### Requirements
 
