@@ -7,7 +7,7 @@ items:
           - title: Windows
           - title: Linux
           # - title: Mac
-          # - title: Mobile
+          - title: Mobile
       - title: Architecture
         extra_path: "/overview"
         children:
