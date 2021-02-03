@@ -2,6 +2,12 @@ items:
   - title: Portmaster
     extra_path: "/architecture/overview"
     children:
+      - title: Install
+        children:
+          - title: Windows
+          - title: Linux
+          # - title: Mac
+          # - title: Mobile
       - title: Architecture
         extra_path: "/overview"
         children:
