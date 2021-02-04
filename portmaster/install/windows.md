@@ -3,6 +3,11 @@ title: Install on Windows
 layout: base
 ---
 
+1. Numbered
+{:toc}
+
+<br/>
+
 This page covers how to install and uninstall the Portmaster on Windows 7, 8 and 10. [The installer is the same](https://updates.safing.io/latest/windows_amd64/packages/portmaster-installer.exe) for all supported Windows versions.
 
 Please note that we currently only support the 64bit CPU Architecture, which is the current main standard. In case of Windows 7, you  require the 2015 security update KB3033929 for correctly verifying driver signatures.
