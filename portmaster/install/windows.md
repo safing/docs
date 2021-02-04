@@ -33,3 +33,10 @@ This is done by setting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentContr
 You can easily uninstall the Portmaster by using the system preferences or by executing the `portmaster-uninstaller.exe`, which you can find in `C:\ProgramData\Safing\Portmaster`.
 
 The uninstaller reverts all steps mentioned above and also requires a reboot afterwards.
+
+
+#### Known Issues
+
+**Notifications are not working on Windows 7 and 8.**
+
+Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "ask" action as a default when running on Windows 7 or 8.
