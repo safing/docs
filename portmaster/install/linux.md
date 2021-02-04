@@ -14,9 +14,9 @@ We provide package installers for supported systems:
 
 ---
 
-Please note that we only support the latest stable and LTS versions. We may be able to help out with other systems, but won't be able to invest a lot of time in order to keep focus.
+Please note that we only support the latest stable and LTS versions. We may be able to help out with other systems, but will not be able to invest a lot of time in order to keep focus.
 
-The installers should take care of any needed dependencies. Please report if it doesn't!
+The installers should take care of any needed dependencies. [Please report back](https://github.com/safing/portmaster/issues/new?template=bug-report.md) if they do not!
 
 ⚠️ Please note that the Portmaster updates itself and that the provided packages are only meant for an initial install. Uninstalling the package from your system will properly uninstall and remove the Portmaster.
 
@@ -37,13 +37,13 @@ The installers should take care of any needed dependencies. Please report if it 
 
 #### Requirements
 
-The Portmaster Core Service is compatible with the Linux Kernel as of version 2.4, but due to a breaking bug in at least v5.6, we recommend to use are least v5.7.
+The Portmaster Core Service is compatible with the Linux Kernel as of version 2.4, but due to a breaking bug in at least v5.6, we recommend to use v5.7+.
 
 Dependencies:
 
 - `libnetfilter_queue` - for network stack integration
 - `libappindicator3` - for sending desktop notifications (_optional, but recommended_)
-- [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, recommended_)
+- [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, but recommended_)
 
 ---
 
@@ -94,7 +94,7 @@ sudo /var/lib/portmaster/portmaster-start core
 __3.__ Start the Portmaster UI
 
 ```
-/var/lib/portmaster/portmaster-start app 
+/var/lib/portmaster/portmaster-start app
 ```
 
 __4.__ Start the Portmaster Notifier
@@ -107,8 +107,8 @@ __4.__ Start the Portmaster Notifier
 
 __5.__ Start it on boot
 
-In order to get the Portmaster Core Service to start automatically when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
-The following unit file works but excludes most of the security relevant settings. For a more restricted version use [this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/debian/portmaster.service).
+In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
+The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/debian/portmaster.service).
 
 ```
 [Unit]

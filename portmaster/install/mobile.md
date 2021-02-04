@@ -3,25 +3,27 @@ title: Status of Mobile
 layout: base
 ---
 
-The Portmaster is currently not available for any mobile platforms.
-While this will comes with a multitude of challanges, our dream is to support as many mobile platforms as possible.  
-
 This page gives an overview over the current status of supporting mobile platforms.
-If you are interested in what we are currently working on and what is planned for the near future, check out our [next page](https://safing.io/next/).
+
+**⚠️ The Portmaster is currently not available for any mobile platforms.**
+
+While we know supporting mobile will come with a multitude of challenges, it still remains our dream to support many mobile platforms in the future. Currently, these tasks [remain in our backlog](https://safing.io/backlog/).
+
+[You can always see what we are currently working on and what is planned for the near future on the Next Page](https://safing.io/next/).
 
 #### Android
 
 __Technical__
 
 We did a feasibility analysis in 2020 and came to the conclusion that it is feasible to bring the Portmaster to Android.
-We did not have time to look at all the details so we don't know yet if every single feature will make it, but we are looking forward a lot to get going.
+We did not have time to look at all the details so we do not know yet if every single feature will make it, but it likely the main bulk of features will be portable.
 
 __Distribution__
 
-The Portmaster puts you back in control.
-We think that this might be somewhat against the interests of Google, and the Play store has banned ad blockers in the past.
+The Portmaster will put you back in control of your mobile phone and all of its network connections.
+We think that this might be against the interests of Google, and the Play store has banned ad blockers in the past.
 
-This means that the Portmaster may only be available via alternative app stores, such as F-Droid.
+This means that the Portmaster will likely only be available via alternative app stores, such as F-Droid or via direct `.apk` distributions
 
 #### iOS
 
@@ -31,12 +33,10 @@ We have not yet investigated how to bring the Portmaster to iOS. Looking at the 
 
 __Distribution__
 
-The Portmaster puts you back in control.
-We think that this might be somewhat against the interests of Apple, and they have banned ad blockers in the past.
+The Portmaster would put you back in control of your mobile phone and all of its network connections.
+We think that this might be against the interests of Apple, and they have banned ad blockers in the past.
 
-As the iOS platform is missing any alternative app stores, without the need of a jailbreak, this may sadly mean that we won't be able to bring the Portmaster to iOS.
-
-In regards to this, also check out a more elaborate explanation on the [status of MacOS](macos).
+As the iOS platform is missing any alternative app stores, without the need of a jailbreak, this may sadly mean that we will not be able to bring the Portmaster to iOS.
 
 #### Linux-Based Phones
 
