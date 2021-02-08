@@ -12,10 +12,11 @@ items:
           - title: Windows
           - title: Linux
           - title: Status
-            extra_path: "/mobile"
+            extra_path: "/vpn-compatibility"
             children:
-              # - title: Mac
+              - title: VPN Compatibility
               - title: Mobile
+              # - title: Mac
       - title: Architecture
         extra_path: "/overview"
         children:

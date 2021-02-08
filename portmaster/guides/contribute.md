@@ -16,11 +16,11 @@ Help make the Portmaster better for everyone. [Download](https://safing.io/portm
 
 ### Report Linux Distribution Compatibility
 
-Help us understand Portmaster compatibility with different Linux distributions. Whether it works with your distro or not - your reports will help us massively to understand where we stand. We will update the [Linux compatibility list](https://docs.safing.io/portmaster/install/linux#compatibility) accordingly.
+Help us understand Portmaster compatibility with different Linux distributions. Whether it works with your distro or not - your reports will help us massively to understand where we stand. We will update the [Linux compatibility list](../install/linux#compatibility) accordingly.
 
 ### Report VPN Compatibility
 
-Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works with together with the Portmaster or not - your reports will help us massively to understand where we stand. We will update the [VPN compatibility list](FIXME) accordingly.
+Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works with together with the Portmaster or not - your reports will help us massively to understand where we stand. We will extend the [VPN compatibility section](../install/status/vpn-compatibility) with a table of compatibility and update that based on your reports.
 
 ### Other, Out-Of-Scope
 
