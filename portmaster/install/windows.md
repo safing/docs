@@ -39,4 +39,4 @@ The uninstaller reverts all steps mentioned above and also requires a reboot aft
 
 **Notifications are not working on Windows 7 and 8.**
 
-Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "ask" action as a default when running on Windows 7 or 8.
+Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "prompt" action as a default when running on Windows 7 or 8.

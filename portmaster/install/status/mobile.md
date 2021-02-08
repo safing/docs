@@ -14,7 +14,7 @@ This page gives an overview over the current status of supporting mobile platfor
 
 While we know supporting mobile will come with a multitude of challenges, it still remains our dream to support many mobile platforms in the future. Currently, these tasks [remain in our backlog](https://safing.io/backlog/).
 
-[You can always see what we are currently working on and what is planned for the near future on the Next Page](https://safing.io/next/).
+You can always [see what we are currently working on](https://safing.io/next/) and what is planned for the near future on [the Next Page](https://safing.io/next/).
 
 #### Android
 
@@ -28,7 +28,7 @@ __Distribution__
 The Portmaster will put you back in control of your mobile phone and all of its network connections.
 We think that this might be against the interests of Google, and the Play store has banned ad blockers in the past.
 
-This means that the Portmaster will likely only be available via alternative app stores, such as F-Droid or via direct `.apk` distributions
+This means that the Portmaster will likely only be available via alternative app stores, such as F-Droid or via direct `.apk` distributions.
 
 #### iOS
 
