@@ -2,6 +2,21 @@ items:
   - title: Portmaster
     extra_path: "/architecture/overview"
     children:
+      - title: Guides
+        extra_path: "/contribute"
+        children:
+          - title: Contribute
+      - title: Install
+        extra_path: "/windows"
+        children:
+          - title: Windows
+          - title: Linux
+          - title: Status
+            extra_path: "/vpn-compatibility"
+            children:
+              - title: VPN Compatibility
+              - title: Mobile
+              # - title: Mac
       - title: Architecture
         extra_path: "/overview"
         children:
