@@ -20,7 +20,7 @@ Help us understand Portmaster compatibility with different Linux distributions. 
 
 ### Report VPN Compatibility
 
-Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works with together with the Portmaster or not - your reports will help us massively to understand where we stand. We will extend the [VPN compatibility section](../install/status/vpn-compatibility) with a table of compatibility and update that based on your reports.
+Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works together with the Portmaster or not - your reports will help us massively to understand where we stand. We will extend the [VPN compatibility section](../install/status/vpn-compatibility) with a table of compatibility and update that based on your reports.
 
 ### Other, Out-Of-Scope
 
