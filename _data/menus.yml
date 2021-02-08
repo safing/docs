@@ -3,11 +3,15 @@ items:
     extra_path: "/architecture/overview"
     children:
       - title: Install
+        extra_path: "/windows"
         children:
           - title: Windows
           - title: Linux
-          # - title: Mac
-          - title: Mobile
+          - title: Status
+            extra_path: "/mobile"
+            children:
+              # - title: Mac
+              - title: Mobile
       - title: Architecture
         extra_path: "/overview"
         children:
