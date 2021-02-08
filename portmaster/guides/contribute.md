@@ -20,8 +20,6 @@ Help us understand Portmaster compatibility with different Linux distributions. 
 
 ### Report VPN Compatibility
 
-Help us understand Portmaster compatibility with different Linux distributions.
-
 Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works with together with the Portmaster or not - your reports will help us massively to understand where we stand. We will update the [VPN compatibility list](FIXME) accordingly.
 
 ### Other, Out-Of-Scope
