@@ -6,6 +6,7 @@ items:
         extra_path: "/contribute"
         children:
           - title: Contribute
+          - title: DNS Configuration
       - title: Install
         extra_path: "/windows"
         children:
