@@ -177,13 +177,16 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
   /* border-bottom: 1px solid rgba(31,167,135,1); */
 }
 
-.setting-badge.copy-to-clipboard {
+a.header-anchor {
   background-color: unset;
   cursor: pointer;
   opacity: 0;
+  margin-left: -25px;
+  padding-right: 2px;
+  text-decoration: none;
 }
 
-h1:hover .copy-to-clipboard, h2:hover .copy-to-clipboard, h3:hover .copy-to-clipboard, h4:hover .copy-to-clipboard, h5:hover .copy-to-clipboard, h6:hover .copy-to-clipboard {
+h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:hover .header-anchor, h5:hover .header-anchor, h6:hover .header-anchor {
   opacity: 1;
 }
 
@@ -430,10 +433,4 @@ h1:hover .copy-to-clipboard, h2:hover .copy-to-clipboard, h3:hover .copy-to-clip
   margin-top: 1.5rem;
   font-size: 0.9rem;
   color: #0008;
-}
-
-/* No JS Switches */
-
-.hide-no-js {
-  display: none;
 }

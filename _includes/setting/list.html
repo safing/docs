@@ -8,6 +8,9 @@
   <div class="setting">
     <!-- Header -->
     <h5 id="{{ option.Key }}" class="header">
+      <a class="header-anchor" href="#{{ option.Key }}">
+        <i class="fa fa-link"></i>
+      </a>
       {{ option.Name }}
       <small>
         {% if site.data.config-manual[option.Key].layered %}
@@ -66,14 +69,9 @@
             {{ option.Key }}
           </span>
         {% endif %}
-
-        <span class="setting-badge copy-to-clipboard hide-no-js"
-          onclick="navigator.clipboard.writeText('[{{ option.Name }}](https://docs.safing.io/portmaster/manual/settings-reference#{{ option.Key }})')">
-          <i class="fa fa-link"></i>
-        </span>
       </small>
     </h5>
-    
+
     <!-- Explanation -->
     <p>
       {{ option.Description | markdownify }}
