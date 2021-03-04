@@ -50,11 +50,11 @@ core/releaseLevel:
 
 core/useSystemNotifications:
   manual: |
-    See the page about the [Portmaster Notifier](../architecture/notifier) for more information.
+    See the page about the [Portmaster Notifier](/portmaster/architecture/notifier) for more information.
 
 dns/dontResolveSpecialDomains:
   manual: |
-    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.
+    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
 
 dns/listenAddress:
   manual: |
@@ -68,23 +68,23 @@ dns/nameserverRetryRate:
 dns/nameservers:
   hide_help: true
   manual: |
-    If you prefer to use other DNS servers than the pre-configured ones, you can configure them here. See our separate [guide on DNS Server Configuration](../guides/dns-configuration) for more details.
+    If you prefer to use other DNS servers than the pre-configured ones, you can configure them here. See our separate [guide on DNS Server Configuration](/portmaster/guides/dns-configuration) for more details.
 
 dns/noAssignedNameservers:
   manual: |
     This does not affect a special set of domains for testing connectivity.
-    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
 
 dns/noInsecureProtocols:
   manual: |
     This effectively disables mDNS as well as any DNS Server configured in your system or network.  
     This does not affect a special set of domains for testing connectivity.
-    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
 
 dns/noMulticastDNS:
   manual: |
     Queries for mDNS Domains such as `.local` will be sent to a System/Network DNS Server instead.
-    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
 
 filter/askTimeout:
   manual: |
