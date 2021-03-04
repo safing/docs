@@ -17,6 +17,9 @@ items:
               - title: VPN Compatibility
               - title: Mobile
               # - title: Mac
+      - title: Manual
+        children:
+          - title: Settings Reference
       - title: Architecture
         extra_path: "/overview"
         children:

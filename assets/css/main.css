@@ -10,9 +10,8 @@
 
 .notification {
   position: relative;
-  opacity: 0;
-  animation: notification 0.5s forwards ease-in;
-  animation-delay: 0.1s;
+  /* This makes me fucking livid. */
+  animation: none;
 }
 
 @keyframes notification {
@@ -165,6 +164,45 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
   opacity: 1;
 }
 
+/* Setting badge */
+
+.setting-badge {
+  margin: 0 2px;
+  padding: 2px 8px;
+  background-color: rgba(0,0,0,0.07);
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  /* border-right: 1px solid rgba(31,167,135,0.5); */
+  /* border-bottom: 1px solid rgba(31,167,135,1); */
+}
+
+.setting-badge.copy-to-clipboard {
+  background-color: unset;
+  cursor: pointer;
+  opacity: 0;
+}
+
+h1:hover .copy-to-clipboard, h2:hover .copy-to-clipboard, h3:hover .copy-to-clipboard, h4:hover .copy-to-clipboard, h5:hover .copy-to-clipboard, h6:hover .copy-to-clipboard {
+  opacity: 1;
+}
+
+.setting-badge.info {
+  color: blue;
+}
+
+.setting-badge.warn {
+  color: orange;
+}
+
+.setting-badge.dev {
+  color: red;
+}
+
+.setting-badge.key {
+  opacity: 0.8;
+}
+
 /* Setting ref */
 
 .settingsref span {
@@ -222,7 +260,40 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
 
 /* Setting list */
 
+.settingslist .key {
+  opacity: 0.5;
+}
 
+.settingslist .advanced {
+  color: orange;
+}
+.settingslist .beta {
+  color: orange;
+}
+
+.settingslist .developer {
+  color: red;
+}
+.settingslist .experimental {
+  color: red;
+}
+
+.settingslist .restart {
+  color: blue;
+}
+.settingslist .stackable {
+  color: blue;
+}
+
+.settingslist .default {
+  color: blue;
+}
+
+.settingslist .values {
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+}
 
 /* Github flavour */
 
@@ -359,4 +430,10 @@ h1:hover .inlineref, h2:hover .inlineref, h3:hover .inlineref, h4:hover .inliner
   margin-top: 1.5rem;
   font-size: 0.9rem;
   color: #0008;
+}
+
+/* No JS Switches */
+
+.hide-no-js {
+  display: none;
 }

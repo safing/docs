@@ -1,0 +1,200 @@
+core/apiKeys:
+  hide_default: true
+  manual: |
+    API Keys need to be provided as a HTTP Basic or Bearer Authentication Header.  
+    Usage of API Keys is only needed if you want to grant 3rd party software access to the Portmaster, or if you want to remotely manage the Portmaster via a Webbrowser.
+    Be reminded that you are fully responsible yourself for the security and all implications of remote access.  
+    On Linux, you can generate a new API Key like this: `echo "$(tr -dc A-Za-z0-9 </dev/urandom | head -c 50)?read=user&write=user"`
+
+core/automaticUpdates:
+  manual: |
+    Currently, updates are checked for every hour. This frequency was chosen to stay up to date with the ever-changing landscape of malware/tracker/phishing domains managed by the various filter lists.
+
+core/devMode:
+  manual: |
+    Do not ever enable this in production, as anything will be able to fully control the Portmaster.
+
+core/enableProcessDetection:
+  manual: |
+    Do not disable except for debugging purposes.
+
+core/expertiseLevel:
+  manual: |
+    Settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Advanced</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Developer</span> accordingly.
+
+core/listenAddress:
+  manual: |
+    If you intend to access the Portmaster UI remotely, you can set this to `0.0.0.0:817`. [API Keys](#core/apiKeys) can be configured for access authentication. In addition to that, you will need to enable incoming connections in the Portmaster's own App Settings. Be reminded that you are fully responsible yourself for the security and all implications of remote access.
+
+core/metrics/instance:
+  hide_default: true
+  manual: |
+    See the [prometheus label docs](https://prometheus.io/docs/practices/naming/#labels) for more information. The key used for the label is `instance`.
+
+core/metrics/push:
+  hide_default: true
+  manual: |
+    See the [prometheus exposition format docs](https://prometheus.io/docs/instrumenting/exposition_formats/) for more information. The data is POST-ed to the configured URL.
+
+core/networkService:
+  manual: |
+    This allows you to use the Portmaster as a network-wide privacy system, similar to a Pi-Hole. This possibility exists mainly for testing and is not officially supported. You are free to tinker around with it, though.
+
+core/releaseChannel:
+  manual: |
+    Until the Portmaster reaches the v1.0 stable release, all releases are done in the stable channel only. After that, we will open the beta channel for testing new features.
+
+core/releaseLevel:
+  manual: |
+    Settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Beta</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Experimental</span> accordingly.
+
+core/useSystemNotifications:
+  manual: |
+    See the page about the [Portmaster Notifier](../architecture/notifier) for more information.
+
+dns/dontResolveSpecialDomains:
+  manual: |
+    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.
+
+dns/listenAddress:
+  manual: |
+    `localhost` is a special value, which will make the Portmaster listen on both `127.0.0.1:53` and `::1`.  
+    The default value shown is used on Linux, Windows uses `0.0.0.0:53` as the default value, as requests there are redirected to the same interface, not the loopback device.
+
+dns/nameserverRetryRate:
+  manual: |
+    The Portmaster keeps track of the availablity of configured DNS servers. If requests to a server fail too often, it will be marked as failed and the Portmaster will stop sending requests to it for the duration set by this setting.
+
+dns/nameservers:
+  hide_help: true
+  manual: |
+    If you prefer to use other DNS servers than the pre-configured ones, you can configure them here. See our separate [guide on DNS Server Configuration](../guides/dns-configuration) for more details.
+
+dns/noAssignedNameservers:
+  manual: |
+    This does not affect a special set of domains for testing connectivity.
+    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+
+dns/noInsecureProtocols:
+  manual: |
+    This effectively disables mDNS as well as any DNS Server configured in your system or network.  
+    This does not affect a special set of domains for testing connectivity.
+    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+
+dns/noMulticastDNS:
+  manual: |
+    Queries for mDNS Domains such as `.local` will be sent to a System/Network DNS Server instead.
+    See our [dns querying deep dive](../architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+
+filter/askTimeout:
+  manual: |
+    Regardless of the timeout configured here, the Portmaster will block the connection after a short timeout in order to keep a clean state and report the connection to the UI. Applications waiting for a prompt may report that they were not able to connect. In this case just ask the application to reconnect after handling the prompt.
+
+filter/askWithSystemNotifications:
+  manual: |
+    Requires [Desktop Notifications](#core/useSystemNotifications).
+
+filter/blockInbound:
+  layered: true
+  manual: |
+    In order to accept incoming connections, they must also be allowed by the [Incoming Rules](#filter/serviceEndpoints).
+
+filter/blockInternet:
+  layered: true
+  manual: |
+    You can use this setting to completely lock out an application from the Internet, while still allowing it communicate locally.
+
+filter/blockLAN:
+  layered: true
+  manual: |
+    You can use this setting to completely lock out an application from your local network, while still allowing it to connect to the Internet.
+
+filter/blockLocal:
+  layered: true
+  manual: |
+    Internal connections on your device are usually not a threat.   There are however cases where it makes sense to restrict localhost communication, such as for Browsers, if not needed.
+
+filter/blockP2P:
+  layered: true
+  manual: |
+    This setting is only set to "Danger" by default because there is lots of software that directly communicates with IPs. If P2P connections are not needed, setting this to "Trusted" can greatly increase security.
+
+filter/defaultAction:
+  layered: true
+  manual: |
+    If set to "Prompt", the Portmaster will prompt you in the User Interface as well as via [Desktop Notifications](#core/useSystemNotifications) ([if enabled](filter/askWithSystemNotifications)) to make a decision about a connection. You can also allow or block prompts in bulk in the UI.
+
+filter/disableAutoPermit:
+  layered: true
+  manual: |
+    This setting is meant to reduce noise when using [prompting](#filter/defaultAction). Currently, this feature is still rather primitive - comparing paths and names - but will become smarter in the future.  
+    Auto permitting is disabled by default because it is a convenience and not a privacy feature.
+
+filter/domainHeuristics:
+  layered: true
+  manual: |
+    If this setting blocks benign connections, you can turn it off for single applications, but we highly recommend you leave it on globally. Domains generated by malware are an easy way to evade blocklists and slip through security systems.
+
+filter/enable:
+  manual: |
+    Turning this off will completely disable the privacy filter and allow any connection. You should never use this in production. Instead, consider changing the [default action](#filter/defaultAction) to "Permit".
+
+filter/endpoints:
+  layered: true
+  hide_default: true
+
+filter/includeCNAMEs:
+  layered: true
+  manual: |
+    This is used to block the new "unblockable" trackers that use a first-party subdomain CNAME'd (alias'd) to the tracking company.
+
+filter/includeSubdomains:
+  layered: true
+  manual: |
+    This makes it easier to block trackers that change their subdomain often to avoid to being caught by filter lists.
+
+filter/lists:
+  layered: true
+  hide_default: true
+  hide_help: true
+  manual: |
+    In the Portmaster UI you can easily select lists you want to activate.
+    The filter lists are gathered and merged by us in order to be able to send hourly incremental updates. You can find all lists we subscribe to [here](https://github.com/safing/intel-data).
+
+filter/permanentVerdicts:
+  manual: |
+    Do not disable except for debugging purposes.
+
+filter/preventBypassing:
+  layered: true
+  manual: |
+    This is primarily to prevent software that plays nice from circumventing the Portmaster. While we will do it where it makes sense, this is not geared towards malware that is specifically made for circumenventing protection.
+
+filter/removeBlockedDNS:
+  layered: true
+  manual: |
+    Should a DNS response contain IP addresses which would not be allowed if connected to, the Portmaster will remove these answers in order to make it more likely for a connection to succeed within the permitted parameters.
+
+filter/removeOutOfScopeDNS:
+  layered: true
+  manual: |
+    [DNS Rebinding](https://en.wikipedia.org/wiki/DNS_rebinding) attacks allow an attacker to circumvent security policies. This feature blocks DNS Rebinding attacks on local systems.
+
+filter/serviceEndpoints:
+  layered: true
+  manual: |
+    If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number ([find it here](https://www.ultratools.com/tools/asnInfo)) or from one to a few countries.
+    While potentially dangerous, you can allow any incoming connection by adding `+ *` to the [Incoming Rules](#filter/serviceEndpoints).
+
+spn/enable:
+  manual: |
+    _Extended documentation will be written when exact behavior is finalized_
+
+spn/specialAccessCode:
+  manual: |
+    _Extended documentation will be written when exact behavior is finalized_
+
+spn/useSPN:
+  layered: true
+  manual: |
+    _Extended documentation will be written when exact behavior is finalized_

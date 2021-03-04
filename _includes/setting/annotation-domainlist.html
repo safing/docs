@@ -1,0 +1,11 @@
+<ul>
+{% for option in site.data.config-options %}
+  {% if option.Annotations[include.key] %}
+    {% for domain in option.Annotations[include.key] %}
+    <li>
+      {% if include.scope %}.{% endif %}{{ domain | split: "." | where_exp: "item", "item != ''" | join: "." }}
+    </li>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+</ul>
