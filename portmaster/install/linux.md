@@ -14,9 +14,9 @@ This page covers how to install and uninstall the Portmaster on Linux.
 
 We provide package installers for supported systems:
 
-- [`.deb` for Debian/Ubuntu](https://updates.safing.io/latest/linux_amd64/packages/portmaster-installer.deb) ([_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux))
+- [`.deb` for Debian/Ubuntu]({{ site.download_linux_deb_url }}) ([_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux))
 - [`PKGBUILD` for Arch](#arch-linux)
-- [`.pkg.tar.xz` for Arch](https://github.com/safing/portmaster-packaging/actions?query=workflow%3A%22Arch+Linux%22+branch%3Amaster) (Testing, CI Build / [_how to_](https://wiki.archlinux.org/index.php/Pacman#Additional_commands))
+- [`.pkg.tar.xz` for Arch]({{ site.download_linux_arch_url }}) (Testing, [CI Build](https://github.com/safing/portmaster-packaging/actions?query=workflow%3A%22Arch+Linux%22+branch%3Amaster) / [_how to_](https://wiki.archlinux.org/index.php/Pacman#Additional_commands))
 
 ---
 
