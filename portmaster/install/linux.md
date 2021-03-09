@@ -15,6 +15,7 @@ This page covers how to install and uninstall the Portmaster on Linux.
 We provide package installers for supported systems:
 
 - [`.deb` for Debian/Ubuntu](https://updates.safing.io/latest/linux_amd64/packages/portmaster-installer.deb) ([_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux))
+- [`PKGBUILD` for Arch](#arch-linux)
 - [`.pkg.tar.xz` for Arch](https://github.com/safing/portmaster-packaging/actions?query=workflow%3A%22Arch+Linux%22+branch%3Amaster) (Testing, CI Build / [_how to_](https://wiki.archlinux.org/index.php/Pacman#Additional_commands))
 
 ---
@@ -138,6 +139,31 @@ sudo systemctl enable --now portmaster
 ```
 
 __6.__ Enjoy!
+
+#### Arch Linux
+
+For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository. It is not yet submitted to AUR as we want to collect some feedback first.
+
+To install the Portmaster using the PKGBUILD, follow these steps:
+
+```bash
+# Install build-dependencies, you can remove them later:
+sudo pacman -S imagemagick # required to convert the Portmaster logo to different resolutions
+
+# Install runtime dependencies:
+sudo pacman -S libnetfilter_queue webkit2gtk
+
+# Clone the repository
+git clone https://github.com/safing/portmaster-packaging
+
+# Enter the repo and build/install the package (it's under linux/)
+cd portmaster-packaging/linux
+makepkg -i
+
+# Start the Portmaster and enable autostart
+systemctl daemon-reload
+systemctl enable --now portmaster
+```
 
 #### Uninstall
 
