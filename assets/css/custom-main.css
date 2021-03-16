@@ -1,0 +1,975 @@
+* {
+    font-family: "Roboto"
+}
+
+body {
+    overflow-x: hidden
+}
+
+.not-allowed {
+    cursor: not-allowed
+}
+
+.spn-shadow {
+    box-shadow: 0 0px 90px 0 rgba(59, 93, 199, 0.1), 0 0px 5px 0 transparent
+}
+
+.hover:hover {
+    box-shadow: 0 0px 90px 0 rgba(59, 93, 199, 0.1), 0 0px 5px 0 transparent
+}
+
+.shake-horizontal {
+    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+    animation        : shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both
+}
+
+@-webkit-keyframes shake-horizontal {
+
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform        : translateX(0)
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translateX(-10px);
+        transform        : translateX(-10px)
+    }
+
+    20%,
+    40%,
+    60% {
+        -webkit-transform: translateX(10px);
+        transform        : translateX(10px)
+    }
+
+    80% {
+        -webkit-transform: translateX(8px);
+        transform        : translateX(8px)
+    }
+
+    90% {
+        -webkit-transform: translateX(-8px);
+        transform        : translateX(-8px)
+    }
+}
+
+@keyframes shake-horizontal {
+
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform        : translateX(0)
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translateX(-10px);
+        transform        : translateX(-10px)
+    }
+
+    20%,
+    40%,
+    60% {
+        -webkit-transform: translateX(10px);
+        transform        : translateX(10px)
+    }
+
+    80% {
+        -webkit-transform: translateX(8px);
+        transform        : translateX(8px)
+    }
+
+    90% {
+        -webkit-transform: translateX(-8px);
+        transform        : translateX(-8px)
+    }
+}
+
+.spin {
+    animation-name           : spin;
+    animation-duration       : 21000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes beatHeart {
+    0% {
+        transform: scale(1)
+    }
+
+    25% {
+        transform: scale(1.1)
+    }
+
+    40% {
+        transform: scale(1)
+    }
+
+    60% {
+        transform: scale(1.1)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+#menu-toggle:checked+#menu {
+    display: block
+}
+
+.wiggle {
+    animation: wiggle .6s infinite alternate
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(4deg)
+    }
+
+    100% {
+        transform: rotate(10deg)
+    }
+}
+
+.line {
+    width        : 100%;
+    text-align   : center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    line-height  : 0.1em;
+    margin       : 10px 0 20px
+}
+
+.line span {
+    background: #fff;
+    padding   : 0 25px
+}
+
+.support p {
+    color: #7d7d7d
+}
+
+a.link {
+    --text-opacity     : 1;
+    color              : #667eea;
+    color              : rgba(102, 126, 234, var(--text-opacity));
+    text-decoration    : inherit;
+    background-color   : transparent;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
+}
+
+a.link:hover {
+    opacity                   : .5;
+    transition-duration       : 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.opacity-55 {
+    opacity: 0.55
+}
+
+.hover\:opacity-55:hover {
+    opacity: 0.55
+}
+
+.card {
+    max-width: auto
+}
+
+.tablecard {
+    max-width: auto
+}
+
+.tablecard h3 {
+    padding-top: 2.5rem !important
+}
+
+.tablecard ul,
+.tablecard ol {
+    padding: 1rem
+}
+
+.tablecard ul li,
+.tablecard ol li {
+    padding-top: 0.7rem;
+    color      : #898989
+}
+
+.tablecard ul {
+    list-style-type: circle
+}
+
+.tablecard ol {
+    list-style-type: decimal
+}
+
+.tablecard a {
+    display    : inline-table;
+    position   : none;
+    padding-top: 1rem
+}
+
+.cardshadow {
+    box-shadow: 0 0px 5px 0 transparent, 0 0px 90px 0 rgba(59, 93, 199, 0.1)
+}
+
+.blogwrapper {
+    display              : grid;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows   : auto;
+    grid-row-gap         : 15px;
+    grid-auto-flow       : row;
+    margin-left          : auto;
+    margin-right         : auto;
+    max-width            : 1350px
+}
+
+@media (min-width: 640px) {
+    .blogwrapper {
+        grid-template-columns: repeat(1, auto)
+    }
+
+    #icon {
+        margin-top: 2rem
+    }
+}
+
+.nextwrapper {
+    display              : grid;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows   : auto;
+    grid-row-gap         : 1rem;
+    grid-column-gap      : 1rem;
+    grid-auto-flow       : row;
+    margin-left          : auto;
+    margin-right         : auto;
+    max-width            : 1350px
+}
+
+@media (min-width: 640px) {
+    .nextwrapper {
+        grid-template-columns: repeat(1, auto)
+    }
+}
+
+@media (min-width: 1024px) {
+    .nextwrapper {
+        grid-template-columns: repeat(3, minmax(auto, 445px))
+    }
+
+    .nextwrapper .card {
+        max-width: 445px
+    }
+}
+
+.dropinput {
+    position: absolute;
+    opacity : 0;
+    z-index : -1
+}
+
+.tabs {
+    border-radius: 8px;
+    overflow     : visible
+}
+
+.tab {
+    width   : 100%;
+    color   : black;
+    overflow: hidden
+}
+
+.tab-label {
+    display        : flex;
+    justify-content: space-between;
+    padding        : 1em;
+    background     : transparent;
+    font-weight    : bold;
+    cursor         : pointer
+}
+
+.tab-label:hover {
+    background: transparent
+}
+
+.tab-label::after {
+    content                   : " ";
+    width                     : 1em;
+    height                    : 1em;
+    text-align                : center;
+    transition                : all .0s;
+    transition-timing-function: ease;
+    transform                 : rotate(-90deg)
+}
+
+.tab-content {
+    max-height                : 0;
+    padding                   : 0 1em;
+    color                     : black;
+    background                : transparent;
+    transition                : all .3s;
+    transition-timing-function: ease-in-out
+}
+
+.tab-close {
+    display        : flex;
+    justify-content: flex-end;
+    padding        : 1em;
+    font-size      : 0.75em;
+    background     : transparent;
+    cursor         : pointer
+}
+
+.tab-close:hover {
+    background: transparent
+}
+
+#icon {
+    width   : 35px;
+    position: fixed
+}
+
+#icontwo {
+    width: 35px
+}
+
+input:checked+label #icon {
+    transform: rotate(180deg)
+}
+
+input:checked+label #icontwo {
+    transform: rotate(180deg)
+}
+
+input:checked~.tab-content {
+    max-height: 100%;
+    padding   : 1em
+}
+
+.dot {
+    position        : absolute;
+    right           : 0;
+    height          : 5px;
+    width           : 5px;
+    background-color: #6188ff;
+    border-radius   : 50%;
+    display         : inline-block
+}
+
+[tooltip] {
+    position: relative
+}
+
+[tooltip]::before,
+[tooltip]::after {
+    text-transform: none;
+    font-size     : .9em;
+    line-height   : 1;
+    user-select   : none;
+    pointer-events: none;
+    position      : absolute;
+    display       : none;
+    opacity       : 0
+}
+
+[tooltip]::before {
+    content: '';
+    border : 5px solid transparent;
+    z-index: 1001
+}
+
+[tooltip]::after {
+    content      : attr(tooltip);
+    font-family  : Helvetica, sans-serif;
+    text-align   : center;
+    min-width    : 3em;
+    max-width    : 21em;
+    white-space  : nowrap;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    padding      : 1ch 2ch;
+    border-radius: 100px;
+    box-shadow   : 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+    background   : #333;
+    color        : #fff;
+    z-index      : 1000
+}
+
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+    display: block
+}
+
+[tooltip='']::before,
+[tooltip='']::after {
+    display: none !important
+}
+
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+    bottom             : 100%;
+    border-bottom-width: 0;
+    border-top-color   : #333
+}
+
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+    bottom: calc(100% + 5px)
+}
+
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+    left     : 50%;
+    transform: translate(-50%, -0.5em)
+}
+
+@keyframes tooltips-vert {
+    to {
+        opacity  : .9;
+        transform: translate(-50%, 0)
+    }
+}
+
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after {
+    animation: tooltips-vert 300ms ease-out forwards
+}
+
+.notification {
+    position       : relative;
+    opacity        : 0;
+    animation      : notification 0.5s forwards ease-in;
+    animation-delay: 0.1s
+}
+
+@keyframes notification {
+    100% {
+        opacity: 1
+    }
+}
+
+.tag-grid {
+    grid-template-columns: repeat(3, minmax(max-content, 1fr))
+}
+
+@media (min-width: 640px) {
+    .tag-grid {
+        grid-template-columns: repeat(4, minmax(max-content, 1fr))
+    }
+}
+
+@media (min-width: 768px) {
+    .tag-grid {
+        grid-template-columns: repeat(7, minmax(max-content, 1fr))
+    }
+}
+
+#page-container.imprint h4 {
+    padding-top: 2rem
+}
+
+#page-container.imprint p {
+    padding: .5rem 0
+}
+
+#page-container content p {
+    padding-top: 1.8rem;
+    color      : #6c6c6c;
+}
+
+#page-container content strong {
+    color: #353535;
+}
+
+#page-container content a:hover {
+    opacity                   : .5;
+    transition-duration       : 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+#page-container content a {
+    --text-opacity     : 1;
+    color              : #667eea;
+    color              : rgba(102, 126, 234, var(--text-opacity));
+    text-decoration    : inherit;
+    background-color   : transparent;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
+}
+
+#page-container content a strong {
+    --text-opacity: 1;
+    color         : #667eea;
+    color         : rgba(102, 126, 234, var(--text-opacity))
+}
+
+#page-container content h2 {
+    font-size  : 1.875rem;
+    padding-top: 4rem;
+    font-weight: 800;
+    color      : #353535;
+}
+
+#page-container content h3 {
+    font-size  : 1.2rem;
+    padding-top: 1rem;
+    font-weight: 800;
+    color      : #353535;
+}
+
+#page-container content h4 {
+    font-size  : 1.1rem;
+    padding    : 0.5rem 0;
+    font-weight: 500;
+    color      : #353535;
+}
+
+#page-container content h5 {
+    font-size  : 1.1rem;
+    padding-top: 1.25rem;
+    font-weight: 500;
+    color      : #353535;
+}
+
+
+#page-container content pre {
+    padding         : 16px;
+    overflow        : auto;
+    font-size       : 10%;
+    line-height     : 1.45;
+    background-color: #f7f7f7;
+    border-radius   : 3px;
+    padding-top     : 1rem;
+    display         : flex;
+
+}
+
+#page-container content div .highlighter-rouge {
+    padding-top: 1rem;
+}
+
+#page-container content pre code {
+    background-color: transparent;
+    padding-left    : 0;
+    padding-right   : 0;
+    color           : black;
+    font-size       : 0.8rem;
+    font-weight     : 500;
+    max-width       : 5rem;
+    display         : inline;
+}
+
+#page-container content hr {
+    margin-top   : 1rem;
+    margin-bottom: 1rem;
+}
+
+#page-container content table {
+    margin-top   : 2.25rem;
+    margin-bottom: 3.25rem;
+    width        : 100%;
+}
+
+#page-container content table thead {
+    font-size  : 0.9rem;
+    padding-top: 1.25rem;
+    font-weight: 500;
+    color      : #353535;
+}
+
+#page-container content table thead tr th {
+    text-align: left !important;
+}
+
+#page-container content table thead tr th:first-child {
+    /* I did this becuase in the md file there is "text-align: right" but we want it on the left */
+    text-align: left !important;
+}
+
+#page-container content table thead tr th:last-child {
+    padding-left: .925rem;
+}
+
+#page-container content table tbody {}
+
+#page-container content table tbody tr {
+
+    box-sizing  : border-box;
+    border-style: solid;
+    border-color: transparent;
+
+    border-bottom-width: 1px;
+    border-bottom-color: #e5e7eb;
+}
+
+/* I did this becuase in the md file there is "text-align: right" but we want it on the left */
+#page-container content table tbody td {
+    text-align: left !important;
+}
+
+
+#page-container content table tbody td:first-child {}
+
+#page-container content table tbody tr>td {
+    padding-top   : 1rem;
+    padding-bottom: 1rem;
+}
+
+#page-container content table tbody tr td:first-child {}
+
+#page-container content table tbody tr td:last-child {}
+
+#page-container content table tbody td:first-child span {
+    margin-right: .5rem;
+}
+
+
+
+.setting-badge {
+    font-size       : .8rem;
+    color           : #2c5282;
+    padding-left    : .65rem;
+    padding-right   : .65rem;
+    padding-top     : .2rem;
+    padding-bottom  : .2rem;
+    line-height     : 1.25rem;
+    font-weight     : 500;
+    align-items     : center;
+    display         : inline-flex;
+    border-radius   : 9999px;
+    background-color: #ebf8ff;
+    width           : max-content;
+    vertical-align  : super;
+}
+
+
+#page-container content #markdown-toc {
+    padding-bottom: 2rem;
+}
+
+#page-container content table tbody td:last-child {
+    color       : #6c6c6c;
+    font-size   : 0.9rem;
+    padding-left: .925rem;
+}
+
+#page-container content pre code::after {
+    content: none;
+}
+
+#page-container content pre code::before {
+    content: none;
+}
+
+#page-container content code {
+    color      : #667eea;
+    font-weight: 500;
+    font-size  : .875rem;
+}
+
+#page-container content code::after {
+    content: "`";
+}
+
+#page-container content code::before {
+    content: "`";
+}
+
+#page-container content ul {
+    padding-top: 2rem
+}
+
+#page-container content ul li {
+    padding-top: 0.4rem
+}
+
+#page-container content .content {}
+
+
+#page-container content .content ul {
+    padding-top    : 1.25rem;
+    padding-bottom : 1.25rem;
+    padding-left   : 1.85rem;
+    list-style-type: disc;
+
+    color: #6c6c6c;
+}
+
+#page-container content .content ul li {
+    padding-left: .25rem;
+}
+
+#page-container content .content ul li ul {
+    padding-top    : 0.05rem;
+    padding-left   : 1.25rem;
+    list-style-type: disc;
+    color          : #6c6c6c;
+}
+
+#page-container content .content ol {
+    padding-top    : 0.1rem;
+    list-style-type: decimal;
+    padding-left   : 1rem;
+    color          : #6c6c6c;
+}
+
+#page-container content .content blockquote {
+    padding-left : 1rem;
+    margin-top   : 1.55rem;
+    margin-bottom: 1.55rem;
+    margin-left  : 1rem;
+    color        : black;
+    opacity      : 1;
+    border-left  : 4px solid #ddd;
+}
+
+#page-container content .content em {
+    font-weight: 500;
+}
+
+#page-container content .content .settingslist {
+    padding-top: 2.5rem;
+}
+
+#page-container content .content .settingslist .setting h5 {
+    display: flex;
+}
+
+#page-container content .content .settingslist .setting h5 a {
+    align-self: end;
+    opacity   : .5;
+}
+
+#page-container content .content .settingslist .setting h5 a:hover {
+    opacity: 1;
+}
+
+#page-container content .content .settingslist .setting h5 a img {
+    width       : 1.4rem;
+    margin-right: 0.5rem;
+}
+
+#page-container content .content .settingslist .setting h5 small {
+    display     : block;
+    padding-left: 1rem;
+}
+
+#page-container content .content .settingslist .setting h5 small span {
+    font-size       : .8rem;
+    color           : #2c5282;
+    padding-left    : .65rem;
+    padding-right   : .65rem;
+    padding-top     : .2rem;
+    padding-bottom  : .2rem;
+    margin-right    : .5rem;
+    line-height     : 1.25rem;
+    font-weight     : 500;
+    align-items     : center;
+    display         : inline-flex;
+    border-radius   : 9999px;
+    background-color: #ebf8ff;
+}
+
+#page-container content .content .settingslist .values {
+    padding         : 16px;
+    font-size       : 90%;
+    line-height     : 1.45;
+    background-color: #f7f7f7;
+    border-radius   : 3px;
+    color           : black;
+    font-weight     : 400;
+
+}
+
+#page-container content .content .settingslist .values code {
+    background-color: transparent;
+    padding-left    : 0;
+    padding-right   : 0;
+    color           : #667eea;
+    font-weight     : 500;
+    font-size       : .9rem;
+}
+
+#page-container content .content .settingslist .values code::after {
+    content: "";
+}
+
+#page-container content .content .settingslist .values code::before {
+    content: "";
+}
+
+#page-container content .content p {
+    padding: 0.5rem 0
+}
+
+#page-container content .content p img {
+    --transform-translate-x: 0;
+    --transform-translate-y: 0;
+    --transform-rotate     : 0;
+    --transform-skew-x     : 0;
+    --transform-skew-y     : 0;
+    --transform-scale-x    : 1.1;
+    --transform-scale-y    : 1.1;
+    transform              : translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    box-shadow             : 0 0px 90px 0 rgba(59, 93, 199, 0.1), 0 0px 5px 0 transparent;
+    margin-top             : 5rem;
+    max-width              : 100%;
+    height                 : auto;
+    border-radius          : .375rem;
+    display                : block;
+    margin-bottom          : 4rem;
+    margin-top             : 5rem
+}
+
+a[title="Go to Portmaster"] {
+    opacity    : 1 !important;
+    font-size  : 1rem;
+    font-weight: 500;
+}
+
+.active {
+    text-decoration-line: underline;
+}
+
+
+.notification-warring {
+    font-size       : .85rem;
+    background-color: #5c85ff;
+    width           : fit-content;
+    width           : -moz-fit-content;
+    overflow-wrap   : break-word;
+    color           : #fff;
+    padding-left    : 1.25rem;
+    padding         : 1.25rem;
+    margin-bottom   : 1.25rem;
+    margin-top      : 1.25rem;
+    display         : flex;
+    border-radius   : .375rem;
+    width           : 100%;
+}
+
+.notification-warring img {
+    width       : 1rem;
+    margin-right: 1.25rem;
+    height      : 1rem;
+    align-self  : center;
+    max-width   : 100%;
+    display     : block;
+    border-style: solid;
+}
+
+.notification-warring a {
+    color          : white !important;
+    padding-left   : .25rem;
+    padding-right  : .25rem;
+    text-decoration: underline !important;
+}
+
+.notification-warring a:hover {
+    opacity                   : .5;
+    transition-duration       : 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#page-container content .content .externalref {
+    display: unset;
+}
+
+#page-container content .content .externalref span img {
+    width         : 1.1rem;
+    display       : inline;
+    margin-bottom : 0;
+    margin-top    : 0;
+    padding-bottom: 3px;
+    height        : 1rem;
+    margin-left   : -0.5rem;
+}
+
+#page-container content .content .settingsref span {
+    display: unset;
+}
+
+#page-container content .content .settingsref span img {
+    width         : 1rem;
+    display       : inline;
+    margin-bottom : 0;
+    margin-top    : 0;
+    padding-bottom: 3px;
+
+}
+
+#page-container content .content .coderef {}
+
+#page-container content .content .coderef div {
+    display         : flex;
+    background-color: transparent;
+    border          : 1px solid #d7d7d7;
+    margin-bottom   : 1rem;
+    padding         : 1rem;
+    border-radius   : 0.25rem;
+}
+
+#page-container content .content .coderef div div {
+    border          : transparent;
+    background-color: transparent;
+    margin-bottom   : 0;
+    padding         : 0;
+    padding-left    : 2rem;
+}
+
+#page-container content .content .coderef div div a {
+    font-size    : 0.9rem;
+    padding-right: .65rem;
+}
+
+#page-container content .content .coderef div div a span img {
+    height: 0.8rem;
+}
+
+/* this works, but it's fucking horrible.. */
+.nav-sidebar .page-item {
+    padding: 0.45rem;
+}
+
+.nav-sidebar .page-item a {
+    opacity: .55;
+}
+
+.nav-sidebar .page-item a:hover {
+    opacity: 1;
+}
+
+.nav-sidebar .page-item .active a {
+    color      : black;
+    opacity    : 1;
+    font-weight: bold;
+}
+
+.nav-sidebar .page-item .active ul li.page-item a {
+    color      : black;
+    opacity    : .55;
+    font-weight: 500;
+}
+
+.nav-sidebar .page-item .active ul li.page-item a:hover {
+    opacity: 1;
+}
