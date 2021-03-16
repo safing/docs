@@ -3,6 +3,14 @@ title: DNS Configuration
 layout: base
 ---
 
+<a class="externalref" href="">
+  <span>
+    DNS Servers
+    &nbsp;
+    <img src="/assets/img/icons/external.svg">
+  </span>
+</a>
+
 You can set the {% include setting/ref.html key="dns/nameservers" %} setting to a list of servers that you would like to use.
 By default, only the first server in the list will be used, unless it fails or does not meet other configured requirements. 
 
