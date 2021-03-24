@@ -29,7 +29,7 @@ The Portmaster Core Service is registered as a system service that starts automa
 
 **Before version 0.6.7**, the Installer deactivated the system's DNS Cache Service in order to gain system integration for the Portmaster. This did break/impair some other software that depend on special functionality of said service. Since then we implemented a better approach for more stable system integration which you can [read all about in this devlog](https://safing.io/blog/2021/03/23/attributing-dns-requests-on-windows/)
 
-The deactivation of the system's DNS Cache Service was done by setting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Dnscache` -> `Start` from `2` to `4` and rebooting. Updating the Portmaster to [0.6.7](https://github.com/safing/portmaster/releases/tag/v0.6.7) will revert this change accordingly while any new downloads will not touch the registry key at all.
+The deactivation of the system's DNS Cache Service was done by setting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Dnscache` -> `Start` from `2` to `4` and rebooting. Updating the Portmaster to [0.6.7](https://github.com/safing/portmaster/releases/tag/v0.6.7) will revert this change accordingly while any new installs will not touch the registry key at all.
 
 #### Uninstalling
 
