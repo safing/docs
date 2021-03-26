@@ -1,94 +1,67 @@
-{% comment %}
-<small class="coderef inlineref">{% for source in include %}{% if source[0] contains "github" %}{% if source[0] contains "portbase" %}<a target="_blank" href="{{ site.github_ref_base_url }}/portbase/tree/master/{{ source[1] }}">{% elsif source[0] contains "portmaster" %}<a target="_blank" href="{{ site.github_ref_base_url }}/portmaster/tree/master/{{ source[1] }}">{% elsif source[0] contains "spn" %}<a target="_blank" href="{{ site.github_ref_base_url }}/spn/tree/master/{{ source[1] }}">{% else %}<a target="_blank" href="{{ site.github_ref_base_url }}/{{ source[1] }}">{% endif %}<span><i class="fa fa-code"></i>&nbsp;{{ source[1] }}</span></a>{% elsif source[0] contains "godoc" %}{% if source[0] contains "portbase" %}<a target="_blank" href="{{ site.godoc_ref_base_url }}/portbase/{{ source[1] }}">{% elsif source[0] contains "portmaster" %}<a target="_blank" href="{{ site.godoc_ref_base_url }}/portmaster/{{ source[1] }}">{% elsif source[0] contains "spn" %}<a target="_blank" href="{{ site.godoc_ref_base_url }}/spn/{{ source[1] }}">{% else %}<a target="_blank" href="{{ site.godoc_ref_base_url }}/{{ source[1] }}">{% endif %}<span><i class="fa fa-book"></i>&nbsp;{{ source[1] }}</span></a>{% else %}<a target="_blank" href="{{ source[1] }}"><span><i class="fa fa-link"></i>&nbsp;{{ source[0] }}</span></a>{% endif %}{% endfor %}</small>
-{% endcomment %}
+<!-- <small></small>:  when using <small> you have to have it in 1 line else it will break your code -->
+<div class="coderef inlineref">
+  {% assign go_docs_links = false %}
+  {% assign source_code_links = false %}
 
-{% comment %}
-For some reason this include has to be in one line to work.
-<small class="coderef inlineref">
-  {% for source in include %}
-    {% if source[0] contains "github" %}
-
-      {% if source[0] contains "portbase" %}
-        <a target="_blank" href="{{ site.github_ref_base_url }}/portbase/tree/master/{{ source[1] }}">
-      {% elsif source[0] contains "portmaster" %}
-        <a target="_blank" href="{{ site.github_ref_base_url }}/portmaster/tree/master/{{ source[1] }}">
-      {% elsif source[0] contains "spn" %}
-        <a target="_blank" href="{{ site.github_ref_base_url }}/spn/tree/master/{{ source[1] }}">
-      {% else %}
-        <a target="_blank" href="{{ site.github_ref_base_url }}/{{ source[1] }}">
-      {% endif %}
-          <span>
-            <i class="fa fa-code"></i>
-              &nbsp;
-            {{ source[1] }}
-          </span>
-        </a>
-
-    {% elsif source[0] contains "godoc" %}
-
-      {% if source[0] contains "portbase" %}
-        <a target="_blank" href="{{ site.godoc_ref_base_url }}/portbase/{{ source[1] }}">
-      {% elsif source[0] contains "portmaster" %}
-        <a target="_blank" href="{{ site.godoc_ref_base_url }}/portmaster/{{ source[1] }}">
-      {% elsif source[0] contains "spn" %}
-        <a target="_blank" href="{{ site.godoc_ref_base_url }}/spn/{{ source[1] }}">
-      {% else %}
-        <a target="_blank" href="{{ site.godoc_ref_base_url }}/{{ source[1] }}">
-      {% endif %}
-        <span>
-          <i class="fa fa-book"></i>
-            &nbsp;
-          {{ source[1] }}
-        </span>
-      </a>
-
-    {% else %}
-
-      <a target="_blank" href="{{ source[1] }}">
-        <span>
-          <i class="fa fa-link"></i>
-            &nbsp;
-          {{ source[0] }}
-        </span>
-      </a>
-
+  {% for test in include %}
+    {% if test[0] contains "github" %}
+      {% assign source_code_links = true %}
+    {% endif %}
+    {% if test[0] contains "godoc" %}
+      {% assign go_docs_links = true %}
     {% endif %}
   {% endfor %}
-</small>
-{% endcomment %}
 
- <!-- <small></small>:  when using <small> you have to have it in 1 line else it will break your code -->
-
-<div class="coderef inlineref">
-  <div>
-    <span>Golang Docs</span>
-    <div>
-      <a class="externalref" href="">
-        <span>
-          modules
-          &nbsp;
-          <img src="/assets/img/icons/external.svg">
-        </span>
-      </a>
-    </div>
-  </div>
+  {% if source_code_links == true %}
   <div>
     <span>Source Code</span>
     <div>
-      <a class="externalref" href="">
-        <span>
-          modules/subsystems
-          &nbsp;
-          <img src="/assets/img/icons/external.svg">
-        </span>
-      </a>
-      <a class="externalref" href="">
-        <span>
-          modules/subsystems
-          &nbsp;
-          <img src="/assets/img/icons/external.svg">
-        </span>
-      </a>
+    {% for source in include %}
+      {% if source[0] contains "github" %}
+        {% if source[0] contains "portbase" %}
+          <a class="externalref" target="_blank" href="{{ site.github_ref_base_url }}/portbase/tree/master/{{ source[1] }}">
+        {% elsif source[0] contains "portmaster" %}
+          <a class="externalref" target="_blank" href="{{ site.github_ref_base_url }}/portmaster/tree/master/{{ source[1] }}">
+        {% elsif source[0] contains "spn" %}
+          <a class="externalref" target="_blank" href="{{ site.github_ref_base_url }}/spn/tree/master/{{ source[1] }}">
+        {% else %}
+          <a class="externalref" target="_blank" href="{{ site.github_ref_base_url }}/{{ source[1] }}">
+        {% endif %}
+            <span>
+              {{ source[1] }}
+              &nbsp;
+              <img src="/assets/img/icons/external.svg">
+            </span>
+          </a>
+      {% endif %}
+    {% endfor %}
     </div>
   </div>
+  {% endif %}
+  {% if go_docs_links == true %}
+  <div>
+    <span>Golang Docs</span>
+    <div>
+    {% for source in include %}
+      {% if source[0] contains "godoc" %}
+        {% if source[0] contains "portbase" %}
+          <a class="externalref" target="_blank" href="{{ site.godoc_ref_base_url }}/portbase/{{ source[1] }}">
+        {% elsif source[0] contains "portmaster" %}
+          <a class="externalref" target="_blank" href="{{ site.godoc_ref_base_url }}/portmaster/{{ source[1] }}">
+        {% elsif source[0] contains "spn" %}
+          <a class="externalref" target="_blank" href="{{ site.godoc_ref_base_url }}/spn/{{ source[1] }}">
+        {% else %}
+          <a class="externalref" target="_blank" href="{{ site.godoc_ref_base_url }}/{{ source[1] }}">
+        {% endif %}
+          <span>
+            {{ source[1] }}
+            &nbsp;
+            <img src="/assets/img/icons/external.svg">
+          </span>
+        </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 </div>
