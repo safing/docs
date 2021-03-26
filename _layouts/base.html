@@ -40,7 +40,7 @@ title: Safing Docs
               </h1>
             </div>
             {% unless page.skip_toc == true %}
-              {% include toc.html html=content ordered=true id="markdown-toc" %}
+              {% include toc.html html=content ordered=true id="markdown-toc" h_max=5 %}
             {% endunless %}
             {{ content }}
           </div>
