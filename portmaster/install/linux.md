@@ -52,7 +52,7 @@ Dependencies:
 
 ---
 
-__Debian/Ubuntu__
+###### Debian/Ubuntu
 
 ```
 sudo apt install libnetfilter-queue1 libappindicator3-1
@@ -63,13 +63,13 @@ sudo apt install libnetfilter-queue1 libappindicator3-1
   You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
 </div>
 
-__Fedora__
+###### Fedora
 
 ```
 sudo yum install libnetfilter_queue
 ```
 
-__Arch__
+###### Arch
 
 ```
 sudo pacman -S libnetfilter_queue libappindicator-gtk3

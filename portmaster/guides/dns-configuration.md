@@ -23,17 +23,17 @@ protocol://ip:port?parameter=value&parameter=value
 
 These are the possible values:
 
-**Protocols**
+###### Protocols
 
   - `dot`: DNS-over-TLS (recommended)
   - `dns`: plain DNS
   - `tcp`: plain DNS over TCP
 
-**IP**
+###### IP
 
 DNS Server configurations **must** use the server IP address instead of it's hostname. Using a domain is not possible because there is no guarantee that there is another DNS Server available to resolve that domain.
 
-**Port**
+###### Port
 
 You must specify the server port if non-standard.
 
@@ -43,7 +43,7 @@ The standard ports are:
   - `dns`: 53
   - `tcp`: 53
 
-**Parameters**
+###### Parameters
 
 A DNS server configuration URL might have one or more the the following parameters configured.
 

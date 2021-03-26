@@ -31,11 +31,11 @@ The uninstaller reverts all steps mentioned above and also requires a reboot aft
 
 #### Known Issues
 
-**Notifications are not working on Windows 7 and 8.**
+###### Notifications are not working on Windows 7 and 8.
 
 Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "prompt" action as a default when running on Windows 7 or 8.
 
-**Portmaster fails to restart**
+###### Portmaster fails to restart
 
 In some cases the Portmaster will fail to restart, because the Portmaster Kernel Extensions cannot be loaded and returns the error code 0x422.
 This stems from a known issue in Windows, where system services are not completely removed when something is monitoring the system services.
@@ -63,6 +63,6 @@ _Quoting from <https://stackoverflow.com/a/20565337>_
 >
 >  1. An instance of Visual Studio *used to debug the service* is open.
 
-**Portmaster Core does not start at boot**
+###### Portmaster Core does not start at boot
 
 While we haven't experienced this in a while, it might just happen that the Portmaster will not start at boot, although it is configured to do so. If that is the case, you can check its status in the "Services" Desktop App. There, search for the Service "Portmaster Core" and inspect and start it as needed.

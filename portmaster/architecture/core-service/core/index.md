@@ -17,7 +17,7 @@ Changes to settings go into effect immediately, unless otherwise noted.
 
 Every configuration item is categorized via two attributes. This enables the Portmaster UI to easily filter settings based on user preference. A user can hide advanced settings for more simplicity or show them for more control. The two attributes are:
 
-**(1) User Interface Mode**
+###### (1) User Interface Mode
 
 Indicates the technical complexity of a setting. The possible values are:
 
@@ -29,7 +29,7 @@ Note: When complex settings are hidden, their configuration still stay in affect
 
 Note: In the code the "UI Mode" is called `ExpertiseLevel`.
 
-**(2) Feature Stability**
+###### (2) Feature Stability
 
 Indicates the stability of a setting, or rather stability of the feature/functionality controlled by the setting. The possible values are:
 

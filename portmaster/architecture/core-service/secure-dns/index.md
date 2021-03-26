@@ -25,14 +25,14 @@ If you want to know how we choose our default providers, read [How Safing Select
 
 Here is how the Portmaster decides where to send dns queries in order to achieve maximum privacy and interoperability:
 
-__Environmental Domains__
+###### Environmental Domains
 
 Queries within the environmental special domain scopes are directly handled by the Portmaster in order to expose network environment information. For example, your router can always be reached at `router.local.17.home.arpa`.
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:internalSpecialUseDomains" scope=true %}
 
-__Connectivity Domains__
+###### Connectivity Domains
 
 Operating Systems and other software such as browsers use special domains to determine whether they are online and to check whether they are being kept captive by a portal, such as a welcome page on a public WiFi network.
 
@@ -41,27 +41,27 @@ In order to guarantee that these work properly, the Portmaster always sends them
 The connectivity domains the Portmaster knows about are:
 {% include setting/annotation-domainlist.html key="self:detail:connectivityDomains" %}
 
-__Search Scopes__
+###### Search Scopes
 
 Some networks use an internal domain name for addressing devices in them. These search domains are configured per DNS Server. If the Portmaster detects a query for a domain that is part of such a search domain, it will prioritize DNS Servers that advertise a matching search domain. The Portmaster will not respect search domains that go higher than the public suffix - eg. a `.com` search scope will not be taken into account.
 
 The domain scopes affected by this horizon are dependent on the current network environment. Also, DNS Server selection by this horizon is not final, the selection continues.
 
-__Multicast Domains__
+###### Multicast Domains
 
 There are certain domain names that by definition should be resolved not by a DNS Server, but all devices on the network should be queried at once by using a multicast request. If that does not result in an answer, the Portmaster will also try DNS Servers on the LAN and System/Network assigned ones.
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:multicastDomains" scope=true %}
 
-__Private and Special Use Domains__
+###### Private and Special Use Domains
 
 Another set of domains are set aside to be used in private networks. The Portmaster queries DNS Servers on the LAN and System/Network assigned ones for these.
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:specialUseDomains" scope=true %}
 
-__Special Services Domains__
+###### Special Services Domains
 
 There are special services on the Internet that use a top level domain without actually using the DNS system. Rather, the domains are resolved using special mechanisms or servers. They usually cannot be resolved via public DNS Servers.
 
@@ -72,7 +72,7 @@ Please be aware that accessing these domains comes with a higher security risk s
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:specialServiceDomains" scope=true %}
 
-__Global Domains__
+###### Global Domains
 
 Everything else will be resolved by the resolvers configured in the Portmaster, while using the System/Network assigned ones as a final fallback.
 

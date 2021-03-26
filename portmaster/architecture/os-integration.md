@@ -80,14 +80,14 @@ Portmaster accepts all packets, but marks the whole connection to be accepted/dr
 
 Here are the rules that Portmaster injects for both IPv4 and IPv6:
 
-__Chains__
+###### Chains
 ```
 mangle: C170
 mangle: C171
 filter: C17
 ```
 
-__Rules in own chains__
+###### Rules in own chains
 ```
 mangle C170 -j CONNMARK --restore-mark
 mangle C170 -m mark --mark 0 -j NFQUEUE --queue-num {17040|17060} --queue-bypass
@@ -108,7 +108,7 @@ filter C17 -m mark --mark 1712 -j DROP
 filter C17 -m mark --mark 1717 -j ACCEPT
 ```
 
-__Rules in main chains__
+###### Rules in main chains
 ```
 mangle OUTPUT -j C170
 mangle INPUT -j C171

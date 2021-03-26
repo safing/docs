@@ -13,12 +13,12 @@ You can always [see what we are currently working on](https://safing.io/next/) a
 
 #### Android
 
-__Technical__
+###### Technical
 
 We did a feasibility analysis in 2020 and came to the conclusion that it is feasible to bring the Portmaster to Android.
 We did not have time to look at all the details so we do not know yet if every single feature will make it, but it likely the main bulk of features will be portable.
 
-__Distribution__
+###### Distribution
 
 The Portmaster will put you back in control of your mobile phone and all of its network connections.
 We think that this might be against the interests of Google, and the Play store has banned ad blockers in the past.
@@ -27,11 +27,11 @@ This means that the Portmaster will likely only be available via alternative app
 
 #### iOS
 
-__Technical__
+###### Technical
 
 We have not yet investigated how to bring the Portmaster to iOS. Looking at the similarities of both Android and iOS, this might be feasible without jailbreak.
 
-__Distribution__
+###### Distribution
 
 The Portmaster would put you back in control of your mobile phone and all of its network connections.
 We think that this might be against the interests of Apple, and they have banned ad blockers in the past.
