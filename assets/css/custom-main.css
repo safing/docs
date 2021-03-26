@@ -681,7 +681,7 @@ input:checked~.tab-content {
 }
 
 #page-container content code {
-    color      : #667eea;
+    color      : #ba00bf;
     font-weight: 500;
     font-size  : .875rem;
 }
@@ -804,7 +804,7 @@ input:checked~.tab-content {
     background-color: transparent;
     padding-left    : 0;
     padding-right   : 0;
-    color           : #667eea;
+    color           : #ba00bf;
     font-weight     : 500;
     font-size       : .9rem;
 }
