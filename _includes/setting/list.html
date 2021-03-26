@@ -97,7 +97,10 @@
         Possible Values:
         <ul>
           {% for value in option.PossibleValues %}
-          <li {% if value.Value == option.DefaultValue %}class="default"{% endif %}>
+          <li>
+            {% if value.Value == option.DefaultValue %}
+            <strong><small>Default:</small></strong>
+            {% endif %}
             <strong>{{ value.Name }}</strong>
             {% if include.dev %}
               (
