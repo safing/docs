@@ -34,7 +34,6 @@ Queries within the environmental special domain scopes are directly handled by t
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:internalSpecialUseDomains" scope=true %}
-<br>
 
 __Connectivity Domains__
 
@@ -44,7 +43,6 @@ In order to guarantee that these work properly, the Portmaster always sends them
 
 The connectivity domains the Portmaster knows about are:
 {% include setting/annotation-domainlist.html key="self:detail:connectivityDomains" %}
-<br>
 
 __Search Scopes__
 
@@ -58,7 +56,6 @@ There are certain domain names that by definition should be resolved not by a DN
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:multicastDomains" scope=true %}
-<br>
 
 __Private and Special Use Domains__
 
@@ -66,7 +63,6 @@ Another set of domains are set aside to be used in private networks. The Portmas
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:specialUseDomains" scope=true %}
-<br>
 
 __Special Services Domains__
 
@@ -78,7 +74,6 @@ Please be aware that accessing these domains comes with a higher security risk s
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:specialServiceDomains" scope=true %}
-<br>
 
 __Global Domains__
 

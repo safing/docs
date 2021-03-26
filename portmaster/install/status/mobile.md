@@ -6,8 +6,6 @@ layout: base
 1. Numbered
 {:toc}
 
-<br/>
-
 This page gives an overview over the current status of supporting mobile platforms.
 
 **⚠️ The Portmaster is currently not available for any mobile platforms.**

@@ -12,7 +12,7 @@ layout: base
 </a>
 
 You can set the {% include setting/ref.html key="dns/nameservers" %} setting to a list of servers that you would like to use.
-By default, only the first server in the list will be used, unless it fails or does not meet other configured requirements. 
+By default, only the first server in the list will be used, unless it fails or does not meet other configured requirements.
 
 DNS servers are configured using an URL scheme, the format is:
 
@@ -28,8 +28,6 @@ These are the possible values:
   - `dns`: plain DNS
   - `tcp`: plain DNS over TCP
 
-<p></p> <!-- TODO: Fix spacing in CSS instead -->
-
 **IP**
 
 DNS Server configurations **must** use the server IP address instead of it's hostname. Using a domain is not possible because there is no guarantee that there is another DNS Server available to resolve that domain.
@@ -43,8 +41,6 @@ The standard ports are:
   - `dot`: 853
   - `dns`: 53
   - `tcp`: 53
-
-<p></p> <!-- TODO: Fix spacing in CSS instead -->
 
 **Parameters**
 
@@ -136,5 +132,3 @@ dot://[2606:4700:4700::1003]:853?verify=cloudflare-dns.com&name=Cloudflare&block
 
 - [How Safing Selects its Default DNS Providers](https://safing.io/blog/2020/07/07/how-safing-selects-its-default-dns-providers/)
 - [We Are Updating Portmaster's Default DNS Servers](https://safing.io/blog/2020/07/07/we-are-updating-portmasters-default-dns-servers/)
-
-<p></p> <!-- TODO: Fix spacing in CSS instead -->

@@ -5,8 +5,6 @@ layout: base
 1. Numbered
 {:toc}
 
-<br/>
-
 Overall, the Portmaster is compatible with VPNs. Here we describe what to look out for and known issues with special VPN software.
 
 You can look through the [main GitHub VPN Compatibility issue](https://github.com/safing/portmaster/issues/160) for more information.

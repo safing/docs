@@ -6,8 +6,6 @@ layout: base
 1. Numbered
 {:toc}
 
-<br/>
-
 Thanks for being willing to participate. Your contributions will have the highest impact when aligned with Safing's current goals and focus. As a result, these are the current scopes where we are super thankful for your participation:
 
 ### Use the Portmaster: Report Bugs, Suggest Features

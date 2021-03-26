@@ -73,13 +73,9 @@
     </h5>
 
     <!-- Explanation -->
-    <p>
-      {{ option.Description | markdownify }}
-    </p>
+    {{ option.Description | markdownify }}
     {% if include.manual and site.data.config-manual[option.Key] %}
-    <p>
       {{ site.data.config-manual[option.Key].manual | markdownify }}
-    </p>
     {% endif %}
 
     {% assign hide_default = false %}

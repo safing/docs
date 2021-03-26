@@ -52,8 +52,6 @@ Processes are prevented from bypassing the Portmaster. This includes:
 - Notifying Firefox that it should not use its own DNS-over-HTTPS resolver, but fall back to plain DNS, which the Portmaster then handles.
 - Blocking known domains and IPs of DoH and DoT nameservers.
 
-<br/>
-
 **Filter Lists**  
 Blocks connection if the domain is listed on an activated filter list.
 

@@ -6,8 +6,6 @@ layout: base
 1. Numbered
 {:toc}
 
-<br/>
-
 This page covers how to install and uninstall the Portmaster on Linux.
 
 #### Installers
@@ -67,7 +65,6 @@ sudo apt install libnetfilter-queue1 libappindicator3-1
   <img src="{{ site.img_url }}icons/info.svg">
   You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
 </div>
-
 
 __Fedora__
 

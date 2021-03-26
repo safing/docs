@@ -17,8 +17,4 @@ This page lists all settings of the Portmaster.
 |<span class="setting-badge dev"><i class="fa fa-flask"></i> Experimental</span>|Setting is meant for experiments and debugging. Be careful, you could break things!|
 |<span class="setting-badge key"><i class="fa fa-code"></i> setting/key</span>|Internal identifier of the setting. These are also used as anchors in order to directly link to a setting on this page.|
 
----
-
 {% include setting/list.html prefix="" expertise=2 release=2 manual=true dev=true %}
-
-<p></p> <!-- TODO: Fix spacing in CSS instead -->
