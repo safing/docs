@@ -3,9 +3,6 @@ title: Privacy Filter
 layout: base
 ---
 
-1. TOC
-{:toc}
-
 ##### Privacy Filter
 
 {% include code_ref.html godoc_portmaster="firewall" github_portmaster="firewall/master.go" %}

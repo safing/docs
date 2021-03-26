@@ -1,6 +1,7 @@
 ---
 title: DNS Configuration
 layout: base
+skip_toc: true
 ---
 
 <a class="externalref" href="">

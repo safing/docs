@@ -15,7 +15,7 @@ title: Safing Docs
 
     <!-- side-navbar -->
     {% include navbar.html %}
-    
+
     <!-- content -->
     <div class="lg:ml-16 lg:mr-56" style="width: 65%; max-width: -moz-fit-content;">
       <div id="page-container">
@@ -39,6 +39,9 @@ title: Safing Docs
                 {% endif %}
               </h1>
             </div>
+            {% unless page.skip_toc == true %}
+              {% include toc.html html=content ordered=true id="markdown-toc" %}
+            {% endunless %}
             {{ content }}
           </div>
         </content>

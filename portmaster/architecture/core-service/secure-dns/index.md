@@ -3,9 +3,6 @@ title: Secure DNS
 layout: base
 ---
 
-1. TOC
-{:toc}
-
 ##### Secure DNS Resolver
 
 {% include code_ref.html godoc_portmaster="resolver" %}

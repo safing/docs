@@ -6,16 +6,13 @@ code_ref:
   github-portmaster-2: process
 ---
 
-1. Numbered
-{:toc}
-
 ## General
 
 This page covers all the OS integration, including the SPN.
 
 ## Windows
 
-##### Kernel Extension
+### Kernel Extension
 
 The Windows kernel-mode driver provides the Portmaster with a high performance OS integration.
 It provides an internal caching for best performance and lets the Portmaster do all the decision making.
@@ -58,7 +55,7 @@ This is how packets are handled:
 7.  The Portmaster Kernel Extension holds intercepted packet in a packet cache until the verdict is set.
 8.  If the packet cache is full, the oldest packet will be dropped, so that the newest packet can be stored.
 
-##### The Windows DNS Client
+### The Windows DNS Client
 
 Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache` to resolve queries for applications.
 Queries that are made through this service cannot be linked to the original application that started the request. This is why the Portmaster tries to stop the service when starting.
@@ -73,7 +70,7 @@ Please note that disabling this service is safe, as its primary function is a DN
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue
+### iptables with nfqueue
 
 {% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
 
@@ -140,12 +137,12 @@ __Explanation of Connmark Numbers__
 1799 Reroute to nameserver (for astray DNS queries)
 ```
 
-##### Kernel Module
+### Kernel Module
 
 We plan to provide an alternative to the `iptables` integration by writing a kernel module to handle the needed packet interception in the future.
 Depending on the performance and stability of the `iptables` integration, this will be tackled sooner or later.
 
-##### proc/net
+### proc/net
 
 {% include code_ref.html godoc-portmaster="process/proc" %}
 

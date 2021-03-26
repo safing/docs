@@ -3,9 +3,6 @@ title: Core
 layout: base
 ---
 
-1. TOC
-{:toc}
-
 ##### Configuration
 
 {% include code_ref.html godoc_portbase="config" %}

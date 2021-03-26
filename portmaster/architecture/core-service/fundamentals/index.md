@@ -3,9 +3,6 @@ title: Fundamentals
 layout: base
 ---
 
-1. TOC
-{:toc}
-
 ##### Module Management
 
 {% include code_ref.html godoc_portbase_1="modules" godoc_portbase_2="modules/subsystems" %}

@@ -3,9 +3,6 @@ title: Install on Linux
 layout: base
 ---
 
-1. Numbered
-{:toc}
-
 This page covers how to install and uninstall the Portmaster on Linux.
 
 #### Installers

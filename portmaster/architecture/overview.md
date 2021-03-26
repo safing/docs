@@ -3,10 +3,7 @@ title: Overview
 layout: base
 ---
 
-1. TOC
-{:toc}
-
-##### Introduction
+### Introduction
 
 Before diving into details it is important to understand the big picture.
 As any machine, the Portmaster Application has many parts and gears that have to work together seamlessly to deliver the privacy you deserve.

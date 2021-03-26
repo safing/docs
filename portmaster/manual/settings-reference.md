@@ -1,6 +1,7 @@
 ---
 title: Settings Reference
 layout: base
+skip_toc: true
 ---
 
 This page lists all settings of the Portmaster.
