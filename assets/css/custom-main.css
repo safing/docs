@@ -851,7 +851,7 @@ a[title="Go to Portmaster"] {
 }
 
 
-.notification-warring {
+.notification-warning {
     font-size       : .85rem;
     background-color: #5c85ff;
     width           : fit-content;
@@ -867,7 +867,7 @@ a[title="Go to Portmaster"] {
     width           : 100%;
 }
 
-.notification-warring img {
+.notification-warning img {
     width       : 1rem;
     margin-right: 1.25rem;
     height      : 1rem;
@@ -877,14 +877,14 @@ a[title="Go to Portmaster"] {
     border-style: solid;
 }
 
-.notification-warring a {
+.notification-warning a {
     color          : white !important;
     padding-left   : .25rem;
     padding-right  : .25rem;
     text-decoration: underline !important;
 }
 
-.notification-warring a:hover {
+.notification-warning a:hover {
     opacity                   : .5;
     transition-duration       : 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
