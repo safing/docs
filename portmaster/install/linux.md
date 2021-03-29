@@ -5,7 +5,7 @@ layout: base
 
 This page covers how to install and uninstall the Portmaster on Linux.
 
-#### Installers
+### Installers
 
 We provide package installers for supported systems:
 
@@ -25,7 +25,7 @@ The installers should take care of any needed dependencies. [Please report back]
 </div>
 
 
-#### Compatibility
+### Compatibility
 
 | System | Version | Notes |
 |:--|:-:|:--|
@@ -40,7 +40,7 @@ The installers should take care of any needed dependencies. [Please report back]
 | XFCE | ? | Seen working. |
 | Deepin DE | ? |
 
-#### Requirements
+### Requirements
 
 The Portmaster Core Service is compatible with the Linux Kernel as of version 2.4, but due to a breaking bug in at least v5.6, we recommend to use v5.7+.
 
@@ -49,8 +49,6 @@ Dependencies:
 - `libnetfilter_queue` - for network stack integration
 - `libappindicator3` - for sending desktop notifications (_optional, but recommended_)
 - [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, but recommended_)
-
----
 
 ###### Debian/Ubuntu
 
@@ -75,7 +73,7 @@ sudo yum install libnetfilter_queue
 sudo pacman -S libnetfilter_queue libappindicator-gtk3
 ```
 
-#### Manual Install and Launching
+### Manual Install and Launching
 
 __0.__ Install dependencies.
 
@@ -145,6 +143,6 @@ sudo systemctl enable --now portmaster
 
 __6.__ Enjoy!
 
-#### Uninstall
+### Uninstall
 
 Uninstalling the package from your system will properly uninstall and remove the Portmaster.

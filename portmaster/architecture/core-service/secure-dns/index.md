@@ -3,7 +3,7 @@ title: Secure DNS
 layout: base
 ---
 
-##### Secure DNS Resolver
+### Secure DNS Resolver
 
 {% include code_ref.html godoc_portmaster="resolver" %}
 
@@ -19,7 +19,7 @@ If you want to know how we choose our default providers, read [How Safing Select
 {% comment %} perma-anchor {% endcomment%}
 <span id="querying-deep-dive"></span>
 
-##### Deep Dive into Split Horizon Querying
+### Deep Dive into Split Horizon Querying
 
 {% include code_ref.html godoc_portmaster="resolver#GetResolversInScope" %}
 
@@ -77,7 +77,7 @@ This horizon affects the following domain scopes:
 Everything else will be resolved by the resolvers configured in the Portmaster, while using the System/Network assigned ones as a final fallback.
 
 
-##### Relevant settings
+### Relevant settings
 
 {% include setting/brief.html key="dns/nameservers" %}
 {% include setting/brief.html key="dns/nameserverRetryRate" %}
@@ -86,7 +86,7 @@ Everything else will be resolved by the resolvers configured in the Portmaster, 
 {% include setting/brief.html key="dns/noInsecureProtocols" %}
 {% include setting/brief.html key="dns/dontResolveSpecialDomains" %}
 
-##### Nameserver
+### Nameserver
 
 {% include code_ref.html godoc_portmaster="nameserver" %}
 

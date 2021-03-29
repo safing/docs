@@ -11,7 +11,7 @@ While we know supporting mobile will come with a multitude of challenges, it sti
 
 You can always [see what we are currently working on](https://safing.io/next/) and what is planned for the near future on [the Next Page](https://safing.io/next/).
 
-#### Android
+### Android
 
 ###### Technical
 
@@ -25,7 +25,7 @@ We think that this might be against the interests of Google, and the Play store 
 
 This means that the Portmaster will likely only be available via alternative app stores, such as F-Droid or via direct `.apk` distributions.
 
-#### iOS
+### iOS
 
 ###### Technical
 
@@ -38,7 +38,7 @@ We think that this might be against the interests of Apple, and they have banned
 
 As the iOS platform is missing any alternative app stores, without the need of a jailbreak, this may sadly mean that we will not be able to bring the Portmaster to iOS.
 
-#### Linux-Based Phones
+### Linux-Based Phones
 
 With the rise of the [Librem 5](https://puri.sm/products/librem-5/) and the [Pinephone](https://www.pine64.org/pinephone/), linux-based smartphones are on the brink of entering the broad consumer market.
 

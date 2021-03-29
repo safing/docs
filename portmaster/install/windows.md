@@ -7,7 +7,7 @@ This page covers how to install and uninstall the Portmaster on Windows 7, 8 and
 
 Please note that we currently only support the 64bit CPU Architecture, which is the current main standard. In case of Windows 7, you  require the 2015 security update KB3033929 for correctly verifying driver signatures.
 
-#### Installation Details
+### Installation Details
 
 The Portmaster is installed to `%PROGRAMDATA%\Safing\Portmaster`, which resolves to `C:\ProgramData\Safing\Portmaster` on most systems.
 
@@ -23,19 +23,19 @@ The Portmaster Core Service is registered as a system service that starts automa
 In order to gain the required system integration for the Portmaster to function properly, the Installer needs to deactivate the system's DNS Cache Service - the Portmaster replaces this service. This may break/impair some other software that depends on special functionality of said service.
 This is done by setting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Dnscache` -> `Start` to `4` and rebooting.
 
-#### Uninstalling
+### Uninstalling
 
 You can easily uninstall the Portmaster by using the system preferences or by executing the `portmaster-uninstaller.exe`, which you can find in `C:\ProgramData\Safing\Portmaster`.
 
 The uninstaller reverts all steps mentioned above and also requires a reboot afterwards.
 
-#### Known Issues
+### Known Issues
 
-###### Notifications are not working on Windows 7 and 8.
+#### Notifications are not working on Windows 7 and 8.
 
 Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "prompt" action as a default when running on Windows 7 or 8.
 
-###### Portmaster fails to restart
+#### Portmaster fails to restart
 
 In some cases the Portmaster will fail to restart, because the Portmaster Kernel Extensions cannot be loaded and returns the error code 0x422.
 This stems from a known issue in Windows, where system services are not completely removed when something is monitoring the system services.
@@ -63,6 +63,6 @@ _Quoting from <https://stackoverflow.com/a/20565337>_
 >
 >  1. An instance of Visual Studio *used to debug the service* is open.
 
-###### Portmaster Core does not start at boot
+#### Portmaster Core does not start at boot
 
 While we haven't experienced this in a while, it might just happen that the Portmaster will not start at boot, although it is configured to do so. If that is the case, you can check its status in the "Services" Desktop App. There, search for the Service "Portmaster Core" and inspect and start it as needed.

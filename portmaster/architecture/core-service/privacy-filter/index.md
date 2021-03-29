@@ -3,7 +3,7 @@ title: Privacy Filter
 layout: base
 ---
 
-##### Privacy Filter
+### Privacy Filter
 
 {% include code_ref.html godoc_portmaster="firewall" github_portmaster="firewall/master.go" %}
 
@@ -15,7 +15,7 @@ In addition to rule lists and block lists, the Privacy Filter provides a big set
 
 ---
 
-##### Connection Evaluation Stages
+### Connection Evaluation Stages
 
 These are the stages which every connection goes through when being evaluated - from top to bottom:
 
@@ -64,7 +64,7 @@ This a convenience feature that aims to reduce the amount of user interaction fo
 ###### Default Action
 If nothing up to this point wanted to have a say in the decision, the default action is applied.
 
-##### Filter Lists
+### Filter Lists
 
 {% include code_ref.html godoc_portmaster="intel/filterlists" %}
 
@@ -78,7 +78,7 @@ These incremental updates are then "stitched back together" in the Portmaster, a
 
 The filter lists can be configured in the settings and can be selected by category or indiviually.
 
-##### IP Metadata
+### IP Metadata
 
 {% include code_ref.html godoc_portmaster="intel/geoip" %}
 

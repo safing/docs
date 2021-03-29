@@ -6,8 +6,6 @@ code_ref:
   github-portmaster-2: process
 ---
 
-## General
-
 This page covers all the OS integration, including the SPN.
 
 ## Windows

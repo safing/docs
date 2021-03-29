@@ -1,8 +1,8 @@
 ---
 title: DNS Configuration
 layout: base
-skip_toc: true
 ---
+
 
 <a class="externalref" href="">
   <span>
@@ -14,6 +14,8 @@ skip_toc: true
 
 You can set the {% include setting/ref.html key="dns/nameservers" %} setting to a list of servers that you would like to use.
 By default, only the first server in the list will be used, unless it fails or does not meet other configured requirements.
+
+### DNS Configuration URL Scheme
 
 DNS servers are configured using an URL scheme, the format is:
 
