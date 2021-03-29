@@ -973,3 +973,26 @@ a[title="Go to Portmaster"] {
 .nav-sidebar .page-item .active ul li.page-item a:hover {
     opacity: 1;
 }
+
+/*
+  Grabs External Links only:
+
+  1. make sure it is NOT an internal link like: href="/guides/" by filtering it starts with http
+  2. exclude all links that contain "safing.io" which is super unlikely to hit external links
+  3. also exclude "localhost", which basically is 2. for local development
+*/
+#page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]) {
+  color: red !important;
+}
+
+/*
+  Grab Internal Setting links to add a cog
+
+  1., 2. from other docs pages, the href will include some form of /settings-reference(/)#
+  3. on the settigs page itself, every link starting with an anchor refers to another setting
+*/
+#page-container content a[href*="/settings-reference#"],
+#page-container content a[href*="/settings-reference/#"],
+.settingslist a[href^="#"] {
+  color: green !important;
+}
