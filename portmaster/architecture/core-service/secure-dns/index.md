@@ -93,27 +93,3 @@ Everything else will be resolved by the resolvers configured in the Portmaster, 
 This module is kind of the other end of the resolver. It listens locally for DNS requests from processes and lets the resolver come up with an answer.
 
 Similarly to the firewall module, it first attributes the request to a process and fetches custom settings and then lets the Privacy Filter make a decision about the query. Only then is the resolver tasked with finding a response to the query. After receiving the response, it is again checked with the Privacy Filter in case something in the response needs to be blocked.
-
-{% comment %}
-
-### Components
-
-##### Nameserver
-
-{not shown in UI, because it's the "main" of Secure DNS}
--> local DNS server (recursive stub)  
--> every DNS query goes through the same as the firewall  
--> first "network module" for connection  
--> then gets process via "processes"  
--> then the fitting "profiles"  
--> then it can decide what to do  
--> if yes, then use resolver  
-
-##### resolver
--> resolve DNS query via DNS over TLS  
--> caching  
--> DNS config  
-
-{% endcomment %}
-
-<p></p> <!-- TODO: Fix spacing in CSS instead -->
