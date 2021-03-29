@@ -186,7 +186,7 @@ filter/removeOutOfScopeDNS:
 filter/serviceEndpoints:
   layered: true
   manual: |
-    If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number ([find it here](https://www.ultratools.com/tools/asnInfo)) or from one to a few countries.
+    If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number or to only accept connections from specific countries.
     While potentially dangerous, you can allow any incoming connection by adding `+ *` to the [Incoming Rules](#filter/serviceEndpoints).
 
 spn/enable:
