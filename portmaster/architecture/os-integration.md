@@ -118,14 +118,14 @@ nat OUTPUT -p udp --dport 53 -m mark --mark 1799 -j DNAT --to {127.0.0.17:53|[::
 nat OUTPUT -m mark --mark 1717 -p {tcp|udp} -j DNAT --to-destination 127.0.0.17:1117 # for Gate17
 ```
 
-__Explanation of Nfqueue Numbers__  
+###### Explanation of Nfqueue Numbers  
 `17040` breaks up into:
 - `17` is an identifier, so that you can easily spot what belongs to Portmaster/Gate17
 - `0` for output, `1` for input
 - `4` for IPv4, `6` for IPv6
 - `0` id for multi-threaded nfqueue (currently only one thread is used)
 
-__Explanation of Connmark Numbers__  
+###### Explanation of Connmark Numbers  
 ```
 1700 Accept
 1701 Block
