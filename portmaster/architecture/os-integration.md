@@ -60,14 +60,17 @@ This is how packets are handled:
 
 ##### The Windows DNS Client
 
-Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache` to resolve queries for applications.
-Queries that are made through this service cannot be linked to the original application that started the request. This is why the Portmaster tries to stop the service when starting.
+Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache`, to resolve queries for applications.
+Queries that are made through this service cannot be directly linked to the original application that started the request.
 
-This service cannot be easily disabled directly, but must be disabled using the registry.
-The installer disables the service during install and the uninstaller enables it again during uninstall.
-This is also one of the reasons a restart is strongly recommended after both installing and uninstalling.
+As a result, the Portmaster can not identify the actual applications behind a query and thus will not directly make a decision on queries coming from the Windows DNS Client (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
 
-Please note that disabling this service is safe, as its primary function is a DNS cache. It does, however, handle some other DNS related functionality as well. Especially software that uses this service, for example via a call to `netsh`, may experience errors due to the unavailability of said service.
+This means that the Portmaster might have inaccuracies when attributing domains to connections.
+We hope to mitigate that to some extent in the future by inspecting connections directly and extracting additional information from there.
+
+In versions up to v0.6.6, the Portmaster disabled the Windows DNS Client in order to directly see all DNS requests.
+As this lead to many unexpected problems, this was reverted with a workaround in v0.6.7.
+You can read all about this change in our [dev log blog post](https://safing.io/blog/2021/03/23/attributing-dns-requests-on-windows/).
 
 ## Linux
 
@@ -151,6 +154,16 @@ Depending on the performance and stability of the `iptables` integration, this w
 
 In order to find out which process a packet belongs to, the `proc` filesystem is first parsed to find the socket ID of the intercepted packet, then the process directory is searched for the matching PID.
 This is a bit cumbersome, but unfortunately, no better way of acquiring this information is available.
+
+##### Systemd Resolved
+
+With `systemd-resolved`, Linux Distributions are slowly rolling out a system resolver with similar capabilites as the Windows `DNS Client`.
+
+The important detail for the Portmaster is that queries may be sent to `systemd-resolved` using the [D-Bus interface](https://www.freedesktop.org/software/systemd/man/org.freedesktop.resolve1.html) instead of packets on the wire.
+As a result, the Portmaster can not identify the actual process behind a query and thus will not directly make a decision on queries coming from `systemd-resolved` (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
+
+This means that the Portmaster might have inaccuracies when attributing domains to connections.
+We hope to mitigate that to some extent in the future by inspecting connections directly and extracting additional information from there.
 
 ## Used TCP/UDP Ports
 
