@@ -50,7 +50,7 @@
   {
     "Name": "Process Detection",
     "Key": "core/enableProcessDetection",
-    "Description": "This option enables the attribution of network traffic to processes. This should always be enabled, and effectively disables app settings if disabled.",
+    "Description": "This option enables the attribution of network traffic to processes. Without it, app settings are effectively disabled.",
     "Help": "",
     "OptType": 4,
     "ExpertiseLevel": 2,
@@ -309,7 +309,7 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 300,
-    "ValidationRegex": "^[1-9][0-9]{1,5}?$",
+    "ValidationRegex": "^[1-9][0-9]{1,5}$",
     "Annotations": {
       "safing/portbase:ui:category": "Servers",
       "safing/portbase:ui:order": 32,
@@ -359,7 +359,7 @@
           "Action": "replace"
         },
         {
-          "Name": "Cloudflare",
+          "Name": "Cloudflare (with Malware Filter)",
           "Value": [
             "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
             "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
@@ -544,7 +544,7 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 60,
-    "ValidationRegex": "^[1-9][0-9]{1,5}?$",
+    "ValidationRegex": "^[1-9][0-9]{1,5}$",
     "Annotations": {
       "safing/portbase:ui:category": "General",
       "safing/portbase:ui:order": 3,
@@ -759,7 +759,7 @@
   {
     "Name": "Default Action",
     "Key": "filter/defaultAction",
-    "Description": "The default action when nothing else permits or blocks an outgoing connection. Incoming connections are always blocked by default.",
+    "Description": "The default action when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
     "Help": "",
     "OptType": 1,
     "ExpertiseLevel": 0,
@@ -769,8 +769,8 @@
     "ValidationRegex": "^(permit|block|ask)$",
     "PossibleValues": [
       {
-        "Name": "Permit",
-        "Description": "Permit all connections",
+        "Name": "Allow",
+        "Description": "Allow all connections",
         "Value": "permit"
       },
       {
@@ -791,9 +791,9 @@
     }
   },
   {
-    "Name": "Disable Auto Permit",
+    "Name": "Disable Auto Allow",
     "Key": "filter/disableAutoPermit",
-    "Description": "Auto Permit searches for a relation between an app and the destination of a connection - if there is a correlation, the connection will be permitted.",
+    "Description": "Auto Allow searches for a relation between an app and the destination of a connection - if there is a correlation, the connection will be allowed.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -1004,7 +1004,7 @@
   {
     "Name": "Block Bypassing",
     "Key": "filter/preventBypassing",
-    "Description": "Prevent apps from bypassing the privacy filter.  \nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers",
+    "Description": "Prevent apps from bypassing the privacy filter.  \nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers\n\nPlease note that if you are using the system resolver, bypass attempts might be additionally blocked there too.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -1038,7 +1038,7 @@
   {
     "Name": "Reject Blocked IPs",
     "Key": "filter/removeBlockedDNS",
-    "Description": "Reject blocked IP addresses directly from the DNS response instead of handing them over to the app and blocking a resulting connection.",
+    "Description": "Reject blocked IP addresses directly from the DNS response instead of handing them over to the app and blocking a resulting connection. This settings does not affect privacy and only takes effect when the system resolver is not in use.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 2,
@@ -1072,7 +1072,7 @@
   {
     "Name": "Enforce Global/Private Split-View",
     "Key": "filter/removeOutOfScopeDNS",
-    "Description": "Reject private IP addresses (RFC1918 et al.) from public DNS responses.",
+    "Description": "Reject private IP addresses (RFC1918 et al.) from public DNS responses. If the system resolver is in use, the resulting connection will be blocked instead of the DNS request.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 2,
