@@ -607,15 +607,6 @@ input:checked~.tab-content {
     color      : #353535;
 }
 
-#page-container content table thead tr th {
-    text-align: left !important;
-}
-
-#page-container content table thead tr th:first-child {
-    /* I did this becuase in the md file there is "text-align: right" but we want it on the left */
-    text-align: left !important;
-}
-
 #page-container content table thead tr th:last-child {
     padding-left: .925rem;
 }
@@ -630,12 +621,6 @@ input:checked~.tab-content {
     border-bottom-width: 1px;
     border-bottom-color: #e5e7eb;
 }
-
-/* I did this becuase in the md file there is "text-align: right" but we want it on the left */
-#page-container content table tbody td {
-    text-align: left !important;
-}
-
 
 #page-container content table tbody td:first-child {}
 
