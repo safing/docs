@@ -997,7 +997,7 @@ a[title="Go to Portmaster"] {
 */
 #page-container content a[href*="/settings-reference#"]:before,
 #page-container content a[href*="/settings-reference/#"]:before,
-.settingslist a[href^="#"]:before {
+.settingslist p a[href^="#"]:before {
   background-image: url("/assets/img/icons/cog.svg");
   display: inline-block;
   height: 20px;
