@@ -33,7 +33,7 @@ These are the possible values:
 
 ###### IP
 
-DNS Server configurations **must** use the server IP address instead of it's hostname. Using a domain is not possible because there is no guarantee that there is another DNS Server available to resolve that domain.
+DNS Server configurations **must** use the server IP address instead of its hostname. Using a domain is not possible because there is no guarantee that there is another DNS Server available to resolve that domain.
 
 ###### Port
 
@@ -51,7 +51,7 @@ A DNS server configuration URL might have one or more the the following paramete
 
 - `name`: Give your DNS server a name that is used for messages and logs.
 - `verify`: Domain name to verify for `dot` servers, required and only valid for `dot` servers.
-- `blockedif`: Detect if the name server blocks a query, options:
+- `blockedif`: How to detect if the name server blocks a query. Different name servers handle blocked responses differently.
   - `empty`: Server replies with NXDomain status, but without any other record in any section.
   - `refused`: Server replies with Refused status.
   - `zeroip`: Server replies with an IP address, but it is zero (ie. `0.0.0.0` for IPv4).
@@ -77,7 +77,7 @@ dot://[2620:fe::9]:853?verify=dns.quad9.net&name=Quad9&blockedif=empty
 #### AdGuard
 
 [AdGuard](https://adguard.com/) offers a freemium [public DNS service](https://adguard.com/en/adguard-dns/overview.html) that also blocks ads.  
-Note: The Portmaster uses the publicly available ads blocklist from AdGuard internally by default.
+Note: The Portmaster uses the publicly available ads blocklist from AdGuard in the Portmaster's Filter Lists by default.
 
 ```
 # Ad Blocking:
