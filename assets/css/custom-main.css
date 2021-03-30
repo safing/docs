@@ -736,7 +736,6 @@ input:checked~.tab-content {
     padding-left : 1rem;
     margin-top   : 1.55rem;
     margin-bottom: 1.55rem;
-    margin-left  : 1rem;
     color        : black;
     opacity      : 1;
     border-left  : 4px solid #ddd;
