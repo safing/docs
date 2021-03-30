@@ -14,6 +14,14 @@ _Extended documentation of the Portmaster UI are yet to be written. You can [che
 
 ###### Why do you use Electron for the User Interface?
 
-We are a small team and have to manage and prioritize our resources. When planning to re-write the User Interface, we did invest a lot of time to research different approaches. Sadly, at that point, our evaluation concluded that using anything but Electron would require us to invest a lot of time and effort: We would either have to build a viable solution from scratch or bend over enough to fit into existing ones. Spending these resources on the UI would have slowed us down massively elsewhere, so we chose to go with Electron.
+The Portmaster UI was previously built with Go, acting as a base layer which then loaded a OS-provided webview for the UI.
+Unfortunately, the OS-provided webview had many issues which forced us to rethink and re-write the UI.
 
-We are not happy about Electron and only see it as a mid-term solution. We plan to migrate to a better solution in the long run, as [mentioned in our Backlog](https://safing.io/backlog/#portmaster) on the card "Ditch Electron".
+While planning this re-write, we did invest a lot of time to research different approaches.
+Sadly, at that point, our evaluation concluded that using anything but Electron would require us to invest a lot of time and effort:
+We would either have to build a viable solution from scratch or bend over enough to fit into existing ones.
+
+Spending these resources on the UI would have slowed us down massively elsewhere, so we chose to go with Electron.
+
+We are not happy about Electron and only see it as a mid-term solution.
+We plan to migrate to a better solution in the long run, as [mentioned in our Backlog](https://safing.io/backlog/#portmaster) on the card "Ditch Electron".
