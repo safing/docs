@@ -742,7 +742,7 @@ input:checked~.tab-content {
 }
 
 #page-container content .content em {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 #page-container content .content .settingslist {
