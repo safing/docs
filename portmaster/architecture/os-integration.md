@@ -65,8 +65,11 @@ Queries that are made through this service cannot be directly linked to the orig
 
 As a result, the Portmaster can not identify the actual applications behind a query and thus will not directly make a decision on queries coming from the Windows DNS Client (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
 
-This means that the Portmaster might have inaccuracies when attributing domains to connections.
-We hope to mitigate that to some extent in the future by inspecting connections directly and extracting additional information from there.
+This approach can sometimes lead the Portmaster to a wrong attribution of a domain to a connection.
+
+For example, if two processes use two different domains but both of them point to the same IP address, it could happen that the Portmaster thinks that the first process is connecting to the domain of the second process and vice-versa. Especially if requests are done in parallel or connections are re-established without querying for the domain again.
+
+As a remediation to this, we will start looking at HTTP headers and TLS handshakes in the future. With information gathered directly from the connection, the attribution will be more accurate.
 
 In versions up to v0.6.6, the Portmaster disabled the Windows DNS Client in order to directly see all DNS requests.
 As this lead to many unexpected problems, this was reverted with a workaround in v0.6.7.
@@ -162,8 +165,11 @@ With `systemd-resolved`, Linux Distributions are slowly rolling out a system res
 The important detail for the Portmaster is that queries may be sent to `systemd-resolved` using the [D-Bus interface](https://www.freedesktop.org/software/systemd/man/org.freedesktop.resolve1.html) instead of packets on the wire.
 As a result, the Portmaster can not identify the actual process behind a query and thus will not directly make a decision on queries coming from `systemd-resolved` (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
 
-This means that the Portmaster might have inaccuracies when attributing domains to connections.
-We hope to mitigate that to some extent in the future by inspecting connections directly and extracting additional information from there.
+This approach can sometimes lead the Portmaster to a wrong attribution of a domain to a connection.
+
+For example, if two processes use two different domains but both of them point to the same IP address, it could happen that the Portmaster thinks that the first process is connecting to the domain of the second process and vice-versa. Especially if requests are done in parallel or connections are re-established without querying for the domain again.
+
+As a remediation to this, we will start looking at HTTP headers and TLS handshakes in the future. With information gathered directly from the connection, the attribution will be more accurate.
 
 ## Used TCP/UDP Ports
 
