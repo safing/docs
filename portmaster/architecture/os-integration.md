@@ -72,8 +72,7 @@ For example, if two processes use two different domains but both of them point t
 As a remediation to this, we will start looking at HTTP headers and TLS handshakes in the future. With information gathered directly from the connection, the attribution will be more accurate.
 
 In versions up to v0.6.6, the Portmaster disabled the Windows DNS Client in order to directly see all DNS requests.
-As this lead to many unexpected problems, this was reverted with a workaround in v0.6.7.
-You can read all about this change in our [dev log blog post](https://safing.io/blog/2021/03/23/attributing-dns-requests-on-windows/).
+As this lead to many unexpected problems, this was reverted with a workaround in v0.6.7. You can [read the in-depth development log](https://safing.io/blog/2021/03/23/attributing-dns-requests-on-windows/) to find out all about this change and the reasoning behind it.
 
 ## Linux
 
