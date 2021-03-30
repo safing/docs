@@ -60,20 +60,25 @@ This is how packets are handled:
 
 ##### The Windows DNS Client
 
-Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache` to resolve queries for applications.
-Queries that are made through this service cannot be linked to the original application that started the request. This is why the Portmaster tries to stop the service when starting.
+Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache`, to resolve queries for applications.
+Queries that are made through this service cannot be directly linked to the original application that started the request.
 
-This service cannot be easily disabled directly, but must be disabled using the registry.
-The installer disables the service during install and the uninstaller enables it again during uninstall.
-This is also one of the reasons a restart is strongly recommended after both installing and uninstalling.
+As a result, the Portmaster can not identify the actual applications behind a query and thus will not directly make a decision on queries coming from the Windows DNS Client (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
 
-Please note that disabling this service is safe, as its primary function is a DNS cache. It does, however, handle some other DNS related functionality as well. Especially software that uses this service, for example via a call to `netsh`, may experience errors due to the unavailability of said service.
+This approach can sometimes lead the Portmaster to a wrong attribution of a domain to a connection.
+
+For example, if two processes use two different domains but both of them point to the same IP address, it could happen that the Portmaster thinks that the first process is connecting to the domain of the second process and vice-versa. Especially if requests are done in parallel or connections are re-established without querying for the domain again.
+
+As a remediation to this, we will start looking at HTTP headers and TLS handshakes in the future. With information gathered directly from the connection, the attribution will be more accurate.
+
+In versions up to v0.6.6, the Portmaster disabled the Windows DNS Client in order to directly see all DNS requests.
+As this lead to many unexpected problems, this was reverted with a workaround in v0.6.7. You can [read the in-depth development log](https://safing.io/blog/2021/03/23/attributing-dns-requests-on-windows/) to find out all about this change and the reasoning behind it.
 
 ## Linux
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue
+### iptables with nfqueue
 
 {% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
 
@@ -151,6 +156,19 @@ Depending on the performance and stability of the `iptables` integration, this w
 
 In order to find out which process a packet belongs to, the `proc` filesystem is first parsed to find the socket ID of the intercepted packet, then the process directory is searched for the matching PID.
 This is a bit cumbersome, but unfortunately, no better way of acquiring this information is available.
+
+##### Systemd Resolved
+
+With `systemd-resolved`, Linux Distributions are slowly rolling out a system resolver with similar capabilites as the Windows `DNS Client`.
+
+The important detail for the Portmaster is that queries may be sent to `systemd-resolved` using the [D-Bus interface](https://www.freedesktop.org/software/systemd/man/org.freedesktop.resolve1.html) instead of packets on the wire.
+As a result, the Portmaster can not identify the actual process behind a query and thus will not directly make a decision on queries coming from `systemd-resolved` (except for {% include setting/ref.html key="filter/preventBypassing" %}), but will remember the resulting IPs and use them to match domains to connections when the actual connection is initialized.
+
+This approach can sometimes lead the Portmaster to a wrong attribution of a domain to a connection.
+
+For example, if two processes use two different domains but both of them point to the same IP address, it could happen that the Portmaster thinks that the first process is connecting to the domain of the second process and vice-versa. Especially if requests are done in parallel or connections are re-established without querying for the domain again.
+
+As a remediation to this, we will start looking at HTTP headers and TLS handshakes in the future. With information gathered directly from the connection, the attribution will be more accurate.
 
 ## Used TCP/UDP Ports
 
