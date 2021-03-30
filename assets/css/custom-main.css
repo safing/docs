@@ -981,8 +981,12 @@ a[title="Go to Portmaster"] {
   2. exclude all links that contain "safing.io" which is super unlikely to hit external links
   3. also exclude "localhost", which basically is 2. for local development
 */
-#page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]) {
-  color: red !important;
+#page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]):after {
+  background-image: url("/assets/img/icons/external.svg");
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  content: "";
 }
 
 /*
@@ -991,8 +995,12 @@ a[title="Go to Portmaster"] {
   1., 2. from other docs pages, the href will include some form of /settings-reference(/)#
   3. on the settigs page itself, every link starting with an anchor refers to another setting
 */
-#page-container content a[href*="/settings-reference#"],
-#page-container content a[href*="/settings-reference/#"],
-.settingslist a[href^="#"] {
-  color: green !important;
+#page-container content a[href*="/settings-reference#"]:before,
+#page-container content a[href*="/settings-reference/#"]:before,
+.settingslist a[href^="#"]:before {
+  background-image: url("/assets/img/icons/cog.svg");
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  content: "";
 }
