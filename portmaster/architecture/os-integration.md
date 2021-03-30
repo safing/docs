@@ -78,7 +78,7 @@ As this lead to many unexpected problems, this was reverted with a workaround in
 
 On Linux we aim to provide two ways of OS integration:
 
-##### iptables with nfqueue
+### iptables with nfqueue
 
 {% include code_ref.html github-portmaster="firewall/interception/nfqueue" %}
 
