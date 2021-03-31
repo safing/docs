@@ -493,18 +493,12 @@ input:checked~.tab-content {
 }
 
 #page-container content p {
-    padding-top: 1.8rem;
-    color      : #6c6c6c;
+    margin-top: 1rem;
+    color     : #545454;
 }
 
 #page-container content strong {
     color: #353535;
-}
-
-#page-container content a:hover {
-    opacity                   : .5;
-    transition-duration       : 150ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 #page-container content a {
@@ -513,7 +507,13 @@ input:checked~.tab-content {
     color              : rgba(102, 126, 234, var(--text-opacity));
     text-decoration    : inherit;
     background-color   : transparent;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+
+#page-container content a:hover {
+    opacity                   : .5;
+    transition-duration       : 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 #page-container content a strong {
@@ -522,32 +522,47 @@ input:checked~.tab-content {
     color         : rgba(102, 126, 234, var(--text-opacity))
 }
 
+#page-container content h1 {
+    font-size  : 2rem;
+    font-weight: 500;
+    color      : #000;
+}
+
 #page-container content h2 {
-    font-size  : 1.875rem;
-    padding-top: 4rem;
-    font-weight: 800;
-    color      : #353535;
+    font-size     : 1.8rem;
+    margin-top    : 2rem;
+    font-weight   : 500;
+    color         : #000;
+    border-bottom : 1px solid #d7d7d7;
+    padding-bottom: 0.5rem;
 }
 
 #page-container content h3 {
-    font-size  : 1.2rem;
-    padding-top: 1rem;
-    font-weight: 800;
-    color      : #353535;
+    font-size  : 1.4rem;
+    margin-top : 2.5rem;
+    font-weight: 500;
+    color      : #000;
 }
 
 #page-container content h4 {
-    font-size  : 1.1rem;
-    padding    : 0.5rem 0;
+    font-size  : 1.2rem;
+    margin-top : 1.5rem;
     font-weight: 500;
-    color      : #353535;
+    color      : #000;
 }
 
 #page-container content h5 {
     font-size  : 1.1rem;
-    padding-top: 1.25rem;
+    margin-top : 1.5rem;
     font-weight: 500;
-    color      : #353535;
+    color      : #000;
+}
+
+#page-container content h6 {
+    font-size  : 1rem;
+    margin-top : 1.5rem;
+    font-weight: 500;
+    color      : #000;
 }
 
 
@@ -560,11 +575,7 @@ input:checked~.tab-content {
     border-radius   : 3px;
     padding-top     : 1rem;
     display         : flex;
-
-}
-
-#page-container content div .highlighter-rouge {
-    padding-top: 1rem;
+    margin-top      : 1rem;
 }
 
 #page-container content pre code {
@@ -579,18 +590,18 @@ input:checked~.tab-content {
 }
 
 #page-container content hr {
-    margin-top   : 1rem;
-    margin-bottom: 1rem;
+    margin-top      : 3rem;
+    margin-bottom   : 3rem;
+    border-top-width: 2px;
 }
 
 #page-container content table {
-    margin-top   : 2.25rem;
-    margin-bottom: 3.25rem;
-    width        : 100%;
+    margin-top: 2.25rem;
+    width     : 100%;
 }
 
 #page-container content table thead {
-    font-size  : 0.9rem;
+    font-size  : 0.985rem;
     padding-top: 1.25rem;
     font-weight: 500;
     color      : #353535;
@@ -612,7 +623,6 @@ input:checked~.tab-content {
 #page-container content table tbody {}
 
 #page-container content table tbody tr {
-
     box-sizing  : border-box;
     border-style: solid;
     border-color: transparent;
@@ -630,8 +640,9 @@ input:checked~.tab-content {
 #page-container content table tbody td:first-child {}
 
 #page-container content table tbody tr>td {
-    padding-top   : 1rem;
+    padding-top   : 1.25rem;
     padding-bottom: 1rem;
+    font-size     : 0.9rem;
 }
 
 #page-container content table tbody tr td:first-child {}
@@ -667,7 +678,7 @@ input:checked~.tab-content {
 }
 
 #page-container content table tbody td:last-child {
-    color       : #6c6c6c;
+    color       : #545454;
     font-size   : 0.9rem;
     padding-left: .925rem;
 }
@@ -694,10 +705,6 @@ input:checked~.tab-content {
     content: "`";
 }
 
-#page-container content ul {
-    padding-top: 2rem
-}
-
 #page-container content ul li {
     padding-top: 0.4rem
 }
@@ -707,11 +714,10 @@ input:checked~.tab-content {
 
 #page-container content .content ul {
     padding-top    : 1.25rem;
-    padding-bottom : 1.25rem;
     padding-left   : 1.85rem;
     list-style-type: disc;
 
-    color: #6c6c6c;
+    color: #545454;
 }
 
 #page-container content .content ul li {
@@ -722,32 +728,38 @@ input:checked~.tab-content {
     padding-top    : 0.05rem;
     padding-left   : 1.25rem;
     list-style-type: disc;
-    color          : #6c6c6c;
+    color          : #545454;
 }
 
 #page-container content .content ol {
     padding-top    : 0.1rem;
     list-style-type: decimal;
     padding-left   : 1rem;
-    color          : #6c6c6c;
+    color          : #545454;
+}
+
+#page-container content ol li {
+    padding-top: 0.4rem
 }
 
 #page-container content .content blockquote {
-    padding-left : 1rem;
-    margin-top   : 1.55rem;
-    margin-bottom: 1.55rem;
-    margin-left  : 1rem;
-    color        : black;
-    opacity      : 1;
-    border-left  : 4px solid #ddd;
+    padding-left: 1rem;
+    margin-top  : 1.55rem;
+    color       : black;
+    opacity     : 1;
+    border-left : 4px solid #ddd;
 }
 
 #page-container content .content em {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 #page-container content .content .settingslist {
-    padding-top: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+#page-container content .content .settingslist .setting {
+    margin-top: 4rem;
 }
 
 #page-container content .content .settingslist .setting h5 {
@@ -755,8 +767,9 @@ input:checked~.tab-content {
 }
 
 #page-container content .content .settingslist .setting h5 a {
-    align-self: end;
-    opacity   : .5;
+    opacity    : .5;
+    position   : absolute;
+    margin-left: -1.8rem;
 }
 
 #page-container content .content .settingslist .setting h5 a:hover {
@@ -765,7 +778,14 @@ input:checked~.tab-content {
 
 #page-container content .content .settingslist .setting h5 a img {
     width       : 1.4rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
+    display     : none;
+    margin-top  : 0.25rem;
+
+}
+
+#page-container content .content .settingslist .setting h5:hover a img {
+    display: block;
 }
 
 #page-container content .content .settingslist .setting h5 small {
@@ -797,8 +817,14 @@ input:checked~.tab-content {
     border-radius   : 3px;
     color           : black;
     font-weight     : 400;
+    margin-top      : 1.2rem;
+}
+
+#page-container content .content .settingslist .values ul {
+    padding-top: 0.5rem;
 
 }
+
 
 #page-container content .content .settingslist .values code {
     background-color: transparent;
@@ -817,9 +843,7 @@ input:checked~.tab-content {
     content: "";
 }
 
-#page-container content .content p {
-    padding: 0.5rem 0
-}
+#page-container content .content p {}
 
 #page-container content .content p img {
     --transform-translate-x: 0;
@@ -836,7 +860,7 @@ input:checked~.tab-content {
     height                 : auto;
     border-radius          : .375rem;
     display                : block;
-    margin-bottom          : 4rem;
+    margin-bottom          : 5rem;
     margin-top             : 5rem
 }
 
@@ -846,10 +870,6 @@ a[title="Go to Portmaster"] {
     font-weight: 500;
 }
 
-.active {
-    text-decoration-line: underline;
-}
-
 
 .notification-warning {
     font-size       : .85rem;
@@ -857,7 +877,6 @@ a[title="Go to Portmaster"] {
     width           : fit-content;
     width           : -moz-fit-content;
     overflow-wrap   : break-word;
-    color           : #fff;
     padding-left    : 1.25rem;
     padding         : 1.25rem;
     margin-bottom   : 1.25rem;
@@ -865,6 +884,15 @@ a[title="Go to Portmaster"] {
     display         : flex;
     border-radius   : .375rem;
     width           : 100%;
+}
+
+.notification-warning p {
+    color     : #fff !important;
+    margin-top: 0 !important;
+}
+
+.notification-warning p a::after {
+    background-image: url("/assets/img/icons/external-white.svg") !important;
 }
 
 .notification-warning img {
@@ -917,13 +945,19 @@ a[title="Go to Portmaster"] {
 
 }
 
-#page-container content .content .coderef {}
+#page-container content .content .inlineref div span {
+    font-size: 0.9rem;
+}
+
+#page-container content .content .coderef {
+    margin-top: 1rem;
+}
 
 #page-container content .content .coderef div {
     display         : flex;
     background-color: transparent;
     border          : 1px solid #d7d7d7;
-    margin-bottom   : 1rem;
+    margin-bottom   : 0.5rem;
     padding         : 1rem;
     border-radius   : 0.25rem;
 }
@@ -947,7 +981,8 @@ a[title="Go to Portmaster"] {
 
 /* this works, but it's fucking horrible.. */
 .nav-sidebar .page-item {
-    padding: 0.45rem;
+    padding     : 0.45rem;
+    padding-left: 0.8rem;
 }
 
 .nav-sidebar .page-item a {
@@ -958,11 +993,14 @@ a[title="Go to Portmaster"] {
     opacity: 1;
 }
 
-.nav-sidebar .page-item .active a {
-    color      : black;
-    opacity    : 1;
-    font-weight: bold;
+.nav-sidebar .page-item .active>a {
+    color               : black;
+    opacity             : 1;
+    font-weight         : bold;
+    text-decoration-line: underline;
+
 }
+
 
 .nav-sidebar .page-item .active ul li.page-item a {
     color      : black;
@@ -981,8 +1019,17 @@ a[title="Go to Portmaster"] {
   2. exclude all links that contain "safing.io" which is super unlikely to hit external links
   3. also exclude "localhost", which basically is 2. for local development
 */
-#page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]) {
-  color: red !important;
+#page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]):after {
+    background-image     : url("/assets/img/icons/external.svg");
+    display              : inline-block;
+    height               : 10px;
+    width                : 17px;
+    content              : "";
+    background-repeat    : no-repeat;
+    background-position-y: 0px;
+    background-position-x: 4px;
+    background-size      : 10px;
+
 }
 
 /*
@@ -991,8 +1038,16 @@ a[title="Go to Portmaster"] {
   1., 2. from other docs pages, the href will include some form of /settings-reference(/)#
   3. on the settigs page itself, every link starting with an anchor refers to another setting
 */
-#page-container content a[href*="/settings-reference#"],
-#page-container content a[href*="/settings-reference/#"],
-.settingslist a[href^="#"] {
-  color: green !important;
+#page-container content a[href*="/settings-reference#"]:before,
+#page-container content a[href*="/settings-reference/#"]:before,
+.settingslist p a[href^="#"]:before {
+    background-image     : url("/assets/img/icons/cog.svg");
+    display              : inline-block;
+    height               : 20px;
+    width                : 20px;
+    content              : "";
+    background-repeat    : no-repeat;
+    background-position-y: 5px;
+    background-position-x: 1px;
+    background-size      : 17px;
 }

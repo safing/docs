@@ -22,7 +22,9 @@ The installers should take care of any needed dependencies. [Please report back]
 
 <div class="notification-warning">
     <img src="/assets/img/icons/info.svg">
-    Please note that the Portmaster updates itself and that the provided packages are only meant for an initial install. Uninstalling the package from your system will properly uninstall and remove the Portmaster.
+    <p>
+      Please note that the Portmaster updates itself and that the provided packages are only meant for an initial install. Uninstalling the package from  your system will properly uninstall and remove the Portmaster.
+    </p>
 </div>
 
 
@@ -59,7 +61,9 @@ sudo apt install libnetfilter-queue1 libappindicator3-1
 
 <div class="notification-warning">
   <img src="{{ site.img_url }}icons/info.svg">
-  You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
+  <p>
+    You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
+  </p>
 </div>
 
 ###### Fedora
@@ -112,7 +116,9 @@ __4.__ Start the Portmaster Notifier
 
 <div class="notification-warning">
     <img src="/assets/img/icons/info.svg">
+    <p>
      Your Desktop environment may not (yet) be compatible.
+    </p>
 </div>
 
 __5.__ Start it on boot
