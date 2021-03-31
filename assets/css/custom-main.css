@@ -754,8 +754,9 @@ input:checked~.tab-content {
 }
 
 #page-container content .content .settingslist .setting h5 a {
-    align-self: end;
-    opacity   : .5;
+    opacity    : .5;
+    position   : absolute;
+    margin-left: -1.8rem;
 }
 
 #page-container content .content .settingslist .setting h5 a:hover {
@@ -764,7 +765,14 @@ input:checked~.tab-content {
 
 #page-container content .content .settingslist .setting h5 a img {
     width       : 1.4rem;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
+    display     : none;
+    margin-top  : 0.25rem;
+
+}
+
+#page-container content .content .settingslist .setting h5:hover a img {
+    display: block;
 }
 
 #page-container content .content .settingslist .setting h5 small {
