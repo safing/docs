@@ -12,7 +12,7 @@ core/automaticUpdates:
 
 core/devMode:
   manual: |
-    Do not ever enable this in production, as anything will be able to fully control the Portmaster.
+    Never enable this in production, as anything will be able to fully control the Portmaster.
 
 core/enableProcessDetection:
   manual: |
@@ -20,7 +20,7 @@ core/enableProcessDetection:
 
 core/expertiseLevel:
   manual: |
-    Settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Advanced</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Developer</span> accordingly.
+    Relevant settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Advanced</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Developer</span> accordingly.
 
 core/listenAddress:
   manual: |
@@ -38,7 +38,7 @@ core/metrics/push:
 
 core/networkService:
   manual: |
-    This allows you to use the Portmaster as a network-wide privacy system, similar to a Pi-Hole. This possibility exists mainly for testing and is not officially supported. You are free to tinker around with it, though.
+    This allows you to use the Portmaster as a network-wide privacy system, similar to a Pi-Hole. This possibility exists mainly for testing and is not officially supported. You are free to tinker around with it though.
 
 core/releaseChannel:
   manual: |
@@ -50,16 +50,17 @@ core/releaseLevel:
 
 core/useSystemNotifications:
   manual: |
-    See the page about the [Portmaster Notifier](/portmaster/architecture/notifier) for more information.
+    You can [read more on the Portmaster Notifier](/portmaster/architecture/notifier) for additional information.
 
 dns/dontResolveSpecialDomains:
   manual: |
-    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
+    [Look at the dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
 
 dns/listenAddress:
   manual: |
     `localhost` is a special value, which will make the Portmaster listen on both `127.0.0.1:53` and `::1`.  
-    The default value shown is used on Linux, Windows uses `0.0.0.0:53` as the default value, as requests there are redirected to the same interface, not the loopback device.
+
+    The shown default value `localhost:53` is used on Linux. The default for Windows is `0.0.0.0:53`, since on Windows requests are redirected to the same interface, not the loopback device.
 
 dns/nameserverRetryRate:
   manual: |
@@ -68,23 +69,23 @@ dns/nameserverRetryRate:
 dns/nameservers:
   hide_help: true
   manual: |
-    If you prefer to use other DNS servers than the pre-configured ones, you can configure them here. See our separate [guide on DNS Server Configuration](/portmaster/guides/dns-configuration) for more details.
+    If you prefer to use other DNS servers than the pre-configured ones, you can configure them here. [See our guide on DNS Server Configuration](/portmaster/guides/dns-configuration) for extended details.
 
 dns/noAssignedNameservers:
   manual: |
     This does not affect a special set of domains for testing connectivity.
-    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    [Look at the dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
 
 dns/noInsecureProtocols:
   manual: |
     This effectively disables mDNS as well as any DNS Server configured in your system or network.  
     This does not affect a special set of domains for testing connectivity.
-    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    [Look at the dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
 
 dns/noMulticastDNS:
   manual: |
     Queries for mDNS Domains such as `.local` will be sent to a System/Network DNS Server instead.
-    See our [dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.  
+    [Look at the dns querying deep dive](/portmaster/architecture/core-service/secure-dns#querying-deep-dive) for more information.
 
 filter/askTimeout:
   manual: |
@@ -92,7 +93,7 @@ filter/askTimeout:
 
 filter/askWithSystemNotifications:
   manual: |
-    Requires [Desktop Notifications](#core/useSystemNotifications).
+    Requires enabled [Desktop Notifications](#core/useSystemNotifications).
 
 filter/blockInbound:
   layered: true
@@ -102,22 +103,24 @@ filter/blockInbound:
 filter/blockInternet:
   layered: true
   manual: |
-    You can use this setting to completely lock out an application from the Internet, while still allowing it communicate locally.
+    You can use this setting to completely lock out an application from the Internet. Alternatively, you can block access globally while allowing specific apps as an exception in their respective per-app settings.
 
 filter/blockLAN:
   layered: true
   manual: |
-    You can use this setting to completely lock out an application from your local network, while still allowing it to connect to the Internet.
+    You can use this setting to completely lock out an application from your local network. Alternatively, you can block access globally while allowing specific apps as an exception in their respective per-app settings.
 
 filter/blockLocal:
   layered: true
   manual: |
-    Internal connections on your device are usually not a threat.   There are however cases where it makes sense to restrict localhost communication, such as for Browsers, if not needed.
+    Internal connections on your device are usually not a threat. There are however cases where it makes sense to restrict localhost communication, such as for Browsers, if not needed.
 
 filter/blockP2P:
   layered: true
   manual: |
-    This setting is only set to "Danger" by default because there is lots of software that directly communicates with IPs. If P2P connections are not needed, setting this to "Trusted" can greatly increase security.
+    This setting is set to "Danger" by default because there is lots of software that directly communicates with IPs.
+    
+    If P2P connections are not needed widely, we recommend setting this to "Trusted" to greatly increase security. For exceptions in that case you can easily allow P2P connections for specific apps in their respective per-app setting.
 
 filter/defaultAction:
   layered: true
@@ -128,7 +131,7 @@ filter/disableAutoPermit:
   layered: true
   manual: |
     This setting is meant to reduce noise when using [prompting](#filter/defaultAction). Currently, this feature is still rather primitive - comparing paths and names - but will become smarter in the future.  
-    Auto permitting is disabled by default because it is a convenience and not a privacy feature.
+    Auto allowing is disabled by default because it is a convenience and not a privacy feature.
 
 filter/domainHeuristics:
   layered: true
@@ -137,7 +140,7 @@ filter/domainHeuristics:
 
 filter/enable:
   manual: |
-    Turning this off will completely disable the privacy filter and allow any connection. You should never use this in production. Instead, consider changing the [default action](#filter/defaultAction) to "Permit".
+    Turning this off will completely disable the privacy filter and allow any connection. You should never use this in production. Instead, consider changing the [default action](#filter/defaultAction) to "Allow".
 
 filter/endpoints:
   layered: true
@@ -151,7 +154,7 @@ filter/includeCNAMEs:
 filter/includeSubdomains:
   layered: true
   manual: |
-    This makes it easier to block trackers that change their subdomain often to avoid to being caught by filter lists.
+    This makes it easier to block trackers that change their subdomain often in an attempt to avoid being caught by filter lists.
 
 filter/lists:
   layered: true
@@ -159,7 +162,7 @@ filter/lists:
   hide_help: true
   manual: |
     In the Portmaster UI you can easily select lists you want to activate.
-    The filter lists are gathered and merged by us in order to be able to send hourly incremental updates. You can find all lists we subscribe to [here](https://github.com/safing/intel-data).
+    The filter lists are gathered and merged by us in order to be able to send hourly incremental updates. You can [view all lists the Portmaster subscribes to here](https://github.com/safing/intel-data).
 
 filter/permanentVerdicts:
   manual: |
@@ -173,17 +176,17 @@ filter/preventBypassing:
 filter/removeBlockedDNS:
   layered: true
   manual: |
-    Should a DNS response contain IP addresses which would not be allowed if connected to, the Portmaster will remove these answers in order to make it more likely for a connection to succeed within the permitted parameters.
+    Should a DNS response contain multiple IP addresses, and some of them would not be allowed to be connected to, the Portmaster will remove these answers in order to make it more likely for a connection to succeed within the permitted parameters.
 
 filter/removeOutOfScopeDNS:
   layered: true
   manual: |
-    [DNS Rebinding](https://en.wikipedia.org/wiki/DNS_rebinding) attacks allow an attacker to circumvent security policies. This feature blocks DNS Rebinding attacks on local systems.
+    [DNS Rebinding attacks](https://en.wikipedia.org/wiki/DNS_rebinding) allow an attacker to circumvent security policies. This feature blocks DNS Rebinding attacks on local systems.
 
 filter/serviceEndpoints:
   layered: true
   manual: |
-    If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number ([find it here](https://www.ultratools.com/tools/asnInfo)) or from one to a few countries.
+    If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number ([find it here](https://bgpview.io/)) or to only accept connections from specific countries.
     While potentially dangerous, you can allow any incoming connection by adding `+ *` to the [Incoming Rules](#filter/serviceEndpoints).
 
 spn/enable:
