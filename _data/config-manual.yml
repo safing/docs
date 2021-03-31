@@ -26,6 +26,10 @@ core/listenAddress:
   manual: |
     If you intend to access the Portmaster UI remotely, you can set this to `0.0.0.0:817`. [API Keys](#core/apiKeys) can be configured for access authentication. In addition to that, you will need to enable incoming connections in the Portmaster's own App Settings. Be reminded that you are fully responsible yourself for the security and all implications of remote access.
 
+core/log/level:
+  manual: |
+    Log output with levels `trace`, `debug` and `info` contain a considerable amount of network information; such as processes, domains and IP addresses. If you are concerned about privacy in your log files, please use levels `warning`, `error` or `critical`.
+
 core/metrics/instance:
   hide_default: true
   manual: |
