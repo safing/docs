@@ -507,7 +507,13 @@ input:checked~.tab-content {
     color              : rgba(102, 126, 234, var(--text-opacity));
     text-decoration    : inherit;
     background-color   : transparent;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+
+#page-container content a:hover {
+    opacity                   : .5;
+    transition-duration       : 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 #page-container content a strong {
