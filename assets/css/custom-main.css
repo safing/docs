@@ -998,11 +998,16 @@ a[title="Go to Portmaster"] {
   3. also exclude "localhost", which basically is 2. for local development
 */
 #page-container content a[href^="http"]:not([href*="safing.io"]):not([href*="localhost"]):after {
-  background-image: url("/assets/img/icons/external.svg");
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  content: "";
+    background-image     : url("/assets/img/icons/external.svg");
+    display              : inline-block;
+    height               : 10px;
+    width                : 17px;
+    content              : "";
+    background-repeat    : no-repeat;
+    background-position-y: 0px;
+    background-position-x: 4px;
+    background-size      : 10px;
+
 }
 
 /*
@@ -1014,9 +1019,13 @@ a[title="Go to Portmaster"] {
 #page-container content a[href*="/settings-reference#"]:before,
 #page-container content a[href*="/settings-reference/#"]:before,
 .settingslist p a[href^="#"]:before {
-  background-image: url("/assets/img/icons/cog.svg");
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  content: "";
+    background-image     : url("/assets/img/icons/cog.svg");
+    display              : inline-block;
+    height               : 20px;
+    width                : 20px;
+    content              : "";
+    background-repeat    : no-repeat;
+    background-position-y: 5px;
+    background-position-x: 1px;
+    background-size      : 17px;
 }
