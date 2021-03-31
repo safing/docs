@@ -866,6 +866,15 @@ a[title="Go to Portmaster"] {
     width           : 100%;
 }
 
+.notification-warning p {
+    color     : #fff !important;
+    margin-top: 0 !important;
+}
+
+.notification-warning p a::after {
+    background-image: url("/assets/img/icons/external-white.svg") !important;
+}
+
 .notification-warning img {
     width       : 1rem;
     margin-right: 1.25rem;
