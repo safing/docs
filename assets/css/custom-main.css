@@ -938,7 +938,8 @@ a[title="Go to Portmaster"] {
 
 }
 
-#page-container content .content .coderef {}
+#page-container content .content .inlineref div span {
+    font-size: 0.9rem;
 }
 
 #page-container content .content .coderef {
