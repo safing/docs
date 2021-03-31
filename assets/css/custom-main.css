@@ -516,32 +516,34 @@ input:checked~.tab-content {
     color         : rgba(102, 126, 234, var(--text-opacity))
 }
 
+    color      : #000;
 #page-container content h2 {
     font-size  : 1.875rem;
     padding-top: 4rem;
     font-weight: 800;
-    color      : #353535;
+    color         : #000;
 }
 
 #page-container content h3 {
     font-size  : 1.2rem;
     padding-top: 1rem;
     font-weight: 800;
-    color      : #353535;
+    color      : #000;
 }
 
 #page-container content h4 {
     font-size  : 1.1rem;
     padding    : 0.5rem 0;
     font-weight: 500;
-    color      : #353535;
+    color      : #000;
 }
 
 #page-container content h5 {
     font-size  : 1.1rem;
     padding-top: 1.25rem;
     font-weight: 500;
-    color      : #353535;
+    color      : #000;
+    color      : #000;
 }
 
 
@@ -656,7 +658,7 @@ input:checked~.tab-content {
 }
 
 #page-container content table tbody td:last-child {
-    color       : #6c6c6c;
+    color       : #545454;
     font-size   : 0.9rem;
     padding-left: .925rem;
 }
@@ -695,7 +697,7 @@ input:checked~.tab-content {
     padding-left   : 1.85rem;
     list-style-type: disc;
 
-    color: #6c6c6c;
+    color: #545454;
 }
 
 #page-container content .content ul li {
@@ -706,14 +708,15 @@ input:checked~.tab-content {
     padding-top    : 0.05rem;
     padding-left   : 1.25rem;
     list-style-type: disc;
-    color          : #6c6c6c;
+    color          : #545454;
 }
 
 #page-container content .content ol {
     padding-top    : 0.1rem;
     list-style-type: decimal;
     padding-left   : 1rem;
-    color          : #6c6c6c;
+    color          : #545454;
+}
 
 #page-container content ol li {
     padding-top: 0.4rem
@@ -854,7 +857,6 @@ a[title="Go to Portmaster"] {
     width           : fit-content;
     width           : -moz-fit-content;
     overflow-wrap   : break-word;
-    color           : #fff;
     padding-left    : 1.25rem;
     padding         : 1.25rem;
     margin-bottom   : 1.25rem;
