@@ -847,10 +847,6 @@ a[title="Go to Portmaster"] {
     font-weight: 500;
 }
 
-.active {
-    text-decoration-line: underline;
-}
-
 
 .notification-warning {
     font-size       : .85rem;
@@ -974,11 +970,14 @@ a[title="Go to Portmaster"] {
     opacity: 1;
 }
 
-.nav-sidebar .page-item .active a {
-    color      : black;
-    opacity    : 1;
-    font-weight: bold;
+.nav-sidebar .page-item .active>a {
+    color               : black;
+    opacity             : 1;
+    font-weight         : bold;
+    text-decoration-line: underline;
+
 }
+
 
 .nav-sidebar .page-item .active ul li.page-item a {
     color      : black;
