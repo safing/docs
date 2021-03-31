@@ -8,7 +8,7 @@ This page gives an overview over the current status of supporting mobile platfor
 <div class="notification-warning">
     <img src="/assets/img/icons/info.svg">
     <p>
-     Your Desktop environment may not (yet) be compatible.
+      The Portmaster is currently not available for any mobile platforms.
     </p>
 </div>
 
