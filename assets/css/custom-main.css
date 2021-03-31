@@ -594,7 +594,7 @@ input:checked~.tab-content {
 }
 
 #page-container content table thead {
-    font-size  : 0.9rem;
+    font-size  : 0.985rem;
     padding-top: 1.25rem;
     font-weight: 500;
     color      : #353535;
