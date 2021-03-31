@@ -114,6 +114,55 @@
     }
   },
   {
+    "Name": "Log Level",
+    "Key": "core/log/level",
+    "Description": "Configure the logging level.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "info",
+    "ValidationRegex": "^(critical|error|warning|info|debug|trace)$",
+    "PossibleValues": [
+      {
+        "Name": "Critical",
+        "Description": "The critical level only logs errors that lead to a partial, but imminent failure.",
+        "Value": "critical"
+      },
+      {
+        "Name": "Error",
+        "Description": "The error level logs errors that potentially break functionality. Everything logged by the critical level is included here too.",
+        "Value": "error"
+      },
+      {
+        "Name": "Warning",
+        "Description": "The warning level logs minor errors and worse. Everything logged by the error level is included here too.",
+        "Value": "warning"
+      },
+      {
+        "Name": "Info",
+        "Description": "The info level logs the main events that are going on and are interesting to the user. Everything logged by the warning level is included here too.",
+        "Value": "info"
+      },
+      {
+        "Name": "Debug",
+        "Description": "The debug level logs some additional debugging details. Everything logged by the info level is included here too.",
+        "Value": "debug"
+      },
+      {
+        "Name": "Trace",
+        "Description": "The trace level logs loads of detailed information as well as operation and request traces. Everything logged by the debug level is included here too.",
+        "Value": "trace"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": 513
+    }
+  },
+  {
     "Name": "Metrics Instance Name",
     "Key": "core/metrics/instance",
     "Description": "Define the prometheus instance label for exported metrics. Please note that changing the instance name will reset persisted metrics.",

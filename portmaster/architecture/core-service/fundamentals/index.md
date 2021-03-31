@@ -21,7 +21,9 @@ Writing logs is vital for understanding what is going on and is of tremendous he
 
 It uses a leveled log system in order to regulate the amount of information saved. On the `trace` level, it can also attach logs to a context, which are then written in a batch in order to clunk logs of one operation together. This is especially useful, as the Portmaster Core Service is highly concurrent and it can otherwise be hard to attribute log lines to a certain operation.
 
-The log level can be configured by setting the cmdline argument `--log` to one of `trace`, `debug`, `info`, `warning`, `error` or `critical`.
+You can configure the {% include setting/ref.html key="core/log/level" %} in the settings or set it on the cmdline with the `--log` argument.
+
+You can view saved log files in the `logs` directory in the [data root](#data-root).
 
 This is what logs could look like:
 ```
