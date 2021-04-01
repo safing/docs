@@ -45,11 +45,13 @@ Have certain applications stopped working with the Portmaster? Or games? Or a sp
 
 ### Contribute to the Code
 
-Overall, we do welcome code contributions - but there are two things you must know before starting:
+Overall, we do welcome code contributions - but here are two things you must know before starting:
 
 ###### 📑 A Code License Agreement Is Sometimes Required
 
-Due to legal reasons, we want to keep the full rights to the code of our main projects. In the unlikely case where things might not work out we might want to pivot to a B2B approach where money is easier made. This sadly also applies to small fixes or typos.
+Our [Code License Agreement](https://gist.github.com/Raphty/e22b3c028c7ec07d995b3882f63d7ebb) gives us full legal flexibility, which we require for our main projects.
+The openness of the code is in no way hindered by this: Anyone can still fork and do whatever they want with the code according to its license.
+But if you want to change something in our main repositories we do require to keep ownership of the code. This also applies to small fixes or typos.
 
 ###### 🗣 For Anything Bigger Communication with Safing Is A Must
 
