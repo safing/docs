@@ -18,6 +18,6 @@ This page lists all settings of the Portmaster.
 |<span class="setting-badge beta">Beta</span>|Setting is not deemed to be stable yet.|
 |<span class="setting-badge experimental">Experimental</span>|Setting is meant for experiments and debugging. Be careful, you could break things!|
 |<span class="setting-badge key">setting/key</span>|Internal identifier of the setting. These are also used as anchors in order to directly link to a setting on this page.|
-|<i class="fab fa-lg fa-markdown"></i>|When hovering over a setting name - copy its name and URL formatted in markdown. This requires JavaScript.|
+|<span class="header-anchor-style"><i class="fab fa-lg fa-markdown"></i></span>|When hovering over a setting name - copy its name and URL formatted in markdown. This requires JavaScript.|
 
 {% include setting/list.html prefix="" expertise=2 release=2 manual=true dev=true %}

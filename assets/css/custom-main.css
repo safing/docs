@@ -1113,12 +1113,21 @@ table.tag-explainers a[href^="#"]:before {
     padding-top  : 0; /* cancel image alignment for icon */
 }
 
+#page-container .header-anchor-style {
+    /*
+    This is for styling the anchors only for explaining them on the page.
+    */
+    opacity   : .5;
+    width     : 50%;
+    text-align: center;
+    display   : inline-block;
+}
+
 #page-container h1:hover .header-anchor,
 #page-container h2:hover .header-anchor,
 #page-container h3:hover .header-anchor,
 #page-container h4:hover .header-anchor,
-#page-container h5:hover .header-anchor,
-#page-container h6:hover .header-anchor {
+#page-container h5:hover .header-anchor {
     display: block;
 }
 
@@ -1126,8 +1135,7 @@ table.tag-explainers a[href^="#"]:before {
 #page-container h2 .header-anchor:hover,
 #page-container h3 .header-anchor:hover,
 #page-container h3 .header-anchor:hover,
-#page-container h5 .header-anchor:hover,
-#page-container h6 .header-anchor:hover {
+#page-container h5 .header-anchor:hover {
     opacity: 1;
 }
 
