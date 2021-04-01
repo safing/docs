@@ -1130,3 +1130,9 @@ table.tag-explainers a[href^="#"]:before {
 #page-container h6 .header-anchor:hover {
     opacity: 1;
 }
+
+/* No JS Switches */
+
+.hide-no-js {
+    display: none;
+}
