@@ -657,7 +657,6 @@ input:checked~.tab-content {
 
 .setting-badge {
     font-size       : .8rem;
-    color           : #2c5282;
     padding-left    : .65rem;
     padding-right   : .65rem;
     padding-top     : .2rem;
@@ -667,11 +666,74 @@ input:checked~.tab-content {
     align-items     : center;
     display         : inline-flex;
     border-radius   : 9999px;
-    background-color: #ebf8ff;
     width           : max-content;
     vertical-align  : super;
 }
 
+.setting-badge i {
+  margin-right: 0.5em;
+  margin-top: -2px;
+}
+
+/* icon: globe */
+/* default blue */
+.setting-badge.global {
+  background-color: #ebf8ff;
+  color           : #2c5282;
+}
+
+/* icon: dot-circle */
+/* default blue */
+.setting-badge.per-app {
+  background-color: #ebf8ff;
+  color           : #2c5282;
+}
+
+/* icon: sync-alt */
+/* default blue */
+.setting-badge.restart {
+  background-color: #ebf8ff;
+  color           : #2c5282;
+}
+
+/* icon: layer-group */
+/* default blue */
+.setting-badge.stackable {
+  background-color: #ebf8ff;
+  color           : #2c5282;
+}
+
+/* pink */
+.setting-badge.advanced {
+  background-color: #ffebf8;
+  color           : #8f1170;
+}
+
+/* pink with border */
+.setting-badge.developer {
+  background-color: #ffebf8;
+  color           : #8f1170;
+  border          : 1px solid rgba(149, 55, 112, 0.55);
+}
+
+/* red */
+.setting-badge.beta {
+  background-color: #ffe4e5;
+  color           : #7c2527;
+}
+
+/* red with border */
+.setting-badge.experimental {
+  background-color: #ffe4e5;
+  color           : #7c2527;
+  border          : 1px solid #d58485;
+}
+
+/* grey */
+.setting-badge.key {
+  background-color: #f7f7f7;
+  color           : #484848;
+}
 
 #page-container content #markdown-toc {
     padding-bottom: 2rem;
@@ -795,7 +857,6 @@ input:checked~.tab-content {
 
 #page-container content .content .settingslist .setting h5 small span {
     font-size       : .8rem;
-    color           : #2c5282;
     padding-left    : .65rem;
     padding-right   : .65rem;
     padding-top     : .2rem;
@@ -806,7 +867,6 @@ input:checked~.tab-content {
     align-items     : center;
     display         : inline-flex;
     border-radius   : 9999px;
-    background-color: #ebf8ff;
 }
 
 #page-container content .content .settingslist .values {

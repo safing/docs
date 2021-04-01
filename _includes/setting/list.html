@@ -14,58 +14,53 @@
       {{ option.Name }}
       <small>
         {% if site.data.config-manual[option.Key].layered %}
-          <span class="setting-badge">
-            <i class="fa fa-user-circle"></i>
+          <span class="setting-badge per-app">
+            <i class="far fa-dot-circle"></i>
             Per App
           </span>
         {% else %}
-          <span class="setting-badge">
+          <span class="setting-badge global">
             <i class="fa fa-globe"></i>
             Global
           </span>
         {% endif %}
 
         {% if option.RequiresRestart %}
-          <span class="setting-badge info">
-            <i class="fa fa-refresh"></i>
+          <span class="setting-badge restart">
+            <i class="fa fa-sync-alt"></i>
             Requires Restart
           </span>
         {% endif %}
 
         {% if option.Annotations["safing/portbase:options:stackable"] %}
-          <span class="setting-badge info">
-            <i class="fa fa-bars"></i>
+          <span class="setting-badge stackable">
+            <i class="fa fa-layer-group"></i>
             Stackable
           </span>
         {% endif %}
 
         {% if option.ExpertiseLevel == 1 %}
-          <span class="setting-badge warn">
-            <i class="fa fa-wrench"></i>
+          <span class="setting-badge advanced">
             Advanced
           </span>
         {% elsif option.ExpertiseLevel == 2 %}
-          <span class="setting-badge dev">
-            <i class="fa fa-flask"></i>
+          <span class="setting-badge developer">
             Developer
           </span>
         {% endif %}
 
         {% if option.ReleaseLevel == 1 %}
-          <span class="setting-badge warn">
-            <i class="fa fa-wrench"></i>
+          <span class="setting-badge beta">
             Beta
           </span>
         {% elsif option.ReleaseLevel == 2 %}
-          <span class="setting-badge dev">
-            <i class="fa fa-flask"></i>
+          <span class="setting-badge experimental">
             Experimental
           </span>
         {% endif %}
 
         {% if include.dev %}
           <span class="setting-badge key">
-            <i class="fa fa-code"></i>
             {{ option.Key }}
           </span>
         {% endif %}
