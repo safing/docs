@@ -10,7 +10,7 @@ This page lists all settings of the Portmaster.
 |Badge|Meaning|
 |--:|:--|
 |<span class="setting-badge global"><i class="fa fa-globe"></i> Global</span>|Setting is configured globally.|
-|<span class="setting-badge per-app"><i class="far fa-dot-circle"></i> Per App</span>|Setting is configurable per app, but also has a global default.|
+|<span class="setting-badge per-app"><i class="far fa-dot-circle"></i> Per App</span>|Setting is configurable per app, but also has a configurable global default.|
 |<span class="setting-badge restart"><i class="fa fa-sync-alt"></i> Requires Restart</span>|Setting requires a restart of the Portmaster to take effect.|
 |<span class="setting-badge stackable"><i class="fa fa-layer-group"></i> Stackable</span>|Per-app setting that does not replace the global default, but adds to it.|
 |<span class="setting-badge advanced">Advanced</span>|Setting is only visible in the Portmaster if the [UI Mode](#core/expertiseLevel) is set to Advanced.|
