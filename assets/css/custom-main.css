@@ -813,28 +813,6 @@ input:checked~.tab-content {
     display: flex;
 }
 
-#page-container content .content .settingslist .setting h5 a {
-    opacity    : .5;
-    position   : absolute;
-    margin-left: -1.8rem;
-}
-
-#page-container content .content .settingslist .setting h5 a:hover {
-    opacity: 1;
-}
-
-#page-container content .content .settingslist .setting h5 a img {
-    width       : 1.4rem;
-    margin-right: 1rem;
-    display     : none;
-    margin-top  : 0.25rem;
-
-}
-
-#page-container content .content .settingslist .setting h5:hover a img {
-    display: block;
-}
-
 #page-container content .content .settingslist .setting h5 small {
     display     : block;
     padding-left: 1rem;
@@ -1096,4 +1074,58 @@ table.tag-explainers a[href^="#"]:before {
     background-position-y: 5px;
     background-position-x: 1px;
     background-size      : 17px;
+}
+
+/* Header Anchors */
+
+#page-container .header-anchor {
+    /*
+    Additional padding on the right is required to build a "bridge" to the
+    header that the mouse can travel on without losing the hover state.
+    */
+    opacity      : .5;
+    position     : absolute;
+    margin-left  : -1.5em;
+    width        : 1.7em;
+    padding-right: 0.5em;
+    padding-top  : 0.15em; /* align img to line */
+    cursor       : pointer;
+    display      : none;
+}
+
+#page-container .second.header-anchor {
+    margin-left  : -3em;
+    padding-top  : 0; /* cancel image alignment for icon */
+}
+
+#page-container .header-anchor-style {
+    /*
+    This is for styling the anchors only for explaining them on the page.
+    */
+    opacity   : .5;
+    width     : 50%;
+    text-align: center;
+    display   : inline-block;
+}
+
+#page-container h1:hover .header-anchor,
+#page-container h2:hover .header-anchor,
+#page-container h3:hover .header-anchor,
+#page-container h4:hover .header-anchor,
+#page-container h5:hover .header-anchor {
+    display: block;
+}
+
+#page-container h1 .header-anchor:hover,
+#page-container h2 .header-anchor:hover,
+#page-container h3 .header-anchor:hover,
+#page-container h3 .header-anchor:hover,
+#page-container h5 .header-anchor:hover {
+    opacity: 1;
+}
+
+/* No JS Switches */
+
+.hide-no-js {
+    display: none;
 }

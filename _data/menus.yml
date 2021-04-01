@@ -6,6 +6,9 @@ items:
         extra_path: "/contribute"
         children:
           - title: Contribute
+          - title: Settings Handbook
+            # This _MUST_ be equal to the config value site.portmaster_settings_url.
+            custom_url: /portmaster/settings
           - title: DNS Configuration
       - title: Install
         extra_path: "/windows"
@@ -18,9 +21,6 @@ items:
               - title: VPN Compatibility
               - title: Mobile
               # - title: Mac
-      - title: Manual
-        children:
-          - title: Settings Reference
       - title: Architecture
         extra_path: "/overview"
         children:

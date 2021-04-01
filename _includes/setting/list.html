@@ -8,9 +8,10 @@
   <div class="setting">
     <!-- Header -->
     <h5 id="{{ option.Key }}" class="header">
-      <a class="header-anchor" href="#{{ option.Key }}">
-        <img src="{{ site.img_url }}icons/link.svg">
-      </a>
+      <span class="second header-anchor hide-no-js"
+        onclick="navigator.clipboard.writeText('[{{ option.Name }}]({{ site.url }}{{ site.portmaster_settings_url }}#{{ option.Key }})')">
+        <i class="fab fa-markdown hide-no-js"></i>
+      </span>
       {{ option.Name }}
       <small>
         {% if site.data.config-manual[option.Key].layered %}
