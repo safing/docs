@@ -1,5 +1,5 @@
 ---
-title: Settings Reference
+title: Settings Handbook
 layout: base
 skip_toc: true
 ---

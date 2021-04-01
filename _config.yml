@@ -23,6 +23,7 @@ description: > # this means to ignore newlines until "base_url:"
 base_url: "/" # the subpath of your site, e.g. /blog
 
 ### heavy externally referenced URLs
+portmaster_settings_url: /portmaster/settings # Check reference in _data/menus.yml!
 coc_url: /community/code-of-conduct
 
 ### assets
