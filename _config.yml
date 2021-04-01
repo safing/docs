@@ -81,6 +81,11 @@ markdown: kramdown
 # plugins:
 #   - jekyll-feed
 
+# Header anchors
+before_heading: true
+anchor_class: header-anchor
+anchor_body: "<img src=\"/assets/img/icons/link.svg\">"
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
