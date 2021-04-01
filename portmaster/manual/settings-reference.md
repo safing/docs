@@ -6,6 +6,7 @@ skip_toc: true
 
 This page lists all settings of the Portmaster.
 
+{:.tag-explainers}
 |Badge|Meaning|
 |--:|:--|
 |<span class="setting-badge global"><i class="fa fa-globe"></i> Global</span>|Setting is configured globally.|
