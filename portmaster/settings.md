@@ -8,7 +8,7 @@ This page lists all settings of the Portmaster.
 
 {:.tag-explainers}
 |Badge|Meaning|
-|--:|:--|
+|:--|:--|
 |<span class="setting-badge global"><i class="fa fa-globe"></i> Global</span>|Setting is configured globally.|
 |<span class="setting-badge per-app"><i class="far fa-dot-circle"></i> Per App</span>|Setting is configurable per app, but also has a configurable global default.|
 |<span class="setting-badge restart"><i class="fa fa-sync-alt"></i> Requires Restart</span>|Setting requires a restart of the Portmaster to take effect.|
