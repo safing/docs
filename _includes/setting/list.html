@@ -6,24 +6,133 @@
     option.ReleaseLevel <= include.release
   %}
   <div class="setting">
-    <h5>{{ option.Name }}</h5>
-    <p>
-      {{ option.Description }}
-    </p>
-    <p>
-      Attributes:
-      <ul>
-        <li>Key: {{ option.Key }}</li>
-        <li>Description: {{ option.Description }}</li>
-        <li>Help: {{ option.Help }}</li>
-        <li>OptType: {{ option.OptType }}</li>
-        <li>ExpertiseLevel: {{ option.ExpertiseLevel }}</li>
-        <li>ReleaseLevel: {{ option.ReleaseLevel }}</li>
-        <li>RequiresRestart: {{ option.RequiresRestart }}</li>
-        <li>DefaultValue: {{ option.DefaultValue }}</li>
-      </ul>
-    </p>
-  </div>
+    <!-- Header -->
+    <h5 id="{{ option.Key }}" class="header">
+      <span class="second header-anchor hide-no-js"
+        onclick="navigator.clipboard.writeText('[{{ option.Name }}]({{ site.url }}{{ site.portmaster_settings_url }}#{{ option.Key }})')">
+        <i class="fab fa-markdown hide-no-js"></i>
+      </span>
+      {{ option.Name }}
+      <small>
+        {% if site.data.config-manual[option.Key].layered %}
+          <span class="setting-badge per-app">
+            <i class="far fa-dot-circle"></i>
+            Per App
+          </span>
+        {% else %}
+          <span class="setting-badge global">
+            <i class="fa fa-globe"></i>
+            Global
+          </span>
+        {% endif %}
+
+        {% if option.RequiresRestart %}
+          <span class="setting-badge restart">
+            <i class="fa fa-sync-alt"></i>
+            Requires Restart
+          </span>
+        {% endif %}
+
+        {% if option.Annotations["safing/portbase:options:stackable"] %}
+          <span class="setting-badge stackable">
+            <i class="fa fa-layer-group"></i>
+            Stackable
+          </span>
+        {% endif %}
+
+        {% if option.ExpertiseLevel == 1 %}
+          <span class="setting-badge advanced">
+            Advanced
+          </span>
+        {% elsif option.ExpertiseLevel == 2 %}
+          <span class="setting-badge developer">
+            Developer
+          </span>
+        {% endif %}
+
+        {% if option.ReleaseLevel == 1 %}
+          <span class="setting-badge beta">
+            Beta
+          </span>
+        {% elsif option.ReleaseLevel == 2 %}
+          <span class="setting-badge experimental">
+            Experimental
+          </span>
+        {% endif %}
+
+        {% if include.dev %}
+          <span class="setting-badge key">
+            {{ option.Key }}
+          </span>
+        {% endif %}
+      </small>
+    </h5>
+
+    <!-- Explanation -->
+    {{ option.Description | markdownify }}
+    {% if include.manual and site.data.config-manual[option.Key] %}
+      {{ site.data.config-manual[option.Key].manual | markdownify }}
+    {% endif %}
+
+    {% assign hide_default = false %}
+    {% if site.data.config-manual[option.Key].hide_default %}
+      {% assign hide_default = site.data.config-manual[option.Key].hide_default == true %}
+    {% endif %}
+
+    {% assign hide_help = false %}
+    {% if site.data.config-manual[option.Key].hide_help %}
+      {% assign hide_help = site.data.config-manual[option.Key].hide_help == true %}
+    {% endif %}
+
+    <!-- Possible Values -->
+    {% if hide_default == false or (hide_help == false and option.Help != "" %}
+    <div class="values">
+      {% if hide_default %}
+        <!-- Hide default value -->
+      {% elsif option.PossibleValues %}
+        Possible Values:
+        <ul>
+          {% for value in option.PossibleValues %}
+          <li>
+            {% if value.Value == option.DefaultValue %}
+            <strong><small>Default:</small></strong>
+            {% endif %}
+            <strong>{{ value.Name }}</strong>
+            {% if include.dev %}
+              (
+              <i class="fa fa-code"></i>
+              <code>{{ value.Value }}</code>
+              )
+            {% endif %}
+            : {{ value.Description }}
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        Default Value:
+        {% case option.OptType %}
+        {% when 1 %}
+          <code>{{ option.DefaultValue }}</code> (string)
+        {% when 2 %}
+          <code>{{ option.DefaultValue | join: ", " }}</code> (string array)
+        {% when 3 %}
+          <code>{{ option.DefaultValue | default: 0 }}</code>
+          {{ option.Annotations["safing/portbase:ui:unit"] }}
+          (integer)
+        {% when 4 %}
+          <code>{{ option.DefaultValue | default: false }}</code> (boolean)
+        {% endcase %}
+      {% endif %}
+
+      {% if hide_help == false and option.Help != "" %}
+        <h6>Formatting Help:</h6>
+        <p>
+          {{ option.Help | markdownify }}
+        </p>
+      {% endif %}
+    </div>
+    {% endif %}
+    </div>
   {% endif %}
 {% endfor %}
 </div>

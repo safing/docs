@@ -1,5 +1,21 @@
 [
   {
+    "Name": "API Keys",
+    "Key": "core/apiKeys",
+    "Description": "Define API keys for priviledged access to the API. Every entry is a separate API key with respective permissions. Format is `\u003ckey\u003e?read=\u003cperm\u003e\u0026write=\u003cperm\u003e`. Permissions are `anyone`, `user` and `admin`, and may be omitted.",
+    "Help": "",
+    "OptType": 2,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:order": 514
+    }
+  },
+  {
     "Name": "Automatic Updates",
     "Key": "core/automaticUpdates",
     "Description": "Enable automatic checking, downloading and applying of updates. This affects all kinds of updates, including intelligence feeds and broadcast notifications.",
@@ -18,7 +34,7 @@
   {
     "Name": "Development Mode",
     "Key": "core/devMode",
-    "Description": "In Development Mode, security restrictions are lifted/softened to enable easier access to Portmaster for debugging and testing purposes.",
+    "Description": "In Development Mode, security restrictions are lifted/softened to enable unrestricted access for debugging and testing purposes.",
     "Help": "",
     "OptType": 4,
     "ExpertiseLevel": 2,
@@ -34,7 +50,7 @@
   {
     "Name": "Process Detection",
     "Key": "core/enableProcessDetection",
-    "Description": "This option enables the attribution of network traffic to processes. This should always be enabled, and effectively disables app profiles if disabled.",
+    "Description": "This option enables the attribution of network traffic to processes. Without it, app settings are effectively disabled.",
     "Help": "",
     "OptType": 4,
     "ExpertiseLevel": 2,
@@ -95,6 +111,87 @@
     "Annotations": {
       "safing/portbase:ui:category": "Development",
       "safing/portbase:ui:order": 513
+    }
+  },
+  {
+    "Name": "Log Level",
+    "Key": "core/log/level",
+    "Description": "Configure the logging level.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "info",
+    "ValidationRegex": "^(critical|error|warning|info|debug|trace)$",
+    "PossibleValues": [
+      {
+        "Name": "Critical",
+        "Description": "The critical level only logs errors that lead to a partial, but imminent failure.",
+        "Value": "critical"
+      },
+      {
+        "Name": "Error",
+        "Description": "The error level logs errors that potentially break functionality. Everything logged by the critical level is included here too.",
+        "Value": "error"
+      },
+      {
+        "Name": "Warning",
+        "Description": "The warning level logs minor errors and worse. Everything logged by the error level is included here too.",
+        "Value": "warning"
+      },
+      {
+        "Name": "Info",
+        "Description": "The info level logs the main events that are going on and are interesting to the user. Everything logged by the warning level is included here too.",
+        "Value": "info"
+      },
+      {
+        "Name": "Debug",
+        "Description": "The debug level logs some additional debugging details. Everything logged by the info level is included here too.",
+        "Value": "debug"
+      },
+      {
+        "Name": "Trace",
+        "Description": "The trace level logs loads of detailed information as well as operation and request traces. Everything logged by the debug level is included here too.",
+        "Value": "trace"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Development",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": 513
+    }
+  },
+  {
+    "Name": "Metrics Instance Name",
+    "Key": "core/metrics/instance",
+    "Description": "Define the prometheus instance label for exported metrics. Please note that changing the instance name will reset persisted metrics.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": "",
+    "ValidationRegex": "^([a-zA-Z_][a-zA-Z0-9_]*)?$",
+    "Annotations": {
+      "safing/portbase:ui:category": "Metrics",
+      "safing/portbase:ui:order": 0
+    }
+  },
+  {
+    "Name": "Push Metrics",
+    "Key": "core/metrics/push",
+    "Description": "Push metrics to this URL in the prometheus format.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": "",
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Metrics",
+      "safing/portbase:ui:order": 0
     }
   },
   {
@@ -195,7 +292,7 @@
   {
     "Name": "Block Unofficial TLDs",
     "Key": "dns/dontResolveSpecialDomains",
-    "Description": "Block .onion, .bit. Unofficial domains may pose a security risk. This does not affect .onion domains in the Tor Browser.",
+    "Description": "Block .onion, .bit. Unofficial domains may pose a security risk. This setting does not affect .onion domains in the Tor Browser.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 1,
@@ -206,29 +303,33 @@
     "PossibleValues": [
       {
         "Name": "Off",
-        "Description": "",
+        "Description": "Setting is always disabled.",
         "Value": 0
       },
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
     "Annotations": {
       "safing/portbase:ui:category": "Resolving",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 16
+      "safing/portbase:ui:order": 16,
+      "self:detail:specialServiceDomains": [
+        ".onion.",
+        ".bit."
+      ]
     }
   },
   {
@@ -257,7 +358,7 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 300,
-    "ValidationRegex": "",
+    "ValidationRegex": "^[1-9][0-9]{1,5}$",
     "Annotations": {
       "safing/portbase:ui:category": "Servers",
       "safing/portbase:ui:order": 32,
@@ -307,20 +408,41 @@
           "Action": "replace"
         },
         {
-          "Name": "Cloudflare",
+          "Name": "Cloudflare (with Malware Filter)",
           "Value": [
             "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
             "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
           ],
           "Action": "replace"
         }
+      ],
+      "self:detail:connectivityDomains": [
+        "captiveportal.invalid.",
+        "one.one.one.one.",
+        "dns.msftncsi.com.",
+        "msftncsi.com.",
+        "www.msftncsi.com.",
+        "microsoftconnecttest.com.",
+        "www.microsoftconnecttest.com.",
+        "ipv6.microsoftconnecttest.com.",
+        "captive.apple.com.",
+        "connectivity-check.ubuntu.com.",
+        "nmcheck.gnome.org.",
+        "network-test.debian.org.",
+        "204.pop-os.org",
+        "connectivitycheck.gstatic.com.",
+        "neverssl.com.",
+        "detectportal.firefox.com."
+      ],
+      "self:detail:internalSpecialUseDomains": [
+        ".17.home.arpa."
       ]
     }
   },
   {
     "Name": "Ignore System/Network Servers",
     "Key": "dns/noAssignedNameservers",
-    "Description": "Ignore DNS servers configured in your system or network.",
+    "Description": "Ignore DNS servers configured in your system or network. This may break domains from your local network.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 1,
@@ -330,25 +452,59 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
     "Annotations": {
       "safing/portbase:ui:category": "Servers",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 1
+      "safing/portbase:ui:order": 1,
+      "self:detail:specialUseDomains": [
+        ".home.arpa.",
+        ".intranet.",
+        ".internal.",
+        ".private.",
+        ".corp.",
+        ".home.",
+        ".lan.",
+        ".10.in-addr.arpa.",
+        ".16.172.in-addr.arpa.",
+        ".17.172.in-addr.arpa.",
+        ".18.172.in-addr.arpa.",
+        ".19.172.in-addr.arpa.",
+        ".20.172.in-addr.arpa.",
+        ".21.172.in-addr.arpa.",
+        ".22.172.in-addr.arpa.",
+        ".23.172.in-addr.arpa.",
+        ".24.172.in-addr.arpa.",
+        ".25.172.in-addr.arpa.",
+        ".26.172.in-addr.arpa.",
+        ".27.172.in-addr.arpa.",
+        ".28.172.in-addr.arpa.",
+        ".29.172.in-addr.arpa.",
+        ".30.172.in-addr.arpa.",
+        ".31.172.in-addr.arpa.",
+        ".168.192.in-addr.arpa.",
+        ".d.f.ip6.arpa",
+        ".c.f.ip6.arpa",
+        ".example.",
+        ".example.com.",
+        ".example.net.",
+        ".example.org.",
+        ".test."
+      ]
     }
   },
   {
@@ -364,18 +520,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -388,7 +544,7 @@
   {
     "Name": "Ignore Multicast DNS",
     "Key": "dns/noMulticastDNS",
-    "Description": "Do not resolve using Multicast DNS. This may break certain Plug and Play devices or services.",
+    "Description": "Do not resolve using Multicast DNS. This may break certain Plug and Play devices and services.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 1,
@@ -398,25 +554,33 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
     "Annotations": {
       "safing/portbase:ui:category": "Resolving",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 2
+      "safing/portbase:ui:order": 2,
+      "self:detail:multicastDomains": [
+        ".local.",
+        ".254.169.in-addr.arpa.",
+        ".8.e.f.ip6.arpa.",
+        ".9.e.f.ip6.arpa.",
+        ".a.e.f.ip6.arpa.",
+        ".b.e.f.ip6.arpa."
+      ]
     }
   },
   {
@@ -428,8 +592,8 @@
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": 20,
-    "ValidationRegex": "",
+    "DefaultValue": 60,
+    "ValidationRegex": "^[1-9][0-9]{1,5}$",
     "Annotations": {
       "safing/portbase:ui:category": "General",
       "safing/portbase:ui:order": 3,
@@ -469,18 +633,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -504,22 +668,22 @@
     "PossibleValues": [
       {
         "Name": "Off",
-        "Description": "",
+        "Description": "Setting is always disabled.",
         "Value": 0
       },
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -543,22 +707,22 @@
     "PossibleValues": [
       {
         "Name": "Off",
-        "Description": "",
+        "Description": "Setting is always disabled.",
         "Value": 0
       },
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -582,22 +746,22 @@
     "PossibleValues": [
       {
         "Name": "Off",
-        "Description": "",
+        "Description": "Setting is always disabled.",
         "Value": 0
       },
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -620,18 +784,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -644,7 +808,7 @@
   {
     "Name": "Default Action",
     "Key": "filter/defaultAction",
-    "Description": "The default action when nothing else permits or blocks an outgoing connection. Incoming connections are always blocked by default.",
+    "Description": "The default action when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
     "Help": "",
     "OptType": 1,
     "ExpertiseLevel": 0,
@@ -654,8 +818,8 @@
     "ValidationRegex": "^(permit|block|ask)$",
     "PossibleValues": [
       {
-        "Name": "Permit",
-        "Description": "Permit all connections",
+        "Name": "Allow",
+        "Description": "Allow all connections",
         "Value": "permit"
       },
       {
@@ -676,9 +840,9 @@
     }
   },
   {
-    "Name": "Disable Auto Permit",
+    "Name": "Disable Auto Allow",
     "Key": "filter/disableAutoPermit",
-    "Description": "Auto Permit searches for a relation between an app and the destination of a connection - if there is a correlation, the connection will be permitted.",
+    "Description": "Auto Allow searches for a relation between an app and the destination of a connection - if there is a correlation, the connection will be allowed.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -688,18 +852,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -723,22 +887,22 @@
     "PossibleValues": [
       {
         "Name": "Off",
-        "Description": "",
+        "Description": "Setting is always disabled.",
         "Value": 0
       },
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -794,18 +958,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -828,23 +992,23 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
     "Annotations": {
-      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:category": "Filter Lists",
       "safing/portbase:ui:display-hint": "security level",
       "safing/portbase:ui:order": 35
     }
@@ -865,7 +1029,7 @@
     ],
     "ValidationRegex": "^[a-zA-Z0-9\\-]+$",
     "Annotations": {
-      "safing/portbase:ui:category": "Rules",
+      "safing/portbase:ui:category": "Filter Lists",
       "safing/portbase:ui:display-hint": "filter list",
       "safing/portbase:ui:order": 34
     }
@@ -889,7 +1053,7 @@
   {
     "Name": "Block Bypassing",
     "Key": "filter/preventBypassing",
-    "Description": "Prevent apps from bypassing the privacy filter.  \nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers",
+    "Description": "Prevent apps from bypassing the privacy filter.  \nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers\n\nPlease note that if you are using the system resolver, bypass attempts might be additionally blocked there too.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -899,18 +1063,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -923,7 +1087,7 @@
   {
     "Name": "Reject Blocked IPs",
     "Key": "filter/removeBlockedDNS",
-    "Description": "Reject blocked IP addresses directly from the DNS response instead of handing them over to the app and blocking a resulting connection.",
+    "Description": "Reject blocked IP addresses directly from the DNS response instead of handing them over to the app and blocking a resulting connection. This settings does not affect privacy and only takes effect when the system resolver is not in use.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 2,
@@ -933,18 +1097,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],
@@ -957,7 +1121,7 @@
   {
     "Name": "Enforce Global/Private Split-View",
     "Key": "filter/removeOutOfScopeDNS",
-    "Description": "Reject private IP addresses (RFC1918 et al.) from public DNS responses.",
+    "Description": "Reject private IP addresses (RFC1918 et al.) from public DNS responses. If the system resolver is in use, the resulting connection will be blocked instead of the DNS request.",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 2,
@@ -967,18 +1131,18 @@
     "ValidationRegex": "^(7|6|4)$",
     "PossibleValues": [
       {
-        "Name": "Normal",
-        "Description": "",
+        "Name": "Trusted / Home Network",
+        "Description": "Setting is always enabled.",
         "Value": 7
       },
       {
-        "Name": "High",
-        "Description": "",
+        "Name": "Untrusted / Public Network",
+        "Description": "Setting is enabled in untrusted and dangerous networks.",
         "Value": 6
       },
       {
-        "Name": "Extreme",
-        "Description": "",
+        "Name": "Danger / Hacked Network",
+        "Description": "Setting is enabled only in dangerous networks.",
         "Value": 4
       }
     ],

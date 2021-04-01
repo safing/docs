@@ -2,10 +2,6 @@
 title: VPN Compatibility
 layout: base
 ---
-1. Numbered
-{:toc}
-
-<br/>
 
 Overall, the Portmaster is compatible with VPNs. Here we describe what to look out for and known issues with special VPN software.
 

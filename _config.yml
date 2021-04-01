@@ -22,6 +22,10 @@ description: > # this means to ignore newlines until "base_url:"
   Documentation for Safing Portmaster
 base_url: "/" # the subpath of your site, e.g. /blog
 
+### heavy externally referenced URLs
+portmaster_settings_url: /portmaster/settings # Check reference in _data/menus.yml!
+coc_url: /community/code-of-conduct
+
 ### assets
 assets_url: /assets/
 img_url: /assets/img/
@@ -76,6 +80,11 @@ markdown: kramdown
 # theme: minima
 # plugins:
 #   - jekyll-feed
+
+# Header anchors
+before_heading: true
+anchor_class: header-anchor
+anchor_body: "<img src=\"/assets/img/icons/link.svg\">"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

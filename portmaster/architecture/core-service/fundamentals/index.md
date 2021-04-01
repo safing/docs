@@ -3,10 +3,7 @@ title: Fundamentals
 layout: base
 ---
 
-1. TOC
-{:toc}
-
-##### Module Management
+### Module Management
 
 {% include code_ref.html godoc_portbase_1="modules" godoc_portbase_2="modules/subsystems" %}
 
@@ -16,7 +13,7 @@ The module management is responsible for preparing, starting and stopping all mo
 
 For convenience, multiple small modules are bundled into big modules - such as "Privacy Filter", "Secure DNS", etc. In the code these "Big Modules" are referred to as `Subsystems`, while in marketing and other high level context they are simply called "Modules".
 
-##### Logging
+### Logging
 
 {% include code_ref.html godoc_portbase="log" %}
 
@@ -24,7 +21,9 @@ Writing logs is vital for understanding what is going on and is of tremendous he
 
 It uses a leveled log system in order to regulate the amount of information saved. On the `trace` level, it can also attach logs to a context, which are then written in a batch in order to clunk logs of one operation together. This is especially useful, as the Portmaster Core Service is highly concurrent and it can otherwise be hard to attribute log lines to a certain operation.
 
-The log level can be configured by setting the cmdline argument `--log` to one of `trace`, `debug`, `info`, `warning`, `error` or `critical`.
+You can configure the {% include setting/ref.html key="core/log/level" %} in the settings or set it on the cmdline with the `--log` argument.
+
+You can view saved log files in the `logs` directory in the [data root](#data-root).
 
 This is what logs could look like:
 ```
@@ -47,7 +46,7 @@ This is what logs could look like:
           102.167µs all/master:355 ▶ TRAC     filter: LMS score of eTLD+1 orf.at is 100.00
 ```
 
-##### Data Root
+### Data Root
 
 {% include code_ref.html godoc_portbase="dataroot" github_portbase="utils/structure.go" %}
 
@@ -57,13 +56,13 @@ The `dataroot` is not a module, but just a small utility that provides easy acce
 
 Note: Having everything structured into one directory has many practical advantages. However, we are aware that some operating systems do not like mixing live data (`databases`) with executables (`updates`). We are planning to improve on this in the future.
 
-##### API
+### API
 
 {% include code_ref.html godoc_portbase="api" %}
 
 The API provides an interface for all other software components, like the Portmaster UI, to interact with the Portmaster Core Service. Both the Portmaster UI and the Notifier (System Tray Applet) use the API to change settings and subscribe to data changes via the database API.
 
-##### Database
+### Database
 
 {% include code_ref.html godoc_portbase="database" %}
 
@@ -84,7 +83,7 @@ The Portmaster Core Service uses these databases:
 
 If you have the Development Mode enabled, you can access all the data in these database directly via the Dev Console, which is available at http://127.0.0.1:817/ui/modules/console/
 
-##### Random Number Generator
+### Random Number Generator
 
 {% include code_ref.html godoc_portbase="rng" %}
 
@@ -95,7 +94,7 @@ Most prominently, the SPN will inject secret random data (eg. nonces or padding)
 
 The created randomness is then used by other modules wherever randomness is required. Examples are choosing random ports for DNS requests or generating secure cookies/access tokens.
 
-##### Notifications
+### Notifications
 
 {% include code_ref.html godoc_portbase="notifications" %}
 
@@ -109,7 +108,7 @@ On Linux, the Notifier (System Tray Applet) sends notifications to the notificat
 
 Note: Desktop notifications can be disabled in the settings.
 
-##### Update Framework
+### Update Framework
 
 {% include code_ref.html godoc_portbase="updater" godoc_portmaster="updates" %}
 
@@ -125,7 +124,7 @@ Currently, updates are checked for every hour. This frequency was chosen to stay
 
 Note: You can always see the current active and available versions in the Portmaster UI.
 
-##### UI Server
+### UI Server
 
 {% include code_ref.html godoc_portmaster="ui" %}
 
@@ -135,7 +134,7 @@ This is where the Portmaster User Interface gets its resources from - loading th
 
 Please note that some (non-vital) features, such as Application icons on Windows will not work in the browser since they depend on the supplied Portmaster UI.
 
-##### Utilities
+### Utilities
 
 {% include code_ref.html godoc_portbase_1="utils" godoc_portbase_2="utils/osdetail" godoc_portbase_3="utils/debug" %}
 

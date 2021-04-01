@@ -6,16 +6,11 @@ code_ref:
   github-portmaster-2: process
 ---
 
-1. Numbered
-{:toc}
-
-## General
-
 This page covers all the OS integration, including the SPN.
 
 ## Windows
 
-##### Kernel Extension
+### Kernel Extension
 
 The Windows kernel-mode driver provides the Portmaster with a high performance OS integration.
 It provides an internal caching for best performance and lets the Portmaster do all the decision making.
@@ -58,7 +53,7 @@ This is how packets are handled:
 7.  The Portmaster Kernel Extension holds intercepted packet in a packet cache until the verdict is set.
 8.  If the packet cache is full, the oldest packet will be dropped, so that the newest packet can be stored.
 
-##### The Windows DNS Client
+### The Windows DNS Client
 
 Windows uses a system service called `DNS Client`, sometimes referred to as `dnscache`, to resolve queries for applications.
 Queries that are made through this service cannot be directly linked to the original application that started the request.
@@ -88,14 +83,14 @@ Portmaster accepts all packets, but marks the whole connection to be accepted/dr
 
 Here are the rules that Portmaster injects for both IPv4 and IPv6:
 
-__Chains__
+###### Chains
 ```
 mangle: C170
 mangle: C171
 filter: C17
 ```
 
-__Rules in own chains__
+###### Rules in own chains
 ```
 mangle C170 -j CONNMARK --restore-mark
 mangle C170 -m mark --mark 0 -j NFQUEUE --queue-num {17040|17060} --queue-bypass
@@ -116,7 +111,7 @@ filter C17 -m mark --mark 1712 -j DROP
 filter C17 -m mark --mark 1717 -j ACCEPT
 ```
 
-__Rules in main chains__
+###### Rules in main chains
 ```
 mangle OUTPUT -j C170
 mangle INPUT -j C171
@@ -126,14 +121,14 @@ nat OUTPUT -p udp --dport 53 -m mark --mark 1799 -j DNAT --to {127.0.0.17:53|[::
 nat OUTPUT -m mark --mark 1717 -p {tcp|udp} -j DNAT --to-destination 127.0.0.17:1117 # for Gate17
 ```
 
-__Explanation of Nfqueue Numbers__  
+###### Explanation of Nfqueue Numbers  
 `17040` breaks up into:
 - `17` is an identifier, so that you can easily spot what belongs to Portmaster/Gate17
 - `0` for output, `1` for input
 - `4` for IPv4, `6` for IPv6
 - `0` id for multi-threaded nfqueue (currently only one thread is used)
 
-__Explanation of Connmark Numbers__  
+###### Explanation of Connmark Numbers  
 ```
 1700 Accept
 1701 Block
@@ -145,12 +140,12 @@ __Explanation of Connmark Numbers__
 1799 Reroute to nameserver (for astray DNS queries)
 ```
 
-##### Kernel Module
+### Kernel Module
 
 We plan to provide an alternative to the `iptables` integration by writing a kernel module to handle the needed packet interception in the future.
 Depending on the performance and stability of the `iptables` integration, this will be tackled sooner or later.
 
-##### proc/net
+### proc/net
 
 {% include code_ref.html godoc-portmaster="process/proc" %}
 

@@ -3,10 +3,7 @@ title: Core
 layout: base
 ---
 
-1. TOC
-{:toc}
-
-##### Configuration
+### Configuration
 
 {% include code_ref.html godoc_portbase="config" %}
 
@@ -16,11 +13,11 @@ All global settings are saved in the `config.json` file located in the root data
 
 Changes to settings go into effect immediately, unless otherwise noted.
 
-###### Configuration Grouping
+#### Configuration Grouping
 
 Every configuration item is categorized via two attributes. This enables the Portmaster UI to easily filter settings based on user preference. A user can hide advanced settings for more simplicity or show them for more control. The two attributes are:
 
-**(1) User Interface Mode**
+##### User Interface Mode
 
 Indicates the technical complexity of a setting. The possible values are:
 
@@ -32,7 +29,7 @@ Note: When complex settings are hidden, their configuration still stay in affect
 
 Note: In the code the "UI Mode" is called `ExpertiseLevel`.
 
-**(2) Feature Stability**
+##### Feature Stability
 
 Indicates the stability of a setting, or rather stability of the feature/functionality controlled by the setting. The possible values are:
 
@@ -48,7 +45,7 @@ Note: Some of the experimental settings are on by default, because turning them 
 
 Note: Configurations can be overwritten by [App Settings](#app-settings)
 
-##### Status
+### Status
 
 {% include code_ref.html godoc_portmaster="status" %}
 
@@ -66,7 +63,7 @@ When "Block Internet Access" is set to "Danger", the Status Module responds with
 - If Network Rating is set to "Untrusted": `False`, do not block Internet Access
 - If Network Rating is set to "Danger": `True`, block Internet Access
 
-##### Network Environment
+### Network Environment
 
 {% include code_ref.html godoc_portmaster="netenv" %}
 
@@ -76,7 +73,7 @@ First, it monitors if the device is online. It receives hints by other modules i
 
 It also provides information about the current Gateway/Router and Nameserver configured on the system. These may be either provided by DHCP or manually configured, which are indistinguishable to the Portmaster Core Service.
 
-##### Network
+### Network
 
 {% include code_ref.html godoc_portmaster_1="network" godoc_portmaster_2="network/packet" godoc_portmaster_3="network/state" %}
 
@@ -86,7 +83,7 @@ In addition to just providing a lot of "glue code" for other modules, it is also
 
 The network state information is exposed via a virtual database.
 
-##### Interception
+### Interception
 
 {% include code_ref.html godoc_portmaster="firewall/interception" %}
 
@@ -94,13 +91,13 @@ The interception module varies heavily between the different platforms (operatin
 
 [Learn more about how the interception module interfaces with the network stack of the operating system at **OS Integration**](../../os-integration/).
 
-##### Process
+### Process
 
 {% include code_ref.html godoc_portmaster="process" %}
 
 The process module is responsible for attributing network packets to processes as well as gathering process information and maintaining their internal state.
 
-##### App Settings
+### App Settings
 
 {% include code_ref.html godoc_portmaster="profile" %}
 
@@ -120,7 +117,7 @@ Profiles overlay the global settings. This enables an application - or rather it
 
 Note: A setting for an application usually overrides the global setting. There are however settings, that are _stacked_ together with the global setting. These are marked accordingly in the UI.
 
-##### Firewall
+### Firewall
 
 {% include code_ref.html godoc_portmaster="firewall" %}
 

@@ -12,7 +12,11 @@
       {% assign full_path = item_path %}
     {% endif %}
 
-    {% assign item_url = full_path | prepend: "/" %}
+    {% if item.custom_url %}
+      {% assign item_url = item.custom_url %}
+    {% else %}
+      {% assign item_url = full_path | prepend: "/" %}
+    {% endif %}
 
     {% comment %}
       page.url is not a consistent method:

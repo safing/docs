@@ -3,14 +3,9 @@ title: Install on Linux
 layout: base
 ---
 
-1. Numbered
-{:toc}
-
-<br/>
-
 This page covers how to install and uninstall the Portmaster on Linux.
 
-#### Installers
+### Installers
 
 We provide package installers for supported systems:
 
@@ -24,9 +19,16 @@ Please note that we only support the latest stable and LTS versions. We may be a
 
 The installers should take care of any needed dependencies. [Please report back](https://github.com/safing/portmaster/issues/new?template=bug-report.md) if they do not!
 
-⚠️ Please note that the Portmaster updates itself and that the provided packages are only meant for an initial install. Uninstalling the package from your system will properly uninstall and remove the Portmaster.
 
-#### Compatibility
+<div class="notification-warning">
+    <img src="/assets/img/icons/info.svg">
+    <p>
+      Please note that the Portmaster updates itself and that the provided packages are only meant for an initial install. Uninstalling the package from  your system will properly uninstall and remove the Portmaster.
+    </p>
+</div>
+
+
+### Compatibility
 
 | System | Version | Notes |
 |:--|:-:|:--|
@@ -41,7 +43,7 @@ The installers should take care of any needed dependencies. [Please report back]
 | XFCE | ? | Seen working. |
 | Deepin DE | ? |
 
-#### Requirements
+### Requirements
 
 The Portmaster Core Service is compatible with the Linux Kernel as of version 2.4, but due to a breaking bug in at least v5.6, we recommend to use v5.7+.
 
@@ -51,29 +53,32 @@ Dependencies:
 - `libappindicator3` - for sending desktop notifications (_optional, but recommended_)
 - [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, but recommended_)
 
----
-
-__Debian/Ubuntu__
+###### Debian/Ubuntu
 
 ```
 sudo apt install libnetfilter-queue1 libappindicator3-1
 ```
 
-⚠️ You may need to [enable the universe or multiverse repositories](https://help.ubuntu.com/community/Repositories/Ubuntu) sources on Ubuntu.
+<div class="notification-warning">
+  <img src="{{ site.img_url }}icons/info.svg">
+  <p>
+    You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
+  </p>
+</div>
 
-__Fedora__
+###### Fedora
 
 ```
 sudo yum install libnetfilter_queue
 ```
 
-__Arch__
+###### Arch
 
 ```
 sudo pacman -S libnetfilter_queue libappindicator-gtk3
 ```
 
-#### Manual Install and Launching
+### Manual Install and Launching
 
 __0.__ Install dependencies.
 
@@ -109,7 +114,12 @@ __4.__ Start the Portmaster Notifier
 /var/lib/portmaster/portmaster-start notifier
 ```
 
-⚠️ Your Desktop environment may not (yet) be compatible.
+<div class="notification-warning">
+    <img src="/assets/img/icons/info.svg">
+    <p>
+     Your Desktop environment may not (yet) be compatible.
+    </p>
+</div>
 
 __5.__ Start it on boot
 
@@ -143,7 +153,7 @@ sudo systemctl enable --now portmaster
 
 __6.__ Enjoy!
 
-#### Arch Linux
+### Arch Linux
 
 For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository. It is not yet submitted to AUR as we want to collect some feedback first.
 
@@ -168,6 +178,6 @@ systemctl daemon-reload
 systemctl enable --now portmaster
 ```
 
-#### Uninstall
+### Uninstall
 
 Uninstalling the package from your system will properly uninstall and remove the Portmaster.
