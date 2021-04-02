@@ -2,13 +2,11 @@
   {% for option in site.data.config-options %}
     {% if source[1] == option.Key %}
 <div class="settingsbrief">
-  <a href="{{ site.portmaster_settings_url }}#{{ option.Key }}">
-    <span>
-      <i class="fa fa-cog"></i>
-        &nbsp;
+  <h6>
+    <a href="{{ site.portmaster_settings_url }}#{{ option.Key }}">
       {{ option.Name }}
-    </span>
-  </a>
+    </a>
+  </h6>
   <p>
     {{ option.Description }}
   </p>
