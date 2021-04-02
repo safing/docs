@@ -20,7 +20,7 @@ core/enableProcessDetection:
 
 core/expertiseLevel:
   manual: |
-    Relevant settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Advanced</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Developer</span> accordingly.
+    Relevant settings on this page are marked with <span class="setting-badge advanced">Advanced</span> and <span class="setting-badge developer">Developer</span> accordingly.
 
 core/listenAddress:
   manual: |
@@ -50,7 +50,7 @@ core/releaseChannel:
 
 core/releaseLevel:
   manual: |
-    Settings on this page are marked with <span class="setting-badge warn"><i class="fa fa-wrench"></i> Beta</span> and <span class="setting-badge dev"><i class="fa fa-flask"></i> Experimental</span> accordingly.
+    Settings on this page are marked with <span class="setting-badge beta">Beta</span> and <span class="setting-badge experimental">Experimental</span> accordingly.
 
 core/useSystemNotifications:
   manual: |
