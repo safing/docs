@@ -1,14 +1,10 @@
-{% for source in include %}{% for option in site.data.config-options %}{% if source[1] == option.Key %}<a class="settingsref" href="{{ site.portmaster_settings_url }}#{{ option.Key }}"><span>{{ option.Name }}</span></a>{% endif %}{% endfor %}{% endfor %}{% comment %}
+{% for source in include %}{% for option in site.data.config-options %}{% if source[1] == option.Key %}<a href="{{ site.portmaster_settings_url }}#{{ option.Key }}">{{ option.Name }}</a>{% endif %}{% endfor %}{% endfor %}{% comment %}
 For some reason this include has to be in one line to work.
 {% for source in include %}
   {% for option in site.data.config-options %}
     {% if source[1] == option.Key %}
       <a href="{{ site.portmaster_settings_url }}#{{ option.Key }}">
-        <span>
-          <i class="fa fa-cog"></i>
-            &nbsp;
-          {{ option.Name }}
-        </span>
+        {{ option.Name }}
       </a>
     {% endif %}
   {% endfor %}
