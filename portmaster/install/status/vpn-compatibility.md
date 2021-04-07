@@ -11,10 +11,10 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 ### Community Reports
 
-| | Status | Issues |
-|---|:---|:---:|
-| ProtonVPN |  🟢 seen working | [#160](https://github.com/safing/portmaster/issues/160#issuecomment-700528272) |
-| RiseupVPN |  🚫 reported broken  | [#284](https://github.com/safing/portmaster/issues/284) |
+| | OS | Status | Issues |
+|:---|:---|:---|:---:|
+| ProtonVPN | <i class="fab fa-windows"></i> | 🟢 seen working | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
+| RiseupVPN | <i class="fab fa-linux"></i>|  🚫 reported broken  | [#284]({{ site.github_pm_url }}/issues/284) |
 
 #### Workaround: OpenVPN
 
