@@ -5,11 +5,20 @@ layout: base
 
 Overall, the Portmaster is compatible with VPNs. Here we describe what to look out for and known issues with special VPN software.
 
-You can look through the [main GitHub VPN Compatibility issue](https://github.com/safing/portmaster/issues/160) for more information.
-
 ### Setup
 
-Under normal circumstances, VPNs should work right out of the box. If there are problems, [please raise an issue on GitHub](https://github.com/safing/portmaster/issues/new?template=bug-report.md) and we will try to help you get it going!
+Under normal circumstances, VPNs should work right out of the box. Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) to help others know whether the Portmaster works with a certain VPN client or not. Naturally, when encountering problems we will try to help you get it going.
+
+### Community Reports
+
+| | OS | Status | Link |
+|:---|:---|:---|:---:|
+| ProtonVPN | <i class="fab fa-windows"></i> | 🟢 seen working | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
+| RiseupVPN | <i class="fab fa-linux"></i>|  🚫 issue reported  | [#284]({{ site.github_pm_url }}/issues/284) |
+
+#### Workaround: OpenVPN
+
+If a VPN Client does not work, you can always work around this by [using OpenVPN instead](https://openvpn.net/community-resources/how-to/). This is a bit more technical but worth a shot if the normal client does not yet work.
 
 ### DNS Leak Detection
 

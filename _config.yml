@@ -39,6 +39,17 @@ download_linux_deb_url: https://updates.safing.io/latest/linux_amd64/packages/po
 download_linux_arch_url: https://updates.safing.io/latest/linux_amd64/packages/portmaster-installer.pkg.tar.xz
 download_windows_url: https://updates.safing.io/latest/windows_amd64/packages/portmaster-installer.exe
 github_url: https://github.com/safing
+
+github_pm_url: https://github.com/safing/portmaster
+github_pm_ui_url: https://github.com/safing/portmaster-ui
+github_pm_packaging_url: https://github.com/safing/portmaster-packaging
+github_docs_url: https://github.com/safing/docs
+github_web_url: https://github.com/safing/web
+
+github_suggest_feature_url: /issues/new?assignees=&labels=feature&template=suggest-feature.md
+github_report_bug_url: /issues/new?assignees=&labels=bug&template=bug-report.md
+github_report_compatibility_url: /issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md
+
 github_linux_wiki_url: https://github.com/safing/portmaster/wiki/Linux
 github_windows_wiki_url: https://github.com/safing/portmaster/wiki/Windows
 invidious_channel_url: https://invidio.us/channel/UC_6TW053IlS4M22g7CxnukA
