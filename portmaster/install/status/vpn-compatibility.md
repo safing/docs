@@ -16,6 +16,9 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 | ProtonVPN |  🟢 seen working | [#160](https://github.com/safing/portmaster/issues/160#issuecomment-700528272) |
 | RiseupVPN |  🚫 reported broken  | [#284](https://github.com/safing/portmaster/issues/284) |
 
+#### Workaround: OpenVPN
+
+If a VPN Client does not work, you can always work around this by [using OpenVPN instead](https://openvpn.net/community-resources/how-to/). This is a bit more technical but worth a shot if the normal client does not yet work.
 
 ### DNS Leak Detection
 
