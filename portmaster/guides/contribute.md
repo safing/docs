@@ -63,7 +63,7 @@ We truly do not want you to spend a lot of your precious time and effort into a 
 
 ### Report Bugs, Inaccuracies and Typos
 
-We try our best to keep everything up-to-date - but you still might find inaccurate information or typos. If you find anything report-worthy it would be great if you could let us know. Or even create a pull request with a fix.
+We try our best to keep everything running and up-to-date - but you still might find bugs, inaccurate information or typos. In that case, it would be great if you could let us know. Or even create a pull request with a fix.
 
 ### Suggest New Sections
 
