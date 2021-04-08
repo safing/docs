@@ -21,11 +21,11 @@ Your contributions will have the highest impact when aligned with Safing's curre
 You can easily report bugs as you stumble upon them. It is best if you quickly check other reports to prevent duplicates.
 If you have any ideas we'd love to hear how you would improve things.
 
-| | Portmaster [](https://github.com/safing/portmaster) | User Interface [](https://github.com/safing/portmaster-ui) | Packaging [](https://github.com/safing/portmaster-packaging) |
+| | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) |
 |---|:---:|:---:|:---:|
-| 🐞 Bug Report | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=bug&template=bug-report.md) | [report](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=bug&template=bug-report.md) | [report](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=bug&template=bug-report.md) |
-| 💡 Suggestion: New Feature | [suggest](https://github.com/safing/portmaster/issues/new?assignees=&labels=feature&template=suggest-feature.md) | [suggest](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=feature&template=suggest-feature.md) | [suggest](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=feature&template=suggest-feature.md) |
-| 💡 Suggestion: Improvements | [suggest](https://github.com/safing/portmaster/issues/new?assignees=&labels=feature&template=feature.md) | [suggest](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=feature&template=feature.md) | [suggest](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=feature&template=feature.md) |
+| 🐞 Bug Report | [report]({{ site.github_pm_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_ui_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_packaging_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Feature | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
 
 ### Report Linux Distribution Compatibility
 
@@ -39,9 +39,9 @@ Help us understand Portmaster compatibility with different VPN clients. Whether 
 
 Have certain applications stopped working with the Portmaster? Or games? Or a special development tool? Your reports will help us massively to know where we currently stand. We will create a Software Compatibility section with a table of compatible software and update that based on your reports.
 
-| 📝 Compatibility Report: VPN          | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
-| 📝 Compatibility Report: Linux distro | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
-| 📝 Compatibility Report: General Software     | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
+| 📝 Compatibility Report: VPN | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| 📝 Compatibility Report: Linux distro | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| 📝 Compatibility Report: General Software | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 
 ### Contribute to the Code
 
@@ -57,7 +57,7 @@ But if you want to change something in our main repositories we do require to ke
 
 We truly do not want you to spend a lot of your precious time and effort into a feature which would turn out to misalign with our current goals and focus. So please, *check with us first via GitHub or <support@safing.io>* before tackling a big pull request.
 
-|   | Portmaster [](https://github.com/safing/portmaster) | User Interface [](https://github.com/safing/portmaster-ui) | Packaging [](https://github.com/safing/portmaster-packaging)  |
+|   | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }})  |
 |---|:---:|:---:|:---:|
 | ⚔️ Pull Request: Typos and Small Fixes | 📑 | 📑 |  |
 | ⚔️ Pull Request: Feature Implementation |  📑🗣  | 📑🗣 |  🗣 |
