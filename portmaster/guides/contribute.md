@@ -80,7 +80,7 @@ Our Documentation and Website are living projects. We are happy to hear your ide
 
 We welcome code contributions - still here are two things you must know before starting:
 
-###### 📑 A Code License Agreement Is Not Required for Docs & Website
+###### 📑 A Code License Agreement Is NOT Required for Docs & Website
 
 Opposed to our [main repositories](#contribute-to-the-code) we do not require full legal flexibility with these repositories. You can simply clone and set up a pull request with no legal jumbo in your way.
 
