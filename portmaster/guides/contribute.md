@@ -97,23 +97,17 @@ However, we truly do not want you to spend a lot of your precious time and effor
 
 If you want to contribute beyond the listed guide it is best to check with us first. We as a team have limited resources and do not want your precious time and effort to go to waste. So please, _check with us first via GitHub or <support@safing.io>_.
 
-<!--
 ## Appendix: Cheat Sheet
 
-<div class="notification-warning">
-  <i class="fab fa-github" style="width:4em;font-size:2em;color:white;text-align:center;padding-top:0.2em;padding-right:0.5em;"></i>
-  <p>
-    Our projects live on GitHub, so contribution is smoothest with a GitHub account. But you can also send us an email to <a href="mailto:support@safing.io">support@safing.io</a> with any reports/ideas/suggestions you have.
-  </p>
-</div>
+{% include github_notification.html %}
 
-|   | Portmaster | User Interface | Packaging | Website | Docs |
+| | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) | Docs []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
 |---|:---:|:---:|:---:|:---:|:---:|
-|   Bug Report                           |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Suggestion: New Feature              |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Suggestion: Improvements             |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Compatibility Report: VPN            |         ✅           |  |  |  |  |
-|   Compatibility Report: Linux distro   |         ✅           |  |  |  |  |
-|   Compatibility Report: Software       |         ✅           |  |  |  |  |
-|   Pull Request: Typos and Small Fixes  |        ⚠️📑         | ⚠️📑 | ✅ | ✅ | ✅ |
-|   Pull Request: Feature Implementation |  ⚠️🗣 & ⚠️📑  | ⚠️🗣 & ⚠️📑 | ⚠️🗣 | ⚠️🗣 | ⚠️🗣 | -->
+| 🐞 Bug Report | [report]({{ site.github_pm_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_ui_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_packaging_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Feature | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 📝 Compatibility: VPN | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| 📝 Compatibility: Linux distro | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| 📝 Compatibility: Software | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| ⚔️ PR: Typos and Small Fixes | 📑 | 📑 | | | | | |
+| ⚔️ PR: Feature Implementation | 📑🗣 | 📑🗣 | 🗣 | 🗣 | 🗣 |
