@@ -57,27 +57,41 @@ We truly do not want you to spend a lot of your precious time and effort into a 
 | ⚔️ Pull Request: Typos and Small Fixes | 📑 | 📑 |  |
 | ⚔️ Pull Request: Feature Implementation |  📑🗣  | 📑🗣 |  🗣 |
 
-<!-- ## Assist with Documentation and the Website
+## Assist with Documentation and the Website
 
-### Report Inaccuracies and Typos
+{% include github_notification.html %}
 
-We try to keep everything up-to-date - but when you find inaccurate information or typos it would be great if you could let us know!
+### Report Bugs, Inaccuracies and Typos
+
+We try our best to keep everything up-to-date - but you still might find inaccurate information or typos. If you find anything report-worthy it would be great if you could let us know. Or even create a pull request with a fix.
 
 ### Suggest New Sections
 
-Our Docs and Website are living projects. If you have ideas what we could add we are happy to hear from you!
+Our Documentation and Website are living projects. We are happy to hear your ideas on what to add or how to improve:
 
-|  | Documentation | Website |
-|:---|:---:|:---:|
-| Suggest a Feature | ✅ | ✅ |
-| Bug Fix / Typo | ✅ | ✅ |
+| | Documentation []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
+|---|:---:|:---:|
+| 🐞 Bug Report | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 🐞 Report: Inaccuracy/Typo | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Page/Segment | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
 
-### Work On Features
+### Contribute to the Web-Projects
 
-|   Repository    |      Feature       |
-|:----------------|:-------------------|
-|   Website       |       ⚠️🗣          |
-|      Docs       |       ⚠️🗣          | -->
+We welcome code contributions - still here are two things you must know before starting:
+
+###### 📑 A Code License Agreement Is Not Required for Docs & Website
+
+Opposed to our [main repositories](#contribute-to-the-code) we do not require full legal flexibility with these repositories. You can simply clone and set up a pull request with no legal jumbo in your way.
+
+###### 🗣 For Anything Bigger Communication with Safing Is A Must
+
+However, we truly do not want you to spend a lot of your precious time and effort into a feature which would turn out to misalign with our current goals and focus. So please, *check with us first via GitHub or <support@safing.io>* before tackling a bigger pull request.
+
+| | Documentation []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
+|---|:---:|:---:|:---:|
+| ⚔️ Pull Request: Typos and Small Fixes |  |  |
+| ⚔️ Pull Request: Feature Implementation | 🗣 | 🗣 |
 
 ## Other, Out-Of-Scope
 
