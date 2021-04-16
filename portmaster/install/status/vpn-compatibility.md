@@ -15,7 +15,7 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 |:---|:---|:---|:---:|
 | ProtonVPN | <i class="fab fa-windows"></i> | 🟢 seen working | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
 | RiseupVPN | <i class="fab fa-linux"></i>|  🚫 issue reported  | [#284]({{ site.github_pm_url }}/issues/284) |
-| WireGuardVPN | <i class="fab fa-linux"></i>|  🟡 investigating issue, workaround available  | [#292]({{ site.github_pm_url }}/issues/292) |
+| WireGuard | <i class="fab fa-linux"></i>|  🟡 investigating issue, workaround available  | [#292]({{ site.github_pm_url }}/issues/292) |
 
 #### Workaround: OpenVPN
 
