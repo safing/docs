@@ -153,6 +153,17 @@ sudo systemctl enable --now portmaster
 
 __6.__ Enjoy!
 
+### Desktop entry
+
+To find and launch Portmaster app from within your desktop environment need to create file with metadata which tells your system how to run portmaster, which icon it should display in the taskbar and so on. The easiest way to do it on other distributions is to download latest desktop entry and png icon from portmaster-packaging repository.
+
+```bash
+sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster.desktop  -O /usr/local/share/applications/portmaster.desktop
+sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster_logo.png -O /usr/share/pixmaps/portmaster.png
+```
+
+Right after you download both files the Portmaster should appear in your system search as icon. If you still can't see Portmaster icon, please check whether `portmaster-start` path in desktop entry matches path of your instalation.
+
 ### Arch Linux
 
 For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository. It is not yet submitted to AUR as we want to collect some feedback first.
