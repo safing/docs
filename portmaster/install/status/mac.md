@@ -38,14 +38,14 @@ No matter which way, these two examples show the power that Apple executes over 
 
 In addition to the mentioned technical difficulties of struggling to stay in control, there is another concern altogether.
 
-### MacOS Seems to Merge Into iOS
+### MacOS Seems to Merge And iOS
 
 Apple already is in full control of which applications you may or may not trust.
 Their control is especially tight on iOS, where Apple has the ultimate say what apps users are allowed to install and which not.
 We already mention that the [App Store is unlikely to accept the Portmaster on Mobile](mobile), since it blocks ads.
 
 On macOS, Apple controls applications with developer certificates, which is also Microsoft's strategy on Windows (but only mandatory for drivers/kernel extensions).
-While this approach is reasonable, the technical changes Apple implemented in the last years hint towards Apple's overall plan to merge macOS into iOS.
+While this approach is reasonable, the technical changes Apple implemented in the last years hint towards Apple's overall plan to merge macOS and iOS.
 From a technical perspective, Apple grew their walled garden on macOS by limiting developer freedom.
 And from a policy level we assume that the still existing freedom of macOS will not swash over to iOS but rather the other way around and get more restricted over the years.
 
