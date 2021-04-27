@@ -11,6 +11,18 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 ### Community Reports
 
+<!-- 
+
+## Status Guideline
+
+- 🟢 confirmed compatible                  (confirmed by the Safing team)
+- 🟢 reported compatible                   (reported by the community)
+- 🟡 issue reported                        (reported by the community)
+- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
+- 🚫 issue confirmed                       (confirmed by the Safing team)
+
+-->
+
 | | OS | Status | Link |
 |:---|:---|:---|:---:|
 | ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
