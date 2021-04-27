@@ -1,12 +1,15 @@
 ---
 title: Software Compatibility
 layout: base
+skip_toc: true
 ---
-1. Numbered
-{:toc}
 
-<br/>
+The Portmaster tries to stay out of your way so you can focus on your work or play. Since the Portmaster is in alpha, this is not always going to work out. We are collecting all reports of in/compatible software here.
 
-The Portmaster tries to stay out of your way, so you can focues on your work (or play!). But this is not going to always work out, so we will gather cases like these here.
+### Community Reports
 
-_First known issue is being prepared to be posted._
+Help make the Portmaster better for everyone by [reporting your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}).
+
+| | OS | Status | Link |
+|:---|:---|:---|:---:|
+| Gufw Firewall | <i class="fab fa-linux"></i>|  🟢 seen working  | [#295]({{ site.github_pm_url }}/issues/295) |
