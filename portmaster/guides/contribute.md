@@ -9,23 +9,18 @@ Your contributions will have the highest impact when aligned with Safing's curre
 
 ## Use the Portmaster
 
-<div class="notification-warning">
-  <i class="fab fa-github" style="width:4em;font-size:2em;color:white;text-align:center;padding-top:0.2em;padding-right:0.5em;"></i>
-  <p>
-    Our projects live on GitHub, so contribution is smoothest with a GitHub account. But you can also send an email to <a href="mailto:support@safing.io">support@safing.io</a> with any reports/ideas/suggestions you have.
-  </p>
-</div>
+{% include github_notification.html %}
 
 ### Report Bugs, Suggest Features and Improvements
 
 You can easily report bugs as you stumble upon them. It is best if you quickly check other reports to prevent duplicates.
 If you have any ideas we'd love to hear how you would improve things.
 
-| | Portmaster [](https://github.com/safing/portmaster) | User Interface [](https://github.com/safing/portmaster-ui) | Packaging [](https://github.com/safing/portmaster-packaging) |
+| | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) |
 |---|:---:|:---:|:---:|
-| 🐞 Bug Report | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=bug&template=bug-report.md) | [report](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=bug&template=bug-report.md) | [report](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=bug&template=bug-report.md) |
-| 💡 Suggestion: New Feature | [suggest](https://github.com/safing/portmaster/issues/new?assignees=&labels=feature&template=suggest-feature.md) | [suggest](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=feature&template=suggest-feature.md) | [suggest](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=feature&template=suggest-feature.md) |
-| 💡 Suggestion: Improvements | [suggest](https://github.com/safing/portmaster/issues/new?assignees=&labels=feature&template=feature.md) | [suggest](https://github.com/safing/portmaster-ui/issues/new?assignees=&labels=feature&template=feature.md) | [suggest](https://github.com/safing/portmaster-packaging/issues/new?assignees=&labels=feature&template=feature.md) |
+| 🐞 Bug Report | [report]({{ site.github_pm_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_ui_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_packaging_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Feature | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
 
 ### Report Linux Distribution Compatibility
 
@@ -39,9 +34,9 @@ Help us understand Portmaster compatibility with different VPN clients. Whether 
 
 Have certain applications stopped working with the Portmaster? Or games? Or a special development tool? Your reports will help us massively to know where we currently stand. We will create a Software Compatibility section with a table of compatible software and update that based on your reports.
 
-| 📝 Compatibility Report: VPN          | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
-| 📝 Compatibility Report: Linux distro | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
-| 📝 Compatibility Report: General Software     | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
+| 📝 Compatibility Report: VPN | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| 📝 Compatibility Report: Linux distro | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| 📝 Compatibility Report: General Software | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 
 ### Contribute to the Code
 
@@ -57,54 +52,62 @@ But if you want to change something in our main repositories we do require to ke
 
 We truly do not want you to spend a lot of your precious time and effort into a feature which would turn out to misalign with our current goals and focus. So please, *check with us first via GitHub or <support@safing.io>* before tackling a big pull request.
 
-|   | Portmaster [](https://github.com/safing/portmaster) | User Interface [](https://github.com/safing/portmaster-ui) | Packaging [](https://github.com/safing/portmaster-packaging)  |
+|   | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }})  |
 |---|:---:|:---:|:---:|
 | ⚔️ Pull Request: Typos and Small Fixes | 📑 | 📑 |  |
 | ⚔️ Pull Request: Feature Implementation |  📑🗣  | 📑🗣 |  🗣 |
 
-<!-- ## Assist with Documentation and the Website
+## Assist with Documentation and the Website
 
-### Report Inaccuracies and Typos
+{% include github_notification.html %}
 
-We try to keep everything up-to-date - but when you find inaccurate information or typos it would be great if you could let us know!
+### Report Bugs, Inaccuracies and Typos
+
+We try our best to keep everything running and up-to-date - but you still might find bugs, inaccurate information or typos. In that case, it would be great if you could let us know. Or even create a pull request with a fix.
 
 ### Suggest New Sections
 
-Our Docs and Website are living projects. If you have ideas what we could add we are happy to hear from you!
+Our Documentation and Website are living projects. We are happy to hear your ideas on what to add or how to improve:
 
-|  | Documentation | Website |
-|:---|:---:|:---:|
-| Suggest a Feature | ✅ | ✅ |
-| Bug Fix / Typo | ✅ | ✅ |
+| | Documentation []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
+|---|:---:|:---:|
+| 🐞 Bug Report | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 🐞 Report: Inaccuracy/Typo | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Page/Segment | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
 
-### Work On Features
+### Contribute to the Web-Projects
 
-|   Repository    |      Feature       |
-|:----------------|:-------------------|
-|   Website       |       ⚠️🗣          |
-|      Docs       |       ⚠️🗣          | -->
+We welcome code contributions - still here are two things you must know before starting:
+
+###### 📑 A Code License Agreement Is NOT Required for Docs & Website
+
+Opposed to our [main repositories](#contribute-to-the-code) we do not require full legal flexibility with these repositories. You can simply clone and set up a pull request with no legal jumbo in your way.
+
+###### 🗣 For Anything Bigger Communication with Safing Is A Must
+
+However, we truly do not want you to spend a lot of your precious time and effort into a feature which would turn out to misalign with our current goals and focus. So please, *check with us first via GitHub or <support@safing.io>* before tackling a bigger pull request.
+
+| | Documentation []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
+|---|:---:|:---:|:---:|
+| ⚔️ Pull Request: Typos and Small Fixes |  |  |
+| ⚔️ Pull Request: Feature Implementation | 🗣 | 🗣 |
 
 ## Other, Out-Of-Scope
 
 If you want to contribute beyond the listed guide it is best to check with us first. We as a team have limited resources and do not want your precious time and effort to go to waste. So please, _check with us first via GitHub or <support@safing.io>_.
 
-<!--
 ## Appendix: Cheat Sheet
 
-<div class="notification-warning">
-  <i class="fab fa-github" style="width:4em;font-size:2em;color:white;text-align:center;padding-top:0.2em;padding-right:0.5em;"></i>
-  <p>
-    Our projects live on GitHub, so contribution is smoothest with a GitHub account. But you can also send us an email to <a href="mailto:support@safing.io">support@safing.io</a> with any reports/ideas/suggestions you have.
-  </p>
-</div>
+{% include github_notification.html %}
 
-|   | Portmaster | User Interface | Packaging | Website | Docs |
+| | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) | Docs []({{ site.github_docs_url }}) | Website []({{ site.github_web_url }}) |
 |---|:---:|:---:|:---:|:---:|:---:|
-|   Bug Report                           |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Suggestion: New Feature              |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Suggestion: Improvements             |         ✅           | ✅ | ✅ | ✅ | ✅ |
-|   Compatibility Report: VPN            |         ✅           |  |  |  |  |
-|   Compatibility Report: Linux distro   |         ✅           |  |  |  |  |
-|   Compatibility Report: Software       |         ✅           |  |  |  |  |
-|   Pull Request: Typos and Small Fixes  |        ⚠️📑         | ⚠️📑 | ✅ | ✅ | ✅ |
-|   Pull Request: Feature Implementation |  ⚠️🗣 & ⚠️📑  | ⚠️🗣 & ⚠️📑 | ⚠️🗣 | ⚠️🗣 | ⚠️🗣 | -->
+| 🐞 Bug Report | [report]({{ site.github_pm_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_ui_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_pm_packaging_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_docs_url }}{{ site.github_report_bug_url }}) | [report]({{ site.github_web_url }}{{ site.github_report_bug_url }}) |
+| 💡 Suggestion: New Feature | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 💡 Suggestion: Improvements | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
+| 📝 Compatibility: VPN | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| 📝 Compatibility: Linux distro | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| 📝 Compatibility: Software | [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) | | | | |
+| ⚔️ PR: Typos and Small Fixes | 📑 | 📑 | | | | | |
+| ⚔️ PR: Feature Implementation | 📑🗣 | 📑🗣 | 🗣 | 🗣 | 🗣 |
