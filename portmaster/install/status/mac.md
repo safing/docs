@@ -40,9 +40,14 @@ In addition to the mentioned technical difficulties of struggling to stay in con
 
 ### MacOS Seems to Merge Into iOS
 
-Apple already is in full control of which applications you may or may not trust. Their control is especially tight on iOS, where Apple has the ultimate say what apps users are allowed to install and which not. We already mention that the [App Store is unlikely to accept the Portmaster on Mobile](mobile), since it blocks ads.
+Apple already is in full control of which applications you may or may not trust.
+Their control is especially tight on iOS, where Apple has the ultimate say what apps users are allowed to install and which not.
+We already mention that the [App Store is unlikely to accept the Portmaster on Mobile](mobile), since it blocks ads.
 
-On macOS, Apple controls applications with developer certificates, which is also Microsoft's strategy on Windows (but only mandatory for drivers/kernel extensions). While this approach is reasonable, the technical changes Apple implemented in the last years hint towards Apple's overall plan to merge macOS into iOS. From a technical perspective, Apple grew their walled garden on MacOS by limiting developer freedom. And from a policy level we assume that the still existing freedom of macOS will not swash over to iOS but rather the other way around and get more restricted over the years.
+On macOS, Apple controls applications with developer certificates, which is also Microsoft's strategy on Windows (but only mandatory for drivers/kernel extensions).
+While this approach is reasonable, the technical changes Apple implemented in the last years hint towards Apple's overall plan to merge macOS into iOS.
+From a technical perspective, Apple grew their walled garden on macOS by limiting developer freedom.
+And from a policy level we assume that the still existing freedom of macOS will not swash over to iOS but rather the other way around and get more restricted over the years.
 
 ### Still We Will Invest Into MacOS Once We Have the Resources
 
