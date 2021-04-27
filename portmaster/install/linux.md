@@ -146,7 +146,7 @@ WantedBy=multi-user.target
 
 Finally, reload the systemd daemon and enable/start the Portmaster:
 
-```bash
+```
 sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
@@ -159,7 +159,7 @@ For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://
 
 To install the Portmaster using the PKGBUILD, follow these steps:
 
-```bash
+```
 # Install build-dependencies, you can remove them later:
 sudo pacman -S imagemagick # required to convert the Portmaster logo to different resolutions
 
@@ -174,8 +174,102 @@ cd portmaster-packaging/linux
 makepkg -i
 
 # Start the Portmaster and enable autostart
-systemctl daemon-reload
-systemctl enable --now portmaster
+sudo systemctl daemon-reload
+sudo systemctl enable --now portmaster
+```
+
+### Troubleshooting
+
+#### Check if the Portmaster is running
+
+You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
+
+```
+sudo systemctl status portmaster
+```
+
+This should show something like `active (running) since <start-time>`. Please also check if the start time seems reasonable. If it seems strange, try [looking at the logs](#accessing-the-logs).
+
+#### Starting and Stopping the Portmaster
+
+If you encounter any issues you might want to (temporarily) stop the Portmaster. You can do this like this:
+
+```
+# This will stop the portmaster until you reboot.
+sudo systemctl stop portmaster
+
+# This will disable automatically starting the Portmaster on boot.
+sudo systemctl disable portmaster
+```
+
+#### Changing the log level
+
+When debugging or troubleshooting issues it is always a good idea to increase the debug output by adjusting the {% include setting/ref.html key="core/log/level" %}.
+
+#### Accessing the Logs
+
+Portmaster logs can either be viewed using the system journal or by browsing the log files in `/var/lib/portmaster/logs`.
+In most cases, the interesting log files will be in the `core` folder.
+
+```
+# View logs of the Portmaster using the system journal.
+sudo journalctl -u portmaster
+
+# You can also specify a time-range for viewing.
+sudo journalctl -u portmaster --since "10 minutes ago"
+```
+
+#### Debugging network issues
+
+Due to the Portmaster being an Application Firewall it needs to deeply integrate with the networking stack of your operating system.
+That means that "no network connectivity" might be caused at different points during connection handling.
+The following steps will help you to figure out where the actual issue comes from.
+Please include any output of the below commands in any related issues as it is very valuable in debugging your problem.
+
+###### [1. Check if the Portmaster is actually up and running](#check-if-the-portmaster-is-running)
+
+###### 2. Test direct network connectivity
+
+The Portmaster includes a local DNS resolver to provide its monitoring and some filtering capabilities.
+In order to track down the issue, connect directly to an IP address.
+Should this work, this would indicate that there is a problem with the Portmaster's DNS resolver.
+
+```
+# Check if a ping message succeeds.
+# The Portmaster currently always allows ping messages.
+ping 1.1.1.1
+
+# Check if an HTTP request succeeds.
+# In case of an error, look for "curl" in the network monitor of the Portmaster.
+curl -I 1.1.1.1
+
+# Or use wget to check if an HTTP request succeeds.
+# In case of an error, look for "wget" in the network monitor of the Portmaster.
+wget -S -O /dev/null 1.1.1.1
+```
+
+###### 3. Test DNS resolving
+
+If the above step works the issue most likely resides somewhere at the DNS resolving level. To confirm, please try the following:
+
+```
+# Check if a DNS requests suceeds.
+# In case of an error, look for "dig" in the network monitor of the Portmaster.
+dig one.one.one.one
+dig wikipedia.org
+
+# Or use nslookup to check if a DNS requests suceeds.
+# In case of an error, look for "nslookup" in the network monitor of the Portmaster.
+nslookup one.one.one.one
+nslookup wikipedia.org
+```
+
+#### No network connectivity after the Portmaster stops
+
+In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recomended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
+
+```
+sudo /var/lib/portmaster/portmaster-start recover-iptables
 ```
 
 ### Uninstall
