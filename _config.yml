@@ -47,7 +47,7 @@ github_docs_url: https://github.com/safing/docs
 github_web_url: https://github.com/safing/web
 
 github_suggest_feature_url: /issues/new?assignees=&labels=feature&template=suggest-feature.md
-github_report_bug_url: /issues/new?assignees=&labels=bug&template=bug-report.md
+github_report_bug_url: /issues/new?assignees=&labels=bug&template=report-bug.md
 github_report_compatibility_url: /issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md
 
 github_linux_wiki_url: https://github.com/safing/portmaster/wiki/Linux
