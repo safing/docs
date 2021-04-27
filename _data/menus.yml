@@ -20,7 +20,8 @@ items:
             children:
               - title: VPN Compatibility
               - title: Mobile
-              # - title: Mac
+              - title: Mac
+              
       - title: Architecture
         extra_path: "/overview"
         children:
