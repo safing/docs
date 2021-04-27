@@ -180,7 +180,7 @@ sudo systemctl enable --now portmaster
 
 ### Troubleshooting
 
-#### Check if the Portmaster is running
+#### Check if the Portmaster Is Running
 
 You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
 
@@ -190,7 +190,7 @@ sudo systemctl status portmaster
 
 This should show something like `active (running) since <start-time>`. Please also check if the start time seems reasonable. If it seems strange, try [looking at the logs](#accessing-the-logs).
 
-#### Starting and Stopping the Portmaster
+#### Starting And Stopping the Portmaster
 
 If you encounter any issues you might want to (temporarily) stop the Portmaster. You can do this like this:
 
@@ -202,7 +202,7 @@ sudo systemctl stop portmaster
 sudo systemctl disable portmaster
 ```
 
-#### Changing the log level
+#### Changing the Log Level
 
 When debugging or troubleshooting issues it is always a good idea to increase the debug output by adjusting the {% include setting/ref.html key="core/log/level" %}.
 
@@ -219,16 +219,16 @@ sudo journalctl -u portmaster
 sudo journalctl -u portmaster --since "10 minutes ago"
 ```
 
-#### Debugging network issues
+#### Debugging Network Issues
 
 Due to the Portmaster being an Application Firewall it needs to deeply integrate with the networking stack of your operating system.
 That means that "no network connectivity" might be caused at different points during connection handling.
 The following steps will help you to figure out where the actual issue comes from.
 Please include any output of the below commands in any related issues as it is very valuable in debugging your problem.
 
-###### [1. Check if the Portmaster is actually up and running](#check-if-the-portmaster-is-running)
+###### 1. [Check if the Portmaster Is Actually Up and Running](#check-if-the-portmaster-is-running)
 
-###### 2. Test direct network connectivity
+###### 2. Test Direct Network Connectivity
 
 The Portmaster includes a local DNS resolver to provide its monitoring and some filtering capabilities.
 In order to track down the issue, connect directly to an IP address.
@@ -248,7 +248,7 @@ curl -I 1.1.1.1
 wget -S -O /dev/null 1.1.1.1
 ```
 
-###### 3. Test DNS resolving
+###### 3. Test DNS Resolving
 
 If the above step works the issue most likely resides somewhere at the DNS resolving level. To confirm, please try the following:
 
@@ -264,9 +264,9 @@ nslookup one.one.one.one
 nslookup wikipedia.org
 ```
 
-#### No network connectivity after the Portmaster stops
+#### No Network Connectivity After the Portmaster Stops
 
-In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recomended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
+In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
 
 ```
 sudo /var/lib/portmaster/portmaster-start recover-iptables
