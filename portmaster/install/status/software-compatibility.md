@@ -12,4 +12,4 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 
 | | OS | Status | Link |
 |:---|:---|:---|:---:|
-| Gufw Firewall | <i class="fab fa-linux"></i>|  🟢 seen working  | [#295]({{ site.github_pm_url }}/issues/295) |
+| Gufw Firewall | <i class="fab fa-linux"></i>|  🟢 reported compatible  | [#295]({{ site.github_pm_url }}/issues/295) |
