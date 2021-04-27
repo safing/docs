@@ -33,11 +33,11 @@ Help us understand Portmaster compatibility with different Linux distributions. 
 
 ### Report VPN Compatibility
 
-Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works together with the Portmaster or not - your reports will help us massively to know where we currently stand. We will extend the [VPN Compatibility section](../install/status/vpn-compatibility) with a table of compatibility and update that based on your reports.
+Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works together with the Portmaster or not - your reports will help us massively to know where we currently stand. All reports are collected, updated and easily accessible in the [VPN Compatibility section](../install/status/vpn-compatibility).
 
 ### Report Software Compatibility
 
-Have certain applications stopped working with the Portmaster? Or games? Or a special development tool? Your reports will help us massively to know where we currently stand. We will create a Software Compatibility section with a table of compatible software and update that based on your reports.
+Have certain applications stopped working with the Portmaster? Or games? Or a special development tool? Your reports will help us massively to know where we currently stand. All reports are collected and easily accessible in the [Software Compatibility section](../install/status/software-compatibility).
 
 | 📝 Compatibility Report: VPN          | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
 | 📝 Compatibility Report: Linux distro | [report](https://github.com/safing/portmaster/issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md) |
