@@ -38,7 +38,7 @@ No matter which way, these two examples show the power that Apple executes over 
 
 In addition to the mentioned technical difficulties of struggling to stay in control, there is another concern altogether.
 
-### MacOS Seems to Merge And iOS
+### macOS Seems to Be Merging With iOS
 
 Apple already is in full control of which applications you may or may not trust.
 Their control is especially tight on iOS, where Apple has the ultimate say what apps users are allowed to install and which not.
@@ -49,7 +49,7 @@ While this approach is reasonable, the technical changes Apple implemented in th
 From a technical perspective, Apple grew their walled garden on macOS by limiting developer freedom.
 And from a policy level we assume that the still existing freedom of macOS will not swash over to iOS but rather the other way around and get more restricted over the years.
 
-### Still We Will Invest Into MacOS Once We Have the Resources
+### Still We Will Invest Into macOS Once We Have the Resources
 
 No matter the difficulties we expect, we know that there are many people using macOS for various reasons.
 And our vision to bring privacy to everyone naturally also includes macOS users.
