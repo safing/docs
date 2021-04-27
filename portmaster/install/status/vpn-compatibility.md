@@ -11,11 +11,23 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 ### Community Reports
 
+<!-- 
+
+## Status Guideline
+
+- 🟢 confirmed compatible                  (confirmed by the Safing team)
+- 🟢 reported compatible                   (reported by the community)
+- 🟡 issue reported                        (reported by the community)
+- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
+- 🚫 issue confirmed                       (confirmed by the Safing team)
+
+-->
+
 | | OS | Status | Link |
 |:---|:---|:---|:---:|
-| ProtonVPN | <i class="fab fa-windows"></i> | 🟢 seen working | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
-| RiseupVPN | <i class="fab fa-linux"></i>|  🚫 issue reported  | [#284]({{ site.github_pm_url }}/issues/284) |
-| WireGuard | <i class="fab fa-linux"></i>|  🟡 investigating issue, workaround available  | [#292]({{ site.github_pm_url }}/issues/292) |
+| ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
+| RiseupVPN | <i class="fab fa-linux"></i>| 🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
+| WireGuard | <i class="fab fa-linux"></i>| 🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
 
 #### Workaround: OpenVPN
 
