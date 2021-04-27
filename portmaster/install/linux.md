@@ -27,21 +27,37 @@ The installers should take care of any needed dependencies. [Please report back]
     </p>
 </div>
 
+### Compatibility Reports
 
-### Compatibility
+Help make the Portmaster better for everyone by [reporting your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) on different Linux distros.
 
-| System | Version | Notes |
-|:--|:-:|:--|
-| Linux Kernel | >= 5.7 | 2.4-5.5 might also work, see issue [core#82](https://github.com/safing/portmaster/issues/82) |
-| Gnome | >= 3? |
-| KDE | ? |
-| MATE | ? |
-| Cinnamon | ? |
-| Budgie | ? | Issues: [ui#111](https://github.com/safing/portmaster-ui/issues/111) |
-| LXDE | ? |
-| LXQt | ? |
-| XFCE | ? | Seen working. |
-| Deepin DE | ? |
+<!--
+
+## Status Guideline
+
+- 🟢 confirmed compatible                  (confirmed by the Safing team)
+- 🟢 reported compatible                   (reported by the community)
+- 🟡 issue reported                        (reported by the community)
+- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
+- 🚫 issue confirmed                       (confirmed by the Safing team)
+- ❔ request for report
+
+-->
+
+| System | Version | Status | Link |
+|:---|:---|:---|:---:|
+| Linux Kernel | >= 5.7 | 🟢 confirmed compatible |
+| | 5.6 | 🟡 issue reported | [#82]({{ site.github_pm_url }}/issues/82)
+| | 2.4-5.5 | 🟢 confirmed compatible |
+| Gnome | >= 3 | 🟢 confirmed compatible |
+| KDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| Cinnamon | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| Budgie | ? | 🟡 issue reported | [#111]({{ site.github_pm_ui_url }}/issues/111)
+| LXDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| LXQt | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| XFCE | ? | 🟢 confirmed compatible |
+| Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 
 ### Requirements
 
