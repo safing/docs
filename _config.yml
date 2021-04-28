@@ -50,8 +50,6 @@ github_suggest_feature_url: /issues/new?assignees=&labels=feature&template=sugge
 github_report_bug_url: /issues/new?assignees=&labels=bug&template=report-bug.md
 github_report_compatibility_url: /issues/new?assignees=&labels=in/compatibility&template=report-compatibility.md
 
-github_linux_wiki_url: https://github.com/safing/portmaster/wiki/Linux
-github_windows_wiki_url: https://github.com/safing/portmaster/wiki/Windows
 invidious_channel_url: https://invidio.us/channel/UC_6TW053IlS4M22g7CxnukA
 kickstarter_url: https://www.kickstarter.com/projects/safingio/spn
 reddit_url: https://reddit.com/r/safing
