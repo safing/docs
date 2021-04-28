@@ -1,1 +1,1 @@
-> **Check out our main project at [safing/portmaster](https://github.com/safing/portmaster)**
+> **Check out the main project repository [safing/portmaster](https://github.com/safing/portmaster)**
