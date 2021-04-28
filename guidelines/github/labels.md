@@ -6,18 +6,18 @@ layout: base
 ### Tag Explainers:
 
 1. [PM] applies to the "Portmaster Bubble", including repositories:
-  - portmaster
-  - portbase
-  - portmaster-ui
-  - portmaster-packaging
-  - portmaster-windows-kext
-  - jess
-  - spn
-  - intel-data
+  - <https://github.com/safing/portmaster/labels>
+  - <https://github.com/safing/portbase/labels>
+  - <https://github.com/safing/portmaster-ui/labels>
+  - <https://github.com/safing/portmaster-packaging/labels>
+  - <https://github.com/safing/portmaster-windows-kext/labels>
+  - <https://github.com/safing/jess/labels>
+  - <https://github.com/safing/spn/labels>
+  - <https://github.com/safing/intel-data/labels>
 
 2. [Web] applies to the "Jekyll Bubble", including repositories:
-  - web
-  - docs
+  - <https://github.com/safing/web/labels>
+  - <https://github.com/safing/docs/labels>
 
 ### Defined Labels
 
@@ -73,10 +73,19 @@ layout: base
 - ATTRIBUTE: this issue has pending work on the docs repository
 - [PM] [Web]
 
+##### legal
+- `#eeeeee` (grey)
+- ATTRIBUTE: everything concerning our Privacy Policy or Terms of Service
+- [Web]
+
 #### Bot Attributes
 
 ##### reminder
-- `#eeeeee` (grey)
+- `#ffffff` (grey)
+- [PM]
+
+##### dependencies
+- `#ffffff` (grey)
 - [PM]
 
 
