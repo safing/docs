@@ -11,7 +11,7 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 ### Community Reports
 
-<!-- 
+<!--
 
 ## Status Guideline
 
@@ -25,6 +25,8 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 | | OS | Status | Link |
 |:---|:---|:---|:---:|
+| NordVPN (NordLynx) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| NordVPN (OpenDNS) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
 | ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
 | RiseupVPN | <i class="fab fa-linux"></i>| 🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
 | WireGuard | <i class="fab fa-linux"></i>| 🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
