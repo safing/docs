@@ -58,16 +58,16 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 
 | Environment | Version | Status | Link |
 |:---|:---|:---|:---:|
+| Budgie | ? | 🟡 issue reported | [#111]({{ site.github_pm_ui_url }}/issues/111)
+| Cinnamon | 4.6.7 | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | Gnome | 3.38 | 🟢 confirmed compatible |
 | | >= 3 | 🟢 estimated compatible |
 | KDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| Cinnamon | 4.6.7 | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| Budgie | ? | 🟡 issue reported | [#111]({{ site.github_pm_ui_url }}/issues/111)
 | LXDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | LXQt | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | XFCE | ? | 🟢 confirmed compatible |
-| Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 
 ### Requirements
 
