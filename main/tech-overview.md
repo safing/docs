@@ -8,17 +8,6 @@ updated: 19.02.2019
 
 Here is short and very technical overview of the Portmaster, Gate17 and Stamp.
 
-## Portmaster
-
-The Portmaster is an application firewall that enforces application profiles on processes.
-
-Being an application firewall means tightly integrating with the kernel of the underlying OS <span class="text-lighter">(via network filter APIs or kernel modules)</span> to gain needed information <span class="text-lighter">(associate network packets to processes)</span> and control <span class="text-lighter">(block or deny network connections)</span>.
-
-Application profiles describe an application's behavior in the sense of how it interacts with the Internet: Does it connect to a fixed set of domains? Is it a peer to peer application? Does it interact with the local network? Should TLS be enforced and checked? etc.
-
-Profiles represent an application as experienced by the user, not as defined by technology - making them easy to understand and superior to other common application classification approaches.
-They can be either created by users themselves or - most of the times - obtained through Stamp <span class="text-lighter">(explained later)</span>.
-
 ## Gate17
 
 Gate17 brings together several state of the art network technologies and gives them a new spicy twist 🌶️.  
