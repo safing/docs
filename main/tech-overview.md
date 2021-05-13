@@ -40,9 +40,3 @@ The new spicy twist 🌶️:
 [^osi]: [OSI network model](https://en.wikipedia.org/wiki/OSI_model)
 
 <span class="note-light"> A final note: You may have noted that Gate17 is, in some aspects, similar to the [Tor Project](https://www.torproject.org/). The key difference is, that Gate17 focuses on speed and usability, but does not claim to match Tor's level of security. We will provide a in-depth comparison in the future.</span>
-
-## Stamp
-
-Stamp is an online Community, which crowd-sources web & application intelligence. Users are rewarded with reputation for their good contributions, which in return gives them more influence on the platform. Its current main purpose is to collect data for Portmaster. Check it our [here](https://stamp.community/).
-
-<hr>
