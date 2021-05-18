@@ -23,7 +23,7 @@ We will not break any laws. Our systems are designed to collect as little person
 
 ## Privacy
 
-To protect your privacy, we use a double ratchet based protocol to provide _perfect forward and backward_ secrecy. Used algorithms can be easily changed to address new threats and trust issues. If you want to dig deeper, check out our crypto libarary: [Tinker]({% link docs/core/tinker.md %})
+To protect your privacy, we use a double ratchet based protocol to provide _perfect forward and backward_ secrecy. Used algorithms can be easily changed to address new threats and trust issues. If you want to dig deeper, check out our [crypto library Jess](https://github.com/safing/jess/)
 
 Your private data is perfectly safe within Gate17.
 
