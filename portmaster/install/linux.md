@@ -53,6 +53,7 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 | Linux Kernel | >= 5.7 | 🟢 confirmed compatible |
 | | 5.6 | 🟡 issue reported | [#82]({{ site.github_pm_url }}/issues/82)
 | | 2.4-5.5 | 🟢 confirmed compatible |
+| NixOS | 21.05 | 🟡 issue reported | [#306]({{ site.github_pm_url }}/issues/306) |
 
 #### Desktop Environments
 
