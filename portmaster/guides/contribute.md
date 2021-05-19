@@ -57,6 +57,16 @@ We truly do not want you to spend a lot of your precious time and effort into a 
 | ⚔️ Pull Request: Typos and Small Fixes | 📑 | 📑 |  |
 | ⚔️ Pull Request: Feature Implementation |  📑🗣  | 📑🗣 |  🗣 |
 
+## Spread the Word
+
+### Tell Your Friends
+
+We have no idea how you communicate with your friends; and we do not want to know. But what we do know is that we would not be here without so many of you telling your friends about Safing and Portmaster. Thanks for doing this - it makes all the difference.
+
+### Tell the Internet
+
+You can even spread the word wherever you realm in the Internet. Share Portmaster in a forum. Recommend Portmaster being added to a cool list or website. Or just share a blog article you enjoyed on reddit, lobsters, etc. Thanks for sharing!
+
 ## Assist with Documentation and the Website
 
 {% include github_notification.html %}
