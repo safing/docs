@@ -65,7 +65,7 @@ We have no idea how you communicate with your friends; and we do not want to kno
 
 ### Tell the Internet
 
-You can even spread the word wherever you realm in the Internet. Share Portmaster in a forum. Recommend Portmaster being added to a cool list or website. Or just share a blog article you enjoyed on reddit, lobsters, etc. Thanks for sharing!
+You can even spread the word wherever you hang out. Share Portmaster in a forum, recommend it being added to a cool list or website. Or just share a blog article you enjoyed on reddit, lobsters, etc. Thanks for sharing!
 
 ## Assist with Documentation and the Website
 
