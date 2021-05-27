@@ -7,7 +7,7 @@ Overall, the Portmaster is compatible with VPNs. Here we describe what to look o
 
 ### Setup
 
-Under normal circumstances, VPNs should work right out of the box. Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) to help others know whether the Portmaster works with a certain VPN client or not. Naturally, when encountering problems we will try to help you get it going.
+Under normal circumstances, VPNs should work right out of the box. If not, you can always [use OpenVPN as a workaround](#workaround-openvpn). Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) to help others know whether the Portmaster works with a certain VPN client or not. Naturally, when encountering problems we will try to help you get it going.
 
 ### Community Reports
 
@@ -25,8 +25,11 @@ Under normal circumstances, VPNs should work right out of the box. Please [repor
 
 | | OS | Status | Link |
 |:---|:---|:---|:---:|
+| MullvadVPN | <i class="fab fa-windows"></i> | 🟡 issue reported | [#313]({{ site.github_pm_url }}/issues/313) |
 | NordVPN (NordLynx) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| NordVPN (OpenDNS) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| NordVPN (OpenVPN) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| PIA VPN (OpenVPN) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#317]({{ site.github_pm_url }}/issues/317) |
+| PIA VPN (WireGuard) | <i class="fab fa-linux"></i> | 🟡 issue reported | [#317]({{ site.github_pm_url }}/issues/317) |
 | ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
 | RiseupVPN | <i class="fab fa-linux"></i>| 🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
 | WindscribeVPN | <i class="fab fa-windows"></i>| 🟡 issue reported | [#311]({{ site.github_pm_url }}/issues/311) |
