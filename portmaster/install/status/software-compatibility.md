@@ -26,3 +26,4 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 |:---|:---|:---|:---:|
 | Gufw Firewall | <i class="fab fa-linux"></i> |  🟢 reported compatible  | [#295]({{ site.github_pm_url }}/issues/295) |
 | NextDNS | <i class="fab fa-linux"></i>&nbsp;<i class="fab fa-windows"></i> |  🟢 confirmed compatible, follow steps → | [#291]({{ site.github_pm_url }}/issues/291) |
+| Simplewall | <i class="fab fa-windows"></i> |  🟢 reported compatible, minor issue → | [#314]({{ site.github_pm_url }}/issues/314) |
