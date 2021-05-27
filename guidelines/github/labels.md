@@ -73,6 +73,11 @@ layout: base
 - ATTRIBUTE: this issue has pending work on the docs repository
 - [PM] [Web]
 
+##### docs ✓
+- `#eeeeee` (grey)
+- ATTRIBUTE: this report has been added to https://docs.safing.io/
+- [PM] [Web]
+
 ##### legal
 - `#eeeeee` (grey)
 - ATTRIBUTE: everything concerning our Privacy Policy or Terms of Service
