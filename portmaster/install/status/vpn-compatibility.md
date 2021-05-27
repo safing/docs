@@ -7,7 +7,7 @@ Overall, the Portmaster is compatible with VPNs. Here we describe what to look o
 
 ### Setup
 
-Under normal circumstances, VPNs should work right out of the box. Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) to help others know whether the Portmaster works with a certain VPN client or not. Naturally, when encountering problems we will try to help you get it going.
+Under normal circumstances, VPNs should work right out of the box. If not, you can always [use OpenVPN as a workaround](#workaround-openvpn). Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) to help others know whether the Portmaster works with a certain VPN client or not. Naturally, when encountering problems we will try to help you get it going.
 
 ### Community Reports
 
