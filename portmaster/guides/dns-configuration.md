@@ -123,6 +123,26 @@ dot://[2606:4700:4700::1113]:853?verify=cloudflare-dns.com&name=Cloudflare&block
 dot://[2606:4700:4700::1003]:853?verify=cloudflare-dns.com&name=Cloudflare&blockedif=zeroip
 ```
 
+### Disabling DNS
+
+Unfortunately, you cannot disable the Secure DNS module directly.
+This is because it is a crucial component:
+Through this the Portmaster can see which domains are being resolved by which application.
+This is vital information for the Portmaster to provide you with the promised privacy protection.
+
+However, if you would just rather use the plain DNS servers configured in your Operating System,
+you can just remove all configured {% include setting/ref.html key="dns/nameservers" %} from the settings in the Portmaster.
+This will leave the list of configured DNS Servers within Portmaster empty.
+
+In this case, the DNS queries will still go through the Portmaster, but will end up at the same DNS server as before.
+The Portmaster is then only somewhat transparently inserted in the chain of servers.
+
+While some systems are starting to offer DNS-over-TLS and DNS-over-HTTPS natively,
+these settings are usually not as integrated into the programming interfaces as the plain DNS servers.
+This means that the Portmaster will only pick up configured _plain DNS servers_ from the Operating System.
+
+You can of course always configure the same DNS-over-TLS server directly in the Portmaster.
+
 ### Further Readings
 
 - [How Safing Selects its Default DNS Providers](https://safing.io/blog/2020/07/07/how-safing-selects-its-default-dns-providers/)
