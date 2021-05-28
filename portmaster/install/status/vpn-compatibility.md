@@ -34,6 +34,7 @@ Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_co
 | PIA VPN (OpenVPN) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#317]({{ site.github_pm_url }}/issues/317) |
 | PIA VPN (WireGuard) | <i class="fab fa-linux"></i> | 🟡 issue reported | [#317]({{ site.github_pm_url }}/issues/317) |
 | ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
+| | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#320]({{ site.github_pm_url }}/issues/320) |
 | RiseupVPN | <i class="fab fa-linux"></i>| 🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
 | WindscribeVPN | <i class="fab fa-windows"></i>| 🟡 issue reported | [#311]({{ site.github_pm_url }}/issues/311) |
 | WireGuard | <i class="fab fa-linux"></i>| 🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
