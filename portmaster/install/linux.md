@@ -314,4 +314,21 @@ sudo /var/lib/portmaster/portmaster-start recover-iptables
 
 ### Uninstall
 
-Uninstalling the package from your system will properly uninstall and remove the Portmaster.
+Uninstalling the portmaster package from your system will properly uninstall and remove the Portmaster.
+
+###### GUI
+
+Most distros will have a graphical software and package manager.  
+You can easily find it by opening the "Start Menu" and searching for "software".
+
+###### Debian/Ubuntu
+
+```
+sudo apt purge portmaster
+```
+
+###### Arch
+
+```
+sudo pacman -Rnsu portmaster
+```
