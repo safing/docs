@@ -25,19 +25,19 @@ Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_co
 
 -->
 
-| | OS | Status | Link |
-|:---|:---|:---|:---:|
-| MullvadVPN (OpenVPN) | <i class="fab fa-windows"></i> | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
-| MullvadVPN (WireGuard) | <i class="fab fa-windows"></i> | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
-| NordVPN (NordLynx) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| NordVPN (OpenVPN) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| PIA VPN (OpenVPN) | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#317]({{ site.github_pm_url }}/issues/317) |
-| PIA VPN (WireGuard) | <i class="fab fa-linux"></i> | 🟡 issue reported | [#317]({{ site.github_pm_url }}/issues/317) |
-| ProtonVPN | <i class="fab fa-windows"></i> | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
-| | <i class="fab fa-linux"></i> | 🟢 reported compatible | [#320]({{ site.github_pm_url }}/issues/320) |
-| RiseupVPN | <i class="fab fa-linux"></i>| 🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
-| WindscribeVPN | <i class="fab fa-windows"></i>| 🟡 issue reported | [#311]({{ site.github_pm_url }}/issues/311) |
-| WireGuard | <i class="fab fa-linux"></i>| 🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
+| Native Client | OS | Mode | Status | Link |
+|:---|:---:|:---:|:---|:---:|
+| MullvadVPN | <i class="fab fa-windows"></i> | OpenVPN | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
+| | <i class="fab fa-windows"></i> | WireGuard | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
+| NordVPN | <i class="fab fa-linux"></i> | NordLynx | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| | <i class="fab fa-linux"></i> | OpenVPN | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| PIA VPN | <i class="fab fa-linux"></i> | OpenVPN | 🟢 reported compatible | [#317]({{ site.github_pm_url }}/issues/317) |
+| | <i class="fab fa-linux"></i> | WireGuard | 🟡 issue reported | [#317]({{ site.github_pm_url }}/issues/317) |
+| ProtonVPN | <i class="fab fa-windows"></i> | | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
+| | <i class="fab fa-linux"></i> | | 🟢 reported compatible | [#320]({{ site.github_pm_url }}/issues/320) |
+| RiseupVPN | <i class="fab fa-linux"></i>|  |🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
+| WindscribeVPN | <i class="fab fa-windows"></i>|  |🟡 issue reported | [#311]({{ site.github_pm_url }}/issues/311) |
+| WireGuard | <i class="fab fa-linux"></i>| Native  |🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
 
 #### Workaround: OpenVPN
 
