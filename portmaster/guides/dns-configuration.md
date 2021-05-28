@@ -123,6 +123,49 @@ dot://[2606:4700:4700::1113]:853?verify=cloudflare-dns.com&name=Cloudflare&block
 dot://[2606:4700:4700::1003]:853?verify=cloudflare-dns.com&name=Cloudflare&blockedif=zeroip
 ```
 
+### Community Suggested Server Settings
+
+Needs are different, that is why we list settings suggested by the community down below. Is something missing or out of date? [Make a report](https://github.com/safing/docs/issues/new?assignees=&labels=suggestion&template=suggest-feature.md) or [create a pull request](https://github.com/safing/docs)
+
+#### BlahDNS [](https://blahdns.com/)
+
+```
+# Malware Protection, Ad Blocking
+🇨🇭 dot://45.91.92.121:853?verify=dot-ch.blahdns.com&name=BlahDNSch&blockedif=empty
+🇯🇵 dot://139.162.112.47:853?verify=dot-jp.blahdns.com&name=BlahDNSjp&blockedif=empty
+🇸🇬 dot://192.53.175.149:853?verify=dot-sg.blahdns.com&name=BlahDNSsg&blockedif=empty
+🇩🇪 dot://78.46.244.143:853?verify=dot-de.blahdns.com&name=BlahDNSde&blockedif=empty
+🇫🇮 dot://95.216.212.177:853?verify=dot-fi.blahdns.com&name=BlahDNSfi&blockedif=empty
+```
+
+#### LibreDNS [](https://libredns.gr/)
+
+```
+# Malware Protection
+dot://116.202.176.26:853?verify=dot.libredns.gr&name=LibreDNS&blockedif=empty
+
+# Malware Protection, Ad & Tracker Blocking
+dot://116.202.176.26:854?verify=dot.libredns.gr&name=LibreDNS&blockedif=zeroip
+```
+
+#### NextDNS [](https://www.nextdns.io/)
+
+```
+# Malware Protection, Ad Blocking
+dot://45.90.28.108:853?verify=b4ba5f.dns.nextdns.io&name=NextDNS&blockedif=empty
+dot://45.90.30.108:853?verify=b4ba5f.dns.nextdns.io&name=NextDNS&blockedif=empty
+```
+
+#### Snopyta [](https://snopyta.org/service/dns/index.html)
+
+```
+# No Filtering:
+dot://95.216.24.230:853?verify=fi.dot.dns.snopyta.org&name=SnopytaDNS
+
+# No Filtering, IPv6:
+dot://[2a01:4f9:2a:1919::9301]:853?verify=fi.dot.dns.snopyta.org&name=SnopytaDNS
+```
+
 ### Disabling DNS
 
 Unfortunately, you cannot disable the Secure DNS module directly.
