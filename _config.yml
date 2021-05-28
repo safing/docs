@@ -80,6 +80,8 @@ video_url: https://safing.io/video/
 whitepaper_url: https://safing.io/files/whitepaper/Gate17.pdf
 vpn_comparison_url: https://safing.io/blog/2020/01/22/how-the-spn-compares-to-vpns/
 tor_comparison_url: https://safing.io/blog/2020/01/22/how-the-spn-compares-to-tor/
+podcast_feed_url: https://safing.io/podcast.xml
+blog_feed_url: https://safing.io/blog.xml
 
 url: "https://docs.safing.io" # the base hostname & protocol for your site
 github_ref_base_url: "https://github.com/safing"
