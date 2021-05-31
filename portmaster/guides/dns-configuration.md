@@ -160,11 +160,7 @@ dot://116.202.176.26:854?verify=dot.libredns.gr&name=LibreDNS&blockedif=zeroip
 
 #### NextDNS [](https://www.nextdns.io/)
 
-```
-# Malware Protection, Ad Blocking
-dot://45.90.28.108:853?verify=b4ba5f.dns.nextdns.io&name=NextDNS&blockedif=empty
-dot://45.90.30.108:853?verify=b4ba5f.dns.nextdns.io&name=NextDNS&blockedif=empty
-```
+Please follow this guide to [set up NextDNS in the Portmaster](https://github.com/safing/portmaster/issues/291)
 
 #### Snopyta [](https://snopyta.org/service/dns/index.html)
 
