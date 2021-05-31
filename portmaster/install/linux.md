@@ -112,6 +112,9 @@ __0.__ Install dependencies.
 __1.__ Download the latest `portmaster-start` utility and initialize all resources:
 
 ```
+# Create portmaster data dir
+mkdir -p /var/lib/portmaster
+
 # Download portmaster-start utility
 wget -O /tmp/portmaster-start https://updates.safing.io/latest/linux_amd64/start/portmaster-start
 sudo mv /tmp/portmaster-start /var/lib/portmaster/portmaster-start
@@ -159,7 +162,7 @@ Description=Portmaster Privacy App
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/portmaster-start core --data=/var/lib/portmaster/
+ExecStart=/var/lib/portmaster/portmaster-start core --data=/var/lib/portmaster/
 ExecStopPost=-/sbin/iptables -F C17
 ExecStopPost=-/sbin/iptables -t mangle -F C170
 ExecStopPost=-/sbin/iptables -t mangle -F C171
@@ -179,6 +182,30 @@ sudo systemctl enable --now portmaster
 ```
 
 __6.__ Enjoy!
+
+### Security-Enhanced Linux (SELinux)
+
+If you are running with `SELINUX=enforcing` you probably wasn't successful with running portmaster, and you see following error in your `journalctl -u portmaster`:
+
+```
+dub 16 22:09:10 dev-fedora systemd[1]: Started Portmaster Privacy App.
+dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed to execute command: Permission denied
+dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed at step EXEC spawning /var/lib/portmaster/portmaster-start: Permission denied
+dub 16 22:09:10 dev-fedora systemd[1]: portmaster.service: Main process exited, code=exited, status=203/EXEC
+```
+
+This happened because SELinux won't let you to run binary from `/var/lib/portmaster` as systemd service. To this you need to change SELinux security context type of `portmaster-start` binary using following command:
+
+```bash
+sudo chcon -t bin_t /var/lib/portmaster/portmaster-start
+```
+
+Now you can restart `portmaster` service again and see that the `portmaster` started up successfully by running:
+
+```bash
+systemctl restart portmaster
+systemctl status portmaster
+```
 
 ### Desktop Entry
 
