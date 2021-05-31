@@ -27,21 +27,48 @@ The installers should take care of any needed dependencies. [Please report back]
     </p>
 </div>
 
+### Compatibility Reports
 
-### Compatibility
+Help make the Portmaster better for everyone by [reporting your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) on different Linux distros.
 
-| System | Version | Notes |
-|:--|:-:|:--|
-| Linux Kernel | >= 5.7 | 2.4-5.5 might also work, see issue [core#82](https://github.com/safing/portmaster/issues/82) |
-| Gnome | >= 3? |
-| KDE | ? |
-| MATE | ? |
-| Cinnamon | ? |
-| Budgie | ? | Issues: [ui#111](https://github.com/safing/portmaster-ui/issues/111) |
-| LXDE | ? |
-| LXQt | ? |
-| XFCE | ? | Seen working. |
-| Deepin DE | ? |
+<!--
+
+## Status Guideline
+
+- 🟢 confirmed compatible                  (confirmed by the Safing team)
+- 🟢 estimated compatible                  (reported by the community)
+- 🟢 reported compatible                   (reported by the community)
+- 🟡 issue reported                        (reported by the community)
+- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
+- 🚫 issue confirmed                       (confirmed by the Safing team)
+- ❔ request for report
+
+-->
+
+#### Linux Kernel
+
+
+| System | Version | Status | Link |
+|:---|:---|:---|:---:|
+| Linux Kernel | >= 5.7 | 🟢 confirmed compatible |
+| | 5.6 | 🟡 issue reported | [#82]({{ site.github_pm_url }}/issues/82)
+| | 2.4-5.5 | 🟢 confirmed compatible |
+| NixOS | 21.05 | 🟡 issue reported | [#306]({{ site.github_pm_url }}/issues/306) |
+
+#### Desktop Environments
+
+| Environment | Version | Status | Link |
+|:---|:---|:---|:---:|
+| Budgie | ? | 🟡 issue reported | [#111]({{ site.github_pm_ui_url }}/issues/111)
+| Cinnamon | 4.6.7 | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
+| Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| Gnome | 3.38 | 🟢 confirmed compatible |
+| | >= 3 | 🟢 estimated compatible |
+| KDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| LXDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| LXQt | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| XFCE | ? | 🟢 confirmed compatible |
 
 ### Requirements
 
@@ -149,7 +176,7 @@ WantedBy=multi-user.target
 
 Finally, reload the systemd daemon and enable/start the Portmaster:
 
-```bash
+```
 sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
@@ -180,13 +207,26 @@ systemctl restart portmaster
 systemctl status portmaster
 ```
 
+### Desktop Entry
+
+To find and launch the Portmaster from within your desktop environment you need to create a file with metadata which tells your system how to run the Portmaster, which icon it should display in the taskbar, etc.
+The easiest way to do this on other distributions is to download the latest desktop entry and png icon from the [portmaster-packaging repository]({{ site.github_pm_packaging_url }}):
+
+```bash
+sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster.desktop  -O /usr/local/share/applications/portmaster.desktop
+sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster_logo.png -O /usr/share/pixmaps/portmaster.png
+```
+
+Right after you download both files the Portmaster should appear in your system search with an icon.
+If you still cannot see the Portmaster icon, please check whether the `portmaster-start` path in the desktop entry matches the path of your installation.
+
 ### Arch Linux
 
 For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository. It is not yet submitted to AUR as we want to collect some feedback first.
 
 To install the Portmaster using the PKGBUILD, follow these steps:
 
-```bash
+```
 # Install build-dependencies, you can remove them later:
 sudo pacman -S imagemagick # required to convert the Portmaster logo to different resolutions
 
@@ -201,8 +241,102 @@ cd portmaster-packaging/linux
 makepkg -i
 
 # Start the Portmaster and enable autostart
-systemctl daemon-reload
-systemctl enable --now portmaster
+sudo systemctl daemon-reload
+sudo systemctl enable --now portmaster
+```
+
+### Troubleshooting
+
+#### Check if the Portmaster Is Running
+
+You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
+
+```
+sudo systemctl status portmaster
+```
+
+This should show something like `active (running) since <start-time>`. Please also check if the start time seems reasonable. If it seems strange, try [looking at the logs](#accessing-the-logs).
+
+#### Starting And Stopping the Portmaster
+
+If you encounter any issues you might want to (temporarily) stop the Portmaster. You can do this like this:
+
+```
+# This will stop the portmaster until you reboot.
+sudo systemctl stop portmaster
+
+# This will disable automatically starting the Portmaster on boot.
+sudo systemctl disable portmaster
+```
+
+#### Changing the Log Level
+
+When debugging or troubleshooting issues it is always a good idea to increase the debug output by adjusting the {% include setting/ref.html key="core/log/level" %}.
+
+#### Accessing the Logs
+
+Portmaster logs can either be viewed using the system journal or by browsing the log files in `/var/lib/portmaster/logs`.
+In most cases, the interesting log files will be in the `core` folder.
+
+```
+# View logs of the Portmaster using the system journal.
+sudo journalctl -u portmaster
+
+# You can also specify a time-range for viewing.
+sudo journalctl -u portmaster --since "10 minutes ago"
+```
+
+#### Debugging Network Issues
+
+Due to the Portmaster being an Application Firewall it needs to deeply integrate with the networking stack of your operating system.
+That means that "no network connectivity" might be caused at different points during connection handling.
+The following steps will help you to figure out where the actual issue comes from.
+Please include any output of the below commands in any related issues as it is very valuable in debugging your problem.
+
+###### 1. [Check if the Portmaster Is Actually Up and Running](#check-if-the-portmaster-is-running)
+
+###### 2. Test Direct Network Connectivity
+
+The Portmaster includes a local DNS resolver to provide its monitoring and some filtering capabilities.
+In order to track down the issue, connect directly to an IP address.
+Should this work, this would indicate that there is a problem with the Portmaster's DNS resolver.
+
+```
+# Check if a ping message succeeds.
+# The Portmaster currently always allows ping messages.
+ping 1.1.1.1
+
+# Check if an HTTP request succeeds.
+# In case of an error, look for "curl" in the network monitor of the Portmaster.
+curl -I 1.1.1.1
+
+# Or use wget to check if an HTTP request succeeds.
+# In case of an error, look for "wget" in the network monitor of the Portmaster.
+wget -S -O /dev/null 1.1.1.1
+```
+
+###### 3. Test DNS Resolving
+
+If the above step works the issue most likely resides somewhere at the DNS resolving level. To confirm, please try the following:
+
+```
+# Check if a DNS requests suceeds.
+# In case of an error, look for "dig" in the network monitor of the Portmaster.
+dig one.one.one.one
+dig wikipedia.org
+
+# Or use nslookup to check if a DNS requests suceeds.
+# In case of an error, look for "nslookup" in the network monitor of the Portmaster.
+nslookup one.one.one.one
+nslookup wikipedia.org
+```
+
+#### No Network Connectivity After the Portmaster Stops
+
+In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
+
+```
+sudo /var/lib/portmaster/portmaster-start recover-iptables
 ```
 
 ### Uninstall

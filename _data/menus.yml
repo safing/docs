@@ -19,8 +19,10 @@ items:
             extra_path: "/vpn-compatibility"
             children:
               - title: VPN Compatibility
+              - title: Software Compatibility
               - title: Mobile
-              # - title: Mac
+              - title: Mac
+              
       - title: Architecture
         extra_path: "/overview"
         children:

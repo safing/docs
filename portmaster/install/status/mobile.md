@@ -6,10 +6,10 @@ layout: base
 This page gives an overview over the current status of supporting mobile platforms.
 
 <div class="notification-warning">
-    <img src="/assets/img/icons/info.svg">
-    <p>
-      The Portmaster is currently not available for any mobile platforms.
-    </p>
+  <img src="/assets/img/icons/info.svg">
+  <p>
+    The Portmaster is currently not available for any mobile platforms.
+  </p>
 </div>
 
 While we know supporting mobile will come with a multitude of challenges, it still remains our dream to support many mobile platforms in the future. Currently, these tasks [remain in our backlog](https://safing.io/backlog/).
