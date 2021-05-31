@@ -185,7 +185,7 @@ __6.__ Enjoy!
 
 ### Security-Enhanced Linux (SELinux)
 
-If you are running with `SELINUX=enforcing` you probably wasn't successful with running portmaster, and you see following error in your `journalctl -u portmaster`:
+If you are running with `SELINUX=enforcing` you probably were not successful with running the Portmaster and might see the following error in your `journalctl -u portmaster`:
 
 ```
 dub 16 22:09:10 dev-fedora systemd[1]: Started Portmaster Privacy App.
@@ -194,13 +194,13 @@ dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed at step EX
 dub 16 22:09:10 dev-fedora systemd[1]: portmaster.service: Main process exited, code=exited, status=203/EXEC
 ```
 
-This happened because SELinux won't let you to run binary from `/var/lib/portmaster` as systemd service. To this you need to change SELinux security context type of `portmaster-start` binary using following command:
+This happens because SELinux will not allow you to run a binary from `/var/lib/portmaster` as systemd service. For this to work you need to change the SELinux security context type of `portmaster-start` binary using the following command:
 
 ```bash
 sudo chcon -t bin_t /var/lib/portmaster/portmaster-start
 ```
 
-Now you can restart `portmaster` service again and see that the `portmaster` started up successfully by running:
+Now you can restart the `portmaster` service and check that the `portmaster` started up successfully by running:
 
 ```bash
 systemctl restart portmaster
