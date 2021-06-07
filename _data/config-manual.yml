@@ -46,7 +46,7 @@ core/networkService:
 
 core/releaseChannel:
   manual: |
-    Until the Portmaster reaches the v1.0 stable release, all releases are done in the stable channel only. After that, we will open the beta channel for testing new features.
+    Though the Portmaster has not reached the v1.0 release, it already uses the final release channels. This means that "Stable" is the current baseline and "Beta" is more unstable.
 
 core/releaseLevel:
   manual: |

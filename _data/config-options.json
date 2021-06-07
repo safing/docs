@@ -213,24 +213,34 @@
   {
     "Name": "Release Channel",
     "Key": "core/releaseChannel",
-    "Description": "Switch release channel.",
+    "Description": "Use \"Stable\" for the best experience. The \"Beta\" channel will have the newest features and fixes, but may also break and cause interruption. Use others only temporarily and when instructed.",
     "Help": "",
     "OptType": 1,
-    "ExpertiseLevel": 2,
-    "ReleaseLevel": 2,
-    "RequiresRestart": false,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
     "DefaultValue": "stable",
-    "ValidationRegex": "^(stable|beta)$",
+    "ValidationRegex": "^(stable|beta|special|staging)$",
     "PossibleValues": [
       {
         "Name": "Stable",
-        "Description": "",
+        "Description": "Production releases.",
         "Value": "stable"
       },
       {
         "Name": "Beta",
-        "Description": "",
+        "Description": "Production releases for testing new features that may break and cause interruption.",
         "Value": "beta"
+      },
+      {
+        "Name": "Special",
+        "Description": "Special releases or version changes for troubleshooting. Only use temporarily and when instructed.",
+        "Value": "special"
+      },
+      {
+        "Name": "Staging",
+        "Description": "Dangerous development releases for testing random things and experimenting. Only use temporarily and when instructed.",
+        "Value": "staging"
       }
     ],
     "Annotations": {
