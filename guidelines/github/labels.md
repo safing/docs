@@ -50,11 +50,20 @@ layout: base
 - STATUS: waiting for author/user to confirm if the implemented fix works
 - [PM] [Web]
 
-##### planned
+##### completed
 - `#4AD47B` (green)
-- STATUS: suggestion is planned to be realized - no timeline indicated
+- STATUS: suggestion was implemented
 - [PM] [Web]
 
+##### next
+- `#4AD47B` (green)
+- STATUS: suggestion will be implemented, no timeline indicated - other work may be more important
+- [PM] [Web]
+
+##### backlog
+- `#4AD47B` (green)
+- STATUS: suggestion will be evaluated, no timeline indicated - other work may be more important
+- [PM] [Web]
 
 #### Attributes / Traits
 
