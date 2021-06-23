@@ -174,14 +174,15 @@ dot://[2a01:4f9:2a:1919::9301]:853?verify=fi.dot.dns.snopyta.org&name=SnopytaDNS
 
 ### Community Requested Server Settings
 
-In contrast to the settings mentioned above, we do not recommend you use these servers.
+In contrast to the settings mentioned above, we do not recommend to use these servers.
+These providers are known to excessively collect user data.
 But as needs are different, we also list these settings requested by the community.
 
 Is something missing or out of date? [Make a report](https://github.com/safing/docs/issues/new?assignees=&labels=suggestion&template=suggest-feature.md) or [create a pull request](https://github.com/safing/docs).
 
 #### Google Public DNS [](https://developers.google.com/speed/public-dns/docs/using)
 
-Note that Google is known for collecting and storing intimate user data to further build their user profiles. They then monetize these user profiles by renting them out to advertisers. Use at your own risk:
+Use at your own risk:
 
 ```
 # No Filtering:
