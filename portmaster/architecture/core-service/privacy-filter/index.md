@@ -13,6 +13,19 @@ It evaluates all connections leaving or entering your system. Filters are applie
 
 In addition to rule lists and block lists, the Privacy Filter provides a big set of advanced and dynamic filtering options. It also blocks attempts to circumvent the filtering and enforces it everywhere, all the time.
 
+### Supported Protocols
+
+The Portmaster operates on the [Network Layer (Layer 3)](https://en.wikipedia.org/wiki/OSI_model) and focuses on the [Internet Protocol](https://en.wikipedia.org/wiki/Internet_Protocol), both IPv4 and IPv6. It can monitor and block the following protocols:
+
+- `TCP`
+- `UDP`
+- `ICMP/v6 echo requests and replies` (no process attribution)
+- Any other IP based protocol (no process attribution)
+
+There is a small portion of protocols that are absolutely critical for operating systems to correctly bootstrap and interact with the network itself. In order to guarantee network interoperability, the Portmaster always allows `DHCP/v6` and `ICMP/v6 control and error messages`.
+
+Because the Portmaster operates on the [Network Layer (Layer 3)](https://en.wikipedia.org/wiki/OSI_model), it does not see [Data Link Layer (Layer 2)](https://en.wikipedia.org/wiki/OSI_model) data or packets. As these can only live within the [local network's broadcast domain](https://en.wikipedia.org/wiki/Broadcast_domain), they do not pose a privacy threat. Regarding other Network Layer protocols, alternatives to IP existed, but they can be safely viewed as extinct.
+
 ---
 
 ### Connection Evaluation Stages
