@@ -64,7 +64,7 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 | Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | Gnome | 3.38 | 🟢 confirmed compatible |
 | | >= 3 | 🟢 estimated compatible |
-| KDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
+| KDE Plasma | 5.18 | 🟢 reported compatible | [#324]({{ site.github_pm_url }}/issues/324) |
 | LXDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | LXQt | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
 | MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
