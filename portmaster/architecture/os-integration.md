@@ -183,3 +183,18 @@ Some of you will note that these port numbers are not registered by us. That is 
 See the full list [here](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml).
 
 The [IANA](https://www.iana.org/) [states](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml) that "both System and User ports `SHOULD NOT` be used without or prior to IANA registration.". `SHOULD NOT` is defined as "NOT RECOMMENDED", but acknowledges that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but should be carefully weighed. While we are planning to start a registration process in the future, we believe that we are RFC compliant nevertheless, because the ports `717` and `718` (1) will only be used locally, (2) will not be exposed to the Internet and (2) are important for security reasons.
+
+## Integration Interfaces
+
+There are two primary OS integration intefaces that the Portmaster uses to plug OS specific logic into the cross-platform structure:
+
+- [Packet Interception](https://github.com/safing/portmaster/blob/develop/firewall/interception/interception_default.go)
+  - The `Packet` channel is for ingesting all seen packets.
+  - Packets need to be wrapped in order to conform to the [Packet interface](https://github.com/safing/portmaster/blob/a3b495f6c921d4189a57edda10c55cb71ef37f86/network/packet/packet.go#L221).
+  - The OS side of the integration should persist decisions when one of the `Permanent*` action functions is called.
+  - Currently, this uses `nfqueue` on Linux and and a custom kernel-mode driver on Windows.
+- [Packet to Process Attribution](https://github.com/safing/portmaster/blob/a3b495f6c921d4189a57edda10c55cb71ef37f86/network/state/system_default.go)
+  - This interface provides network state tables to the Portmaster.
+  - Currently, this uses `/proc` on Linux and the `iphlpapi.dll` on Windows.
+
+Additionally, there are some non-essential interfaces that provide things like names and icons of programs.
