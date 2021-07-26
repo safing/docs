@@ -54,7 +54,7 @@ Here are some common DNS Servers and their Portmaster configuration. Please note
 
 #### Quad9
 
-[Quad9](https://quad9.org/) is a public DNS service that provides malware protection and is run a non-profit.
+[Quad9](https://quad9.org/) is a public DNS service that provides malware protection and is run by a non-profit.
 
 ```
 # Malware Protection:
