@@ -186,7 +186,7 @@ The [IANA](https://www.iana.org/) [states](https://www.iana.org/assignments/serv
 
 ## Integration Interfaces
 
-There are two primary OS integration intefaces that the Portmaster uses to plug OS specific logic into the cross-platform structure:
+There are two primary OS integration interfaces that the Portmaster uses to plug OS specific logic into the cross-platform structure:
 
 - [Packet Interception](https://github.com/safing/portmaster/blob/develop/firewall/interception/interception_default.go)
   - The `Packet` channel is for ingesting all seen packets.
