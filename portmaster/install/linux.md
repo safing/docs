@@ -226,19 +226,13 @@ For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://
 
 To install the Portmaster using the PKGBUILD, follow these steps:
 
-```
-# Install build-dependencies, you can remove them later:
-sudo pacman -S imagemagick # required to convert the Portmaster logo to different resolutions
-
-# Install runtime dependencies:
-sudo pacman -S libnetfilter_queue webkit2gtk
-
+```bash
 # Clone the repository
 git clone https://github.com/safing/portmaster-packaging
 
 # Enter the repo and build/install the package (it's under linux/)
 cd portmaster-packaging/linux
-makepkg -i
+makepkg -is
 
 # Start the Portmaster and enable autostart
 sudo systemctl daemon-reload
