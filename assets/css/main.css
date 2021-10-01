@@ -887,12 +887,11 @@ input:checked~.tab-content {
     margin-top             : 5rem
 }
 
-a[title="Go to Portmaster"] {
+a[title="Go to Portmaster"], a[title="Go to SPN"][href="/spn/broader-testing/status"] {
     opacity    : 1 !important;
     font-size  : 1rem;
     font-weight: 500;
 }
-
 
 .notification-warning {
     font-size       : .85rem;

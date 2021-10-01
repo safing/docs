@@ -37,3 +37,10 @@ items:
           - title: OS Integration
           - title: User Interface
           - title: Notifier
+  - title: SPN
+    extra_path: "/broader-testing/status"
+    children:
+      - title: Broader Testing
+        extra_path: "/status"
+        children:
+          - title: Status
