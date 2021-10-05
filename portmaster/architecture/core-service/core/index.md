@@ -89,7 +89,7 @@ The network state information is exposed via a virtual database.
 
 The interception module varies heavily between the different platforms (operating systems). It has a single purpose: Feed observed network packets to the firewall and return decisions back to the system integration layer.
 
-[Learn more about how the interception module interfaces with the network stack of the operating system at **OS Integration**](../../os-integration/).
+[Learn more about how the interception module interfaces with the network stack of the operating system at **OS Integration**](../../os-integration).
 
 ### Process
 
