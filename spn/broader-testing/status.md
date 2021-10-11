@@ -19,13 +19,26 @@ layout: base
   </p>
 </div>
 
+### How Can I Activate the SPN "Broader Testing" Phase?
+
+- [read the blog post](https://safing.io/blog/2021/10/01/spn-enters-broader-testing-phase/) to see if you are eligible
+- [log in](https://account.safing.io) to your Safing account to receive your access code
+- in the Portmaster App
+  - switch to the "Beta" [Release Channel](https://docs.safing.io/portmaster/settings#core/releaseChannel)
+    - Restart the Portmaster and Reload the UI
+    - You should now see a yellow "BETA" in the global settings
+  - [Enable](https://docs.safing.io/portmaster/settings#spn/enable) the SPN
+  - enter your [Special Access Code](https://docs.safing.io/portmaster/settings#spn/specialAccessCode)
+  - configure the [Use SPN](https://docs.safing.io/portmaster/settings#spn/useSPN) setting globally and for different apps, depending on your needs
+
 ### How Can I Test that the SPN Is Running?
 
-- Go to https://duckduckgo.com/?q=what+is+my+ip to see your current IP address
+- Go to <https://duckduckgo.com/?q=what+is+my+ip> to see your current IP address before activating the SPN
 - Enable the SPN
-- Reload DuckDuckGo and check if the IP address has changed
+- [Reload DuckDuckGo](https://duckduckgo.com/?q=what+is+my+ip) and check if the IP address has changed
+- Bonus Step: Visit some of the "what is my IP" websites, your IP address should change frequently (based on the destination server location)
 
-### Normally Works Well - Report if Broken
+### Normally Works Well - Report if Broken [](https://github.com/safing/spn/issues)
 
 - Portmaster Client successfully connects to the SPN
 - Normal browsing of websites
@@ -33,7 +46,7 @@ layout: base
 - Video streaming
 - Low Bandwidth: up to 5MBit/s
 
-### Under Investigation - Please Test and Report
+### Under Investigation - Please Test and Report [](https://github.com/safing/spn/issues)
 
 - Video Conferencing
 - UDP based applications
