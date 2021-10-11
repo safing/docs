@@ -3,34 +3,41 @@ title: Broader Testing Phase - Status
 layout: base
 ---
 
+<div class="notification-warning">
+  <img src="/assets/img/icons/info.svg">
+  <p>
+    <b>
+      Please be aware that there are not enough users and servers during this testing phase in order to protect you from trivial VPN traffic analysis. Treat the SPN as a VPN in your threat model for now.
+    </b>
+  </p>
+</div>
 
 <div class="notification-warning">
   <img src="/assets/img/icons/info.svg">
   <p>
-		<b>Last Updated on 1st October, 2021</b>
+    <b>Last Updated on 11th October, 2021</b>
   </p>
 </div>
 
-<!-- Missing: ### How Can I Test that the SPN Is Running?
+### How Can I Test that the SPN Is Running?
 
-- browse pages that show current IP / what is my IP, etc.
--->
+- Go to https://duckduckgo.com/?q=what+is+my+ip to see your current IP address
+- Enable the SPN
+- Reload DuckDuckGo and check if the IP address has changed
 
-### Normally Works Well
+### Normally Works Well - Report if Broken
+
 - Portmaster Client successfully connects to the SPN
 - Normal browsing of websites
-
-### Under Investigation
-
-#### Linux Works Better Than Windows
-
-We know that Windows is less stable than Linux. Reasons for this likely come from the Windows Kernel Extension. Investigations have already started and upgrades are scheduled.
-
-#### Other
-
 - Big file downloads
 - Video streaming
+- Low Bandwidth: up to 5MBit/s
+
+### Under Investigation - Please Test and Report
+
+- Video Conferencing
 - UDP based applications
+- Medium Bandwidth: targeting 30MBit/s as next step
 
 ### Under Construction
 
