@@ -49,6 +49,7 @@ layout: base
 ### Under Investigation - Please Test and Report [](https://github.com/safing/spn/issues)
 
 - Video Conferencing
+- Protected Video Streams
 - UDP based applications
 - Medium Bandwidth: targeting 30MBit/s as next step
 
@@ -62,7 +63,6 @@ layout: base
 - The SPN re-uses connections to nodes. Due to missing route evaluation during routing calculation we currently cannot guarantee the minimum three hops.
 - Speeds might vary greatly as we do not know the resource profile of the SPN yet.
 - The SPN seems to be failing after sleep/suspend. Investigating. Disable/Enable SPN as a workaround.
-- We're leaking open file descriptors somewhere, which also affects Portmaster after some time. Restart Portmaster as a workaround.
 - For stability, the client is artificially more sequential in order to provide more stability. This might lead to lag when lots of connections are initiated at the same time. Eg. when browsing to "big" websites.
 
 ### How To Report Bugs
