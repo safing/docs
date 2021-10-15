@@ -24,9 +24,10 @@ layout: base
 - [read the blog post](https://safing.io/blog/2021/10/01/spn-enters-broader-testing-phase/) to see if you are eligible
 - [log in](https://account.safing.io) to your Safing account to receive your access code
 - in the Portmaster App
-  - switch to the "Beta" [Release Channel](https://docs.safing.io/portmaster/settings#core/releaseChannel)
+  - switch to the "Advanced" [UI Mode](https://docs.safing.io/portmaster/settings#core/expertiseLevel) in the top right corner
+  - in the global settings, switch your [Release Channel](https://docs.safing.io/portmaster/settings#core/releaseChannel) to "Beta"
     - Restart the Portmaster and Reload the UI
-    - You should now see a yellow "BETA" in the global settings
+    - You should now see a yellow "BETA" at the top of your global settings, next to the restart button
   - [Enable](https://docs.safing.io/portmaster/settings#spn/enable) the SPN
   - enter your [Special Access Code](https://docs.safing.io/portmaster/settings#spn/specialAccessCode)
   - configure the [Use SPN](https://docs.safing.io/portmaster/settings#spn/useSPN) setting globally and for different apps, depending on your needs
