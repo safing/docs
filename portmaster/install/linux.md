@@ -222,9 +222,10 @@ If you still cannot see the Portmaster icon, please check whether the `portmaste
 
 ### Arch Linux
 
-For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository. It is not yet submitted to AUR as we want to collect some feedback first.
+For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository.
+We are currently reworking our installers and plan to submit to AUR as soon as we finished the rework.
 
-To install the Portmaster using the PKGBUILD, follow these steps:
+For now, to install the Portmaster using the PKGBUILD, follow these steps:
 
 ```bash
 # Clone the repository
