@@ -114,35 +114,35 @@ __1.__ Download the latest `portmaster-start` utility and initialize all resourc
 
 ```
 # Create portmaster data dir
-mkdir -p /var/lib/portmaster
+mkdir -p /opt/safing/portmaster
 
 # Download portmaster-start utility
 wget -O /tmp/portmaster-start https://updates.safing.io/latest/linux_amd64/start/portmaster-start
-sudo mv /tmp/portmaster-start /var/lib/portmaster/portmaster-start
-sudo chmod a+x /var/lib/portmaster/portmaster-start
+sudo mv /tmp/portmaster-start /opt/safing/portmaster/portmaster-start
+sudo chmod a+x /opt/safing/portmaster/portmaster-start
 
 # Download resources
-sudo /var/lib/portmaster/portmaster-start --data /var/lib/portmaster update
+sudo /opt/safing/portmaster/portmaster-start --data /opt/safing/portmaster update
 ```
 
-All data is saved in `/var/lib/portmaster`. The `portmaster-start` utility always needs to know where this data directory is.
+All data is saved in `/opt/safing/portmaster`. The `portmaster-start` utility always needs to know where this data directory is.
 
 __2.__ Start the Portmaster Core Service
 
 ```
-sudo /var/lib/portmaster/portmaster-start core
+sudo /opt/safing/portmaster/portmaster-start core
 ```
 
 __3.__ Start the Portmaster UI
 
 ```
-/var/lib/portmaster/portmaster-start app
+/opt/safing/portmaster/portmaster-start app
 ```
 
 __4.__ Start the Portmaster Notifier
 
 ```
-/var/lib/portmaster/portmaster-start notifier
+/opt/safing/portmaster/portmaster-start notifier
 ```
 
 <div class="notification-warning">
@@ -163,7 +163,7 @@ Description=Portmaster Privacy App
 
 [Service]
 Type=simple
-ExecStart=/var/lib/portmaster/portmaster-start core --data=/var/lib/portmaster/
+ExecStart=/opt/safing/portmaster/portmaster-start core --data=/opt/safing/portmaster/
 ExecStopPost=-/sbin/iptables -F C17
 ExecStopPost=-/sbin/iptables -t mangle -F C170
 ExecStopPost=-/sbin/iptables -t mangle -F C171
@@ -191,14 +191,14 @@ If you are running with `SELINUX=enforcing` you probably were not successful wit
 ```
 dub 16 22:09:10 dev-fedora systemd[1]: Started Portmaster Privacy App.
 dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed to execute command: Permission denied
-dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed at step EXEC spawning /var/lib/portmaster/portmaster-start: Permission denied
+dub 16 22:09:10 dev-fedora systemd[30591]: portmaster.service: Failed at step EXEC spawning /opt/safing/portmaster/portmaster-start: Permission denied
 dub 16 22:09:10 dev-fedora systemd[1]: portmaster.service: Main process exited, code=exited, status=203/EXEC
 ```
 
-This happens because SELinux will not allow you to run a binary from `/var/lib/portmaster` as systemd service. For this to work you need to change the SELinux security context type of `portmaster-start` binary using the following command:
+This happens because SELinux will not allow you to run a binary from `/opt/safing/portmaster` as systemd service. For this to work you need to change the SELinux security context type of `portmaster-start` binary using the following command:
 
 ```bash
-sudo chcon -t bin_t /var/lib/portmaster/portmaster-start
+sudo chcon -t bin_t /opt/safing/portmaster/portmaster-start
 ```
 
 Now you can restart the `portmaster` service and check that the `portmaster` started up successfully by running:
@@ -243,6 +243,18 @@ sudo systemctl enable --now portmaster
 
 ### Troubleshooting
 
+#### Install Path Change
+
+<div class="notification-warning">
+    <img src="/assets/img/icons/info.svg">
+    <p>
+      Installs before November 2021 were located in <b>"/var/lib/portmaster"</b>, while new installs are located in <b>"/opt/safing/portmaster"</b>.
+    </p>
+</div>
+
+The docs only reference the new path, but your system might still be using the old one.
+In order to upgrade your path you can re-install the Portmaster with <a href="#installers">the newest installer</a>.
+
 #### Check if the Portmaster Is Running
 
 You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
@@ -271,7 +283,7 @@ When debugging or troubleshooting issues it is always a good idea to increase th
 
 #### Accessing the Logs
 
-Portmaster logs can either be viewed using the system journal or by browsing the log files in `/var/lib/portmaster/logs`.
+Portmaster logs can either be viewed using the system journal or by browsing the log files in `/opt/safing/portmaster/logs`. Installs before November 2021 used `/var/lib/portmaster` instead.
 In most cases, the interesting log files will be in the `core` folder.
 
 ```
@@ -332,7 +344,7 @@ nslookup wikipedia.org
 In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
 
 ```
-sudo /var/lib/portmaster/portmaster-start recover-iptables
+sudo /opt/safing/portmaster/portmaster-start recover-iptables
 ```
 
 ### Uninstall
