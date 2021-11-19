@@ -1,0 +1,256 @@
+[
+  {
+    "Path": "auth/basic",
+    "MimeType": "text/plain",
+    "Read": -1,
+    "Name": "Request HTTP Basic Auth",
+    "Description": "Returns an HTTP Basic Auth request, if not authenticated."
+  },
+  {
+    "Path": "auth/bearer",
+    "MimeType": "text/plain",
+    "Read": -1,
+    "Name": "Request HTTP Bearer Auth",
+    "Description": "Returns an HTTP Bearer Auth request, if not authenticated."
+  },
+  {
+    "Path": "auth/permissions",
+    "MimeType": "application/json",
+    "Read": -1,
+    "Name": "View Current Permissions",
+    "Description": "Returns the current permissions assigned to the request."
+  },
+  {
+    "Path": "auth/reset",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Reset Authenticated Session",
+    "Description": "Resets authentication status internally and in the browser."
+  },
+  {
+    "Path": "compat/self-check",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "Name": "Run Integration Self-Check",
+    "Description": "Runs a couple integration self-checks in order to see if the system integration works."
+  },
+  {
+    "Path": "config/options",
+    "MimeType": "application/json",
+    "Read": 1,
+    "Name": "Export Configuration Options",
+    "Description": "Returns a list of all registered configuration options and their metadata. This does not include the current active or default settings."
+  },
+  {
+    "Path": "core/restart",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "Name": "Restart Portmaster",
+    "Description": "Restart the Portmaster Core Service."
+  },
+  {
+    "Path": "core/shutdown",
+    "MimeType": "text/plain",
+    "Write": 4,
+    "Name": "Shut Down Portmaster",
+    "Description": "Shut down the Portmaster Core Service and all UI components."
+  },
+  {
+    "Path": "debug/core",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Get Debug Information",
+    "Description": "Returns network debugging information, similar to debug/info, but with system status data.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "style",
+        "Value": "github",
+        "Description": "Specify the formatting style. The default is simple markdown formatting."
+      }
+    ]
+  },
+  {
+    "Path": "debug/info",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Get Debug Information",
+    "Description": "Returns debugging information, including the version and platform info, errors, logs and the current goroutine stack.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "style",
+        "Value": "github",
+        "Description": "Specify the formatting style. The default is simple markdown formatting."
+      }
+    ]
+  },
+  {
+    "Path": "debug/network",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "Name": "Get Network Debug Information",
+    "Description": "Returns network debugging information, similar to debug/core, but with connection data.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "style",
+        "Value": "github",
+        "Description": "Specify the formatting style. The default is simple markdown formatting."
+      },
+      {
+        "Method": "GET",
+        "Field": "profile",
+        "Value": "\u003cSource\u003e/\u003cID\u003e",
+        "Description": "Specify a profile source and ID for which network connection should be reported."
+      },
+      {
+        "Method": "GET",
+        "Field": "where",
+        "Value": "\u003cquery\u003e",
+        "Description": "Specify a query to limit the connections included in the report. The default is to include all connections."
+      }
+    ]
+  },
+  {
+    "Path": "debug/network/state",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get Network State Table Data",
+    "Description": "Returns the current network state tables from the OS."
+  },
+  {
+    "Path": "debug/stack",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Get Goroutine Stack",
+    "Description": "Returns the current goroutine stack."
+  },
+  {
+    "Path": "debug/stack/print",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Print Goroutine Stack",
+    "Description": "Prints the current goroutine stack to stdout."
+  },
+  {
+    "Path": "dns/cache/{query:[a-z0-9\\.-]{0,512}\\.[A-Z]{1,32}}",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get DNS Record from Cache",
+    "Description": "Returns cached dns records from the internal cache.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "query (in path)",
+        "Value": "fqdn and query type",
+        "Description": "Specify the query like this: `example.com.A`."
+      }
+    ]
+  },
+  {
+    "Path": "dns/clear",
+    "MimeType": "text/plain",
+    "Write": 2,
+    "Name": "Clear cached DNS records",
+    "Description": "Deletes all saved DNS records from the database."
+  },
+  {
+    "Path": "dns/resolvers",
+    "MimeType": "application/json",
+    "Read": 1,
+    "Name": "List DNS Resolvers",
+    "Description": "List currently configured DNS resolvers and their status."
+  },
+  {
+    "Path": "endpoints",
+    "MimeType": "application/json",
+    "Read": 1,
+    "Name": "Export API Endpoints",
+    "Description": "Returns a list of all registered endpoints and their metadata."
+  },
+  {
+    "Path": "modules/{moduleName:.+}/trigger/{eventName:.+}",
+    "MimeType": "text/plain",
+    "Write": 4,
+    "Name": "Trigger Event",
+    "Description": "Triggers an event of an internal module."
+  },
+  {
+    "Path": "network/gateways",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get Default Gateways",
+    "Description": "Returns the current active default gateways of the network."
+  },
+  {
+    "Path": "network/location",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get Approximate Internet Location",
+    "Description": "Returns an approximation of where the device is on the Internet."
+  },
+  {
+    "Path": "network/location/traceroute",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get Approximate Internet Location via Traceroute",
+    "Description": "Returns an approximation of where the device is on the Internet using a the traceroute technique."
+  },
+  {
+    "Path": "network/nameservers",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get System Nameservers",
+    "Description": "Returns the currently configured nameservers on the OS."
+  },
+  {
+    "Path": "ping",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "Name": "Ping",
+    "Description": "Pong."
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/graph{format:\\.[a-z]{2,4}}",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "Name": "Get SPN map graph",
+    "Description": "Returns a graph of the given SPN map.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "map (in path)",
+        "Value": "name of map",
+        "Description": "Specify the map you want to get the map for. The main map is called `main`."
+      },
+      {
+        "Method": "GET",
+        "Field": "format (in path)",
+        "Value": "file type",
+        "Description": "Specify the format you want to get the map in. Available values: `dot`, `html`. Please note that the html format is only available in development mode."
+      }
+    ]
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/pins",
+    "MimeType": "application/json",
+    "Read": 2,
+    "Name": "Get SPN map pins",
+    "Description": "Returns a list of pins on the given SPN map."
+  },
+  {
+    "Path": "ui/reload",
+    "MimeType": "text/plain",
+    "Write": 2,
+    "Name": "Reload UI Assets",
+    "Description": "Removes all assets from the cache and reloads the current (possibly updated) version from disk when requested."
+  },
+  {
+    "Path": "updates/check",
+    "MimeType": "text/plain",
+    "Write": 2,
+    "Name": "Check for Updates",
+    "Description": "Triggers checking for updates."
+  }
+]
