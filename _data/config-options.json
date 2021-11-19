@@ -76,17 +76,17 @@
     "ValidationRegex": "^(user|expert|developer)$",
     "PossibleValues": [
       {
-        "Name": "Simple",
+        "Name": "Simple Interface",
         "Description": "Hide complex settings and information.",
         "Value": "user"
       },
       {
-        "Name": "Advanced",
+        "Name": "Advanced Interface",
         "Description": "Show technical details.",
         "Value": "expert"
       },
       {
-        "Name": "Developer",
+        "Name": "Developer Interface",
         "Description": "Developer mode. Please be careful!",
         "Value": "developer"
       }
@@ -220,7 +220,7 @@
     "ReleaseLevel": 0,
     "RequiresRestart": true,
     "DefaultValue": "stable",
-    "ValidationRegex": "^(stable|beta|special|staging)$",
+    "ValidationRegex": "^(stable|beta|support|staging)$",
     "PossibleValues": [
       {
         "Name": "Stable",
@@ -233,9 +233,9 @@
         "Value": "beta"
       },
       {
-        "Name": "Special",
-        "Description": "Special releases or version changes for troubleshooting. Only use temporarily and when instructed.",
-        "Value": "special"
+        "Name": "Support",
+        "Description": "Support releases or version changes for troubleshooting. Only use temporarily and when instructed.",
+        "Value": "support"
       },
       {
         "Name": "Staging",
@@ -255,7 +255,7 @@
     "Description": "May break things. Decide if you want to experiment with unstable features. \"Beta\" has been tested roughly by the Safing team while \"Experimental\" is really raw. When \"Beta\" or \"Experimental\" are disabled, their settings use the default again.",
     "Help": "",
     "OptType": 1,
-    "ExpertiseLevel": 1,
+    "ExpertiseLevel": 2,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": "stable",
@@ -429,6 +429,7 @@
       "self:detail:connectivityDomains": [
         "captiveportal.invalid.",
         "one.one.one.one.",
+        "dns-check.safing.io.",
         "dns.msftncsi.com.",
         "msftncsi.com.",
         "www.msftncsi.com.",
@@ -439,13 +440,14 @@
         "connectivity-check.ubuntu.com.",
         "nmcheck.gnome.org.",
         "network-test.debian.org.",
-        "204.pop-os.org",
+        "204.pop-os.org.",
+        "conncheck.opensuse.org.",
         "connectivitycheck.gstatic.com.",
         "neverssl.com.",
         "detectportal.firefox.com."
       ],
       "self:detail:internalSpecialUseDomains": [
-        ".17.home.arpa."
+        ".portmaster.home.arpa."
       ]
     }
   },
@@ -631,7 +633,7 @@
     }
   },
   {
-    "Name": "Block Incoming Connections",
+    "Name": "Force Block Incoming Connections",
     "Key": "filter/blockInbound",
     "Description": "Connections initiated towards your device from the LAN or Internet. This will usually only be the case if you are running a network service or are using peer to peer software. Is stronger than Rules (see below).",
     "Help": "",
@@ -665,9 +667,9 @@
     }
   },
   {
-    "Name": "Block Internet Access",
+    "Name": "Force Block Internet Access",
     "Key": "filter/blockInternet",
-    "Description": "Block connections from and to the Internet. Is stronger than Rules (see below).",
+    "Description": "Force Block connections from and to the Internet. Is stronger than Rules (see below).",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -704,9 +706,9 @@
     }
   },
   {
-    "Name": "Block LAN",
+    "Name": "Force Block LAN",
     "Key": "filter/blockLAN",
-    "Description": "Block all connections from and to the Local Area Network. Is stronger than Rules (see below).",
+    "Description": "Force Block all connections from and to the Local Area Network. Is stronger than Rules (see below).",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
@@ -743,9 +745,9 @@
     }
   },
   {
-    "Name": "Block Device-Local Connections",
+    "Name": "Force Block Device-Local Connections",
     "Key": "filter/blockLocal",
-    "Description": "Block all internal connections on your own device, ie. localhost. Is stronger than Rules (see below).",
+    "Description": "Force Block all internal connections on your own device, ie. localhost. Is stronger than Rules (see below).",
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 1,
@@ -782,7 +784,7 @@
     }
   },
   {
-    "Name": "Block P2P/Direct Connections",
+    "Name": "Force Block P2P/Direct Connections",
     "Key": "filter/blockP2P",
     "Description": "These are connections that are established directly to an IP address or peer on the Internet without resolving a domain name via DNS first. Is stronger than Rules (see below).",
     "Help": "",
@@ -816,9 +818,9 @@
     }
   },
   {
-    "Name": "Default Action",
+    "Name": "Default Network Action",
     "Key": "filter/defaultAction",
-    "Description": "The default action when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
+    "Description": "The default network action is applied when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
     "Help": "",
     "OptType": 1,
     "ExpertiseLevel": 0,
@@ -923,13 +925,13 @@
     }
   },
   {
-    "Name": "Privacy Filter",
+    "Name": "Privacy Filter Module",
     "Key": "filter/enable",
-    "Description": "Enable the DNS and Network Filter.",
+    "Description": "Start the Privacy Filter module. If turned off, all privacy filter protections are fully disabled on this device.",
     "Help": "",
     "OptType": 4,
-    "ExpertiseLevel": 0,
-    "ReleaseLevel": 1,
+    "ExpertiseLevel": 2,
+    "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": true,
     "ValidationRegex": "",
@@ -941,13 +943,13 @@
     "Name": "Outgoing Rules",
     "Key": "filter/endpoints",
     "Description": "Rules that apply to outgoing network connections. Cannot overrule Network Scopes and Connection Types (see above).",
-    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nIn this case the rule is only matched if the protocol and port also match.  \nExample: `192.168.0.1 TCP/HTTP`\n",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \nExamples: `192.168.0.1 TCP/HTTP`, `LAN UDP/50000-55000`, `example.com */HTTPS`, `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
     "OptType": 2,
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": [],
-    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9/]+)?$",
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
     "Annotations": {
       "safing/portbase:options:stackable": true,
       "safing/portbase:ui:category": "Rules",
@@ -1067,7 +1069,7 @@
     "Help": "",
     "OptType": 3,
     "ExpertiseLevel": 0,
-    "ReleaseLevel": 1,
+    "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
     "ValidationRegex": "^(7|6|4)$",
@@ -1166,7 +1168,7 @@
     "Name": "Incoming Rules",
     "Key": "filter/serviceEndpoints",
     "Description": "Rules that apply to incoming network connections. Cannot overrule Network Scopes and Connection Types (see above). Also note that the default action for incoming connections is to always block.",
-    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nIn this case the rule is only matched if the protocol and port also match.  \nExample: `192.168.0.1 TCP/HTTP`\n",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \nExamples: `192.168.0.1 TCP/HTTP`, `LAN UDP/50000-55000`, `example.com */HTTPS`, `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
     "OptType": 2,
     "ExpertiseLevel": 1,
     "ReleaseLevel": 0,
@@ -1174,7 +1176,7 @@
     "DefaultValue": [
       "+ Localhost"
     ],
-    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9/]+)?$",
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
     "Annotations": {
       "safing/portbase:options:stackable": true,
       "safing/portbase:ui:category": "Rules",
@@ -1207,9 +1209,9 @@
     }
   },
   {
-    "Name": "Enable SPN",
+    "Name": "SPN Module",
     "Key": "spn/enable",
-    "Description": "Enable the Safing Privacy Network.",
+    "Description": "Start the Safing Privacy Network module. If turned off, the SPN is fully disabled on this device.",
     "Help": "",
     "OptType": 4,
     "ExpertiseLevel": 0,
@@ -1240,8 +1242,8 @@
   },
   {
     "Name": "Use SPN",
-    "Key": "spn/useSPN",
-    "Description": "Route connections through the Safing Privacy Network. If it is disabled or unavailable for any reason, connections will be blocked.",
+    "Key": "spn/use",
+    "Description": "Protect network traffic with the Safing Privacy Network. If the SPN is not available or the connection is interrupted, network traffic will be blocked.",
     "Help": "",
     "OptType": 4,
     "ExpertiseLevel": 0,
