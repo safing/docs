@@ -1,6 +1,8 @@
 ---
-title: Broader Testing Phase - Status
+title: SPN Alpha - Status
 layout: base
+redirect_from:
+  - /spn/broader-testing/status
 ---
 
 <div class="notification-warning">
