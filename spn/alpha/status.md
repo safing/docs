@@ -9,7 +9,7 @@ redirect_from:
   <img src="/assets/img/icons/info.svg">
   <p>
     <b>
-      Please be aware that there are not enough users and servers during this testing phase in order to protect you from trivial VPN traffic analysis. Treat the SPN as a VPN in your threat model for now.
+      Treat the SPN as a VPN in your threat model for now. Please be aware that there are not enough users and servers during the alpha phase in order to protect you from VPN traffic analysis.
     </b>
   </p>
 </div>
@@ -17,13 +17,13 @@ redirect_from:
 <div class="notification-warning">
   <img src="/assets/img/icons/info.svg">
   <p>
-    <b>Last Updated on 11th October, 2021</b>
+    <b>Last Updated on 2nd December, 2021</b>
   </p>
 </div>
 
 ### Normally Works Well - Report if Broken [](https://github.com/safing/spn/issues)
 
-- Portmaster Client successfully connects to the SPN
+- Login on Portmaster Client successfully connects to the SPN
 - Normal browsing of websites
 - Big file downloads
 - Video streaming
@@ -40,7 +40,7 @@ redirect_from:
 
 - The SPN re-uses connections to nodes. Due to missing route evaluation during routing calculation we currently cannot guarantee the minimum three hops.
 - Speeds might vary greatly as we do not know the resource profile of the SPN yet.
-- The SPN seems to be failing after sleep/suspend. Investigating. Disable/Enable SPN as a workaround.
+- The SPN seems to be failing after sleep/suspend. Investigating. Reconnect to the SPN as a workaround.
 - For stability, the client is artificially more sequential in order to provide more stability. This might lead to lag when lots of connections are initiated at the same time. Eg. when browsing to "big" websites.
 
 ### How To Report Bugs
