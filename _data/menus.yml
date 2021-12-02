@@ -38,9 +38,9 @@ items:
           - title: User Interface
           - title: Notifier
   - title: SPN
-    extra_path: "/broader-testing/status"
+    extra_path: "/alpha/status"
     children:
-      - title: Broader Testing
+      - title: Alpha
         extra_path: "/status"
         children:
           - title: Status
