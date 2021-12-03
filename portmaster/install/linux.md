@@ -351,15 +351,24 @@ sudo /opt/safing/portmaster/portmaster-start recover-iptables
 
 Uninstalling the portmaster package from your system will properly uninstall and remove the Portmaster.
 
-###### GUI
-
-Most distros will have a graphical software and package manager.  
-You can easily find it by opening the "Start Menu" and searching for "software".
+<div class="notification-warning">
+    <img src="/assets/img/icons/info.svg">
+    <p>
+      Most distros will have a graphical software and package manager for uninstalling.<br>
+      You can easily find it by opening the "Start Menu" and searching for "software".
+    </p>
+</div>
 
 ###### Debian/Ubuntu
 
 ```
 sudo apt purge portmaster
+```
+
+###### Fedora
+
+```
+sudo yum remove portmaster
 ```
 
 ###### Arch
