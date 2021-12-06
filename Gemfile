@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem 'jekyll-paginate'
   gem 'jekyll-minifier'
+  gem 'jekyll-redirect-from'
 end
 
 gem 'therubyracer'
