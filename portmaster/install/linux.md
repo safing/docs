@@ -155,7 +155,7 @@ __4.__ Start the Portmaster Notifier
 __5.__ Start it on boot
 
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
-The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/debian/portmaster.service).
+The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
 
 ```
 [Unit]
@@ -341,7 +341,7 @@ nslookup wikipedia.org
 
 #### No Network Connectivity After the Portmaster Stops
 
-In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/debian/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
+In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
 
 ```
 sudo /opt/safing/portmaster/portmaster-start recover-iptables
