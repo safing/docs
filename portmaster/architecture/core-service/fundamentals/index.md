@@ -50,7 +50,7 @@ This is what logs could look like:
 
 {% include code_ref.html godoc_portbase="dataroot" github_portbase="utils/structure.go" %}
 
-The Portmaster Application keeps everything it needs in a single directory. On Windows, this is `%APPDATA%\Safing\Portmaster` and on Linux it is `/var/lib/portmaster`.
+The Portmaster Application keeps everything it needs in a single directory. On Windows, this is `%PROGRAMDATA%\Safing\Portmaster` and on Linux it is `/var/lib/portmaster`.
 
 The `dataroot` is not a module, but just a small utility that provides easy access to it. It uses the `DirStructure` utility to ensure that all the directories always have the correct file system permissions.
 
