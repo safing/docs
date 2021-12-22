@@ -26,7 +26,8 @@ Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_co
   <tbody>
 		{% assign providers = site.data.compatibility.vpns | sort_natural: "name" %}
 		{% for provider in providers %}
-			{% for report in provider.reports %}
+			{% assign reports = provider.reports | sort_natural: "os" %}
+			{% for report in reports %}
 				<tr>
 		      <td style="text-align: left">{% if forloop.index == 1 %}{{ provider.name }}{% endif %}</td>
 		      <td style="text-align: center"><i class="fab fa-{{ report.os }}"></i></td>
