@@ -1,0 +1,67 @@
+## Status Guideline
+# 
+# - 🟢 confirmed compatible                  (confirmed by the Safing team)
+# - 🟢 reported compatible                   (reported by the community)
+# - 🟡 issue reported                        (reported by the community)
+# - 🟡 issue confirmed, workaround available (confirmed by the Safing team)
+# - 🚫 issue confirmed                       (confirmed by the Safing team)
+
+vpns:
+  - name: MullvadVPN
+    reports:
+      - os: windows
+        mode: OpenVPN
+        state: 🟢 confirmed compatible, setup required →
+        issue_number: 313
+        issue_comment: 849715343
+      - os: windows
+        mode: WireGuard
+        state: 🟢 confirmed compatible, setup required →
+        issue_number: 313
+        issue_comment: 849715343
+  - name: NordVPN
+    reports:
+      - os: linux
+        mode: NordLynx
+        state: 🟢 reported compatible
+        issue_number: 297
+      - os: linux
+        mode: OpenVPN
+        state: 🟢 reported compatible
+        issue_number: 297
+  - name: PIA VPN
+    reports:
+      - os: linux
+        mode: OpenVPN
+        state: 🟢 reported compatible
+        issue_number: 317
+      - os: linux
+        mode: WireGuard
+        state: 🟡 issue reported
+        issue_number: 317
+  - name: ProtonVPN
+    reports:
+      - os: windows
+        state: 🟢 confirmed compatible
+        issue_number: 160
+        issue_comment: 700528272
+      - os: linux
+        state: 🟢 reported compatible
+        issue_number: 320
+  - name: RiseupVPN
+    reports:
+      - os: linux
+        state: 🟡 issue reported
+        issue_number: 284
+  - name: WindscribeVPN
+    reports:
+      - os: windows
+        state: 🟢 confirmed compatible, setup required →
+        issue_number: 311
+        issue_comment: 860790015
+  - name: WireGuard
+    reports:
+      - os: linux
+        mode: native
+        state: 🟡 issue confirmed, workaround available
+        issue_number: 292
