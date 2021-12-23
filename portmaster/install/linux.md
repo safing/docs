@@ -127,19 +127,21 @@ sudo /opt/safing/portmaster/portmaster-start --data /opt/safing/portmaster updat
 
 All data is saved in `/opt/safing/portmaster`. The `portmaster-start` utility always needs to know where this data directory is.
 
-__2.__ Start the Portmaster Core Service
+__2.__ Reboot Your System
+
+__3.__ Start the Portmaster Core Service
 
 ```
 sudo /opt/safing/portmaster/portmaster-start core
 ```
 
-__3.__ Start the Portmaster UI
+__4.__ Start the Portmaster UI
 
 ```
 /opt/safing/portmaster/portmaster-start app
 ```
 
-__4.__ Start the Portmaster Notifier
+__5.__ Start the Portmaster Notifier
 
 ```
 /opt/safing/portmaster/portmaster-start notifier
@@ -152,7 +154,7 @@ __4.__ Start the Portmaster Notifier
     </p>
 </div>
 
-__5.__ Start it on boot
+__6.__ Start it on boot
 
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
 The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
@@ -182,7 +184,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
 
-__6.__ Enjoy!
+__7.__ Enjoy!
 
 ### Security-Enhanced Linux (SELinux)
 
