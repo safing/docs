@@ -85,7 +85,7 @@ software:
   - name: DNSCrypt
     reports:
       - os: windows
-        state: 🟢 reported compatible, follow steps →
+        state: 🟢 reported compatible, setup required →
         issue_number: 364
         issue_comment: 895770278
   - name: ESET IS
@@ -101,18 +101,18 @@ software:
   - name: KDE Connect
     reports:
     - os: windows
-      state: 🟢 reported compatible, follow steps →
+      state: 🟢 reported compatible, setup required →
       issue_number: 412
     - os: linux
-      state: 🟢 reported compatible, follow steps →
+      state: 🟢 reported compatible, setup required →
       issue_number: 412
   - name: NextDNS
     reports:
       - os: windows
-        state: 🟢 confirmed compatible, follow steps →
+        state: 🟢 confirmed compatible, setup required →
         issue_number: 291
       - os: linux
-        state: 🟢 confirmed compatible, follow steps →
+        state: 🟢 confirmed compatible, setup required →
         issue_number: 291
   - name: Simplewall
     reports:
