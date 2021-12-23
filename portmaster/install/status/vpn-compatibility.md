@@ -13,31 +13,34 @@ Please [report your experience]({{ site.github_pm_url }}{{ site.github_report_co
 
 ### Community Reports
 
-<!--
-
-## Status Guideline
-
-- 🟢 confirmed compatible                  (confirmed by the Safing team)
-- 🟢 reported compatible                   (reported by the community)
-- 🟡 issue reported                        (reported by the community)
-- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
-- 🚫 issue confirmed                       (confirmed by the Safing team)
-
--->
-
-| Native Client | OS | Mode | Status | Link |
-|:---|:---:|:---:|:---|:---:|
-| MullvadVPN | <i class="fab fa-windows"></i> | OpenVPN | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
-| | <i class="fab fa-windows"></i> | WireGuard | 🟢 confirmed compatible, setup required → | [#313]({{ site.github_pm_url }}/issues/313#issuecomment-849715343) |
-| NordVPN | <i class="fab fa-linux"></i> | NordLynx | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| | <i class="fab fa-linux"></i> | OpenVPN | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| PIA VPN | <i class="fab fa-linux"></i> | OpenVPN | 🟢 reported compatible | [#317]({{ site.github_pm_url }}/issues/317) |
-| | <i class="fab fa-linux"></i> | WireGuard | 🟡 issue reported | [#317]({{ site.github_pm_url }}/issues/317) |
-| ProtonVPN | <i class="fab fa-windows"></i> | | 🟢 confirmed compatible | [#160]({{ site.github_pm_url }}/issues/160#issuecomment-700528272) |
-| | <i class="fab fa-linux"></i> | | 🟢 reported compatible | [#320]({{ site.github_pm_url }}/issues/320) |
-| RiseupVPN | <i class="fab fa-linux"></i>|  |🟡 issue reported | [#284]({{ site.github_pm_url }}/issues/284) |
-| WindscribeVPN | <i class="fab fa-windows"></i>|  | 🟢 confirmed compatible, setup required → | [#311]({{ site.github_pm_url }}/issues/311#issuecomment-860790015) |
-| WireGuard | <i class="fab fa-linux"></i>| Native  |🟡 issue confirmed, workaround available | [#292]({{ site.github_pm_url }}/issues/292) |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Native Client</th>
+      <th style="text-align: center">OS</th>
+      <th style="text-align: center">Mode</th>
+      <th style="text-align: left">Status</th>
+      <th style="text-align: center">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+		{% assign providers = site.data.compatibility.vpns | sort_natural: "name" %}
+		{% for provider in providers %}
+			{% assign reports = provider.reports | sort_natural: "os" %}
+			{% for report in reports %}
+				<tr>
+		      <td style="text-align: left">{% if forloop.index == 1 %}{{ provider.name }}{% endif %}</td>
+		      <td style="text-align: center"><i class="fab fa-{{ report.os }}"></i></td>
+		      <td style="text-align: center">{{ report.mode }}</td>
+		      <td style="text-align: left">
+						{{ report.state }}
+					</td>
+		      <td style="text-align: center"><a href="https://github.com/safing/portmaster/issues/{{ report.issue_number }}{% if report.issue_comment %}#issuecomment-{{ report.issue_comment }}{% endif %}">#{{ report.issue_number }}</a></td>
+		    </tr>
+			{% endfor %}
+		{% endfor %}
+  </tbody>
+</table>
 
 #### Workaround: OpenVPN
 

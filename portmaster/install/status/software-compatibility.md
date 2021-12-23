@@ -10,23 +10,29 @@ The Portmaster tries to stay out of your way so you can focus on your work or pl
 
 Help make the Portmaster better for everyone by [reporting your experience]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}).
 
-<!--
-
-## Status Guideline
-
-- 🟢 confirmed compatible                  (confirmed by the Safing team)
-- 🟢 reported compatible                   (reported by the community)
-- 🟡 issue reported                        (reported by the community)
-- 🟡 issue confirmed, workaround available (confirmed by the Safing team)
-- 🚫 issue confirmed                       (confirmed by the Safing team)
-
--->
-
-| | OS | Status | Link |
-|:---|:---|:---|:---:|
-| ESET IS | <i class="fab fa-windows"></i> |  🟢 reported compatible  | [#349]({{ site.github_pm_url }}/issues/349) |
-| Gufw Firewall | <i class="fab fa-linux"></i> |  🟢 reported compatible  | [#295]({{ site.github_pm_url }}/issues/295) |
-| NextDNS | <i class="fab fa-linux"></i>&nbsp;<i class="fab fa-windows"></i> |  🟢 confirmed compatible, follow steps → | [#291]({{ site.github_pm_url }}/issues/291) |
-| Simplewall | <i class="fab fa-windows"></i> |  🟢 reported compatible, minor issue → | [#314]({{ site.github_pm_url }}/issues/314) |
-| Symantec Endpoint Protection | <i class="fab fa-windows"></i> |  🟢 reported compatible | [#349]({{ site.github_pm_url }}/issues/349) |
-| Trend Micro | <i class="fab fa-windows"></i> |  🟢 reported compatible | [#349]({{ site.github_pm_url }}/issues/349) |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"></th>
+      <th style="text-align: left">OS</th>
+      <th style="text-align: left">Status</th>
+      <th style="text-align: center">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+		{% assign apps = site.data.compatibility.software | sort_natural: "name" %}
+		{% for app in apps %}
+			{% assign reports = app.reports | sort_natural: "os" %}
+			{% for report in reports %}
+				<tr>
+		      <td style="text-align: left">{% if forloop.index == 1 %}{{ app.name }}{% endif %}</td>
+		      <td style="text-align: left"><i class="fab fa-{{ report.os }}"></i></td>
+		      <td style="text-align: left">
+						{{ report.state }}
+					</td>
+		      <td style="text-align: center"><a href="https://github.com/safing/portmaster/issues/{{ report.issue_number }}{% if report.issue_comment %}#issuecomment-{{ report.issue_comment }}{% endif %}">#{{ report.issue_number }}</a></td>
+		    </tr>
+			{% endfor %}
+		{% endfor %}
+  </tbody>
+</table>
