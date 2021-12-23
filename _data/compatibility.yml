@@ -19,6 +19,16 @@ vpns:
         state: 🟢 confirmed compatible, setup required →
         issue_number: 313
         issue_comment: 849715343
+      - os: linux
+        mode: OpenVPN
+        state: 🚫 issue confirmed
+        issue_number: 445
+        issue_comment: 985616231
+      - os: linux
+        mode: WireGuard
+        state: 🚫 issue confirmed
+        issue_number: 445
+        issue_comment: 985616231
   - name: NordVPN
     reports:
       - os: linux
@@ -67,6 +77,17 @@ vpns:
         issue_number: 292
 
 software:
+  - name: Cisco Secure Endpoint 
+    reports:
+      - os: windows
+        state: 🟡 issue reported
+        issue_number: 481
+  - name: DNSCrypt
+    reports:
+      - os: windows
+        state: 🟢 reported compatible, follow steps →
+        issue_number: 364
+        issue_comment: 895770278
   - name: ESET IS
     reports:
       - os: windows
@@ -77,6 +98,14 @@ software:
       - os: linux
         state: 🟢 reported compatible
         issue_number: 295
+  - name: KDE Connect
+    reports:
+    - os: windows
+      state: 🟢 reported compatible, follow steps →
+      issue_number: 412
+    - os: linux
+      state: 🟢 reported compatible, follow steps →
+      issue_number: 412
   - name: NextDNS
     reports:
       - os: windows
