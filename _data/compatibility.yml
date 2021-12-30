@@ -77,6 +77,12 @@ vpns:
         issue_number: 292
 
 software:
+  - name: AdGuard
+    reports:
+      - os: windows
+        state: 🟢 reported compatible, setup required →
+        issue_number: 431
+        issue_comment: 966148454
   - name: Cisco Secure Endpoint 
     reports:
       - os: windows
