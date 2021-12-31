@@ -17,7 +17,7 @@ redirect_from:
 <div class="notification-warning">
   <img src="/assets/img/icons/info.svg">
   <p>
-    <b>Last Updated on 2nd December, 2021</b>
+    <b>Last Updated on 31st December, 2021</b>
   </p>
 </div>
 
@@ -27,13 +27,14 @@ redirect_from:
 - Normal browsing of websites
 - Big file downloads
 - Video streaming
-- Low Bandwidth: up to 5MBit/s
+- Low Bandwidth: at least 10MBit/s
 
 ### Under Investigation - Please Test and Report [](https://github.com/safing/spn/issues)
 
 - Video Conferencing
+- Torrents
+- other UDP based applications
 - Protected Video Streams
-- UDP based applications
 - Medium Bandwidth: targeting 30MBit/s as next step
 
 ### Known Issues
@@ -46,3 +47,5 @@ redirect_from:
 ### How To Report Bugs
 
 Bugs can be reported on the [SPN repository on GitHub](https://github.com/safing/spn/issues)
+
+Be sure to also check the network status feed on the SPN page in Portmaster.
