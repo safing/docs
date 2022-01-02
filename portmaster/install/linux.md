@@ -12,7 +12,6 @@ We provide package installers for supported systems:
 - [`.deb` for Debian/Ubuntu]({{ site.download_linux_deb_url }}) ([_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux))
 - [`.rpm` for Fedora]({{ site.download_linux_rpm_url }}) ([_how to_](https://itsfoss.com/install-rpm-files-fedora/))
 - [`PKGBUILD` for Arch](#arch-linux)
-- [`.pkg.tar.xz` for Arch]({{ site.download_linux_arch_url }}) (Testing, [CI Build](https://github.com/safing/portmaster-packaging/actions?query=workflow%3A%22Arch+Linux%22+branch%3Amaster) / [_how to_](https://wiki.archlinux.org/index.php/Pacman#Additional_commands))
 
 ---
 
