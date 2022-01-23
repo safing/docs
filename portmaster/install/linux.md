@@ -19,7 +19,6 @@ Please note that we only support the latest stable and LTS versions. We may be a
 
 The installers should take care of any needed dependencies. [Please report back](https://github.com/safing/portmaster/issues/new?template=bug-report.md) if they do not!
 
-
 <div class="notification-warning">
     <img src="/assets/img/icons/info.svg">
     <p>
@@ -47,29 +46,28 @@ Help make the Portmaster better for everyone by [reporting your experience]({{ s
 
 #### Linux Kernel
 
-
-| System | Version | Status | Link |
-|:---|:---|:---|:---:|
-| Linux Kernel | >= 5.7 | 🟢 confirmed compatible |
-| | 5.6 | 🟡 issue reported | [#82]({{ site.github_pm_url }}/issues/82)
-| | 2.4-5.5 | 🟢 confirmed compatible |
-| NixOS | 21.05 | 🟡 issue reported | [#306]({{ site.github_pm_url }}/issues/306) |
-| Parrot OS | | 🟡 issue reported | [#465]({{ site.github_pm_url }}/issues/465) |
+| System       | Version | Status                  | Link                                        |
+|:------------ |:------- |:----------------------- |:-------------------------------------------:|
+| Linux Kernel | >= 5.7  | 🟢 confirmed compatible |                                             |
+|              | 5.6     | 🟡 issue reported       | [#82]({{ site.github_pm_url }}/issues/82)   |
+|              | 2.4-5.5 | 🟢 confirmed compatible |                                             |
+| NixOS        | 21.05   | 🟡 issue reported       | [#306]({{ site.github_pm_url }}/issues/306) |
+| Parrot OS    |         | 🟡 issue reported       | [#465]({{ site.github_pm_url }}/issues/465) |
 
 #### Desktop Environments
 
-| Environment | Version | Status | Link |
-|:---|:---|:---|:---:|
-| Budgie | ? | 🟡 issue reported | [#111]({{ site.github_pm_ui_url }}/issues/111)
-| Cinnamon | 4.6.7 | 🟢 reported compatible | [#297]({{ site.github_pm_url }}/issues/297) |
-| Deepin DE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| Gnome | 3.38 | 🟢 confirmed compatible |
-| | >= 3 | 🟢 estimated compatible |
-| KDE Plasma | 5.18 | 🟢 reported compatible | [#324]({{ site.github_pm_url }}/issues/324) |
-| LXDE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| LXQt | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| MATE | | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |
-| XFCE | ? | 🟢 confirmed compatible |
+| Environment | Version | Status                                                                                   | Link                                           |
+|:----------- |:------- |:---------------------------------------------------------------------------------------- |:----------------------------------------------:|
+| Budgie      | ?       | 🟡 issue reported                                                                        | [#111]({{ site.github_pm_ui_url }}/issues/111) |
+| Cinnamon    | 4.6.7   | 🟢 reported compatible                                                                   | [#297]({{ site.github_pm_url }}/issues/297)    |
+| Deepin DE   |         | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |                                                |
+| Gnome       | 3.38    | 🟢 confirmed compatible                                                                  |                                                |
+|             | >= 3    | 🟢 estimated compatible                                                                  |                                                |
+| KDE Plasma  | 5.18    | 🟢 reported compatible                                                                   | [#324]({{ site.github_pm_url }}/issues/324)    |
+| LXDE        |         | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |                                                |
+| LXQt        |         | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |                                                |
+| MATE        |         | request for [report]({{ site.github_pm_url }}{{ site.github_report_compatibility_url }}) |                                                |
+| XFCE        | ?       | 🟢 confirmed compatible                                                                  |                                                |
 
 ### Requirements
 
@@ -83,7 +81,7 @@ Dependencies:
 
 ###### Debian/Ubuntu
 
-```
+```bash
 sudo apt install libnetfilter-queue1 libappindicator3-1
 ```
 
@@ -96,13 +94,13 @@ sudo apt install libnetfilter-queue1 libappindicator3-1
 
 ###### Fedora
 
-```
+```bash
 sudo yum install libnetfilter_queue
 ```
 
 ###### Arch
 
-```
+```bash
 sudo pacman -S libnetfilter_queue libappindicator-gtk3
 ```
 
@@ -112,7 +110,7 @@ __0.__ Install dependencies.
 
 __1.__ Download the latest `portmaster-start` utility and initialize all resources:
 
-```
+```bash
 # Create portmaster data dir
 mkdir -p /opt/safing/portmaster
 
@@ -131,7 +129,7 @@ __2.__ Reboot Your System
 
 __3.__ Start the Portmaster Core Service
 
-```
+```bash
 sudo /opt/safing/portmaster/portmaster-start core
 ```
 
@@ -159,7 +157,7 @@ __6.__ Start it on boot
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
 The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
 
-```
+```bash
 [Unit]
 Description=Portmaster Privacy App
 
@@ -179,10 +177,30 @@ WantedBy=multi-user.target
 
 Finally, reload the systemd daemon and enable/start the Portmaster:
 
-```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
+
+__6bis.__ Start it on boot Runit (systems)
+
+In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/etc/runit/sv/portmaster/` with 755 permissions, then creating a `run` file at `/etc/runit/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
+
+```bash
+#!/bin/bash
+/var/lib/portmaster/portmaster-start  core
+```
+
+**NOTE**: The portmaster-start script might be located elsewhere.
+
+Finally, enable and start the service:
+
+```bash
+sudo ln -s /etc/runit/sv/portmaster /run/runit/service/portmaster
+sudo sv up portmaster
+```
+
+Artix Linux users can find the [portmaster-runit](https://aur.archlinux.org/packages/portmaster-runit/) package in the AUR
 
 __7.__ Enjoy!
 
@@ -261,7 +279,7 @@ In order to upgrade your path you can re-install the Portmaster with <a href="#i
 
 You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
 
-```
+```bash
 sudo systemctl status portmaster
 ```
 
@@ -271,7 +289,7 @@ This should show something like `active (running) since <start-time>`. Please al
 
 If you encounter any issues you might want to (temporarily) stop the Portmaster. You can do this like this:
 
-```
+```bash
 # This will stop the portmaster until you reboot.
 sudo systemctl stop portmaster
 
@@ -288,7 +306,7 @@ When debugging or troubleshooting issues it is always a good idea to increase th
 Portmaster logs can either be viewed using the system journal or by browsing the log files in `/opt/safing/portmaster/logs`. Installs before November 2021 used `/var/lib/portmaster` instead.
 In most cases, the interesting log files will be in the `core` folder.
 
-```
+```bash
 # View logs of the Portmaster using the system journal.
 sudo journalctl -u portmaster
 
@@ -311,7 +329,7 @@ The Portmaster includes a local DNS resolver to provide its monitoring and some 
 In order to track down the issue, connect directly to an IP address.
 Should this work, this would indicate that there is a problem with the Portmaster's DNS resolver.
 
-```
+```bash
 # Check if a ping message succeeds.
 # The Portmaster currently always allows ping messages.
 ping 1.1.1.1
@@ -329,7 +347,7 @@ wget -S -O /dev/null 1.1.1.1
 
 If the above step works the issue most likely resides somewhere at the DNS resolving level. To confirm, please try the following:
 
-```
+```bash
 # Check if a DNS requests suceeds.
 # In case of an error, look for "dig" in the network monitor of the Portmaster.
 dig one.one.one.one
@@ -345,7 +363,7 @@ nslookup wikipedia.org
 
 In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
 
-```
+```bash
 sudo /opt/safing/portmaster/portmaster-start recover-iptables
 ```
 
@@ -363,18 +381,18 @@ Uninstalling the portmaster package from your system will properly uninstall and
 
 ###### Debian/Ubuntu
 
-```
+```bash
 sudo apt purge portmaster
 ```
 
 ###### Fedora
 
-```
+```bash
 sudo yum remove portmaster
 ```
 
 ###### Arch
 
-```
+```bash
 sudo pacman -Rnsu portmaster
 ```
