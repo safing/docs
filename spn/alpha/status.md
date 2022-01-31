@@ -17,17 +17,17 @@ redirect_from:
 <div class="notification-warning">
   <img src="/assets/img/icons/info.svg">
   <p>
-    <b>Last Updated on 31st December, 2021</b>
+    <b>Last Updated on 31st January, 2022</b>
   </p>
 </div>
 
-### Normally Works Well - Report if Broken [](https://github.com/safing/spn/issues)
+### Works Well - Report if Broken [](https://github.com/safing/spn/issues)
 
 - Login on Portmaster Client successfully connects to the SPN
 - Normal browsing of websites
 - Big file downloads
 - Video streaming
-- Low Bandwidth: at least 10MBit/s
+- Medium Bandwidth up to 50MBit/s
 
 ### Under Investigation - Please Test and Report [](https://github.com/safing/spn/issues)
 
@@ -35,12 +35,12 @@ redirect_from:
 - Torrents
 - other UDP based applications
 - Protected Video Streams
-- Medium Bandwidth: targeting 30MBit/s as next step
+- High Bandwidth: targeting 100MBit/s as next step
 
 ### Known Issues
 
 - The SPN re-uses connections to nodes. Due to missing route evaluation during routing calculation we currently cannot guarantee the minimum three hops.
-- Speeds might vary greatly as we do not know the resource profile of the SPN yet.
+- Downloads may "pause" for a couple seconds here and there because of flow control, which is awaiting optimization.
 - The SPN seems to be failing after sleep/suspend. Investigating. Reconnect to the SPN as a workaround.
 - For stability, the client is artificially more sequential in order to provide more stability. This might lead to lag when lots of connections are initiated at the same time. Eg. when browsing to "big" websites.
 
