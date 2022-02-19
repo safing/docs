@@ -188,7 +188,7 @@ In order to get the Portmaster Core Service to run automatically at boot, you ne
 
 ```bash
 #!/bin/bash
-/var/lib/portmaster/portmaster-start  core
+/opt/safing/portmaster/portmaster-start core
 ```
 
 **NOTE**: The portmaster-start script might be located elsewhere.
