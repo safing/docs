@@ -48,6 +48,22 @@
     }
   },
   {
+    "Name": "Enable Network Rating System",
+    "Key": "core/enableNetworkRating",
+    "Description": "Enable the Network Rating System, which allows you to configure settings to be active in one environment but not in the other, like allowing sensitive connections at home but not at the public library.\n\nPlease note that this feature will be replaced by a superior and easier to understand system in the future.",
+    "Help": "",
+    "OptType": 4,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "User Interface",
+      "safing/portbase:ui:order": 514
+    }
+  },
+  {
     "Name": "Process Detection",
     "Key": "core/enableProcessDetection",
     "Description": "This option enables the attribution of network traffic to processes. Without it, app settings are effectively disabled.",
@@ -179,7 +195,7 @@
     }
   },
   {
-    "Name": "Push Metrics",
+    "Name": "Push Prometheus Metrics",
     "Key": "core/metrics/push",
     "Description": "Push metrics to this URL in the prometheus format.",
     "Help": "",
@@ -509,8 +525,8 @@
         ".30.172.in-addr.arpa.",
         ".31.172.in-addr.arpa.",
         ".168.192.in-addr.arpa.",
-        ".d.f.ip6.arpa",
-        ".c.f.ip6.arpa",
+        ".d.f.ip6.arpa.",
+        ".c.f.ip6.arpa.",
         ".example.",
         ".example.com.",
         ".example.net.",
@@ -641,9 +657,14 @@
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": 6,
-    "ValidationRegex": "^(7|6|4)$",
+    "DefaultValue": 0,
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -714,7 +735,7 @@
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": 6,
+    "DefaultValue": 0,
     "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
       {
@@ -792,9 +813,14 @@
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": 4,
-    "ValidationRegex": "^(7|6|4)$",
+    "DefaultValue": 0,
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -861,8 +887,13 @@
     "ReleaseLevel": 1,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -967,8 +998,13 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -1001,8 +1037,13 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -1072,8 +1113,13 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -1106,8 +1152,13 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -1140,8 +1191,13 @@
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 7,
-    "ValidationRegex": "^(7|6|4)$",
+    "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
+      {
+        "Name": "Off",
+        "Description": "Setting is always disabled.",
+        "Value": 0
+      },
       {
         "Name": "Trusted / Home Network",
         "Description": "Setting is always enabled.",
@@ -1209,6 +1265,86 @@
     }
   },
   {
+    "Name": "DNS Exit Node Rules",
+    "Key": "spn/dnsExitPolicy",
+    "Description": "Customize which countries should or should not be used as DNS Exit Nodes.\n\nBy default, the Portmaster will exit DNS requests directly at your Home Node in order to keep them fast and close to your location. This is important, as DNS resolution often takes your approximate location into account when deciding which optimized DNS records are returned to you. As the Portmaster encrypts your DNS requests by default, you effectively gain a two-hop security level for your DNS requests in order to protect your privacy.\n\nThis setting mainly exists for when you need to simulate your presence in another location on a lower level too. This might be necessary to defeat more intelligent geo-blocking systems.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match the following attributes of SPN Nodes:\n\n- Country (based on IPs): `US`\n- AS number: `AS123456`\n- Address: `192.168.0.1`\n- Network: `192.168.0.1/24`\n- Anything: `*`\n",
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 147,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "Exclude Canada (CA)",
+          "Value": [
+            "- CA"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Finland (FI)",
+          "Value": [
+            "- FI"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude France (FR)",
+          "Value": [
+            "- FR"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Germany (DE)",
+          "Value": [
+            "- DE"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Israel (IL)",
+          "Value": [
+            "- IL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Poland (PL)",
+          "Value": [
+            "- PL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United Kingdom (GB)",
+          "Value": [
+            "- GB"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United States of America (US)",
+          "Value": [
+            "- US"
+          ],
+          "Action": "merge-top"
+        }
+      ],
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Exclude"
+      }
+    }
+  },
+  {
     "Name": "SPN Module",
     "Key": "spn/enable",
     "Description": "Start the Safing Privacy Network module. If turned off, the SPN is fully disabled on this device.",
@@ -1225,6 +1361,205 @@
     }
   },
   {
+    "Name": "Exit Node Rules",
+    "Key": "spn/exitHubPolicy",
+    "Description": "Customize which countries should or should not be used for your Exit Nodes. Exit Nodes are used to exit the SPN and establish a connection to your destination.\n\nBy default, the Portmaster tries to choose the node closest to the destination as the Exit Node. This reduces your exposure to the open Internet. Exit Nodes are chosen for every destination separately.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match the following attributes of SPN Nodes:\n\n- Country (based on IPs): `US`\n- AS number: `AS123456`\n- Address: `192.168.0.1`\n- Network: `192.168.0.1/24`\n- Anything: `*`\n",
+    "OptType": 2,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 146,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "Exclude Canada (CA)",
+          "Value": [
+            "- CA"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Finland (FI)",
+          "Value": [
+            "- FI"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude France (FR)",
+          "Value": [
+            "- FR"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Germany (DE)",
+          "Value": [
+            "- DE"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Israel (IL)",
+          "Value": [
+            "- IL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Poland (PL)",
+          "Value": [
+            "- PL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United Kingdom (GB)",
+          "Value": [
+            "- GB"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United States of America (US)",
+          "Value": [
+            "- US"
+          ],
+          "Action": "merge-top"
+        }
+      ],
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Exclude"
+      }
+    }
+  },
+  {
+    "Name": "Home Node Rules",
+    "Key": "spn/homePolicy",
+    "Description": "Customize which countries should or should not be used for your Home Node. The Home Node is your entry into the SPN. You connect directly to it and all your connections are routed through it.\n\nBy default, the Portmaster tries to choose the nearest node as your Home Node in order to reduce your exposure to the open Internet.\n\nReconnect to the SPN in order to apply new rules.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match the following attributes of SPN Nodes:\n\n- Country (based on IPs): `US`\n- AS number: `AS123456`\n- Address: `192.168.0.1`\n- Network: `192.168.0.1/24`\n- Anything: `*`\n",
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 145,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "Exclude Canada (CA)",
+          "Value": [
+            "- CA"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Finland (FI)",
+          "Value": [
+            "- FI"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude France (FR)",
+          "Value": [
+            "- FR"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Germany (DE)",
+          "Value": [
+            "- DE"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Israel (IL)",
+          "Value": [
+            "- IL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude Poland (PL)",
+          "Value": [
+            "- PL"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United Kingdom (GB)",
+          "Value": [
+            "- GB"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Exclude United States of America (US)",
+          "Value": [
+            "- US"
+          ],
+          "Action": "merge-top"
+        }
+      ],
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Exclude"
+      }
+    }
+  },
+  {
+    "Name": "Select SPN Routing Algorithm",
+    "Key": "spn/routingAlgorithm",
+    "Description": "Select the routing algorithm for your connections through the SPN. Configure your preferred balance between speed and privacy.",
+    "Help": "",
+    "OptType": 1,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "double-hop",
+    "ValidationRegex": "^(home|single-hop|double-hop|triple-hop)$",
+    "PossibleValues": [
+      {
+        "Name": "Plain VPN Mode",
+        "Description": "Always connect to the destination directly from the Home Hub. Only provides very basic privacy, as the Home Hub both knows where you are coming from and where you are connecting to.",
+        "Value": "home"
+      },
+      {
+        "Name": "Speed Focused",
+        "Description": "Optimize routes with a minimum of one hop. Provides good speeds. This will often use the Home Hub to connect to destinations near you, but will use more hops to far away destinations for better privacy over long distances.",
+        "Value": "single-hop"
+      },
+      {
+        "Name": "Balanced",
+        "Description": "Optimize routes with a minimum of two hops. Provides good privacy as well as good speeds. No single node knows where you are coming from *and* where you are connecting to.",
+        "Value": "double-hop"
+      },
+      {
+        "Name": "Privacy Focused",
+        "Description": "Optimize routes with a minimum of three hops. Provides very good privacy. No single node knows where you are coming from *and* where you are connecting to - with an additional hop just to be sure.",
+        "Value": "triple-hop"
+      }
+    ],
+    "Annotations": {
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:display-hint": "one-of",
+      "safing/portbase:ui:order": 144
+    }
+  },
+  {
     "Name": "Special Access Code",
     "Key": "spn/specialAccessCode",
     "Description": "Special Access Codes grant access to the SPN for testing or evaluation purposes.",
@@ -1237,7 +1572,29 @@
     "ValidationRegex": "",
     "Annotations": {
       "safing/portbase:ui:category": "Advanced",
-      "safing/portbase:ui:order": 144
+      "safing/portbase:ui:order": 160
+    }
+  },
+  {
+    "Name": "SPN Rules",
+    "Key": "spn/usagePolicy",
+    "Description": "Customize which websites should or should not be routed through the SPN. Only active if \"Use SPN\" is enabled.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \nExamples: `192.168.0.1 TCP/HTTP`, `LAN UDP/50000-55000`, `example.com */HTTPS`, `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
+    "OptType": 2,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) [A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?$",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 130,
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Exclude"
+      }
     }
   },
   {
