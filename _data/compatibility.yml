@@ -112,6 +112,12 @@ software:
     - os: linux
       state: 🟢 reported compatible, setup required →
       issue_number: 412
+  - name: Lokinet
+    reports:
+    - os: linux
+      state: 🟢 reported compatible, setup required →
+      issue_number: 560
+      issue_comment: 1079095737
   - name: NextDNS
     reports:
       - os: windows
