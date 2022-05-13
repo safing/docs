@@ -81,7 +81,7 @@ Dependencies:
 
 ###### Debian/Ubuntu
 
-```bash
+```sh
 sudo apt install libnetfilter-queue1 libappindicator3-1
 ```
 
@@ -94,13 +94,13 @@ sudo apt install libnetfilter-queue1 libappindicator3-1
 
 ###### Fedora
 
-```bash
+```sh
 sudo yum install libnetfilter_queue
 ```
 
 ###### Arch
 
-```bash
+```sh
 sudo pacman -S libnetfilter_queue libappindicator-gtk3
 ```
 
@@ -110,7 +110,7 @@ __0.__ Install dependencies.
 
 __1.__ Download the latest `portmaster-start` utility and initialize all resources:
 
-```bash
+```sh
 # Create portmaster data dir
 mkdir -p /opt/safing/portmaster
 
@@ -129,7 +129,7 @@ __2.__ Reboot Your System
 
 __3.__ Start the Portmaster Core Service
 
-```bash
+```sh
 sudo /opt/safing/portmaster/portmaster-start core
 ```
 
@@ -157,7 +157,7 @@ __6.__ Start it on boot
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
 The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
 
-```bash
+```ini
 [Unit]
 Description=Portmaster Privacy App
 
@@ -177,17 +177,17 @@ WantedBy=multi-user.target
 
 Finally, reload the systemd daemon and enable/start the Portmaster:
 
-```bash
+```sh
 sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
 
 __6bis.__ Start it on boot Runit (systems)
 
-In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/etc/runit/sv/portmaster/` with 755 permissions, then creating a `run` file at `/etc/runit/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
+In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/usr/local/sv/portmaster/` with 755 permissions, then creating a `run` file at `/usr/local/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
 
-```bash
-#!/bin/bash
+```sh
+#!/bin/sh
 /opt/safing/portmaster/portmaster-start core
 ```
 
@@ -195,8 +195,8 @@ In order to get the Portmaster Core Service to run automatically at boot, you ne
 
 Finally, enable and start the service:
 
-```bash
-sudo ln -s /etc/runit/sv/portmaster /run/runit/service/portmaster
+```sh
+sudo ln -s /usr/local/sv/portmaster /run/runit/service/portmaster
 sudo sv up portmaster
 ```
 
@@ -217,13 +217,13 @@ dub 16 22:09:10 dev-fedora systemd[1]: portmaster.service: Main process exited, 
 
 This happens because SELinux will not allow you to run a binary from `/opt/safing/portmaster` as systemd service. For this to work you need to change the SELinux security context type of `portmaster-start` binary using the following command:
 
-```bash
+```sh
 sudo chcon -t bin_t /opt/safing/portmaster/portmaster-start
 ```
 
 Now you can restart the `portmaster` service and check that the `portmaster` started up successfully by running:
 
-```bash
+```sh
 systemctl restart portmaster
 systemctl status portmaster
 ```
@@ -233,7 +233,7 @@ systemctl status portmaster
 To find and launch the Portmaster from within your desktop environment you need to create a file with metadata which tells your system how to run the Portmaster, which icon it should display in the taskbar, etc.
 The easiest way to do this on other distributions is to download the latest desktop entry and png icon from the [portmaster-packaging repository]({{ site.github_pm_packaging_url }}):
 
-```bash
+```sh
 sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster.desktop  -O /usr/local/share/applications/portmaster.desktop
 sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster_logo.png -O /usr/share/pixmaps/portmaster.png
 ```
@@ -248,7 +248,7 @@ We are currently reworking our installers and plan to submit to AUR as soon as w
 
 For now, to install the Portmaster using the PKGBUILD, follow these steps:
 
-```bash
+```sh
 # Clone the repository
 git clone https://github.com/safing/portmaster-packaging
 
@@ -279,7 +279,7 @@ In order to upgrade your path you can re-install the Portmaster with <a href="#i
 
 You can check if the Portmaster system service is actually running or if it somehow failed to start by executing the following command:
 
-```bash
+```sh
 sudo systemctl status portmaster
 ```
 
@@ -289,7 +289,7 @@ This should show something like `active (running) since <start-time>`. Please al
 
 If you encounter any issues you might want to (temporarily) stop the Portmaster. You can do this like this:
 
-```bash
+```sh
 # This will stop the portmaster until you reboot.
 sudo systemctl stop portmaster
 
@@ -306,7 +306,7 @@ When debugging or troubleshooting issues it is always a good idea to increase th
 Portmaster logs can either be viewed using the system journal or by browsing the log files in `/opt/safing/portmaster/logs`. Installs before November 2021 used `/var/lib/portmaster` instead.
 In most cases, the interesting log files will be in the `core` folder.
 
-```bash
+```sh
 # View logs of the Portmaster using the system journal.
 sudo journalctl -u portmaster
 
@@ -329,7 +329,7 @@ The Portmaster includes a local DNS resolver to provide its monitoring and some 
 In order to track down the issue, connect directly to an IP address.
 Should this work, this would indicate that there is a problem with the Portmaster's DNS resolver.
 
-```bash
+```sh
 # Check if a ping message succeeds.
 # The Portmaster currently always allows ping messages.
 ping 1.1.1.1
@@ -347,7 +347,7 @@ wget -S -O /dev/null 1.1.1.1
 
 If the above step works the issue most likely resides somewhere at the DNS resolving level. To confirm, please try the following:
 
-```bash
+```sh
 # Check if a DNS requests suceeds.
 # In case of an error, look for "dig" in the network monitor of the Portmaster.
 dig one.one.one.one
@@ -363,7 +363,7 @@ nslookup wikipedia.org
 
 In case of a rapid unscheduled shutdown, the Portmaster may sometimes fail to cleanup its iptables rules and thus break networking. To work around this either use the [recommended systemd service unit]({{ site.github_pm_packaging_url }}/blob/master/linux/portmaster.service) included in [our installers]({{ site.github_pm_packaging_url }}) or execute the following commands:
 
-```bash
+```sh
 sudo /opt/safing/portmaster/portmaster-start recover-iptables
 ```
 
@@ -381,18 +381,18 @@ Uninstalling the portmaster package from your system will properly uninstall and
 
 ###### Debian/Ubuntu
 
-```bash
+```sh
 sudo apt purge portmaster
 ```
 
 ###### Fedora
 
-```bash
+```sh
 sudo yum remove portmaster
 ```
 
 ###### Arch
 
-```bash
+```sh
 sudo pacman -Rnsu portmaster
 ```
