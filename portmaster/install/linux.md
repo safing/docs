@@ -184,7 +184,7 @@ sudo systemctl enable --now portmaster
 
 __6bis.__ Start it on boot Runit (systems)
 
-In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/usr/local/sv/portmaster/` with 755 permissions, then creating a `run` file at `/usr/local/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
+In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/usr/local/sv/portmaster/` (if there isn't any `/usr/local/sv/` directory just create with the 755 permission using `mkdir -p /usr/local/sv` ) with 755 permissions, then creating a `run` file at `/usr/local/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
 
 ```sh
 #!/bin/sh
