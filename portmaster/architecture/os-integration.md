@@ -182,7 +182,7 @@ Some of you will note that these port numbers are not registered by us. That is 
 - Ports `717` and `817` are currently unassigned by the IANA.
 See the full list [here](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml).
 
-The [IANA](https://www.iana.org/) [states](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml) that "both System and User ports `SHOULD NOT` be used without or prior to IANA registration.". `SHOULD NOT` is defined as "NOT RECOMMENDED", but acknowledges that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but should be carefully weighed. While we are planning to start a registration process in the future, we believe that we are RFC compliant nevertheless, because the ports `717` and `718` (1) will only be used locally, (2) will not be exposed to the Internet and (2) are important for security reasons.
+The [IANA](https://www.iana.org/) [states](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml) that "both System and User ports `SHOULD NOT` be used without or prior to IANA registration.". `SHOULD NOT` is defined as "NOT RECOMMENDED", but acknowledges that there may exist valid reasons in particular circumstances when the particular behavior is acceptable or even useful, but should be carefully weighed. While we are planning to start a registration process in the future, we believe that we are RFC compliant nevertheless, because the ports `717` and `817` (1) will only be used locally, (2) will not be exposed to the Internet and (2) are important for security reasons.
 
 ## Integration Interfaces
 
