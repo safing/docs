@@ -154,6 +154,9 @@ __5.__ Start the Portmaster Notifier
 
 __6.__ Start it on boot
 
+In case you are not using `systemd` as your init system - you most likely know if that is the case - these guides contributed by the community will get you started:
+- [Runit](#start-portmaster-automatically-with-runit)
+
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
 The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
 
@@ -181,26 +184,6 @@ Finally, reload the systemd daemon and enable/start the Portmaster:
 sudo systemctl daemon-reload
 sudo systemctl enable --now portmaster
 ```
-
-__6bis.__ Start it on boot Runit (systems)
-
-In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/usr/local/sv/portmaster/` (if there isn't any `/usr/local/sv/` directory just create with the 755 permission using `mkdir -p /usr/local/sv` ) with 755 permissions, then creating a `run` file at `/usr/local/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
-
-```sh
-#!/bin/sh
-exec /opt/safing/portmaster/portmaster-start core
-```
-
-**NOTE**: The portmaster-start script might be located elsewhere.
-
-Finally, enable and start the service:
-
-```sh
-sudo ln -s /usr/local/sv/portmaster /run/runit/service/portmaster
-sudo sv up portmaster
-```
-
-Artix Linux users can find the [portmaster-runit](https://aur.archlinux.org/packages/portmaster-runit/) package in the AUR
 
 __7.__ Enjoy!
 
@@ -396,3 +379,27 @@ sudo yum remove portmaster
 ```sh
 sudo pacman -Rnsu portmaster
 ```
+
+### Community Contributions
+
+#### Start Portmaster Automatically with Runit
+
+__6.__ Start it on boot Runit (systems)
+
+In order to get the Portmaster Core Service to run automatically at boot, you need to make a runit service by first creating a directory at `/usr/local/sv/portmaster/` (if there isn't any `/usr/local/sv/` directory just create with the 755 permission using `mkdir -p /usr/local/sv` ) with 755 permissions, then creating a `run` file at `/usr/local/sv/portmaster/run` with the same permissions as the `portmaster` folder we created. This file **must** contain the following:
+
+```sh
+#!/bin/sh
+exec /opt/safing/portmaster/portmaster-start core --data=/opt/safing/portmaster/
+```
+
+**NOTE**: The portmaster-start script might be located elsewhere.
+
+Finally, enable and start the service:
+
+```sh
+sudo ln -s /usr/local/sv/portmaster /etc/runit/runsvdir/default
+sudo sv up portmaster
+```
+
+Artix Linux users can find the [portmaster-runit](https://aur.archlinux.org/packages/portmaster-runit/) package in the AUR
