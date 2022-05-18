@@ -3,6 +3,7 @@
     "Path": "auth/basic",
     "MimeType": "text/plain",
     "Read": -1,
+    "ReadMethod": "GET",
     "Name": "Request HTTP Basic Auth",
     "Description": "Returns an HTTP Basic Auth request, if not authenticated."
   },
@@ -10,6 +11,7 @@
     "Path": "auth/bearer",
     "MimeType": "text/plain",
     "Read": -1,
+    "ReadMethod": "GET",
     "Name": "Request HTTP Bearer Auth",
     "Description": "Returns an HTTP Bearer Auth request, if not authenticated."
   },
@@ -17,6 +19,7 @@
     "Path": "auth/permissions",
     "MimeType": "application/json",
     "Read": -1,
+    "ReadMethod": "GET",
     "Name": "View Current Permissions",
     "Description": "Returns the current permissions assigned to the request."
   },
@@ -24,6 +27,7 @@
     "Path": "auth/reset",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Reset Authenticated Session",
     "Description": "Resets authentication status internally and in the browser."
   },
@@ -31,6 +35,7 @@
     "Path": "compat/self-check",
     "MimeType": "text/plain",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Run Integration Self-Check",
     "Description": "Runs a couple integration self-checks in order to see if the system integration works."
   },
@@ -38,6 +43,7 @@
     "Path": "config/options",
     "MimeType": "application/json",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Export Configuration Options",
     "Description": "Returns a list of all registered configuration options and their metadata. This does not include the current active or default settings."
   },
@@ -45,6 +51,7 @@
     "Path": "core/restart",
     "MimeType": "text/plain",
     "Write": 3,
+    "WriteMethod": "POST",
     "Name": "Restart Portmaster",
     "Description": "Restart the Portmaster Core Service."
   },
@@ -52,13 +59,23 @@
     "Path": "core/shutdown",
     "MimeType": "text/plain",
     "Write": 4,
+    "WriteMethod": "POST",
     "Name": "Shut Down Portmaster",
     "Description": "Shut down the Portmaster Core Service and all UI components."
+  },
+  {
+    "Path": "debug/allocs",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "ReadMethod": "GET",
+    "Name": "Get Allocs Profile",
+    "Description": ""
   },
   {
     "Path": "debug/core",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Get Debug Information",
     "Description": "Returns network debugging information, similar to debug/info, but with system status data.",
     "Parameters": [
@@ -71,9 +88,34 @@
     ]
   },
   {
+    "Path": "debug/cpu",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "ReadMethod": "GET",
+    "Name": "Get CPU Profile",
+    "Description": "",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "duration",
+        "Value": "10s",
+        "Description": "Specify the formatting style. The default is simple markdown formatting."
+      }
+    ]
+  },
+  {
+    "Path": "debug/heap",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "ReadMethod": "GET",
+    "Name": "Get Heap Profile",
+    "Description": ""
+  },
+  {
     "Path": "debug/info",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Get Debug Information",
     "Description": "Returns debugging information, including the version and platform info, errors, logs and the current goroutine stack.",
     "Parameters": [
@@ -89,6 +131,7 @@
     "Path": "debug/network",
     "MimeType": "text/plain",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get Network Debug Information",
     "Description": "Returns network debugging information, similar to debug/core, but with connection data.",
     "Parameters": [
@@ -116,6 +159,7 @@
     "Path": "debug/network/state",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get Network State Table Data",
     "Description": "Returns the current network state tables from the OS."
   },
@@ -123,6 +167,7 @@
     "Path": "debug/stack",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Get Goroutine Stack",
     "Description": "Returns the current goroutine stack."
   },
@@ -130,6 +175,7 @@
     "Path": "debug/stack/print",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Print Goroutine Stack",
     "Description": "Prints the current goroutine stack to stdout."
   },
@@ -137,6 +183,7 @@
     "Path": "dns/cache/{query:[a-z0-9\\.-]{0,512}\\.[A-Z]{1,32}}",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get DNS Record from Cache",
     "Description": "Returns cached dns records from the internal cache.",
     "Parameters": [
@@ -152,6 +199,7 @@
     "Path": "dns/clear",
     "MimeType": "text/plain",
     "Write": 2,
+    "WriteMethod": "POST",
     "Name": "Clear cached DNS records",
     "Description": "Deletes all saved DNS records from the database."
   },
@@ -159,6 +207,7 @@
     "Path": "dns/resolvers",
     "MimeType": "application/json",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "List DNS Resolvers",
     "Description": "List currently configured DNS resolvers and their status."
   },
@@ -166,6 +215,7 @@
     "Path": "endpoints",
     "MimeType": "application/json",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Export API Endpoints",
     "Description": "Returns a list of all registered endpoints and their metadata."
   },
@@ -173,6 +223,7 @@
     "Path": "modules/{moduleName:.+}/trigger/{eventName:.+}",
     "MimeType": "text/plain",
     "Write": 4,
+    "WriteMethod": "POST",
     "Name": "Trigger Event",
     "Description": "Triggers an event of an internal module."
   },
@@ -180,6 +231,7 @@
     "Path": "network/gateways",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get Default Gateways",
     "Description": "Returns the current active default gateways of the network."
   },
@@ -187,6 +239,7 @@
     "Path": "network/location",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get Approximate Internet Location",
     "Description": "Returns an approximation of where the device is on the Internet."
   },
@@ -194,6 +247,7 @@
     "Path": "network/location/traceroute",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get Approximate Internet Location via Traceroute",
     "Description": "Returns an approximation of where the device is on the Internet using a the traceroute technique."
   },
@@ -201,6 +255,7 @@
     "Path": "network/nameservers",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get System Nameservers",
     "Description": "Returns the currently configured nameservers on the OS."
   },
@@ -208,13 +263,55 @@
     "Path": "ping",
     "MimeType": "text/plain",
     "Read": 1,
+    "ReadMethod": "GET",
     "Name": "Ping",
     "Description": "Pong."
+  },
+  {
+    "Path": "spn/account/login",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "POST",
+    "Name": "SPN Login",
+    "Description": "Log into your SPN account."
+  },
+  {
+    "Path": "spn/account/logout",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "DELETE",
+    "Name": "SPN Logout",
+    "Description": "Logout from your SPN account.",
+    "Parameters": [
+      {
+        "Method": "DELETE",
+        "Field": "purge",
+        "Value": "",
+        "Description": "If set, account data is purged. Otherwise, the username and device ID are kept in order to log into the same device when logging in with the same user again."
+      }
+    ]
+  },
+  {
+    "Path": "spn/account/user/profile",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "SPN User Profile",
+    "Description": "Get the user profile of the logged in SPN account.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "refresh",
+        "Value": "",
+        "Description": "If set, the user profile is freshly fetched from the account server."
+      }
+    ]
   },
   {
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/graph{format:\\.[a-z]{2,4}}",
     "MimeType": "text/plain",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get SPN map graph",
     "Description": "Returns a graph of the given SPN map.",
     "Parameters": [
@@ -233,16 +330,50 @@
     ]
   },
   {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/measurements",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get SPN map measurements",
+    "Description": "Returns the measurements of the map."
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/measurements/table",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get SPN map measurements as a table",
+    "Description": "Returns the measurements of the map as a table."
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/optimization",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get SPN map optimization",
+    "Description": "Returns the calculated optimization for the map."
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/optimization/table",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get SPN map optimization as a table",
+    "Description": "Returns the calculated optimization for the map as a table."
+  },
+  {
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/pins",
     "MimeType": "application/json",
     "Read": 2,
+    "ReadMethod": "GET",
     "Name": "Get SPN map pins",
-    "Description": "Returns a list of pins on the given SPN map."
+    "Description": "Returns a list of pins on the map."
   },
   {
     "Path": "ui/reload",
     "MimeType": "text/plain",
     "Write": 2,
+    "WriteMethod": "POST",
     "Name": "Reload UI Assets",
     "Description": "Removes all assets from the cache and reloads the current (possibly updated) version from disk when requested."
   },
@@ -250,6 +381,7 @@
     "Path": "updates/check",
     "MimeType": "text/plain",
     "Write": 2,
+    "WriteMethod": "POST",
     "Name": "Check for Updates",
     "Description": "Triggers checking for updates."
   }
