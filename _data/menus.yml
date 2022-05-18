@@ -38,6 +38,9 @@ items:
           - title: OS Integration
           - title: User Interface
           - title: Notifier
+          - title: Developer API
+            # This _MUST_ be equal to the config value site.portmaster_api_url.
+            custom_url: /portmaster/api
   - title: SPN
     extra_path: "/alpha/status"
     children:
