@@ -41,6 +41,23 @@ The uninstaller reverts all steps mentioned above and also requires a reboot aft
 
 Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "prompt" action as a default when running on Windows 7 or 8.
 
+#### Network issues after stopping or uninstalling Portmaster
+
+The Portmaster marks all its network stack integrations as non-permanent and as such they are removed by Windows when the Portmaster shuts down or when Windows reboots.
+
+In rare cases, however, Windows fails to correctly remove the Portmaster's network stack integration correctly, resulting in a loss of network connectivity. We have never experienced this issue ourselves and thus haven't yet been able to take an in-depth look.
+
+The help Windows restore network connectivity, open a Windows [cmd](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd) as an Administrator and enter the following commands to reset your network.  
+Warning: You might need to reconfigure any special network settings you had.
+
+```
+netsh int ip reset
+netsh winsock reset catalog
+```
+
+After that, reboot.  
+If that did not restore network connectivity, please report this.
+
 #### Portmaster fails to restart
 
 In some cases the Portmaster will fail to restart, because the Portmaster Kernel Extensions cannot be loaded and returns the error code 0x422.
