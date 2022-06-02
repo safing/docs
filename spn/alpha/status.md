@@ -17,7 +17,7 @@ redirect_from:
 <div class="notification-warning">
   <img src="/assets/img/icons/info.svg">
   <p>
-    <b>Last Updated on 31st January, 2022</b>
+    <b>Last Updated on 2nd June, 2022</b>
   </p>
 </div>
 
@@ -27,22 +27,17 @@ redirect_from:
 - Normal browsing of websites
 - Big file downloads
 - Video streaming
-- Medium Bandwidth up to 50MBit/s
+- UDP based applications
+- High Bandwidth: up to 100MBit/s (and more, depending on path)
 
 ### Under Investigation - Please Test and Report [](https://github.com/safing/spn/issues)
 
 - Video Conferencing
 - Torrents
-- other UDP based applications
-- Protected Video Streams
-- High Bandwidth: targeting 100MBit/s as next step
 
 ### Known Issues
 
-- The SPN re-uses connections to nodes. Due to missing route evaluation during routing calculation we currently cannot guarantee the minimum three hops.
-- Downloads may "pause" for a couple seconds here and there because of flow control, which is awaiting optimization.
-- The SPN seems to be failing after sleep/suspend. Investigating. Reconnect to the SPN as a workaround.
-- For stability, the client is artificially more sequential in order to provide more stability. This might lead to lag when lots of connections are initiated at the same time. Eg. when browsing to "big" websites.
+- None
 
 ### How To Report Bugs
 
