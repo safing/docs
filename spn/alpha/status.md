@@ -37,7 +37,7 @@ redirect_from:
 
 ### Known Issues
 
-- None
+- Internal scheduling needs improvement: When a big download is in progress, other connections may die. In some circumstances, the health check will fail and the SPN will reconnect. Fix is in progress.
 
 ### How To Report Bugs
 
