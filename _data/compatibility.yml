@@ -33,12 +33,12 @@ vpns:
     reports:
       - os: linux
         mode: NordLynx
-        state: 🟢 reported compatible
-        issue_number: 297
+        state: 🚫 issue confirmed
+        issue_number: 643
       - os: linux
         mode: OpenVPN
-        state: 🟢 reported compatible
-        issue_number: 297
+        state: 🚫 issue confirmed
+        issue_number: 643
   - name: PIA VPN
     reports:
       - os: linux
