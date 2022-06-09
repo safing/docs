@@ -517,8 +517,6 @@
       ],
       "self:detail:connectivityDomains": [
         "captiveportal.invalid.",
-        "one.one.one.one.",
-        "dns-check.safing.io.",
         "dns.msftncsi.com.",
         "msftncsi.com.",
         "www.msftncsi.com.",
@@ -610,9 +608,9 @@
     }
   },
   {
-    "Name": "Enforce Secure DNS",
+    "Name": "Use Secure Protocols Only",
     "Key": "dns/noInsecureProtocols",
-    "Description": "Never resolve using insecure protocols, ie. plain DNS.",
+    "Description": "Never resolve using insecure protocols, ie. plain DNS. This may break certain local DNS services, which always use plain DNS.",
     "Help": "",
     "Sensitive": false,
     "OptType": 3,
