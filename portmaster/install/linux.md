@@ -13,6 +13,11 @@ We provide package installers for supported systems:
 - [`.rpm` for Fedora]({{ site.download_linux_rpm_url }}) ([_how to_](https://itsfoss.com/install-rpm-files-fedora/))
 - [`PKGBUILD` for Arch](#arch-linux)
 
+__Important Notes__:
+
+1. The newest version of Portmaster will be __downloaded during installation__. (~300MB)
+2. Portmaster will __not start automatically__ after the installation. We recommend a reboot for a clean first start.
+
 ---
 
 Please note that we only support the latest stable and LTS versions. We may be able to help out with other systems, but will not be able to invest a lot of time in order to keep focus.
