@@ -29,7 +29,7 @@ vpns:
         state: 🚫 issue confirmed
         issue_number: 445
         issue_comment: 985616231
-  - name: NordVPN
+  - name: NordVPN <= v3.12.4
     reports:
       - os: linux
         mode: NordLynx
@@ -39,6 +39,16 @@ vpns:
         mode: OpenVPN
         state: 🟢 reported compatible
         issue_number: 297
+  - name: NordVPN >= v3.12.5
+    reports:
+      - os: linux
+        mode: NordLynx
+        state: 🚫 issue confirmed
+        issue_number: 643
+      - os: linux
+        mode: OpenVPN
+        state: 🚫 issue confirmed
+        issue_number: 643
   - name: PIA VPN
     reports:
       - os: linux
