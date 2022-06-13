@@ -193,15 +193,22 @@ filter/serviceEndpoints:
     If you need to accept incoming connections, try to narrow down from where you need to accept connections. A great way to start is to only accept connections from an organization via its AS number ([find it here](https://bgpview.io/)) or to only accept connections from specific countries.
     While potentially dangerous, you can allow any incoming connection by adding `+ *` to the [Incoming Rules](#filter/serviceEndpoints).
 
+spn/dnsExitPolicy:
+
 spn/enable:
-  manual: |
-    _Extended documentation will be written when exact behavior is finalized_
+
+spn/exitHubPolicy:
+  layered: true
+
+spn/homePolicy:
+
+spn/routingAlgorithm:
+  layered: true
 
 spn/specialAccessCode:
-  manual: |
-    _Extended documentation will be written when exact behavior is finalized_
 
-spn/useSPN:
+spn/usagePolicy:
   layered: true
-  manual: |
-    _Extended documentation will be written when exact behavior is finalized_
+
+spn/use:
+  layered: true
