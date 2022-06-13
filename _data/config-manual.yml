@@ -201,7 +201,6 @@ spn/exitHubPolicy:
   layered: true
 
 spn/homePolicy:
-  layered: true
 
 spn/routingAlgorithm:
   layered: true
