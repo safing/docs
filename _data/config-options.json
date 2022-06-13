@@ -1566,7 +1566,6 @@
     "DefaultValue": [],
     "ValidationRegex": "^(\\+|\\-) (! +)?[A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?( +#.*)?",
     "Annotations": {
-      "safing/portbase:options:stackable": true,
       "safing/portbase:ui:category": "Routing",
       "safing/portbase:ui:display-hint": "endpoint list",
       "safing/portbase:ui:order": 145,
