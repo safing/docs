@@ -27,7 +27,7 @@ Here is how the Portmaster decides where to send dns queries in order to achieve
 
 ###### Environmental Domains
 
-Queries within the environmental special domain scopes are directly handled by the Portmaster in order to provide network environment information. For example, your router can always be reached at `router.local.17.home.arpa`.
+Queries within the environmental special domain scopes are directly handled by the Portmaster in order to provide network environment information. For example, your router can always be reached at `router.local.portmaster.home.arpa`.
 
 This horizon affects the following domain scopes:
 {% include setting/annotation-domainlist.html key="self:detail:internalSpecialUseDomains" scope=true %}
