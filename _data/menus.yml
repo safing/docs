@@ -2,6 +2,7 @@ items:
   - title: Portmaster
     extra_path: "/architecture/overview"
     children:
+      - title: FAQ
       - title: Guides
         extra_path: "/contribute"
         children:
