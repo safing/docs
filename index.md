@@ -1,11 +1,20 @@
 ---
 layout: base
+skip_toc: true
 ---
+
 Welcome to the Safing Documentation.
 
-You can currently:
-- [dive into the Portmaster Architecture with tons of technical details](/portmaster/architecture/overview)
+Get started by:
+- reading the FAQ below
 - get help with installing on [Linux](/portmaster/install/linux) or [Windows](/portmaster/install/windows)
+- [dive into the Portmaster Architecture with tons of technical details](/portmaster/architecture/overview)
 - [view the contribution guide](/portmaster/guides/contribute)
 
-<small>_Note: Other content will be added at a later point_</small>
+### Frequently Asked Questions
+
+You can [search through all entries on GitHub](https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq).
+
+{% for faq in site.data.faqs %}
+- [{{ faq.title | remove_first: "FAQ: " }}]({{ faq.url }})
+{% endfor %}
