@@ -222,7 +222,7 @@ To find and launch the Portmaster from within your desktop environment you need 
 The easiest way to do this on other distributions is to download the latest desktop entry and png icon from the [portmaster-packaging repository]({{ site.github_pm_packaging_url }}):
 
 ```sh
-sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster.desktop  -O /usr/local/share/applications/portmaster.desktop
+sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster.desktop  -O /usr/share/applications/portmaster.desktop
 sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/linux/portmaster_logo.png -O /usr/share/pixmaps/portmaster.png
 ```
 
