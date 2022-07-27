@@ -85,8 +85,8 @@ vpns:
         mode: native
         state: 🟡 issue confirmed, workaround available
         issue_number: 292
-   - name: VyprVPN
-     reports:
+  - name: VyprVPN
+    reports:
       - os: windows
         mode: OpenVPN
         state: 🚫 issue confirmed
