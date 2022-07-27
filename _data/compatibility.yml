@@ -85,6 +85,18 @@ vpns:
         mode: native
         state: 🟡 issue confirmed, workaround available
         issue_number: 292
+   - name: VyprVPN
+     reports:
+      - os: windows
+        mode: OpenVPN
+        state: 🚫 issue confirmed
+        issue_number: 563
+        issue_comment: 1194001989
+      - os: windows
+        mode: IKEv2
+        state: 🚫 issue confirmed
+        issue_number: 563
+        issue_comment: 1194001989
 
 software:
   - name: AdGuard
