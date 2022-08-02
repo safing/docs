@@ -1,5 +1,47 @@
 [
   {
+    "Path": "app/auth",
+    "MimeType": "application/json",
+    "Read": 1,
+    "ReadMethod": "GET",
+    "Name": "Request an authentication token with a given set of permissions. The user will be prompted to either authorize or deny the request. Used for external or third-party tool integrations.",
+    "Description": "",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "app-name",
+        "Value": "",
+        "Description": "The name of the application requesting access"
+      },
+      {
+        "Method": "GET",
+        "Field": "read",
+        "Value": "",
+        "Description": "The requested read permission"
+      },
+      {
+        "Method": "GET",
+        "Field": "write",
+        "Value": "",
+        "Description": "The requested write permission"
+      },
+      {
+        "Method": "GET",
+        "Field": "ttl",
+        "Value": "",
+        "Description": "The time-to-live for the new access token. Defaults to 24h"
+      }
+    ]
+  },
+  {
+    "Path": "app/profile",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get the ID of the calling profile",
+    "Description": ""
+  },
+  {
     "Path": "auth/basic",
     "MimeType": "text/plain",
     "Read": -1,
@@ -30,6 +72,38 @@
     "ReadMethod": "GET",
     "Name": "Reset Authenticated Session",
     "Description": "Resets authentication status internally and in the browser."
+  },
+  {
+    "Path": "broadcasts/matching-data",
+    "MimeType": "application/json",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Name": "Get Broadcast Notifications Matching Data",
+    "Description": "Returns the data used by the broadcast notifications to match the instance."
+  },
+  {
+    "Path": "broadcasts/reset-state",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "POST",
+    "Name": "Resets the Broadcast Notification States",
+    "Description": "Delete the cache of Broadcast Notifications, making them appear again."
+  },
+  {
+    "Path": "broadcasts/simulate",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "POST",
+    "Name": "Simulate Broadcast Notifications",
+    "Description": "Test broadcast notifications by sending a valid source file in the body.",
+    "Parameters": [
+      {
+        "Method": "POST",
+        "Field": "state",
+        "Value": "true",
+        "Description": "Check against state when deciding to display a broadcast notification. Acknowledgements are always saved."
+      }
+    ]
   },
   {
     "Path": "compat/self-check",
@@ -228,6 +302,26 @@
     "Description": "Triggers an event of an internal module."
   },
   {
+    "Path": "netquery/charts/connection-active",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Write": 2,
+    "WriteMethod": "POST",
+    "Name": "Active Connections Chart",
+    "Description": "Query the in-memory sqlite connection database and return a chart of active connections."
+  },
+  {
+    "Path": "netquery/query",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Write": 2,
+    "WriteMethod": "POST",
+    "Name": "Query Connections",
+    "Description": "Query the in-memory sqlite connection database."
+  },
+  {
     "Path": "network/gateways",
     "MimeType": "application/json",
     "Read": 2,
@@ -368,6 +462,14 @@
     "ReadMethod": "GET",
     "Name": "Get SPN map pins",
     "Description": "Returns a list of pins on the map."
+  },
+  {
+    "Path": "spn/reinit",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "POST",
+    "Name": "Re-initialize SPN",
+    "Description": "Stops the SPN, resets all caches and starts it again. The SPN account and settings are not changed."
   },
   {
     "Path": "ui/reload",

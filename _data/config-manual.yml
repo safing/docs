@@ -168,6 +168,9 @@ filter/lists:
     In the Portmaster UI you can easily select lists you want to activate.
     The filter lists are gathered and merged by us in order to be able to send hourly incremental updates. You can [view all lists the Portmaster subscribes to here](https://github.com/safing/intel-data).
 
+filter/customListFile:
+  hide_default: true
+
 filter/permanentVerdicts:
   manual: |
     Do not disable except for debugging purposes.
