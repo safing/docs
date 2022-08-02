@@ -476,7 +476,7 @@
       "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
       "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
     ],
-    "ValidationRegex": "^(dot|dns|tcp)://.*",
+    "ValidationRegex": "^(dot|doh|dns|tcp|https|tls)://.*",
     "Annotations": {
       "safing/portbase:ui:category": "Servers",
       "safing/portbase:ui:display-hint": "ordered",
@@ -485,32 +485,31 @@
         {
           "Name": "Cloudflare (with Malware Filter)",
           "Value": [
-            "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
-            "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
+            "dot://cloudflare-dns.com?ip=1.1.1.2\u0026name=Cloudflare\u0026blockedif=zeroip",
+            "dot://cloudflare-dns.com?ip=1.0.0.2\u0026name=Cloudflare\u0026blockedif=zeroip"
           ],
           "Action": "replace"
         },
         {
           "Name": "Quad9",
           "Value": [
-            "dot://9.9.9.9:853?verify=dns.quad9.net\u0026name=Quad9\u0026blockedif=empty",
-            "dot://149.112.112.112:853?verify=dns.quad9.net\u0026name=Quad9\u0026blockedif=empty"
+            "dot://dns.quad9.net?ip=9.9.9.9\u0026name=Quad9\u0026blockedif=empty",
+            "dot://dns.quad9.net?ip=149.112.112.112\u0026name=Quad9\u0026blockedif=empty"
           ],
           "Action": "replace"
         },
         {
           "Name": "AdGuard",
           "Value": [
-            "dot://94.140.14.14:853?verify=dns.adguard.com\u0026name=AdGuard\u0026blockedif=zeroip",
-            "dot://94.140.15.15:853?verify=dns.adguard.com\u0026name=AdGuard\u0026blockedif=zeroip"
+            "dot://dns.adguard.com?ip=94.140.14.14\u0026name=AdGuard\u0026blockedif=zeroip",
+            "dot://dns.adguard.com?ip=94.140.15.15\u0026name=AdGuard\u0026blockedif=zeroip"
           ],
           "Action": "replace"
         },
         {
           "Name": "Foundation for Applied Privacy",
           "Value": [
-            "dot://94.130.106.88:853?verify=dot1.applied-privacy.net\u0026name=AppliedPrivacy",
-            "dot://94.130.106.88:443?verify=dot1.applied-privacy.net\u0026name=AppliedPrivacy"
+            "dot://dot1.applied-privacy.net?ip=94.130.106.88\u0026name=AppliedPrivacy"
           ],
           "Action": "replace"
         }
@@ -925,6 +924,24 @@
     }
   },
   {
+    "Name": "Custom Filter List",
+    "Key": "filter/customListFile",
+    "Description": "Specify the file path to a custom filter list, which will be automatically refreshed. Any connections matching a domain, IP address, Country or ASN in the file will be blocked.",
+    "Help": "The file is checked every couple minutes and will be automatically reloaded when it has changed.  \n\nEntries may be one of:\n- Domain: \"example.com\"\n- IP Address: \"10.0.0.1\"\n- Country Code (based on IP): \"US\"\n- AS (Autonomous System): \"AS1234\"  \n\nEverything after the first element of a line, comments starting with a '#', and empty lines are ignored.  \nThe settings \"Block Subdomains of Filter List Entries\" and \"Block Domain Aliases\" also apply to the custom filter list.  \nLists in the \"Hosts\" format are not supported.  \n\nPlease note that the custom filter list is fully loaded into memory. This can have a negative impact on your device if big lists are loaded.",
+    "Sensitive": false,
+    "OptType": 1,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": "",
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Filter Lists",
+      "safing/portbase:ui:display-hint": "file-picker",
+      "safing/portbase:ui:order": 35
+    }
+  },
+  {
     "Name": "Default Network Action",
     "Key": "filter/defaultAction",
     "Description": "The default network action is applied when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
@@ -1088,7 +1105,11 @@
       "safing/portbase:options:stackable": true,
       "safing/portbase:ui:category": "Rules",
       "safing/portbase:ui:display-hint": "endpoint list",
-      "safing/portbase:ui:order": 32
+      "safing/portbase:ui:order": 32,
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Block"
+      }
     }
   },
   {
@@ -1168,14 +1189,14 @@
     "Annotations": {
       "safing/portbase:ui:category": "Filter Lists",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 35
+      "safing/portbase:ui:order": 36
     }
   },
   {
     "Name": "Filter Lists",
     "Key": "filter/lists",
     "Description": "Block connections that match enabled filter lists.",
-    "Help": "Filter lists contain domains and IP addresses that are known to be used adversarial. The data is collected from many public sources and put into the following categories. In order to active a category, add it's `ID` to the list.\n\n**Ads \u0026 Trackers** - ID: `TRAC`  \nServices that track and profile people online, including as ads, analytics and telemetry.\n\n**Malware** - ID: `MAL`  \nServices that are (ab)used for attacking devices through technical means.\n\n**Deception** - ID: `DECEP`  \nServices that trick humans into thinking the service is genuine, while it is not, including phishing, fake news and fraud.\n\n**Bad Stuff (Mixed)** - ID: `BAD`  \nMiscellaneous services that are believed to be harmful to security or privacy, but their exact use is unknown, not categorized, or lists have mixed categories.\n\n**NSFW** - ID: `NSFW`  \nServices that are generally not accepted in work environments, including pornography, violence and gambling.\n\nThe lists are automatically updated every hour using incremental updates.  \n[See here](https://github.com/safing/intel-data) for more detail about these lists, their sources and how to help to improve them.\n",
+    "Help": "",
     "Sensitive": false,
     "OptType": 2,
     "ExpertiseLevel": 0,
@@ -1371,8 +1392,26 @@
             "+ * */3389"
           ],
           "Action": "merge-top"
+        },
+        {
+          "Name": "Allow all from LAN",
+          "Value": [
+            "+ LAN"
+          ],
+          "Action": "merge-top"
+        },
+        {
+          "Name": "Allow all from Internet",
+          "Value": [
+            "+ Internet"
+          ],
+          "Action": "merge-top"
         }
-      ]
+      ],
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Block"
+      }
     }
   },
   {
