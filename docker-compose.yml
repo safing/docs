@@ -1,5 +1,6 @@
 # to start the server just run
 # docker-compose up
+
 version: '3'
 services:
   jekyll:
