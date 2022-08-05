@@ -81,8 +81,10 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
+    webrick (1.7.0)
 
 PLATFORMS
+  arm64-darwin-21
   ruby
   x86_64-linux-musl
 
@@ -93,6 +95,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-redirect-from
   therubyracer
+  webrick
 
 BUNDLED WITH
    2.2.2
