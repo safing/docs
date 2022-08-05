@@ -1,7 +1,8 @@
 # to start the server just run
 # docker-compose up
 jekyll:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:4.2.0
+  
   command: jekyll serve -P 3000 --watch --incremental --livereload
   ports:
     - 3000:3000
