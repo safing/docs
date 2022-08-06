@@ -7,6 +7,11 @@ items:
         extra_path: "/contribute"
         children:
           - title: Contribute
+            children:
+              - title: Docs Guide
+                extra_path: "/docs-guide"
+              # - title: Portmaster Guide
+              #   extra_path: "/portmaster-guide"
           - title: Settings Handbook
             # This _MUST_ be equal to the config value site.portmaster_settings_url.
             custom_url: /portmaster/settings
