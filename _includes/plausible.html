@@ -1,0 +1,31 @@
+<!--
+  We run a self-hosted installation of Plausible Analytics to collect some
+  anonymous usage data for statistical purposes. The goal is to track overall
+  trends in our website traffic, it is not to track individual visitors. All
+  the data is in aggregate only. No personal data is collected.
+
+  There are some occasions, where we need to add a simple "source" query parameter
+  to URLs so that we can see where visitors are coming from, as referrers only
+  work within browsers and with platforms that don't use special redirect mechanisms.
+
+  In order to maximize privacy in these cases, we remove the query parameter on page visit.
+  To keep transparency, we don't just delete the query parameter, but move them into the URL
+  hash "#disabled", to keep them visible, but disabled.
+
+  Here are some keywords, so that everyone who is curious will find this code snippet faster:
+  plausible, analysis, analytics, campaign, tracking, query, hash, URL, #disabled?source=
+-->
+<script defer data-domain="docs.safing.io" data-api="https://plausible.safing.io/event" src="https://plausible.safing.io/manual-init.js"></script>
+<script>
+  // Wait until everything is loaded - the plausible script is deferred.
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Initialize plausible.
+    window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+    // Trigger pageview.
+    plausible('pageview');
+    // Move query parameters to "#disabled" hash.
+    if (document.location.search !== "") {
+      window.history.replaceState({}, document.title, document.location.pathname + "#disabled" + document.location.search);
+    }
+  });
+</script>
