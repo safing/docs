@@ -51,3 +51,4 @@ items:
         extra_path: "/status"
         children:
           - title: Status
+      - title: Hosting a Community Node
