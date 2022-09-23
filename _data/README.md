@@ -30,6 +30,7 @@ Here is everything together:
 ```
 gh issue list --label faq --repo safing/portmaster --json title,url,body > faq-data.json && \
 gh issue list --label faq --repo safing/portmaster-ui --json title,url,body >> faq-data.json && \
+gh issue list --label faq --repo safing/spn --json title,url,body >> faq-data.json && \
 sed -i ':a;N;$!ba;s/\]\n\[/,/g;s/},{/},\n{/g;s/\[{/\[\n{/g;s/}\]/}\n\]/g' faq-data.json && \
 cat faq-data.json | jq 'sort_by(.title)' | tee faq-data.json
 ```
