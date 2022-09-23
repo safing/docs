@@ -146,7 +146,7 @@
     "ExpertiseLevel": 2,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": "info",
+    "DefaultValue": "warning",
     "ValidationRegex": "^(critical|error|warning|info|debug|trace)$",
     "PossibleValues": [
       {
@@ -733,7 +733,7 @@
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": 0,
+    "DefaultValue": 7,
     "ValidationRegex": "^(0|7|6|4)$",
     "PossibleValues": [
       {
@@ -926,8 +926,8 @@
   {
     "Name": "Custom Filter List",
     "Key": "filter/customListFile",
-    "Description": "Specify the file path to a custom filter list, which will be automatically refreshed. Any connections matching a domain, IP address, Country or ASN in the file will be blocked.",
-    "Help": "The file is checked every couple minutes and will be automatically reloaded when it has changed.  \n\nEntries may be one of:\n- Domain: \"example.com\"\n- IP Address: \"10.0.0.1\"\n- Country Code (based on IP): \"US\"\n- AS (Autonomous System): \"AS1234\"  \n\nEverything after the first element of a line, comments starting with a '#', and empty lines are ignored.  \nThe settings \"Block Subdomains of Filter List Entries\" and \"Block Domain Aliases\" also apply to the custom filter list.  \nLists in the \"Hosts\" format are not supported.  \n\nPlease note that the custom filter list is fully loaded into memory. This can have a negative impact on your device if big lists are loaded.",
+    "Description": "Specify the file path to a custom filter list (.txt), which will be automatically refreshed. Any connections matching a domain, IP address, Country or ASN in the file will be blocked.",
+    "Help": "The file (.txt) is checked every couple minutes and will be automatically reloaded when it has changed.  \n\nEntries (one per line) may be one of:\n- Domain: \"example.com\"\n- IP Address: \"10.0.0.1\"\n- Country Code (based on IP): \"US\"\n- AS (Autonomous System): \"AS1234\"  \n\nEverything after the first element of a line, comments starting with a '#', and empty lines are ignored.  \nThe settings \"Block Subdomains of Filter List Entries\" and \"Block Domain Aliases\" also apply to the custom filter list.  \nLists in the \"Hosts\" format are not supported.  \n\nPlease note that the custom filter list is fully loaded into memory. This can have a negative impact on your device if big lists are loaded.",
     "Sensitive": false,
     "OptType": 1,
     "ExpertiseLevel": 1,
@@ -1205,7 +1205,8 @@
     "DefaultValue": [
       "TRAC",
       "MAL",
-      "BAD"
+      "BAD",
+      "UNBREAK"
     ],
     "ValidationRegex": "^[a-zA-Z0-9\\-]+$",
     "Annotations": {
@@ -1354,16 +1355,14 @@
   {
     "Name": "Incoming Rules",
     "Key": "filter/serviceEndpoints",
-    "Description": "Rules that apply to incoming network connections. Cannot overrule Network Scopes and Connection Types (see above). Also note that the default action for incoming connections is to always block.",
+    "Description": "Rules that apply to incoming network connections. Cannot overrule Network Scopes and Connection Types (see above).",
     "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US`\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port just behind that using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \nExamples: `192.168.0.1 TCP/HTTP`, `LAN UDP/50000-55000`, `example.com */HTTPS`, `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
     "Sensitive": true,
     "OptType": 2,
     "ExpertiseLevel": 1,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
-    "DefaultValue": [
-      "+ Localhost"
-    ],
+    "DefaultValue": [],
     "ValidationRegex": "^(\\+|\\-) (! +)?[A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?( +#.*)?",
     "Annotations": {
       "safing/portbase:options:stackable": true,
@@ -1372,14 +1371,14 @@
       "safing/portbase:ui:order": 33,
       "safing/portbase:ui:quick-setting": [
         {
-          "Name": "SSH",
+          "Name": "Allow SSH",
           "Value": [
             "+ * tcp/22"
           ],
           "Action": "merge-top"
         },
         {
-          "Name": "HTTP/s",
+          "Name": "Allow HTTP/s",
           "Value": [
             "+ * tcp/80",
             "+ * tcp/443"
@@ -1387,7 +1386,7 @@
           "Action": "merge-top"
         },
         {
-          "Name": "RDP",
+          "Name": "Allow RDP",
           "Value": [
             "+ * */3389"
           ],
@@ -1406,6 +1405,13 @@
             "+ Internet"
           ],
           "Action": "merge-top"
+        },
+        {
+          "Name": "Block everything else",
+          "Value": [
+            "- *"
+          ],
+          "Action": "merge-bottom"
         }
       ],
       "safing/portmaster:ui:endpoint-list:verdict-names": {
@@ -1601,7 +1607,7 @@
     "OptType": 2,
     "ExpertiseLevel": 1,
     "ReleaseLevel": 0,
-    "RequiresRestart": false,
+    "RequiresRestart": true,
     "DefaultValue": [],
     "ValidationRegex": "^(\\+|\\-) (! +)?[A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?( +#.*)?",
     "Annotations": {
@@ -1767,6 +1773,23 @@
     "Annotations": {
       "safing/portbase:ui:category": "General",
       "safing/portbase:ui:order": 129
+    }
+  },
+  {
+    "Name": "Use Community Nodes",
+    "Key": "spn/useCommunityNodes",
+    "Description": "Use nodes (servers) not operated by Safing themselves. The use of community nodes is recommended as it diversifies the ownership of the nodes you use for your connections and further strengthens your privacy. Plain connections (eg. http, smtp, ...) will never exit via community nodes, making this setting safe to use.",
+    "Help": "",
+    "Sensitive": true,
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": true,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:order": 148
     }
   }
 ]
