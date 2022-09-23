@@ -143,7 +143,7 @@
     "Read": 1,
     "ReadMethod": "GET",
     "Name": "Get Allocs Profile",
-    "Description": ""
+    "Description": "Gather and return the memory allocation profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/allocs`\n\t\t"
   },
   {
     "Path": "debug/core",
@@ -167,7 +167,7 @@
     "Read": 1,
     "ReadMethod": "GET",
     "Name": "Get CPU Profile",
-    "Description": "",
+    "Description": "Gather and return the CPU profile.\nThis data needs to gathered over a period of time, which is specified using the duration parameter.\n\nYou can easily view this data in your browser with this command (with Go installed):\n`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/cpu`\n",
     "Parameters": [
       {
         "Method": "GET",
@@ -183,7 +183,7 @@
     "Read": 1,
     "ReadMethod": "GET",
     "Name": "Get Heap Profile",
-    "Description": ""
+    "Description": "Gather and return the heap memory profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/heap`\n\t\t"
   },
   {
     "Path": "debug/info",
