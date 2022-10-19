@@ -97,6 +97,18 @@ vpns:
         state: 🚫 issue confirmed
         issue_number: 563
         issue_comment: 1194001989
+  - name: Surfshark VPN
+    reports:
+      - os: windows
+        mode: OpenVPN
+        state: 🟢 confirmed compatible
+        issue_number: 785
+        issue_comment: 1330628256
+      - os: windows
+        mode: WireGuard
+        state: 🚫 issue confirmed
+        issue_number: 785
+        issue_comment: 1330628256
 
 software:
   - name: AdGuard
