@@ -109,6 +109,11 @@ vpns:
         state: 🚫 issue confirmed
         issue_number: 785
         issue_comment: 1330628256
+  - name: Mysterium VPN
+    reports:
+      - os: windows
+        state: 🟡 issue reported
+        issue_number: 649
 
 software:
   - name: AdGuard
