@@ -3,6 +3,7 @@ items:
     extra_path: "/architecture/overview"
     children:
       - title: FAQ
+      - title: Changelog
       - title: Guides
         extra_path: "/contribute"
         children:
