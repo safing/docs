@@ -9,7 +9,7 @@ This page lists all API endpoints of the Portmaster.
 <div class="notification-warning">
     <img src="/assets/img/icons/info.svg">
     <p>
-      This page is very much in progress and may not be fully accurate and up to date. Additionally, the API itself is not stable yet.
+      This page is very much in progress and may not be fully accurate and up to date.  
       If you plan to develop something that interacts with the Portmaster, we'd love to hear from you and talk about it!
     </p>
 </div>
