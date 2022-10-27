@@ -9,9 +9,10 @@ This page covers how to install and uninstall the Portmaster on Linux.
 
 We provide package installers for supported systems:
 
-- [`.deb` for Debian/Ubuntu]({{ site.download_linux_deb_url }}) ([_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux))
-- [`.rpm` for Fedora]({{ site.download_linux_rpm_url }}) ([_how to_](https://itsfoss.com/install-rpm-files-fedora/))
-- [`PKGBUILD` for Arch](#arch-linux)
+- [Download `.deb`]({{ site.download_linux_deb_url }}) for Debian, Ubuntu, Pop!_OS, ... [_how to_](https://linuxconfig.org/install-deb-file-on-ubuntu-20-04-focal-fossa-linux)
+- [Download `.rpm`]({{ site.download_linux_rpm_url }}) for Fedora, CentOS, ... [_how to_](https://itsfoss.com/install-rpm-files-fedora/)
+- [In AUR](https://aur.archlinux.org/packages/portmaster-stub-bin): `portmaster-stub-bin` for Arch, Manjaro, EndeavourOS, ...
+- `curl -fsSL https://updates.safing.io/latest/linux_all/packages/install.sh | sudo bash` for Others
 
 __Important Notes__:
 
@@ -80,36 +81,12 @@ The Portmaster Core Service is compatible with the Linux Kernel as of version 2.
 
 Dependencies:
 
-- `libnetfilter_queue` - for network stack integration
-- `libappindicator3` - for sending desktop notifications (_optional, but recommended_)
 - [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, but recommended_)
-
-###### Debian/Ubuntu
-
-```sh
-sudo apt install libnetfilter-queue1 libappindicator3-1
-```
-
-<div class="notification-warning">
-  <img src="{{ site.img_url }}icons/info.svg">
-  <p>
-    You may need to <a href="https://help.ubuntu.com/community/Repositories/Ubuntu">enable the universe or multiverse repositories</a>  sources on Ubuntu.
-  </p>
-</div>
-
-###### Fedora
-
-```sh
-sudo yum install libnetfilter_queue
-```
-
-###### Arch
-
-```sh
-sudo pacman -S libnetfilter_queue libappindicator-gtk3
-```
+- _We managed to remove all other dependencies!_ 🎉
 
 ### Manual Install and Launching
+
+_Consider using our `curl | bash` installer mentioned above._
 
 __0.__ Install dependencies.
 
