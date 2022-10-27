@@ -385,3 +385,7 @@ sudo sv up portmaster
 ```
 
 Artix Linux users can find the [portmaster-runit](https://aur.archlinux.org/packages/portmaster-runit/) package in the AUR
+
+### Frequently Asked Questions
+
+You can find solutions to common problems in the [FAQ]({{ site.faq_url }})

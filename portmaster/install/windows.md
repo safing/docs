@@ -5,7 +5,7 @@ layout: base
 
 This page covers how to install and uninstall the Portmaster on Windows 7, 8, 10 and 11. The install process is the same for all supported Windows versions:
 
-- [Download installer](https://updates.safing.io/latest/windows_amd64/packages/portmaster-installer.exe)
+- [Download installer]({{ site.download_windows_url }})
 - Use winget: `winget install -i portmaster`
 
 Please note that we currently only support the 64bit CPU Architecture, which is the current main standard. In case of Windows 7, you  require the 2015 security update KB3033929 for correctly verifying driver signatures.
@@ -35,57 +35,6 @@ You can easily uninstall the Portmaster by using the system preferences or by ex
 
 The uninstaller reverts all steps mentioned above and also requires a reboot afterwards.
 
-### Known Issues
+### Frequently Asked Questions
 
-#### Notifications are not working on Windows 7 and 8.
-
-Microsoft added a notification service that supports actions with Windows 10 so Portmaster's notifications won't work on Windows 7 or 8. We will push alternatives as we find solutions and time to do so. In the meantime we recommend not to use the "prompt" action as a default when running on Windows 7 or 8.
-
-#### Network issues after stopping or uninstalling Portmaster
-
-The Portmaster marks all its network stack integrations as non-permanent and as such they are removed by Windows when the Portmaster shuts down or when Windows reboots.
-
-In rare cases, however, Windows fails to correctly remove the Portmaster's network stack integration correctly, resulting in a loss of network connectivity. We have never experienced this issue ourselves and thus haven't yet been able to take an in-depth look.
-
-The help Windows restore network connectivity, open a Windows [cmd](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd) as an Administrator and enter the following commands to reset your network.  
-Warning: You might need to reconfigure any special network settings you had.
-
-```
-netsh int ip reset
-netsh winsock reset catalog
-```
-
-After that, reboot.  
-If that did not restore network connectivity, please report this.
-
-#### Portmaster fails to restart
-
-In some cases the Portmaster will fail to restart, because the Portmaster Kernel Extensions cannot be loaded and returns the error code 0x422.
-This stems from a known issue in Windows, where system services are not completely removed when something is monitoring the system services.
-When the Portmaster restarts, it is then unable to initialize the Kernel Extension, because the system thinks it is still unloading.
-
-If you experience this issue, please follow this workaround:
-
-_Quoting from <https://stackoverflow.com/a/20565337>_
-
-> There may be several causes which lead to the service being stuck in “marked for deletion”.
->
->  1. [SysInternals' Process Explorer is opened](http://blog.cyotec.com/2011/05/specified-service-has-been-marked-for.html). Closing it should lead to automatic removal of the service.
->
->  1. [Task Manager is opened](https://stackoverflow.com/questions/20561990/how-to-solve-the-specified-service-has-been-marked-for-deletion-error/21310096#comment32672750_20565337).
->
->  1. [Microsoft Management Console (MMC) is opened](https://stackoverflow.com/a/8529760/240613). To ensure all instances are closed, run `taskkill /F /IM mmc.exe`.
->
->  1. [Services console is opened](https://stackoverflow.com/a/21310096/240613). This is the same as the previous point, since Services console is hosted by MMC.
->
->  1. [Event Viewer is opened](https://stackoverflow.com/a/18467128/240613). Again, this is the same as the third point.
->  
->  1. [The key HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\\{service name} exists](https://stackoverflow.com/a/2804099/240613).
->
->  1. [Someone else is logged into the server](https://stackoverflow.com/a/28632820/240613) and has one of the previously mentioned applications opened.
->
->  1. An instance of Visual Studio *used to debug the service* is open.
-
-#### Portmaster Core does not start at boot
-
-While we haven't experienced this in a while, it might just happen that the Portmaster will not start at boot, although it is configured to do so. If that is the case, you can check its status in the "Services" Desktop App. There, search for the Service "Portmaster Core" and inspect and start it as needed.
+You can find solutions to common problems in the [FAQ]({{ site.faq_url }})
