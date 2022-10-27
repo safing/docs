@@ -124,6 +124,29 @@
     ]
   },
   {
+    "title": "FAQ: How can I allow incoming connections?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/959",
+    "body": "If you have an app your device that needs to accept or listen for incoming connections, you can easily allow it do so by disabling [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) within the app settings in Portmaster.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329343-44f7f29c-41f6-4224-a45d-97378e31aafa.png)\r\n\r\nThis will allow the app to accept connections coming from _anywhere_. If you would rather limit where this app may connect to and accept connections from, you can easily limit it using the settings [Force Block LAN](https://docs.safing.io/portmaster/settings#filter/blockLAN) and [Force Block Internet Access](https://docs.safing.io/portmaster/settings#filter/blockInternet).\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329498-a856e0c5-7a0d-43a9-9514-e19cc4b00edf.png)\r\n\r\nIf you want even more control, you can use the [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints) to very specifically allow who is allowed to connect. If you use rules, be sure to select \"Block everything else\" from the Quick Settings menu in order to block everything you did not specifically allow.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329834-2cd729f8-d89f-4e65-a53e-12107994f7b3.png)\r\n\r\nNote: You should never disable [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) in the global settings. This is potentially very dangerous.\r\n\r\n---\r\n\r\nKeywords: incoming, inbound, listen, socket, port, listener, accept, service, allow, block, drop, firewall\r\n\r\nCategories: Guides, Privacy Filter",
+    "keywords": [
+      "incoming",
+      "inbound",
+      "listen",
+      "socket",
+      "port",
+      "listener",
+      "accept",
+      "service",
+      "allow",
+      "block",
+      "drop",
+      "firewall"
+    ],
+    "categories": [
+      "Guides",
+      "Privacy Filter"
+    ]
+  },
+  {
     "title": "FAQ: How can I enable or disable the SPN for just one application?",
     "url": "https://api.github.com/repos/safing/spn/issues/105",
     "body": "Applications can easily be excluded from the SPN by either using the quick setting in the app page header, or in the settings:\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187927360-3f1290d2-a4da-45d9-aa33-3f65f46bd1cf.png)\r\n\r\nor\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187927728-3197860c-f04d-45d8-ad96-70d642f0f8e4.png)\r\n\r\n---\r\n\r\nKeywords: route, routing, not go through, enable, disable, exclude, include, decide, connection, tunnel\r\n\r\nCategories: SPN",
@@ -197,6 +220,21 @@
     ],
     "categories": [
       "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: How can I uninstall Portmaster?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/958",
+    "body": "If you are uninstalling Portmaster because something did not work or did not meet your expectations, please [reach out and give us feedback!](https://safing.io/support/)\r\n\r\n#### Windows\r\n\r\nOpen the \"Add or Remove Programs\" app, find Portmaster and press \"Uninstall\".\r\n\r\nAlternatively, you can find the uninstaller at `C:\\ProgramData\\Safing\\Portmaster\\portmaster-uninstaller.exe`.\r\n\r\n#### Linux\r\n\r\nOn most systems, you can open your graphical package manager, search for \"Portmaster\" and then have it removed.\r\nDepending on your distro, this might leave your configuration intact, so if you want to fully remove everything, be sure to delete the data folder after uninstalling with `sudo rm -r /opt/safing/portmaster`.\r\n\r\nIf you installer Portmaster with the `curl | bash` script, you can also uninstall using it:\r\n\r\n```\r\n# Leave configuration data intact:\r\ncurl -fsSL https://updates.safing.io/latest/linux_all/packages/install.sh | sudo bash -s -- --uninstall\r\n\r\n# Also delete configuration data:\r\ncurl -fsSL https://updates.safing.io/latest/linux_all/packages/install.sh | sudo bash -s -- --uninstall --purge\r\n```\r\n\r\n---\r\n\r\nKeywords: remove, purge, uninstall, delete\r\n\r\nCategories: Windows, Linux\r\n",
+    "keywords": [
+      "remove",
+      "purge",
+      "uninstall",
+      "delete"
+    ],
+    "categories": [
+      "Windows",
+      "Linux"
     ]
   },
   {
@@ -301,6 +339,28 @@
     "categories": [
       "Windows",
       "Starting and Stopping"
+    ]
+  },
+  {
+    "title": "FAQ: Should I use an Anti-Virus together with Portmaster?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/960",
+    "body": "Speaking in general, __Portmaster is a privacy tool__, focusing on privacy features like DNS encryption or blocking tracking requests.\r\n\r\nAnti-Virus systems, such as Windows Defender, on the other hand are security tools. As such, they focus on security features like malware detection, which Portmaster simply does not have.\r\n\r\nPlease note the important difference:\r\n\r\n    Anti-virus systems sometimes also _do privacy_, but they _focus on security_.\r\n    While Portmaster also _does security_, as privacy _depends_ on security, it _focuses on privacy_.\r\n\r\nThat is why we _do not recommend_ deactivating Anti-Virus systems. We recommend having both have a security and privacy setup. Without security your perceived privacy can quickly become non-existent.\r\n\r\nHowever, research if the Anti-Virus you are using is really as good as it claims. Many security researchers have come out in the recent years, declaring that Windows Defender is good enough for most use cases and quite some other Anti-Virus systems are doing weird stuff.\r\n\r\n---\r\n\r\nKeywords: antivirus, malware protection, phishing, virus, trojan, worm, infected, infection, attacked, together, combination\r\n\r\nCategories: Privacy Filter, Compatibility\r\n",
+    "keywords": [
+      "antivirus",
+      "malware protection",
+      "phishing",
+      "virus",
+      "trojan",
+      "worm",
+      "infected",
+      "infection",
+      "attacked",
+      "together",
+      "combination"
+    ],
+    "categories": [
+      "Privacy Filter",
+      "Compatibility"
     ]
   },
   {
