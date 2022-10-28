@@ -30,7 +30,8 @@ You can your browser search on this page or [search through all entries on GitHu
 # {{ faq.title | remove_first: "FAQ: " }}
 
 <div class="text-right">
-  <a href="{{ faq.url }}">View on GitHub</a>
+  <a href="{{ faq.html_url }}">View on GitHub</a>
+</div>
 </div>
 
 {{ faq.body | split: "---" | first }}
