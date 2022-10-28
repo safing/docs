@@ -42,6 +42,7 @@ items:
           - title: OS Integration
           - title: User Interface
           - title: Notifier
+          - title: Update System
           - title: Developer API
             # This _MUST_ be equal to the config value site.portmaster_api_url.
             custom_url: /portmaster/api
