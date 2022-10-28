@@ -5,7 +5,7 @@ skip_toc: true
 ---
 
 The FAQ section is work in progress.  
-You can your browser search on this page or [search through all entries on GitHub](https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq).
+You can search with your browser on this page or [search through all entries on GitHub](https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq).
 
 {%- for category in site.data.faq.config.categories %}
 
