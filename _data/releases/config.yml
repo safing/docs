@@ -4,7 +4,6 @@ repos:
     resource: "windows_amd64/core/portmaster-core.exe"
   - id: spn
     name: "SPN"
-    resource: "linux_amd64/hub/spn-hub"
   - id: portmaster-ui
     tag-names:
       portmaster: "UI"

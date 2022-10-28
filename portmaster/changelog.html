@@ -11,29 +11,23 @@ skip_toc: true
   Usually, the other components are released together with a new version number of the Portmaster Core Service.
   Sometimes, however, minor changes or bug fixes are released without a version update of the Portmaster Core Service in order to get them out faster.
 </p>
-<p>
-  The SPN component shares the version number for the "Portmaster component" and the "server software" that runs on the servers (nodes). The version designated as "Current Stable" or "Current Beta" is the version that is running on the servers. Often, the SPN component only has changes for the "Portmaster component" and is not released as a "server software".
+
+<p class="text-gray-700">
+  <span class="changelog-badge stable">
+    Current Stable Version:
+    v{{ site.data.versions.stable.Releases["windows_amd64/core/portmaster-core.exe"] }}
+  </span>
+  <span class="changelog-badge beta">
+    Current Beta Version:
+    v{{ site.data.versions.beta.Releases["windows_amd64/core/portmaster-core.exe"] }}  
+  </span>
 </p>
 
-<div class="text-gray-700">
-  <p>
-    Current Stable Version:
-    <span class="text-gray-900">
-      v{{ site.data.versions.stable.Releases["windows_amd64/core/portmaster-core.exe"] }}
-    </span>
-  </p>
-  <p>
-    Current Beta Version:
-    <span class="text-gray-900">
-      v{{ site.data.versions.beta.Releases["windows_amd64/core/portmaster-core.exe"] }}  
-    </span>
-    <br>
-    <a href="https://github.com/safing/portmaster/issues/717">
-      How can I help test Portmaster?
-    </a>
-  </p>
-</div>
-
+<p>
+  <a href="https://github.com/safing/portmaster/issues/717">
+    How can I use Beta?
+  </a>
+</p>
 
 {% assign staging-version = true %}
 {% assign releaseSections = site.data.releases.all | group_by: 'date' %}

@@ -9,13 +9,13 @@ The Portmaster Core Service regularly checks for updates in the background by do
 
 Currently, updates are checked shorty after starting and every hour after that. This tight update schedule is important both for supplying fixes and quickly providing crucial updates for intelligence data.
 
-When designing this system, we took extra care to not only increase your personal security and privacy through fast updates, but also to protect your privacy from our systems during that process. We don't want Portmaster users to be trackable by the update system. To ensure this, we have taken great care to quickly delete any logs and make sure that nothing else leaks in the process. Our [privacy poliocy]({{ site.privacy_url }}) lays out the details.
+When designing this system, we took extra care to not only increase your personal security and privacy through fast updates, but also to protect your privacy from our systems during that process. We don't want Portmaster users to be trackable by the update system. To ensure this, we have taken great care to quickly delete any logs and make sure that nothing else leaks in the process. Our [privacy policy]({{ site.privacy_url }}) lays out the details.
 
 The [changelog](/portmaster/changelog) shows the current versions and changes.
 
 ### Channels
 
-In order to test new features and triage problems with users, we have different {% include setting/ref.html key="core/releaseChannel" %}, which you can configure in the settings:
+In order to test new features and triage problems with users, we have different {% include setting/ref.html key="core/releaseChannel" %}s, which you can configure in the settings:
 
 __Stable__  
 The overwhelming majority of users will always be on the Stable release channel, as this will give them the best experience.
@@ -48,9 +48,9 @@ Updates are built and signed locally and then pushed to the update server. The u
 
 ### Disabling
 
-If you wish to do so, you can disable {% include setting/ref.html key="core/releaseChannel" %}. We do not recommned doing this as this will cut off from quickly getting security fixes and new intelligence data.
+If you wish to do so, you can disable {% include setting/ref.html key="core/automaticUpdates" %}. We do not recommend doing this as this will cut you off from quickly getting security fixes and new intelligence data.
 
-If automatic updates are disabled, you still manually trigger downloading updates when you want to - and you should do so regularly.
+If automatic updates are disabled, you can still manually trigger downloading updates when you want to - and you should do so regularly.
 
 ### Technical Details
 
