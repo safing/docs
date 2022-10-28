@@ -1,0 +1,113 @@
+---
+title: Portmaster Changelog
+layout: base
+skip_toc: true
+---
+
+<p>
+  Portmaster consists of many individual components that work together. The "primary" version number - the one you see everywhere - is the version of the Portmaster Core Service - simply called "Portmaster" below.
+</p>
+<p>
+  Usually, the other components are released together with a new version number of the Portmaster Core Service.
+  Sometimes, however, minor changes or bug fixes are released without a version update of the Portmaster Core Service in order to get them out faster.
+</p>
+
+<p class="text-gray-700">
+  <span class="changelog-badge stable">
+    Current Stable Version:
+    v{{ site.data.versions.stable.Releases["windows_amd64/core/portmaster-core.exe"] }}
+  </span>
+  <span class="changelog-badge beta">
+    Current Beta Version:
+    v{{ site.data.versions.beta.Releases["windows_amd64/core/portmaster-core.exe"] }}  
+  </span>
+</p>
+
+<p>
+  <a href="https://github.com/safing/portmaster/issues/717">
+    How can I use Beta?
+  </a>
+</p>
+
+{% assign staging-version = true %}
+{% assign releaseSections = site.data.releases.all | group_by: 'date' %}
+{% for releaseSection in releaseSections %}
+
+  <hr>
+  <span class="float-right text-gray-700">
+    {{ releaseSection.items[0].date }}
+  </span>
+
+  {% assign repoSection = releaseSection.items | group_by: 'repo' | sort: 'created_at' %}
+  {% for repoConfig in site.data.releases.config.repos %}
+    {% for repoReleases in repoSection %}
+      {% for release in repoReleases.items %}
+        {% if repoConfig.id == release.repo %}
+
+          {% assign base_tag_name = release.tag_name | split: "-v" | first %}
+          {% assign version = release.tag_name | split: "-v" | last %}
+          {% assign version = version | remove_first: "v" %}
+
+          {% if repoConfig.id == "portmaster" %}
+            <h3>
+          {% else %}
+            <h5>
+              <span class="text-gray-700">
+                Component:
+              </span>
+          {% endif %}
+            
+            {% if repoConfig.name %}
+              {{ repoConfig.name }}
+            {% else %}
+              {{ repoConfig.tag-names[base_tag_name] }}
+            {% endif %}
+
+            v{{ version }}
+            
+            <a href="{{ release.html_url }}"></a>
+
+          {% if repoConfig.id == "portmaster" %}
+            </h3>
+          {% else %}
+            </h5>
+          {% endif %}
+
+          {% if repoConfig.resource %}
+            {% if version == site.data.versions.stable.Releases[repoConfig.resource] %}
+              <span class="changelog-badge stable">Current Stable</span>
+              {% assign staging-version = false %}
+            {% endif %}
+          {% else %}
+            {% assign resource-id = repoConfig.tag-resources[base_tag_name] %}
+            {% if version == site.data.versions.stable.Releases[resource-id] %}
+              <span class="changelog-badge stable">Current Stable</span>
+              {% assign staging-version = false %}
+            {% endif %}
+          {% endif %}
+
+          {% if repoConfig.resource %}
+            {% if version == site.data.versions.beta.Releases[repoConfig.resource] %}
+              <span class="changelog-badge beta">Current Beta</span>
+              {% assign staging-version = false %}
+            {% endif %}
+          {% else %}
+            {% assign resource-id = repoConfig.tag-resources[base_tag_name] %}
+            {% if version == site.data.versions.beta.Releases[resource-id] %}
+              <span class="changelog-badge beta">Current Beta</span>
+              {% assign staging-version = false %}
+            {% endif %}
+          {% endif %}
+
+          {% if staging-version %}
+            <span class="changelog-badge staging">Staging - Not Released</span>
+          {% endif %}
+
+          {{ release.body | markdownify }}
+
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+
+{% endfor %}

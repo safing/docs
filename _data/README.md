@@ -1,36 +1,25 @@
-# Data
+# Sourced Data
 
-### Update faq-data.json
-
-1. Check if the current list has new entries
-
-    https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq
-
-2. Get the current list with these commands (you might need to add new ones for additional repos)
+### Update all data
 
 ```
-gh issue list --label faq --repo safing/portmaster --json title,url,body > faq-data.json
-gh issue list --label faq --repo safing/portmaster-ui --json title,url,body >> faq-data.json
+make update
 ```
 
-3. Fix JSON format.
+### Create faq/all.json
 
 ```
-sed -i ':a;N;$!ba;s/\]\n\[/,/g;s/},{/},\n{/g;s/\[{/\[\n{/g;s/}\]/}\n\]/g' faq-data.json
+make faq/all.json
 ```
 
-4. Sort and make pretty
+### Create releases/all.json
 
 ```
-cat faq-data.json | jq 'sort_by(.title)' | tee faq-data.json
+make releases/all.json
 ```
 
-Here is everything together:
+### Create versions/*
 
 ```
-gh issue list --label faq --repo safing/portmaster --json title,url,body > faq-data.json && \
-gh issue list --label faq --repo safing/portmaster-ui --json title,url,body >> faq-data.json && \
-gh issue list --label faq --repo safing/spn --json title,url,body >> faq-data.json && \
-sed -i ':a;N;$!ba;s/\]\n\[/,/g;s/},{/},\n{/g;s/\[{/\[\n{/g;s/}\]/}\n\]/g' faq-data.json && \
-cat faq-data.json | jq 'sort_by(.title)' | tee faq-data.json
+make versions-data
 ```

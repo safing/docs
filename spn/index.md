@@ -3,4 +3,6 @@ title: SPN
 layout: base
 ---
 
-SPN Base Page
+The expanded SPN documentation will be added in the future.
+
+You can find more information about the SPN [on our website]({{ site.spn_url }})

@@ -18,6 +18,7 @@ base_url: "/" # the subpath of your site, e.g. /blog
 portmaster_settings_url: /portmaster/settings # Check reference in _data/menus.yml!
 portmaster_api_url: /portmaster/api  # Check reference in _data/menus.yml!
 coc_url: /community/code-of-conduct
+faq_url: /portmaster/faq
 
 ### assets
 assets_url: /assets/

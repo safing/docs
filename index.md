@@ -13,6 +13,6 @@ Get started by:
 
 ### Frequently Asked Questions
 
-You can [search through all entries on GitHub](https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq).
+You can search with your browser on [this page]({{ site.faq_url }}) or [search through all entries on GitHub](https://github.com/issues?q=archived%3Afalse+user%3Asafing+sort%3Aupdated-desc+label%3Afaq).
 
-{% include faq-by-category.md %}
+{% include faq/index-by-category.md %}

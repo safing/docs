@@ -1,3 +1,17 @@
+# Custom
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc
+.bundle
+vendor/bundle
+*.plist
+.jekyll-cache/
+
+_data/faq/src
+_data/releases/src
+
 # ---> macOS
 *.DS_Store
 .AppleDouble
@@ -5,7 +19,6 @@
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -54,12 +67,3 @@ _theme_packages
 _res
 
 Thumbs.db
-
-!.gitkeep
-
-.rbenv-version
-.rvmrc
-.bundle
-vendor/bundle
-*.plist
-.jekyll-cache/

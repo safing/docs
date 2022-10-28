@@ -720,6 +720,39 @@ input:checked~.tab-content {
   color           : #484848;
 }
 
+
+.changelog-badge {
+    font-size       : .8rem;
+    margin-top      : 4px;
+    padding-left    : .65rem;
+    padding-right   : .65rem;
+    padding-top     : .2rem;
+    padding-bottom  : .2rem;
+    line-height     : 1.25rem;
+    font-weight     : 500;
+    align-items     : center;
+    display         : inline-flex;
+    border-radius   : 9999px;
+    width           : max-content;
+    vertical-align  : super;
+}
+
+.changelog-badge.stable {
+    background-color: #ebf8ff;
+    color           : #2c5282;
+}
+
+.changelog-badge.beta {
+    background-color: #ffebf8;
+    color           : #8f1170;
+}
+
+.changelog-badge.staging {
+    background-color: #f7f7f7;
+    color           : #484848;
+}
+
+
 #page-container content #markdown-toc {
     padding-bottom: 2rem;
 }

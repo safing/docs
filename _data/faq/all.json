@@ -1,0 +1,504 @@
+[
+  {
+    "title": "FAQ: Can I run Portmaster on a server?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/707",
+    "body": "Portmaster is currently built for desktops that have a physical graphical interface. That said, you can run Portmaster on a server if done correctly.\r\n\r\n### Backup Access\r\n\r\nIf in any way possible make sure and _test_ your backup access to the server in case you lock yourself out.\r\n\r\n### Prepare Config File\r\n\r\nWe'll need to write our config file ourselves and place it on the server before we install Portmaster so that we don't lock ourselves out. You can either use an existing Portmaster instance to configure your settings and then copy the `config.json` file from the data directory, or you can build it from scratch. Below is a template as a starting point. Now, let's go though the settings you want to change:\r\n\r\n- [API Listen Address](https://docs.safing.io/portmaster/settings#core/listenAddress)\r\n  - By default, Portmaster only listens on localhost, change this to `0.0.0.0:817` to enable connections from anywhere.\r\n- [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints)\r\n  - You need to additionally allow from where connections to the Portmaster API are allowed. Scope this a narrow as possible.\r\n  - We can't configure rules for applications in `config.json`, so we add only global rules for now and can switch to per-app after install.\r\n    - (First add app rule, test, and then remove the global rule!)\r\n  - Also, allow other management protocols so you can still access your server, such as SSH or RDP.\r\n- [Development Mode](https://docs.safing.io/portmaster/settings#core/devMode)\r\n  - ⚠️ While Portmaster has support for [API Keys](https://docs.safing.io/portmaster/settings#core/apiKeys), these are not yet supported for logging into the UI. This means you will need to activate [Development Mode](https://docs.safing.io/portmaster/settings#core/devMode) for now, to allow access the the UI.\r\n- [Automatic Updates](https://docs.safing.io/portmaster/settings#core/automaticUpdates)\r\n  - Portmaster uses automatic updates to stay up to date. Depending on your use case, this might not be what you want.\r\n  - We haven't yet split the automatic update system into binaries and intelligence data, so disabling this will cut you off from intelligence data updates.\r\n    - Until we have support for splitting this, you should manually update regularly by pressing the \"Download Updates\" button in tools menu.\r\n\r\nIf you run Portmaster on a private network you have access to, then this might be enough. If you want to access Portmaster via a public network, more caution and work is needed.\r\n\r\n⚠️ Portmaster does not support HTTPS for the UI. You will need to take care of this yourself. We recommend using something like [Traefik](https://traefik.io/) or [Caddy](https://caddyserver.com/) as a reverse proxy for automatic HTTPS.\r\n\r\n`config.json` template with multiple options - delete the ones you don't need:\r\n```\r\n{\r\n  \"core\": {\r\n    \"automaticUpdates\": false,\r\n    \"devMode\": true,\r\n    \"expertiseLevel\": \"developer\",\r\n    \"listenAddress\": \"0.0.0.0:817\"\r\n  },\r\n  \"filter\": {\r\n    \"serviceEndpoints\": [\r\n      \"+ Localhost\",\r\n      \"+ * TCP/SSH # Allow remote SSH access from anywhere\",\r\n      \"+ * */3389 # Allow remote RDP access from anywhere\",\r\n      \"+ * TCP/817 # Allow remote access to Portmaster from anywhere\",\r\n      \"+ LAN TCP/817 # Allow remote access to Portmaster from LAN only\"\r\n    ]\r\n  }\r\n}\r\n```\r\n\r\nYou may also want to validate the json before using your config.\r\n\r\n### Place Config File\r\n\r\n_Before_ installing we need to place to config file:\r\n\r\n- Windows: `C:\\ProgramData\\Safing\\Portmaster\\config.json`\r\n- Linux: `/opt/safing/portmaster/config.json`\r\n\r\n### Install Portmaster\r\n\r\nThen, run the installer for Portmaster on the server. If everything went well, then you should still have access to your server and to the Portmaster UI in the way you configured.\r\n\r\n----\r\n\r\nKeywords: server, automatic updates, production, remote access, API, HTTP, authentication\r\n\r\nCategories: Compatibility",
+    "keywords": [
+      "server",
+      "automatic updates",
+      "production",
+      "remote access",
+      "API",
+      "HTTP",
+      "authentication"
+    ],
+    "categories": [
+      "Compatibility"
+    ]
+  },
+  {
+    "title": "FAQ: Can community nodes see my traffic?",
+    "url": "https://api.github.com/repos/safing/spn/issues/108",
+    "body": "Community Nodes are servers not hosted by Safing, but by the Portmaster and SPN community. Except for one aspect, community nodes are treated exactly the same as nodes operated by Safing.\r\n\r\nThe only difference is, that network connections that are not encrypted by themselves, like plain HTTP, will never exit the network at community nodes. Instead, they exit the network at specially trusted servers, which are a subset of the servers operated by Safing.\r\n\r\nCommunity nodes will therefore never see any connection contents, as the connections are always encrypted for the destination server. This makes community nodes safe to use. Not only are they safe to use, but they are recommended, as they provide even better privacy due to more diverse server ownership in the nodes you use.\r\n\r\n---\r\n\r\nKeywords: exit node, traffic sniffing, connections\r\n\r\nCategories: SPN",
+    "keywords": [
+      "exit node",
+      "traffic sniffing",
+      "connections"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: Default Settings for Incoming Connections CHANGED in v0.9.6",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/886",
+    "body": "We have updated some default values for settings to make allowing incoming connections a lot easier:\r\n\r\nThe [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints) now follow the [Default Network Action](https://docs.safing.io/portmaster/settings#filter/defaultAction) (default: allow), making them work the same as [Outgoing Rules](https://docs.safing.io/portmaster/settings#filter/endpoints). To still block incoming connections, [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) is now enabled globally by default. You can easily create exceptions in app settings to allow incoming connections! Please review your settings.\r\n\r\nPreviously, you had to add a rule to the [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints) in order to allow incoming connections, but this is non-trivial, as you had to first understand how rules work and written.\r\nIf you used rules in the past to allow incoming connections, these might now be blocked because of this change. In order to allow your incoming connections again, just head to the affected app and disable [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) and everything should work as before.\r\n\r\nIf that happens to you, please also review your existing [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints) and possibly restrict them by selecting \"Block everything else\" from the \"Quick Settings\" dropdown at the setting.\r\nAlternatively, you can easily block the network scopes that your app does not need with [Force Block Internet Access](https://docs.safing.io/portmaster/settings#filter/blockInternet) and [Force Block LAN](https://docs.safing.io/portmaster/settings#filter/blockLAN), which also apply to outgoing connections.\r\n\r\nPortmaster will also warn you once a week if you have disabled [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) globally. So, just in case you configure Portmaster in a bad way, it will warn you about it.\r\n\r\n---\r\n\r\nKeywords: incoming, blocked, broken after update, as of version, inbound\r\n\r\nCategories: Privacy Filter\r\n",
+    "keywords": [
+      "incoming",
+      "blocked",
+      "broken after update",
+      "as of version",
+      "inbound"
+    ],
+    "categories": [
+      "Privacy Filter"
+    ]
+  },
+  {
+    "title": "FAQ: Does Portmaster protect on startup?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/701",
+    "body": "Portmaster is registered as a system service and starts immediately at boot - even _before_ you log into your user account. This means that it generally starts before any other of your programs.\r\nPlease note that the tray icon / app indicator is a separate process and is _no indication_ for the Portmaster has started, as it is only started _after_ login.\r\n\r\nBesides that, there are some subtle differences depending your operating system:\r\n\r\n#### Windows\r\n\r\nThe Windows system service of Portmaster is started as a regular service. The service then initialized the kernel driver / extension to integrate into the network stack. This means that Portmaster is currently started after the boot process of the Window Kernel is completed.\r\n\r\nThis means that, currently, some Windows services have a short head start before Portmaster. Tests on Windows 11 have shown these services to be able to communicate before Portmaster is ready:\r\n- NetBIOS querying the network with a connection to `255.255.255.255 UDP/137`.\r\n- Connectivity check with a connection to `‎www.msftconnecttest.com`.\r\n\r\nFuture Improvement: After Portmaster has started for the first time, there will be an option to \"persist\" the Portmaster kernel driver, so that it is started with the kernel and blocks _all connectivity_ until the Portmaster is fully ready. This is tricky as it can _easily_ break your network connectivity or lead to a BSOD.\r\n\r\n#### Linux\r\n\r\nThe systemd service of the Portmaster is configured to be started before the network and name resolution. This means that the protection is started before the network connectivity is enabled:\r\n\r\n```\r\nBefore=nss-lookup.target network.target\r\n```\r\n\r\nFuture Improvement: After we have implemented direct support for systemd, we will be able to use the `WantedBy` configuration option, which will make systemd properly wait until the Portmaster has fully started before continuing with other services, mitigating any possibility of race conditions.\r\n\r\n---\r\n\r\nKeywords: boot, reboot, start, first, before, early, not yet, protect, enabled, started, everything else, anything else, block everything\r\n\r\nCategories: Starting and Stopping",
+    "keywords": [
+      "boot",
+      "reboot",
+      "start",
+      "first",
+      "before",
+      "early",
+      "not yet",
+      "protect",
+      "enabled",
+      "started",
+      "everything else",
+      "anything else",
+      "block everything"
+    ],
+    "categories": [
+      "Starting and Stopping"
+    ]
+  },
+  {
+    "title": "FAQ: Does Portmaster support IPv6?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/778",
+    "body": "Portmaster has full IPv6 support.\r\n\r\n### Using IPv6 only\r\n\r\nIf you plan to use only IPv6 without IPv4, you'll need to configure IPv6 [DNS Servers](https://docs.safing.io/portmaster/settings#dns/nameservers) with the [DNS Configuration Guide](https://docs.safing.io/portmaster/guides/dns-configuration).\r\n\r\n### Disabling IPv6\r\n\r\n- Windows\r\n  - Disabling IPv6 on the system is currently not supported on Windows, as the Portmaster Kernel Driver will try to interact with the IPv6 network stack.\r\n  - You can block all IPv6 connections instead.\r\n- Linux\r\n  - You can disable IPv6 in the network stack and restart Portmaster.\r\n  - If Portmaster detects no IPv6 addresses at all, it will disable IPv6 integration.\r\n  - Careful: DO NOT enable IPv6 again without also restarting Portmaster! You will NOT be protected!\r\n\r\n### Block all IPv6\r\n\r\nIn order to block all IPv6 connections, just add `Block ::/0` to both [Outgoing Rules](https://docs.safing.io/portmaster/settings#filter/endpoints) and [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints).\r\n\r\n---\r\n\r\nKeywords: IP version 6, ip6, ipv6, network adapter, disabled, grub, configuration, break\r\n\r\nCategories: Compatibility",
+    "keywords": [
+      "IP version 6",
+      "ip6",
+      "ipv6",
+      "network adapter",
+      "disabled",
+      "grub",
+      "configuration",
+      "break"
+    ],
+    "categories": [
+      "Compatibility"
+    ]
+  },
+  {
+    "title": "FAQ: How can I add my Discord ID to my Portmaster Account?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/936",
+    "body": "You can link your Discord ID to your Portmaster account in order to gain access to private channels as well as gaining the sweet user flair on all your posts:\r\n![image](https://user-images.githubusercontent.com/11504285/195292347-c895c904-f999-428a-b4f1-72776ac8cb57.png)\r\n\r\n### Get your Discord ID\r\nYour discord ID is NOT your user name, and most people have never seen it.\r\nWe might update the bot in the future to retrieve this ID automatically, but for now you will have to jump through some hoops to get your ID.\r\n**1. Go to settings**\r\n![image](https://user-images.githubusercontent.com/11504285/195293428-66ba2648-40d4-4d7c-b636-b1cd92b00b59.png)\r\n**2. Open Advanced**\r\n![image](https://user-images.githubusercontent.com/11504285/195293524-a40225f6-1199-4d0c-b7cc-7f550fe3d7c2.png)\r\n**3. Activate \"Developer Mode\"**\r\n![image](https://user-images.githubusercontent.com/11504285/195293614-f6515c35-bc55-4008-865c-5f7d33fa81bd.png)\r\n**4. \"Copy ID\" from your \"My Account\" Page**\r\n![image](https://user-images.githubusercontent.com/11504285/195293877-317257d1-442c-405a-9628-f72412db45b2.png)\r\n\r\n### Add your ID to your Portmaster Account\r\n\r\nAfter logging into your Portmaster Account at https://account.safing.io/:\r\n\r\n**1. Go to \"Account and Password**\r\n![image](https://user-images.githubusercontent.com/11504285/195294507-9de25198-7257-4924-acf0-6c5c0043b765.png)\r\n**2. Enter your Discord ID**\r\n![image](https://user-images.githubusercontent.com/11504285/195294778-1570d97b-d40a-4fda-805e-a4ec788d2b69.png)\r\n**3. Confirm Change with Password**\r\n![image](https://user-images.githubusercontent.com/11504285/195294941-1a25dc88-f4a5-44a8-be91-544ba1b6799d.png)\r\n\r\nThe update in Discord should be immediate.\r\nNote that Reddit can be filled out already but this feature is not available yet. \r\n\r\n---\r\n\r\nKeywords: Discord, Account, Flair, User,\r\n\r\nCategories: Guides, Account",
+    "keywords": [
+      "Discord",
+      "Account",
+      "Flair",
+      "User,"
+    ],
+    "categories": [
+      "Guides",
+      "Account"
+    ]
+  },
+  {
+    "title": "FAQ: How can I allow a blocked connection?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/706",
+    "body": "Portmaster is all about protecting your privacy. This also means that it may block something that you want to allow. Here's how you do it:\r\n\r\n## 1. Find the blocked connection in the Network Monitor\r\n\r\nBefore we can try to fix anything, we need to find the connection that is blocked in the Network Monitor. To do this, open the Portmaster App, which will start with the Network Monitor already open.\r\n\r\nThen, find the application that you are having trouble with. Sometimes applications are split into multiple sub-parts, so you might need to click around. If you see an application that has at least a little bit of a grey bar, it means that at least one connection is blocked:\r\n![image](https://user-images.githubusercontent.com/18184155/175247736-9961ea93-be13-4624-9278-76beba26f80d.png)\r\n\r\nIf you have found the application, open it and search for the blocked connection, which are marked with a red dot:\r\n![image](https://user-images.githubusercontent.com/18184155/175248225-5842969e-d603-4e0f-8d7a-815c115ee9ed.png)\r\n\r\nIf your connections are grouped in some way, again look out for the grey parts of the bar:\r\n![image](https://user-images.githubusercontent.com/18184155/175247736-9961ea93-be13-4624-9278-76beba26f80d.png)\r\n\r\nIf you found a connection that was blocked and looks like the one that you'd rather allow, continue to the next step:\r\n\r\n## 2. Find out why it is blocked\r\n\r\nTo get more information about the blocked connection, click on it to open the details:\r\n![image](https://user-images.githubusercontent.com/18184155/175249877-db0c0ff7-ec4e-41ad-916a-7c78f60f4544.png)\r\n\r\nIn addition to many other details (also depending on your [User Interface Mode](https://docs.safing.io/portmaster/settings#core/expertiseLevel)), you can see \"Applied Setting\" in the bottom left of this section.\r\nThis tells you which setting was responsible for blocking this connection.\r\n\r\n## 3. Allow the connection\r\n\r\nIn order to allow this connection, you now have two options:\r\n1. Add an exception for this connection (recommended), or\r\n2. Change the responsible setting\r\n\r\n### 3.1. Add an exception for this connection\r\n\r\nIn order to add an exception for this domain, just press the button at the bottom left of the connection section:\r\n![image](https://user-images.githubusercontent.com/18184155/175252873-b246c6a9-c326-4526-a946-537bca8c2d7a.png)\r\n\r\nIf you then go to the settings of the application, you will see that a new rule was added:\r\n![image](https://user-images.githubusercontent.com/18184155/175253147-4a692177-1de3-4cf5-90c6-7f4b6938ee66.png)\r\n\r\nIf the \"Allow Domain\" or \"Allow IP\" button is disabled, this means that an exception is not possible and that you must change the responsible setting:\r\n\r\n### 3.2. Change the responsible setting\r\n\r\nBefore you change the setting, you must decide whether you want to change the settings for this app only (recommended) or globally for all apps (which don't have this setting configured differently).\r\n\r\nPressing the corresponding button will take you to the responsible setting:\r\n![image](https://user-images.githubusercontent.com/18184155/175252694-7676ed7e-f356-46ff-a6fb-3847d857c0ef.png)\r\n\r\nHow to change the setting heavily depends on the setting itself, so the best way to go forward is to read the description by clicking on the (i) icon:\r\n![image](https://user-images.githubusercontent.com/18184155/175254095-1fc018b1-5451-4f71-a2b3-1113b9beec86.png)\r\n\r\nGenerally, we try to make all settings provide more protection by turning them \"on\", so in most cases turning off a setting will allow the connection.\r\n\r\nIn case there are multiple settings that block a connection, you might need to repeat this process.\r\n\r\n---\r\n\r\nKeywords: allow, exception, unbreak, unblock, not block, stop blocking, deny, denied, dropped, permit, connection, DNS request\r\n\r\nCategories: Guides, Privacy Filter",
+    "keywords": [
+      "allow",
+      "exception",
+      "unbreak",
+      "unblock",
+      "not block",
+      "stop blocking",
+      "deny",
+      "denied",
+      "dropped",
+      "permit",
+      "connection",
+      "DNS request"
+    ],
+    "categories": [
+      "Guides",
+      "Privacy Filter"
+    ]
+  },
+  {
+    "title": "FAQ: How can I allow incoming connections?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/959",
+    "body": "If you have an app your device that needs to accept or listen for incoming connections, you can easily allow it do so by disabling [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) within the app settings in Portmaster.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329343-44f7f29c-41f6-4224-a45d-97378e31aafa.png)\r\n\r\nThis will allow the app to accept connections coming from _anywhere_. If you would rather limit where this app may connect to and accept connections from, you can easily limit it using the settings [Force Block LAN](https://docs.safing.io/portmaster/settings#filter/blockLAN) and [Force Block Internet Access](https://docs.safing.io/portmaster/settings#filter/blockInternet).\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329498-a856e0c5-7a0d-43a9-9514-e19cc4b00edf.png)\r\n\r\nIf you want even more control, you can use the [Incoming Rules](https://docs.safing.io/portmaster/settings#filter/serviceEndpoints) to very specifically allow who is allowed to connect. If you use rules, be sure to select \"Block everything else\" from the Quick Settings menu in order to block everything you did not specifically allow.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/198329834-2cd729f8-d89f-4e65-a53e-12107994f7b3.png)\r\n\r\nNote: You should never disable [Force Block Incoming Connections](https://docs.safing.io/portmaster/settings#filter/blockInbound) in the global settings. This is potentially very dangerous.\r\n\r\n---\r\n\r\nKeywords: incoming, inbound, listen, socket, port, listener, accept, service, allow, block, drop, firewall\r\n\r\nCategories: Guides, Privacy Filter",
+    "keywords": [
+      "incoming",
+      "inbound",
+      "listen",
+      "socket",
+      "port",
+      "listener",
+      "accept",
+      "service",
+      "allow",
+      "block",
+      "drop",
+      "firewall"
+    ],
+    "categories": [
+      "Guides",
+      "Privacy Filter"
+    ]
+  },
+  {
+    "title": "FAQ: How can I enable or disable the SPN for just one application?",
+    "url": "https://api.github.com/repos/safing/spn/issues/105",
+    "body": "Applications can easily be excluded from the SPN by either using the quick setting in the app page header, or in the settings:\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187927360-3f1290d2-a4da-45d9-aa33-3f65f46bd1cf.png)\r\n\r\nor\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187927728-3197860c-f04d-45d8-ad96-70d642f0f8e4.png)\r\n\r\n---\r\n\r\nKeywords: route, routing, not go through, enable, disable, exclude, include, decide, connection, tunnel\r\n\r\nCategories: SPN",
+    "keywords": [
+      "route",
+      "routing",
+      "not go through",
+      "enable",
+      "disable",
+      "exclude",
+      "include",
+      "decide",
+      "connection",
+      "tunnel"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: How can I exclude a Domain or IP address from the SPN?",
+    "url": "https://api.github.com/repos/safing/spn/issues/104",
+    "body": "You can easily exclude any Domain or IP address from the SPN by using the [SPN Rules](https://docs.safing.io/portmaster/settings#spn/usagePolicy). It is a rule list similar to the others and applies the first entry that matches.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187923583-c5392177-9ffa-4ad8-a53a-fd4061237878.png)\r\n\r\n---\r\n\r\nKeywords: route, routing, not go through, enable, disable, exclude, include, decide, connection, tunnel\r\n\r\nCategories: SPN",
+    "keywords": [
+      "route",
+      "routing",
+      "not go through",
+      "enable",
+      "disable",
+      "exclude",
+      "include",
+      "decide",
+      "connection",
+      "tunnel"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: How can I exclude the Local Network (LAN) from the SPN?",
+    "url": "https://api.github.com/repos/safing/spn/issues/106",
+    "body": "The Local Network (LAN) is always excluded from the SPN, as servers in the SPN cannot access your local network.\r\n\r\nVPNs do not differentiate between networks without special configuration.\r\n\r\n---\r\n\r\nKeywords: route, routing, not go through, enable, disable, exclude, include, decide, connection, tunnel\r\n\r\nCategories: SPN",
+    "keywords": [
+      "route",
+      "routing",
+      "not go through",
+      "enable",
+      "disable",
+      "exclude",
+      "include",
+      "decide",
+      "connection",
+      "tunnel"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: How can I host a community node?",
+    "url": "https://api.github.com/repos/safing/spn/issues/109",
+    "body": "Have a look at this guide: [Hosting a Community Node](https://docs.safing.io/spn/hosting-a-community-node)\r\n\r\n---\r\n\r\nKeywords: community, node, server, hosting, run, share\r\n\r\nCategories: SPN\r\n",
+    "keywords": [
+      "community",
+      "node",
+      "server",
+      "hosting",
+      "run",
+      "share"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: How can I uninstall Portmaster?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/958",
+    "body": "If you are uninstalling Portmaster because something did not work or did not meet your expectations, please [reach out and give us feedback!](https://safing.io/support/)\r\n\r\n#### Windows\r\n\r\nOpen the \"Add or Remove Programs\" app, find Portmaster and press \"Uninstall\".\r\n\r\nAlternatively, you can find the uninstaller at `C:\\ProgramData\\Safing\\Portmaster\\portmaster-uninstaller.exe`.\r\n\r\n#### Linux\r\n\r\nOn most systems, you can open your graphical package manager, search for \"Portmaster\" and then have it removed.\r\nDepending on your distro, this might leave your configuration intact, so if you want to fully remove everything, be sure to delete the data folder after uninstalling with `sudo rm -r /opt/safing/portmaster`.\r\n\r\nIf you installer Portmaster with the `curl | bash` script, you can also uninstall using it:\r\n\r\n```\r\n# Leave configuration data intact:\r\ncurl -fsSL https://updates.safing.io/latest/linux_all/packages/install.sh | sudo bash -s -- --uninstall\r\n\r\n# Also delete configuration data:\r\ncurl -fsSL https://updates.safing.io/latest/linux_all/packages/install.sh | sudo bash -s -- --uninstall --purge\r\n```\r\n\r\n---\r\n\r\nKeywords: remove, purge, uninstall, delete\r\n\r\nCategories: Windows, Linux\r\n",
+    "keywords": [
+      "remove",
+      "purge",
+      "uninstall",
+      "delete"
+    ],
+    "categories": [
+      "Windows",
+      "Linux"
+    ]
+  },
+  {
+    "title": "FAQ: How do Broadcast Notifications work?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/703",
+    "body": "Broadcast Notifications are messages broadcasted by the Portmaster Developers and Team to all Portmaster users. We use this to alert users of important updates, breaking feature changes, privacy related issues, among others.\r\n\r\nAll notifications are publicly added to [the source file](https://github.com/safing/intel-data/blob/master/portmaster/notifications.yaml) and then distributed to all Portmaster instances via our update system. Safing (the company behind Portmaster) learns nothing about the Portmaster instances themselves. No data is ever sent.\r\n\r\nRather, when your Portmaster downloads the newest broadcast notifications - alongside the filter list updates, for example - it checks if there are any broadcast notifications that were not shown yet _and_ that match certain criteria. This way we can show notifications only to those who are affected by a situation and keep the noise low for all others. The matching is always done locally and the matching data is never sent anywhere.\r\n\r\n---\r\n\r\n#### Deep Dive\r\n\r\nIf you really want to get into it, you can check out which data we use to match broadcast notifications on your device.\r\nEnable the [Development Mode](https://docs.safing.io/portmaster/settings#core/devMode) and then open http://127.0.0.1:817/api/v1/broadcasts/matching-data in your browser. This is exactly the same information as the broadcast notifications use.\r\n\r\n---\r\n\r\nKeywords: matching, information, sharing, leak, sending, privacy, private, data\r\n\r\nCategories: Other",
+    "keywords": [
+      "matching",
+      "information",
+      "sharing",
+      "leak",
+      "sending",
+      "privacy",
+      "private",
+      "data"
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "title": "FAQ: How do I make my VPN or other software compatible with Portmaster?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/708",
+    "body": "Portmaster deeply integrations into the network stack of your operating system in order to protect your privacy. Sometimes this can lead to problems with other software, especially VPNs.\r\n\r\nIn addition to this guide, we also [maintain a list of compatible VPNs](https://docs.safing.io/portmaster/install/status/vpn-compatibility) and [other software](https://docs.safing.io/portmaster/install/status/software-compatibility) that you can check. Some also have dedicated instructions to get them to work.\r\n\r\nNot every VPN or software will be able to work with Portmaster. See the _Limits_ section below for details on this.\r\n\r\n## Allow Connections\r\n\r\nFirst, find the VPN software in the Network Monitor in the Portmaster App and make sure all connections it makes are allowed. If you get it working, you can still block connections again to see if it can work without them.\r\n\r\nIf you don't know how to allow blocked connections, please follow this guide: https://github.com/safing/portmaster/issues/706\r\n\r\nBefore you continue, please check if your VPN or software works now. Only continue, if it does not.\r\n\r\n## Disable Seamless DNS Integration\r\n\r\nPortmaster takes great care not to break your system and as such does not make permanent changes to the network stack of your system: https://github.com/safing/portmaster/issues/702\r\n\r\nRather, in order to still seamlessly integrate, Portmaster redirects connections - mostly DNS queries - where they need to go. This can interfere with VPNs or other software that tries to do the same.\r\n\r\nIf you can disable your VPN's behavior of this, then this is recommended. If that is not possible, you can disable [Seamless DNS Integration](https://docs.safing.io/portmaster/settings#filter/dnsQueryInterception) in Portmaster. To do this, you have to:\r\n\r\n- enter the Development Interface through the [UI Mode](https://docs.safing.io/portmaster/settings#core/expertiseLevel) in the settings\r\n- set your [Feature Stability](https://docs.safing.io/portmaster/settings#core/releaseLevel) to \"Experimental\"\r\n\r\n---\r\n\r\n⚠️ If you disable [Seamless DNS Integration](https://docs.safing.io/portmaster/settings#filter/dnsQueryInterception) in Portmaster, you will need to take care of the system integration yourself!\r\n\r\n---\r\n\r\nThis means that you will need to configure the DNS server in your operating system **AND** the VPN to point to the Portmaster:\r\n- Windows: `127.0.0.1`\r\n- Linux: `127.0.0.17`\r\n\r\nPortmaster does periodic self-checks and will warn you when the integration is broken. Checks are not done so often, so they take a while to appear and to disappear.\r\n \r\nIf you want faster results for the self-check and you're experienced with computers, you can:\r\n\r\n- enter the Development Interface through the [UI Mode](https://docs.safing.io/portmaster/settings#core/expertiseLevel) in the settings\r\n- enable the [Development Mode](https://docs.safing.io/portmaster/settings#core/devMode) \r\n- open this page in your browser: http://127.0.0.1:817/api/v1/compat/self-check\r\n\r\n## Workaround\r\n\r\nIf the previous steps have not worked - or you were not confident enough to attempt them - you can try to use a generic VPN client instead of the custom application by the VPN provider.\r\n\r\nWe suggest you check if you can download an [OpenVPN client configuration or connection profile](https://openvpn.net/faq/what-is-a-client-configuration-or-connection-profile/) from your VPN. Then, [install OpenVPN](https://openvpn.net/vpn-client/) and load the supplied profile.\r\n\r\n## Report Findings\r\n\r\nIf you followed this guide and either succeeded or failed in making your VPN or software compatible, it would be great if you could report this [using this GitHub Issue template](https://github.com/safing/portmaster/issues/new?assignees=&labels=in%2Fcompatibility&template=report-compatibility.md)!\r\n\r\n## Limits\r\n\r\n### Windows\r\n\r\nPortmaster on Windows uses a kernel driver / extension in order to integrate into the network stack. Depending on how other software integrates into the network stack, there might be an unavoidable collision. Please open an issue.\r\n\r\n### Linux\r\n\r\nPortmaster on Linux uses packet and connection marks to save decisions to the network state. Other software using the same will interfere and it and Portmaster will break each other. This can only be fixed if the other software can be made to not use packet and connection marks.\r\n\r\n---\r\n\r\nKeywords: VPN, Anti-Virus, protection, kernel, extension, no internet, broken, OpenVPN, profile, configuration\r\n\r\nCategories: Compatibility",
+    "keywords": [
+      "VPN",
+      "Anti-Virus",
+      "protection",
+      "kernel",
+      "extension",
+      "no internet",
+      "broken",
+      "OpenVPN",
+      "profile",
+      "configuration"
+    ],
+    "categories": [
+      "Compatibility"
+    ]
+  },
+  {
+    "title": "FAQ: How do I share debug information and logs?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/705",
+    "body": "First of all, thanks a lot for contributing! You're probably reading this because you've been directed here and were asked to provide one of the following:\r\n\r\n- Debug Info\r\n- Logs\r\n- (Debug Logs)\r\n\r\n## Debug Info\r\n\r\nThe debug information is a collection of helpful snippets of information that Portmaster produces itself.\r\nOften, you will be asked to collect this information _while_ the reported issue is occurring. This is important, as the data is gathered live from the current state of Portmaster and will help us to see what the problem is.\r\n\r\nIf you're experiencing a problem with a certain application, it can be very helpful to copy the application-specific version of the Debug Info. This is only (easily) possible using the \"Application Page\" method explained later.\r\n\r\nWe've taken care to include as little personal information as possible in the Debug Info. You can further reduce this information by restarting the Portmaster before copying the data - if you can reproduce the issue that way too.\r\nYou are of course also free to delete parts of the data before submitting - in that case please mark the areas you have deleted with `[DELETED]`, so we know that information is missing.\r\n\r\nThere are multiple ways to acquire and share the Debug Info:\r\n\r\n### Settings Page\r\n\r\nJust click on \"Copy Debug Information\" button on the top right of the settings page.\r\nThis copies the Debug Info to your clipboard. You can paste this directly into a Github Issue - it is automatically formatted using sections. It looks ugly in text format, but if you click on the \"Preview\" tab of your comment, you will see it nicely rendered.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/175050614-1b30d836-39e5-463c-9a37-8dae978d9f6a.png) >>> ![image](https://user-images.githubusercontent.com/18184155/175055501-f8aea6bc-41b5-4856-90b4-315596c262a4.png)\r\n\r\n\r\n### Application Page\r\n\r\nFind the affected application in the Portmaster App, then go to the \"Details\" tab and click on \"Copy Debug Information\" at the end of the page.\r\nThis copies the Debug Info to your clipboard. You can paste this directly into a Github Issue - it is automatically formatted using section. It looks ugly in text format, but if you click on the \"Preview\" tab of your comment, you will see it nicely rendered.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/175054075-0e803c67-fc54-405e-9d54-3890e7e1980a.png)\r\n\r\n### Privately Via Ticket\r\n\r\nAlternatively, you can submit the Debug Info privately via a support ticket. To do this:\r\n\r\n- Open the Portmaster App\r\n- Go to the Get Help page using the question mark button on the navigation bar on the left\r\n- Then, click on \"__Report Bug__\", and enter the following information:\r\n  - Title: \"__Debug Info for Issue__\"\r\n  - What Happend: Enter the __Ticket ID or Github Issue URL__.\r\n- Then click on \"Send Private Ticket\" on the bottom of the page.\r\n  - You don't need to provide an email.\r\n- Notify the thread where you were asked to send the Debug Info that you've sent it.\r\n\r\n### Using cURL\r\n\r\nIf you're a Linux user, you might want to get this data directly to your terminal. You can do this with the following command - and maybe pipe it to your clipboard to a file.\r\n\r\n```\r\ncurl http://127.0.0.1:817/api/v1/debug/core\r\n```\r\n\r\nYou can find the documentation of the API endpoints here:\r\n- [Get Debug Information](https://docs.safing.io/portmaster/api#v1/debug/core)\r\n- [Get Network Debug Information](https://docs.safing.io/portmaster/api#v1/debug/network)\r\n\r\n## Logs\r\n\r\nPortmaster writes logs for all components. Logs are written in different levels to reduce sensitive information in logs and keep them in a manageable size. They are also automatically deleted after some time.  \r\nYou may have been asked to change the [Log Level](https://docs.safing.io/portmaster/settings#core/log/level) before submitting the logs.\r\n\r\nPlease always provide the newest `.log` and `.error.log` files during which the reported issues occurred.  \r\nYou can find the log files here:\r\n\r\nDefault Log File Locations:\r\n- Windows\r\n  - Core Logs: `C:\\ProgramData\\Safing\\Portmaster\\logs\\core`\r\n  - App Logs: `C:\\ProgramData\\Safing\\Portmaster\\logs\\app`\r\n  - Notifier Logs: `C:\\ProgramData\\Safing\\Portmaster\\logs\\notifier`\r\n  - Start Logs: `C:\\ProgramData\\Safing\\Portmaster\\logs\\start`\r\n- Linux\r\n  - Core Logs: `/opt/safing/portmaster/logs/core`\r\n  - App Logs: `/opt/safing/portmaster/logs/app`\r\n  - Notifier Logs: `/opt/safing/portmaster/logs/notifier`\r\n  - Start Logs: `/opt/safing/portmaster/logs/start`\r\n\r\nWe recommend that you upload these files to your favorite [pastebin/privatebin](https://privatebin.info/directory/) or use [our instance](https://support.safing.io/privatebin/) and add a 1-3 months expiration.\r\n\r\n## (Debug Logs)\r\n\r\nIn the past, \"Debug Logs\" has sometimes been used in conversations, but it does not clearly specify what is meant. If you are asked for this, please ask what exactly you should provide.\r\n\r\n---\r\n\r\nKeywords: collect, get, copy, extract, debugging, debug-info, debug-data, investigating, logging, logs, log-lines, record\r\n\r\nCategories: Guides",
+    "keywords": [
+      "collect",
+      "get",
+      "copy",
+      "extract",
+      "debugging",
+      "debug-info",
+      "debug-data",
+      "investigating",
+      "logging",
+      "logs",
+      "log-lines",
+      "record"
+    ],
+    "categories": [
+      "Guides"
+    ]
+  },
+  {
+    "title": "FAQ: Notifications not available on Windows 7 and 8",
+    "url": "https://api.github.com/repos/safing/portmaster-ui/issues/361",
+    "body": "We use the notification system that was added in Windows 10, as it supports actions (ie. has buttons). Windows 7 and 8 do not have any support for these buttons.\r\n\r\nNotifications may still work to some extent, but prompts will not. Please disable [Prompt Desktop Notifications](https://docs.safing.io/portmaster/settings#filter/askWithSystemNotifications).\r\n\r\n---\r\n\r\nKeywords: broken, cannot click, can't press, missing button, Microsoft\r\n\r\nCategories: Windows",
+    "keywords": [
+      "broken",
+      "cannot click",
+      "can't press",
+      "missing button",
+      "Microsoft"
+    ],
+    "categories": [
+      "Windows"
+    ]
+  },
+  {
+    "title": "FAQ: Portmaster Core Does Not Start at Boot",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/956",
+    "body": "Some users report that the Portmaster Core Service will not start at boot, although it is configured to do so. If that is the case, you can check its status in the \"Services\" Desktop App. There, search for the Service \"Portmaster Core\" and inspect and start it as needed.\r\n\r\n---\r\n\r\nKeywords: starting, boot, startup, automatic\r\n\r\nCategories: Windows, Starting and Stopping\r\n",
+    "keywords": [
+      "starting",
+      "boot",
+      "startup",
+      "automatic"
+    ],
+    "categories": [
+      "Windows",
+      "Starting and Stopping"
+    ]
+  },
+  {
+    "title": "FAQ: Portmaster Fails to Restart",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/955",
+    "body": "In some cases the Portmaster will fail to restart, because the Portmaster Kernel Extensions cannot be loaded and returns the error code `0x422`.\r\nThis stems from a known issue in Windows, where system services are not completely removed when something is monitoring the system services.\r\nWhen the Portmaster restarts, it is then unable to initialize the Kernel Extension, because the system thinks it is still unloading.\r\n\r\nIf you experience this issue, please follow this workaround:\r\n\r\n_Quoting from <https://stackoverflow.com/a/20565337>_\r\n\r\n> There may be several causes which lead to the service being stuck in “marked for deletion”.\r\n>\r\n>  1. [SysInternals' Process Explorer is opened](http://blog.cyotec.com/2011/05/specified-service-has-been-marked-for.html). Closing it should lead to automatic removal of the service.\r\n>\r\n>  1. [Task Manager is opened](https://stackoverflow.com/questions/20561990/how-to-solve-the-specified-service-has-been-marked-for-deletion-error/21310096#comment32672750_20565337).\r\n>\r\n>  1. [Microsoft Management Console (MMC) is opened](https://stackoverflow.com/a/8529760/240613). To ensure all instances are closed, run `taskkill /F /IM mmc.exe`.\r\n>\r\n>  1. [Services console is opened](https://stackoverflow.com/a/21310096/240613). This is the same as the previous point, since Services console is hosted by MMC.\r\n>\r\n>  1. [Event Viewer is opened](https://stackoverflow.com/a/18467128/240613). Again, this is the same as the third point.\r\n>  \r\n>  1. [The key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\\\{service name} exists](https://stackoverflow.com/a/2804099/240613).\r\n>\r\n>  1. [Someone else is logged into the server](https://stackoverflow.com/a/28632820/240613) and has one of the previously mentioned applications opened.\r\n>\r\n>  1. An instance of Visual Studio *used to debug the service* is open.\r\n\r\n---\r\n\r\nKeywords: error code, restarting, boot\r\n\r\nCategories: Windows, Starting and Stopping\r\n",
+    "keywords": [
+      "error code",
+      "restarting",
+      "boot"
+    ],
+    "categories": [
+      "Windows",
+      "Starting and Stopping"
+    ]
+  },
+  {
+    "title": "FAQ: Should I use an Anti-Virus together with Portmaster?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/960",
+    "body": "Speaking in general, __Portmaster is a privacy tool__, focusing on privacy features like DNS encryption or blocking tracking requests.\r\n\r\nAnti-Virus systems, such as Windows Defender, on the other hand are security tools. As such, they focus on security features like malware detection, which Portmaster simply does not have.\r\n\r\nPlease note the important difference:\r\n\r\n    Anti-virus systems sometimes also _do privacy_, but they _focus on security_.\r\n    While Portmaster also _does security_, as privacy _depends_ on security, it _focuses on privacy_.\r\n\r\nThat is why we _do not recommend_ deactivating Anti-Virus systems. We recommend having both have a security and privacy setup. Without security your perceived privacy can quickly become non-existent.\r\n\r\nHowever, research if the Anti-Virus you are using is really as good as it claims. Many security researchers have come out in the recent years, declaring that Windows Defender is good enough for most use cases and quite some other Anti-Virus systems are doing weird stuff.\r\n\r\n---\r\n\r\nKeywords: antivirus, malware protection, phishing, virus, trojan, worm, infected, infection, attacked, together, combination\r\n\r\nCategories: Privacy Filter, Compatibility\r\n",
+    "keywords": [
+      "antivirus",
+      "malware protection",
+      "phishing",
+      "virus",
+      "trojan",
+      "worm",
+      "infected",
+      "infection",
+      "attacked",
+      "together",
+      "combination"
+    ],
+    "categories": [
+      "Privacy Filter",
+      "Compatibility"
+    ]
+  },
+  {
+    "title": "FAQ: What changes does Portmaster make to my system?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/702",
+    "body": "#### Most Important\r\n\r\n- Portmaster does not do any permanent changes to your network configuration:\r\n  - No network interfaces are added or changed.\r\n  - No routing entries are added or changed.\r\n  - No DNS server configuration is added or changed.\r\n- Required integration is done \"on-the-fly\" by redirecting packets.\r\n- When Portmaster is shut down or uninstalled, all (volatile) network integration is removed automatically.\r\n  - When you still experience issues, check out #699.\r\n\r\nBesides that, changes vary depending on your operating system:\r\n\r\n#### Windows\r\n\r\n- All data is saved to `C:\\ProgramData\\Safing\\Portmaster` by default.\r\n- A system service is registered and marked to start automatically at boot.\r\n- Application entry for the Portmaster UI is added.\r\n- Application entry for the Portmaster Tray Notifiier is added and marked to start automatically at login.\r\n- Uninstall information is placed in the registry.\r\n- Read more at [Docs: Install on Windows](https://docs.safing.io/portmaster/install/windows)\r\n\r\n#### Linux\r\n\r\n- All data is saved to `/opt/safing/portmaster` by default.\r\n- Portmaster adds iptables entries on start and removes them when stopped.\r\n  - This integration makes use of packet and connection marks, which likely makes Portmaster incompatible with other software attempting the same.\r\n- A systemd service file is placed at `/etc/systemd/system/portmaster.service`.\r\n- `.desktop` files are placed in `/usr/share/applications/`.\r\n- Icon is placed in `/usr/share/pixmaps/`.\r\n- Read more at [Docs: Install on Linux](https://docs.safing.io/portmaster/install/linux)\r\n\r\n---\r\n\r\nKeywords: change, modify, modification, integration, settings, registry, file, config, configuration, mess with, break\r\n\r\nCategories: Starting and Stopping",
+    "keywords": [
+      "change",
+      "modify",
+      "modification",
+      "integration",
+      "settings",
+      "registry",
+      "file",
+      "config",
+      "configuration",
+      "mess with",
+      "break"
+    ],
+    "categories": [
+      "Starting and Stopping"
+    ]
+  },
+  {
+    "title": "FAQ: Where is the tray icon / app indicator in GNOME?",
+    "url": "https://api.github.com/repos/safing/portmaster-ui/issues/242",
+    "body": "GNOME 3.26 [removed the default tray icon support](https://blogs.gnome.org/aday/2017/08/31/status-icons-and-gnome/).\r\n\r\nYou'll need to install an extension that adds support for status / app indicators.\r\nWe recommend this one maintained by Ubuntu / Canonical Ltd.:\r\n- Repo: https://github.com/ubuntu/gnome-shell-extension-appindicator\r\n- Extension Page: https://extensions.gnome.org/extension/615/appindicator-support/\r\n\r\n---\r\n\r\nKeywords: tray, icon, indicator, libappindicator, libnotify, org.kde.StatusNotifierWatcher, missing, not visible, does not appear\r\n\r\nCategories: Compatibility",
+    "keywords": [
+      "tray",
+      "icon",
+      "indicator",
+      "libappindicator",
+      "libnotify",
+      "org.kde.StatusNotifierWatcher",
+      "missing",
+      "not visible",
+      "does not appear"
+    ],
+    "categories": [
+      "Compatibility"
+    ]
+  },
+  {
+    "title": "FAQ: Why does Portmaster keep blocking connections after I close it?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/719",
+    "body": "Portmaster is not just one process, but consists of multiple parts:\r\n\r\n- Portmaster Core Service: A system service started by your operating system.\r\n- Portmaster Tray Notifier: A small icon living in your status and notification tray.\r\n- Portmaster UI: The app you open.\r\n\r\nIf you close the app, you only close your \"window\" into what Portmaster (the Core Service) is currently doing.\r\nIn order to fully shut down Portmaster and have it stop blocking anything, you must select the option in either the app or the tray:\r\n\r\nUI - Settings Page:\r\n![image](https://user-images.githubusercontent.com/18184155/176720125-8769ad3a-a99a-4bfe-a194-37ea344042e7.png)\r\n\r\nTray Icon:\r\n![image](https://user-images.githubusercontent.com/18184155/176720369-f71391fb-3428-4cb3-ac23-f6b429324bd7.png)\r\n\r\nWhen you close the app for the first time, it clarifies what is and is not happening when closing the app.\r\n\r\nRead more about the architecture of Portmaster [on our docs](https://docs.safing.io/portmaster/architecture/overview).\r\n\r\n---\r\n\r\nKeywords: closing, shut down, shutting down, exit, minimize, blocking, completely, disable\r\n\r\nCategories: Privacy Filter",
+    "keywords": [
+      "closing",
+      "shut down",
+      "shutting down",
+      "exit",
+      "minimize",
+      "blocking",
+      "completely",
+      "disable"
+    ],
+    "categories": [
+      "Privacy Filter"
+    ]
+  },
+  {
+    "title": "FAQ: Why does Portmaster send plain/unencrypted DNS queries?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/700",
+    "body": "Portmaster takes care of protecting your DNS queries by becoming the gateway for all DNS queries on your system and then sending them through an encrypted connection to the configured DNS server.\r\n\r\nIf you are using a DNS server for your network that has a dashboard, or if the DNS service you are using discerns between encrypted and non-encrypted queries, you might notice that sometimes Portmaster sends unencrypted queries.\r\n\r\nIn order to understand why that is necessary, let's take a look at a common network structure: A free __WiFi access point in a café__ or airport. Usually these can only be used when you __accept their Terms of Service__. In order for you to get you to read them, the network needs to somehow redirect to that.\r\nThis __needs to work even if the secure DNS server are unreachable__ - as you've not yet \"logged into\" the free network.\r\n\r\nThis is why Portmaster always __sends a handful of special domains__ - used by operating systems and browsers - __as plain DNS queries to the DNS server provided by the network__. You can find the current list of these domains [in the docs](https://docs.safing.io/portmaster/architecture/core-service/secure-dns/#connectivity-domains) or in the [source code as \"Connectivity Domains\")](https://github.com/safing/portmaster/blob/f135ec3242905b84811b26975a3458117cc2c28e/netenv/online-status.go#L53).\r\n\r\nIf you don't want these queries to go out, you can block them by enabling the setting [Ignore System/Network Servers](https://docs.safing.io/portmaster/settings#dns/noAssignedNameservers) or [Use Secure Protocols Only](https://docs.safing.io/portmaster/settings#dns/noInsecureProtocols). Please consider the side effects of enabling these settings when you do so.\r\n\r\nThe Portmaster will also attempt to detect these \"Captive Portals\" and will notify you if it finds one.\r\n\r\n---\r\n\r\nFor the time being there is also another possibility why this can happen. To make sure everything works as expected, we enabled Portmaster to fall back to the system assigned DNS servers in case all the configured DNS server failed. This is to ensure that we don't break the workflow when installing Portmaster.\r\nWe are working on a solution how to best handle this in a way that does not break setups and provides the best privacy. This is internally tracked at CC#2405.\r\n\r\n---\r\n\r\nKeywords: unencrypted query, DNS leaks, not sent, DHCP, system assigned.\r\n\r\nCategories: Leaks",
+    "keywords": [
+      "unencrypted query",
+      "DNS leaks",
+      "not sent",
+      "DHCP",
+      "system assigned."
+    ],
+    "categories": [
+      "Leaks"
+    ]
+  },
+  {
+    "title": "FAQ: Why does the DNS Leak test say that I have a leak?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/720",
+    "body": "Leaks test are always built for a specific service. If a leak test says you are \"leaking\", it means that your device is not configured exactly as _they expect_. If you are using Portmaster, this is most probably the case.\r\n\r\nThe easiest thing you can do is to take the IP addresses the leak test says you are leaking and enter them on this page: https://bgpview.io/\r\n\r\nThis will tell you who the IP address belongs to. __As long as this is _not_ your ISP, all is good.__\r\n\r\nSometimes you can even try to just enter the IP address in your browser and see where it leads to. Many services have small web pages set up so interested network administrators can check what the IP address is used for.\r\n\r\nIf you are confident that you are experiencing a real leak of any kind, please report it and include the following information:\r\n- The software or website you used for the test\r\n- Any leaked IP addresses (that are not yours)\r\n- Any leaked domain names / dns queries\r\n\r\n---\r\n\r\nKeywords: dns, ip, leak, leaking, VPN, not contained, astray\r\n\r\nCategories: Leaks",
+    "keywords": [
+      "dns",
+      "ip",
+      "leak",
+      "leaking",
+      "VPN",
+      "not contained",
+      "astray"
+    ],
+    "categories": [
+      "Leaks"
+    ]
+  },
+  {
+    "title": "FAQ: Why does the SPN not connect?",
+    "url": "https://api.github.com/repos/safing/spn/issues/107",
+    "body": "When Portmaster connects to the SPN und normal circumstances, it does not depend on a single server or on DNS. It can directly try all servers to find one it can connect to.\r\n\r\nIf you are connecting to the SPN for the first time, Portmaster downloads a set of IPs from the update server in order to bootstrap into the network. After that, it only connects directly to the network.\r\n\r\n### Troubleshooting\r\n\r\nHere are things you can try when Portmaster does not successfully connect to the SPN:\r\n\r\n#### 1. Check if your Internet connection works.\r\n\r\nDisable SPN and check if you can connect to the Internet without the SPN.\r\n\r\n#### 2. Check for Portmaster Updates.\r\n\r\nSometimes there are changes to the SPN servers that also require Portmaster to update. We wait some time to allow clients to update before deploying breaking changes, but you might just be behind too much.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187939384-181f5fa0-fa70-4fd6-b3c8-e0e9e7d98db7.png)\r\n\r\n#### 3. Re-Initialize\r\n\r\nIf none of these resulted in a successful connection to the SPN, you can also clear all caches regarding the SPN and re-initialize it.\r\n\r\n![image](https://user-images.githubusercontent.com/18184155/187939868-ad73fc9e-89de-44ef-b0c5-947a2605ed75.png)\r\n\r\n#### 4. Ask for Help\r\n\r\nIf none of these steps could resolve your issue, please reach out to use and we will investigate the issue. Be sure to open the Bug Report page in the Portmaster _while_ it is trying to connect to the SPN, so that we have the correct data for analysis.\r\n\r\n---\r\n\r\nKeywords: connection, fails, failed, try, retry, trying, timeout, disconnect, unable, blocked\r\n\r\nCategories: SPN\r\n",
+    "keywords": [
+      "connection",
+      "fails",
+      "failed",
+      "try",
+      "retry",
+      "trying",
+      "timeout",
+      "disconnect",
+      "unable",
+      "blocked"
+    ],
+    "categories": [
+      "SPN"
+    ]
+  },
+  {
+    "title": "FAQ: Why is my Internet or Network Access broken after shutdown or uninstall?",
+    "url": "https://api.github.com/repos/safing/portmaster/issues/699",
+    "body": "While Portmaster integrates deeply into the network stack of your operating system, all of it is volatile - meaning that it is automatically removed when Portmaster shuts down or when Portmaster is uninstalled.\r\n\r\nHowever, there are special cases where you might loose Internet or network connectivity after shutting down or uninstalling Portmaster.\r\n\r\n### 1. DNS Configuration Issues\r\n\r\nPortmaster becomes the gateway for all DNS queries when you install it, but it does not configure itself as your DNS server in the system. Rather, it does a _soft_ integration by redirecting all DNS queries to itself.\r\n\r\nWhat can happen is that at some point - while Portmaster is installed - the DNS configuration of your system is changed or corrupted into a state that does not work. But because Portmaster is installed, it will seamlessly fix it for you, because it \"corrects\" all queries.\r\nWhen you then shutdown or uninstall Portmaster this \"fix\" is removed and you end up with a broken DNS configuration.\r\n\r\n__Please review the DNS configuration of your system.__ When in doubt, set it to _automatic_ or _DHCP_.\r\n\r\n### 2. Network Stack Issues by the Operation System\r\n\r\nIn some more extreme cases, the system might not correctly remove the integration as it should.\r\n\r\n#### Windows\r\n\r\nPortmaster marks all its network stack integrations (the Firewall Driver / Kernel Extension) as non-permanent and as such they are removed by Windows when the Portmaster shuts down or when Windows reboots.\r\n\r\nIn rare cases, however, Windows fails to correctly remove Portmaster’s network stack integration correctly, resulting in a loss of network connectivity. We have never experienced this issue ourselves and thus haven’t yet been able to take an in-depth look.\r\n\r\nThe help Windows restore network connectivity, open a Windows [cmd](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd) as an Administrator and enter the following commands to reset your network.\r\nWarning: You might need to reconfigure any special network settings you had.\r\n\r\n    netsh int ip reset\r\n    netsh winsock reset catalog\r\n\r\nAfter that, reboot.\r\n\r\nIf these steps did not restore network connectivity, please report this.\r\n\r\n#### Linux\r\n\r\nPortmaster adds rules to the _iptables_ configuration in order to integrate into the network stack. These are automatically removed when Portmaster shuts down or is uninstalled. There might be rare cases, where this does not happen. Then you can remove them manually by running `sudo /opt/safing/portmaster recover-iptables` or restarting.\r\n\r\nIf there is another problem, you can try to restart the networking with the command `sudo systemctl restart networking` or the equivalent for your distribution.\r\n\r\nIf these steps did not restore network connectivity, please report this.\r\n\r\n---\r\n\r\nKeywords: lost internet, no network, timeout, after install, after shutdown, cannot access, not working, uninstall, remove, deleted, reboot, restart, broken, DNS, resolving, network issues\r\n\r\nCategories: Windows, Linux, Starting and Stopping",
+    "keywords": [
+      "lost internet",
+      "no network",
+      "timeout",
+      "after install",
+      "after shutdown",
+      "cannot access",
+      "not working",
+      "uninstall",
+      "remove",
+      "deleted",
+      "reboot",
+      "restart",
+      "broken",
+      "DNS",
+      "resolving",
+      "network issues"
+    ],
+    "categories": [
+      "Windows",
+      "Linux",
+      "Starting and Stopping"
+    ]
+  }
+]

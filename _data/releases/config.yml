@@ -1,0 +1,17 @@
+repos:
+  - id: portmaster
+    name: "Portmaster"
+    resource: "windows_amd64/core/portmaster-core.exe"
+  - id: spn
+    name: "SPN"
+  - id: portmaster-ui
+    tag-names:
+      portmaster: "UI"
+      notifier: "Notifier"
+      assets: "UI Assets"
+      app-electron: "UI App"
+    tag-resources:
+      portmaster: "all/ui/modules/portmaster.zip"
+      notifier: "windows_amd64/notifier/portmaster-notifier.exe"
+      assets: "all/ui/modules/assets.zip"
+      app-electron: "windows_amd64/app/portmaster-app.zip"

@@ -1,8 +1,10 @@
 items:
   - title: Portmaster
-    extra_path: "/architecture/overview"
+    custom_url: "/"
     children:
       - title: FAQ
+      - title: Changelog
+
       - title: Guides
         extra_path: "/contribute"
         children:
@@ -14,6 +16,7 @@ items:
             custom_url: /portmaster/settings
           - title: DNS Configuration
           - title: Network Rating
+
       - title: Install
         extra_path: "/windows"
         children:
@@ -26,7 +29,7 @@ items:
               - title: Software Compatibility
               - title: Mobile
               - title: Mac
-              
+
       - title: Architecture
         extra_path: "/overview"
         children:
@@ -41,14 +44,11 @@ items:
           - title: OS Integration
           - title: User Interface
           - title: Notifier
+          - title: Update System
           - title: Developer API
             # This _MUST_ be equal to the config value site.portmaster_api_url.
             custom_url: /portmaster/api
+
   - title: SPN
-    extra_path: "/alpha/status"
     children:
-      - title: Alpha
-        extra_path: "/status"
-        children:
-          - title: Status
       - title: Hosting a Community Node
