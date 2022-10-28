@@ -32,6 +32,12 @@ You can your browser search on this page or [search through all entries on GitHu
 <div class="text-right">
   <a href="{{ faq.html_url }}">View on GitHub</a>
 </div>
+
+<!-- TODO: Using hidden keywords for now, so entries can be found better. The UX is bit weird though. -->
+<div class="hidden-keywords">
+  <span>
+    Keywords: {{ faq.keywords | join: ", " }}
+  </span>
 </div>
 
 {{ faq.body | split: "---" | first }}

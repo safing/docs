@@ -1156,6 +1156,16 @@ table.tag-explainers a[href^="#"]:before {
     opacity: 1;
 }
 
+
+/* Special purpose classes */
+
+.hidden-keywords {
+    height: 0px;
+    width: 0px;
+    display: inline-block;
+    overflow: hidden;
+}
+
 /* No JS Switches */
 
 .hide-no-js {
