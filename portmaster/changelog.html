@@ -4,6 +4,17 @@ layout: base
 skip_toc: true
 ---
 
+<p>
+  Portmaster consists of many individual components that work together. The "primary" version number - the one you see everywhere - is the version of the Portmaster Core Service - simply called "Portmaster" below.
+</p>
+<p>
+  Usually, the other components are released together with a new version number of the Portmaster Core Service.
+  Sometimes, however, minor changes or bug fixes are released without a version update of the Portmaster Core Service in order to get them out faster.
+</p>
+<p>
+  The SPN component shares the version number for the "Portmaster component" and the "server software" that runs on the servers (nodes). The version designated as "Current Stable" or "Current Beta" is the version that is running on the servers. Often, the SPN component only has changes for the "Portmaster component" and is not released as a "server software".
+</p>
+
 <div class="text-gray-700">
   <p>
     Current Stable Version:
@@ -47,6 +58,9 @@ skip_toc: true
             <h3>
           {% else %}
             <h5>
+              <span class="text-gray-700">
+                Component:
+              </span>
           {% endif %}
             
             {% if repoConfig.name %}
