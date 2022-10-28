@@ -7,7 +7,8 @@ all: faq/all.json releases/all.json versions-data
 update: clean all
 
 faq/all.json: faq-data
-	jq -s 'add | map({title, url, body}) | map(.keywords = (.body | capture("Keywords: (?<c>[^\r\n]+)").c | split(", "))) | map(.categories = (.body | capture("Categories: (?<c>[^\r\n]+)").c | split(", "))) | sort_by(.title)' faq/src/* > $@
+	jq -s 'add | map({title, html_url, body}) | map(.keywords = (.body | capture("Keywords: (?<c>[^\r\n]+)").c | split(", "))) | map(.categories = (.body | capture("Categories: (?<c>[^\r\n]+)").c | split(", "))) | sort_by(.title)' faq/src/* > $@
+	if [ $(shell jq -s 'add | length' faq/src/*) != $(shell jq 'length' $@) ]; then echo "missing faq entries in $@"; exit 1; fi
 
 faq-data: faq/src/portmaster.json faq/src/portmaster-ui.json faq/src/spn.json faq/src/faqs.json
 
