@@ -35,6 +35,8 @@ The SPN Node will attempt to configure itself automatically, using:
 
 If the server itself does not have a (single) public IP address, you will need to manually configure the IP address using the settings listed below in Appendix I.
 
+You will also need to configure your firewall to allow incoming connections to ports 17 and 80. The protocols and ports can be configured with the `transports` setting described below.
+
 If everything is prepared, you can now install the SPN Node using our install script:
 
 ```
