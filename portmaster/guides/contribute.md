@@ -1,19 +1,55 @@
 ---
 title: How To Contribute
+toc_max_header: 3
 layout: base
 ---
 
 ###### Thanks For Participating!
 
-Your contributions will have the highest impact when aligned with Safing's current goals and focus. As a result, these are the current scopes where we are super thankful for your participation:
+It is amazing to see you love Portmaster so much that you are checking out this guide. As a small team, **your contribution means the world to us.** We could not do it without you!
 
-## Use the Portmaster
+## Spread the Word
+
+> With [version 1.0](https://safing.io/blog/2022/10/27/portmaster-reaches-1.0/), Portmaster should be recommended as one of the first steps anybody should take within their privacy journey.
+
+<div class="notification-warning">
+  <i class="fas fa-fire" style="width:4em;font-size:2em;color:white;text-align:center;padding-top:0.2em;padding-right:0.5em;"></i>
+  <p>
+    As new software - too few people know about Portmaster. <br/> This is where your impact will be biggest!
+  </p>
+</div>
+
+
+### Ask Your Favorite Creators For Reviews
+
+A big help to us would be if you could think of your favorite creators and shows: It could be YouTubers, Newsletters, guides, podcasts and so on. Do these creators know about Portmaster already? Would they enjoy sharing a review on their show? Give them a ping and ask them what they think about Portmaster. This could domino effect into hundreds of thousands of people getting better privacy!
+
+### Do You Have An Audience?
+
+If you are a creator or someone who gives recommendations, no matter what you think of Portmaster - we'd love for you to have a look and tell your audience what you think!
+
+Optionally, give us a ping after to brighten our day.
+
+### Tell Your Friends
+
+We have no idea how you communicate with your friends on- and offline; and we do not want to know. But what we do know is that if you enjoy Portmaster somebody else will likely too. You know best whom to tell and how to tell them. Be it a private signal message or a recommendation on your favorite online forum.
+
+To all of you. Thanks for sharing, it makes all the difference!
+
+## Financial Support
+
+The most direct way to [support Portmaster development]({{ site.pricing_url }}) is through an upgrade. The "Supporter" package gives you optional badges to show off your support, while ["Unlimited"]({{ site.spn_url }}) takes your privacy to the next level.
+
+## While Using Portmaster
 
 {% include github_notification.html %}
 
 ### Report Bugs, Suggest Features and Improvements
 
 You can easily report bugs as you stumble upon them. It is best if you quickly check other reports to prevent duplicates.
+
+All reports are welcome and help us better understand where the Portmaster experience still needs to improve. While we are not at a stage where we can tackle all incoming issues and edge cases yet, please do note **we read every incoming report**.
+
 If you have any ideas we'd love to hear how you would improve things.
 
 | | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) |
@@ -22,15 +58,15 @@ If you have any ideas we'd love to hear how you would improve things.
 | 💡 Suggestion: New Feature | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
 | 💡 Suggestion: Improvements | [suggest]({{ site.github_pm_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_ui_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_pm_packaging_url }}{{ site.github_suggest_feature_url }}) |
 
-### Report Linux Distribution Compatibility
+#### Report Linux Distribution Compatibility
 
 Help us understand Portmaster compatibility with different Linux distributions. Whether it works with your distro or not - your reports will help us massively to know where we stand. We will update the [Linux compatibility list](../install/linux#compatibility) accordingly.
 
-### Report VPN Compatibility
+#### Report VPN Compatibility
 
 Help us understand Portmaster compatibility with different VPN clients. Whether the VPN client works together with the Portmaster or not - your reports will help us massively to know where we currently stand. All reports are collected, updated and easily accessible in the [VPN Compatibility section](../install/status/vpn-compatibility).
 
-### Report Software Compatibility
+#### Report Software Compatibility
 
 Have certain applications stopped working with the Portmaster? Or games? Or a special development tool? Your reports will help us massively to know where we currently stand. All reports are collected and easily accessible in the [Software Compatibility section](../install/status/software-compatibility).
 
@@ -57,25 +93,15 @@ We truly do not want you to spend a lot of your precious time and effort into a 
 | ⚔️ Pull Request: Typos and Small Fixes | 📑 | 📑 |  |
 | ⚔️ Pull Request: Feature Implementation |  📑🗣  | 📑🗣 |  🗣 |
 
-## Spread the Word
-
-### Tell Your Friends
-
-We have no idea how you communicate with your friends; and we do not want to know. But what we do know is that we would not be here without so many of you telling your friends about Safing and Portmaster. Thanks for doing this - it makes all the difference.
-
-### Tell the Internet
-
-You can even spread the word wherever you hang out. Share Portmaster in a forum, recommend it being added to a cool list or website. Or just share a blog article you enjoyed on reddit, lobsters, etc. Thanks for sharing!
-
-## Assist with Documentation and the Website
+### Assist with Documentation and the Website
 
 {% include github_notification.html %}
 
-### Report Bugs, Inaccuracies and Typos
+#### Report Bugs, Inaccuracies and Typos
 
 We try our best to keep everything running and up-to-date - but you still might find bugs, inaccurate information or typos. In that case, it would be great if you could let us know. Or even create a pull request with a fix.
 
-### Suggest New Sections
+#### Suggest New Sections
 
 Our Documentation and Website are living projects. We are happy to hear your ideas on what to add or how to improve:
 
@@ -86,7 +112,7 @@ Our Documentation and Website are living projects. We are happy to hear your ide
 | 💡 Suggestion: New Page/Segment | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
 | 💡 Suggestion: Improvements | [suggest]({{ site.github_docs_url }}{{ site.github_suggest_feature_url }}) | [suggest]({{ site.github_web_url }}{{ site.github_suggest_feature_url }}) |
 
-### Contribute to the Web-Projects
+#### Contribute to the Web-Projects
 
 We welcome code contributions - still here are two things you must know before starting:
 
@@ -103,11 +129,11 @@ However, we truly do not want you to spend a lot of your precious time and effor
 | ⚔️ Pull Request: Typos and Small Fixes |  |  |
 | ⚔️ Pull Request: Feature Implementation | 🗣 | 🗣 |
 
-## Other, Out-Of-Scope
+### Other, Out-Of-Scope
 
 If you want to contribute beyond the listed guide it is best to check with us first. We as a team have limited resources and do not want your precious time and effort to go to waste. So please, _check with us first via GitHub or <support@safing.io>_.
 
-## Appendix: Cheat Sheet
+### Appendix: Cheat Sheet
 
 {% include github_notification.html %}
 

@@ -33,7 +33,8 @@ title: Safing Docs
               </h1>
             </div>
             {% unless page.skip_toc == true %}
-              {% include toc.html html=content ordered=true id="markdown-toc" h_max=5 %}
+              {% assign h_max_var = page.toc_max_header | default: 5 %}
+              {% include toc.html html=content ordered=true id="markdown-toc" h_max=h_max_var %}
             {% endunless %}
             {{ content }}
           </div>
