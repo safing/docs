@@ -6,7 +6,7 @@ layout: base
 
 ###### Thanks For Participating!
 
-It is amazing to see you love Portmaster so much that you are checking out this guide. And honestly, as a small team **your contribution means the world to us.** We could not do it without you!
+It is amazing to see you love Portmaster so much that you are checking out this guide. As a small team, **your contribution means the world to us.** We could not do it without you!
 
 ## Spread the Word
 
@@ -22,11 +22,11 @@ It is amazing to see you love Portmaster so much that you are checking out this 
 
 ### Ask Your Favorite Creators For Reviews
 
-Think of your favorite creators and shows. It could be YouTubers, Newsletters, blogs, guides, lists, radio shows, podcasts and so on. Do these creators know about Portmaster already? Would they enjoy sharing a review on their show? Give them a ping and ask them what they think about Portmaster. This could domino effect into hundreds of thousands of people getting better privacy!
+A big help to us would be if you could think of your favorite creators and shows: It could be YouTubers, Newsletters, guides, podcasts and so on. Do these creators know about Portmaster already? Would they enjoy sharing a review on their show? Give them a ping and ask them what they think about Portmaster. This could domino effect into hundreds of thousands of people getting better privacy!
 
 ### Do You Have An Audience?
 
-Are you a creator or do you give recommendations? No matter what you think of Portmaster - we'd love for you to have a look and tell your audience what you think!
+If you are a creator or someone who gives recommendations, no matter what you think of Portmaster - we'd love for you to have a look and tell your audience what you think!
 
 Optionally, give us a ping after to brighten our day.
 
