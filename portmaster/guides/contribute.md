@@ -42,13 +42,14 @@ The most direct way to [support Portmaster development]({{ site.pricing_url }}) 
 
 ## While Using Portmaster
 
-> After [version 1.0](https://safing.io/blog/2022/10/27/portmaster-reaches-1.0/), reporting bugs is no longer as important as it was during the "Alpha" stage. It is still appreciated, but we currently have few resources to fix all edge case bugs out there.
-
 {% include github_notification.html %}
 
 ### Report Bugs, Suggest Features and Improvements
 
 You can easily report bugs as you stumble upon them. It is best if you quickly check other reports to prevent duplicates.
+
+All reports are welcome and help us better understand where the Portmaster experience still needs to improve. While we are not at a stage where we can tackle all incoming issues and edge cases yet, please do note **we read every incoming report**.
+
 If you have any ideas we'd love to hear how you would improve things.
 
 | | Portmaster []({{ site.github_pm_url }}) | User Interface []({{ site.github_pm_ui_url }}) | Packaging []({{ site.github_pm_packaging_url }}) |
