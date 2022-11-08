@@ -206,26 +206,6 @@ sudo wget https://raw.githubusercontent.com/safing/portmaster-packaging/master/l
 Right after you download both files the Portmaster should appear in your system search with an icon.
 If you still cannot see the Portmaster icon, please check whether the `portmaster-start` path in the desktop entry matches the path of your installation.
 
-### Arch Linux
-
-For Arch users we provide a PKGBUILD file in the [portmaster-packaging](https://github.com/safing/portmaster-packaging) repository.
-We are currently reworking our installers and plan to submit to AUR as soon as we finished the rework.
-
-For now, to install the Portmaster using the PKGBUILD, follow these steps:
-
-```sh
-# Clone the repository
-git clone https://github.com/safing/portmaster-packaging
-
-# Enter the repo and build/install the package (it's under linux/)
-cd portmaster-packaging/linux
-makepkg -is
-
-# Start the Portmaster and enable autostart
-sudo systemctl daemon-reload
-sudo systemctl enable --now portmaster
-```
-
 ### Troubleshooting
 
 #### Install Path Change
