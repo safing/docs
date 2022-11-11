@@ -1,5 +1,45 @@
 [
   {
+    "name": "v1.0.2",
+    "tag_name": "v1.0.2",
+    "body": "\r\n\r\n- Improve rule help\r\n- Fix building\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.2",
+    "created_at": "2022-11-11T14:05:33Z",
+    "date": "2022-11-11",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v1.0.1",
+    "tag_name": "v1.0.1",
+    "body": "\r\n\r\n- Improve SPN routing algorithm setting description\r\n- More efficient verdict update structure\r\n- fix sending update verdict info\r\n- fix stopping of the kext service\r\n- better kext service handling\r\n- Removed legacy code and refactoring\r\n- Add safe fallbacks for untrusted home nodes\r\n- fix slow system calls windows kext\r\n- Version and update verdict kernel functions\r\n- Linux reset verdict of individual connections\r\n- remove kext glue dll from dependencies\r\n- Refactoring and more comments\r\n- Update itsfoss link to newest feature\r\n- remove the need for the glue library (.dll)\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.1",
+    "created_at": "2022-11-10T19:03:07Z",
+    "date": "2022-11-10",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.4.3",
+    "tag_name": "portmaster-v0.4.3",
+    "body": "\r\n\r\n- Various improvements for smaller screen sizes. Fix network rating\r\n- Add default windows icon to ignore list\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.3",
+    "created_at": "2022-11-10T16:13:56Z",
+    "date": "2022-11-10",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v0.5.5 (lib only)",
+    "tag_name": "v0.5.5",
+    "body": "\r\n\r\n- Add bigger timeout to golangci-lint CI test\r\n- Fix navigator test\r\n- Improve max delay calculation and documentation\r\n- Configure microtask threshold\r\n- Require a trusted home hub when global routing profile requires less than two hops\r\n- Increase max hops of routing profiles to give more flexibility\r\n- Expose getting routing profile\r\n- Expose pin state helpers\r\n- Fix and improve updating intel data\r\n- Add API endpoint for importing intel data for testing\r\n- Remove already logged in check\r\n- Adapt according to Daniel's input\r\n- Update README.md",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.5.5",
+    "created_at": "2022-11-10T15:10:36Z",
+    "date": "2022-11-10",
+    "repo": "spn"
+  },
+  {
     "name": "portmaster-v0.4.2",
     "tag_name": "portmaster-v0.4.2",
     "body": "\r\n\r\n- Hide SPN tunnel info for LAN and localhost connections\r\n- Fix settings not being saved and the SPN feature carousel leaking CSS",
@@ -740,16 +780,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.7.20",
-    "tag_name": "v0.7.20",
-    "body": "\r\n\r\n- Derive release channel by index presence, remove unused indexes from core",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.7.20",
-    "created_at": "2022-01-27T08:54:21Z",
-    "date": "2022-01-27",
-    "repo": "portmaster"
-  },
-  {
     "name": "app-electron-v0.2.3",
     "tag_name": "app-electron-v0.2.3",
     "body": "\r\n\r\n- Upgrade electron to v16\r\n",
@@ -788,16 +818,6 @@
     "created_at": "2022-01-26T14:49:55Z",
     "date": "2022-01-26",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.7.19",
-    "tag_name": "v0.7.19",
-    "body": "\r\n\r\n- Update SPN\r\n- Revert dependency changes for clean merge\r\n- Fix network detection with multiple interfaces on same net\r\n- Fix geolocation lookup errors during device location estimation\r\n- Weigh coordinate distance stronger\r\n- Fix matching unknown AS Orgs\r\n- Test for /proc/self/ns/user instead of sysctl\r\n- Fix version number\r\n- Use new migration system for network-rating migration\r\n- Move network rating config key to stable\r\n- Add support to enable/disable the network rating system",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.7.19",
-    "created_at": "2022-01-26T14:43:20Z",
-    "date": "2022-01-26",
-    "repo": "portmaster"
   },
   {
     "name": "v0.3.18",
@@ -870,16 +890,6 @@
     "repo": "spn"
   },
   {
-    "name": "portmaster-v0.1.24",
-    "tag_name": "portmaster-v0.1.24",
-    "body": "\r\n\r\n- Remove SPN plan override\r\n- Add new no-icon icon",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.1.24",
-    "created_at": "2021-12-23T14:10:33Z",
-    "date": "2021-12-23",
-    "repo": "portmaster-ui"
-  },
-  {
     "name": "v0.3.11",
     "tag_name": "v0.3.11",
     "body": "\r\n\r\n- Add basic metrics\r\n- Add option to specify main spn map name and update simple testing env\r\n- Log new values for latency, capacity and load\r\n- Adjust hub costs to updated cost calculation\r\n- Update map graph api with new data\r\n- Improve cost calculation with new data\r\n- Maintain load, latency and capacity and publish via status\r\n- Add effective bandwidth test based on the capacity op\r\n- Tweak flow queue for higher bandwidth\r\n- Fix capacity op and improve its test\r\n- Simplify tests with new exposed TestTerminal\r\n- Add Flush() to terminal interfaces\r\n- Add capacity op\r\n- Add latency op\r\n- Add latency and capacity fields/functions to crane\r\n- Expose and improve test terminal\r\n- Improve terminal error helpers and fix small issues",
@@ -887,16 +897,6 @@
     "html_url": "https://github.com/safing/spn/releases/tag/v0.3.11",
     "created_at": "2021-12-22T10:36:29Z",
     "date": "2021-12-22",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.3.10",
-    "tag_name": "v0.3.10",
-    "body": "\r\n\r\n- Improve inactive subscription notification",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.10",
-    "created_at": "2021-12-06T11:42:33Z",
-    "date": "2021-12-06",
     "repo": "spn"
   }
 ]

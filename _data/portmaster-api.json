@@ -294,6 +294,14 @@
     "Description": "Returns a list of all registered endpoints and their metadata."
   },
   {
+    "Path": "modules/status",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get Module Status",
+    "Description": "Returns status information of all modules."
+  },
+  {
     "Path": "modules/{moduleName:.+}/trigger/{eventName:.+}",
     "MimeType": "text/plain",
     "Write": 4,
@@ -422,6 +430,14 @@
         "Description": "Specify the format you want to get the map in. Available values: `dot`, `html`. Please note that the html format is only available in development mode."
       }
     ]
+  },
+  {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/intel/update",
+    "MimeType": "text/plain",
+    "Write": 4,
+    "WriteMethod": "POST",
+    "Name": "Update map intelligence.",
+    "Description": "Updates the intel data of the map."
   },
   {
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/measurements",
