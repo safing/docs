@@ -1,9 +1,49 @@
 [
   {
+    "name": "v1.0.3",
+    "tag_name": "v1.0.3",
+    "body": "\r\n\r\n- Bump core version\r\n- Update SPN\r\n- Improve DNS validation regex doc\r\n- Fix kext service log wording\r\n- Delete old kext service on startup\r\n- Merge branch 'develop' into fix/doh-failing\r\n- Better wording for failed DoH request.\r\n- revert commit pushed by mistake\r\n- Fix DoH base64 encoding\r\n- Fix DoH base64 encoding\r\n- Added shutdown request for kext\r\n- Allow single character tld (for internal usage)\r\n- Add support for snap",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.3",
+    "created_at": "2022-12-07T15:13:59Z",
+    "date": "2022-12-07",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.4.4",
+    "tag_name": "portmaster-v0.4.4",
+    "body": "\r\n\r\n- Bump portmaster module version\r\n- Fix typos and update URLs\r\n- Update SPN status widget for new account type\r\n- Add new account messages to account pop up",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.4",
+    "created_at": "2022-12-07T15:09:03Z",
+    "date": "2022-12-07",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v0.5.7 (lib only)",
+    "tag_name": "v0.5.7",
+    "body": "\r\n\r\n- Only enable SPN after login if it can be used.\r\n- Fix and improve account messages\r\n- Improve SPN client bootstrap error messages\r\n- Notify user when package is about to end\r\n- Add account view for consistent messages",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.5.7",
+    "created_at": "2022-12-07T15:07:24Z",
+    "date": "2022-12-07",
+    "repo": "spn"
+  },
+  {
+    "name": "v0.5.6 (lib only)",
+    "tag_name": "v0.5.6",
+    "body": "\r\n\r\n- Add support for feature IDs to account",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.5.6",
+    "created_at": "2022-12-05T14:50:22Z",
+    "date": "2022-12-05",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.2",
     "tag_name": "v1.0.2",
     "body": "\r\n\r\n- Improve rule help\r\n- Fix building\r\n",
-    "prerelease": true,
+    "prerelease": false,
     "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.2",
     "created_at": "2022-11-11T14:05:33Z",
     "date": "2022-11-11",
@@ -38,16 +78,6 @@
     "created_at": "2022-11-10T15:10:36Z",
     "date": "2022-11-10",
     "repo": "spn"
-  },
-  {
-    "name": "portmaster-v0.4.2",
-    "tag_name": "portmaster-v0.4.2",
-    "body": "\r\n\r\n- Hide SPN tunnel info for LAN and localhost connections\r\n- Fix settings not being saved and the SPN feature carousel leaking CSS",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.2",
-    "created_at": "2022-10-19T09:30:15Z",
-    "date": "2022-10-19",
-    "repo": "portmaster-ui"
   },
   {
     "name": "notifier-v0.3.5",
@@ -95,16 +125,6 @@
     "body": "",
     "prerelease": true,
     "html_url": "https://github.com/safing/portmaster-ui/releases/tag/assets-v0.3.1",
-    "created_at": "2022-10-13T13:33:45Z",
-    "date": "2022-10-13",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "notifier-v0.3.4",
-    "tag_name": "notifier-v0.3.4",
-    "body": "\r\n\r\n- Remove security level code\r\n- Added ActionInvoked check on linux notifications\r\n- Fix notification event handling\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.3.4",
     "created_at": "2022-10-13T13:33:45Z",
     "date": "2022-10-13",
     "repo": "portmaster-ui"
@@ -760,16 +780,6 @@
     "repo": "portmaster"
   },
   {
-    "name": "v0.7.21",
-    "tag_name": "v0.7.21",
-    "body": "\r\n\r\n- Update SPN to v0.3.19",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.7.21",
-    "created_at": "2022-01-31T10:09:06Z",
-    "date": "2022-01-31",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.3.19",
     "tag_name": "v0.3.19",
     "body": "\r\n\r\n- Increase queue sizes",
@@ -880,23 +890,13 @@
     "repo": "spn"
   },
   {
-    "name": "v0.3.12",
-    "tag_name": "v0.3.12",
-    "body": "\r\n\r\n- Cut off far away Hubs when searching for nearest\r\n- Improve route cost calculation",
+    "name": "portmaster-v0.1.24",
+    "tag_name": "portmaster-v0.1.24",
+    "body": "\r\n\r\n- Remove SPN plan override\r\n- Add new no-icon icon",
     "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.12",
-    "created_at": "2021-12-23T15:54:51Z",
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.1.24",
+    "created_at": "2021-12-23T14:10:33Z",
     "date": "2021-12-23",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.3.11",
-    "tag_name": "v0.3.11",
-    "body": "\r\n\r\n- Add basic metrics\r\n- Add option to specify main spn map name and update simple testing env\r\n- Log new values for latency, capacity and load\r\n- Adjust hub costs to updated cost calculation\r\n- Update map graph api with new data\r\n- Improve cost calculation with new data\r\n- Maintain load, latency and capacity and publish via status\r\n- Add effective bandwidth test based on the capacity op\r\n- Tweak flow queue for higher bandwidth\r\n- Fix capacity op and improve its test\r\n- Simplify tests with new exposed TestTerminal\r\n- Add Flush() to terminal interfaces\r\n- Add capacity op\r\n- Add latency op\r\n- Add latency and capacity fields/functions to crane\r\n- Expose and improve test terminal\r\n- Improve terminal error helpers and fix small issues",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.11",
-    "created_at": "2021-12-22T10:36:29Z",
-    "date": "2021-12-22",
-    "repo": "spn"
+    "repo": "portmaster-ui"
   }
 ]
