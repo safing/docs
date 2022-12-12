@@ -1,6 +1,6 @@
 {
  "Channel": "stable",
- "Published": "2022-12-08T08:02:43Z",
+ "Published": "2022-12-08T09:02:43Z",
  "Releases": {
   "all/intel/geoip/geoipv4.mmdb.gz": "20220804.11.58",
   "all/intel/geoip/geoipv6.mmdb.gz": "20220804.12.24",
@@ -38,8 +38,8 @@
   "windows_amd64/hub/spn-hub.exe": "0.5.1",
   "windows_amd64/jess/jess.exe": "0.3.1",
   "windows_amd64/kext/portmaster-kext.dll": "1.0.14",
-  "windows_amd64/kext/portmaster-kext.pdb": "1.0.16",
-  "windows_amd64/kext/portmaster-kext.sys": "1.0.16",
+  "windows_amd64/kext/portmaster-kext.pdb": "1.0.14",
+  "windows_amd64/kext/portmaster-kext.sys": "1.0.14",
   "windows_amd64/notifier/portmaster-notifier.exe": "0.3.5",
   "windows_amd64/notifier/portmaster-snoretoast.exe": "0.6.0",
   "windows_amd64/notifier/portmaster-wintoast.dll": "0.1.4",

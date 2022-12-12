@@ -1,9 +1,39 @@
 [
   {
+    "name": "portmaster-v0.4.5",
+    "tag_name": "portmaster-v0.4.5",
+    "body": "\r\n\r\n- Fix account showing switches",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.5",
+    "created_at": "2022-12-12T14:14:41Z",
+    "date": "2022-12-12",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.0.4",
+    "tag_name": "v1.0.4",
+    "body": "\r\n\r\n- Improve rule doc\r\n- Add update versions debug data",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.4",
+    "created_at": "2022-12-12T14:12:36Z",
+    "date": "2022-12-12",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.5.8 (lib only)",
+    "tag_name": "v0.5.8",
+    "body": "\r\n\r\n- Fix account updating",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.5.8",
+    "created_at": "2022-12-12T14:01:09Z",
+    "date": "2022-12-12",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.3",
     "tag_name": "v1.0.3",
     "body": "\r\n\r\n- Bump core version\r\n- Update SPN\r\n- Improve DNS validation regex doc\r\n- Fix kext service log wording\r\n- Delete old kext service on startup\r\n- Merge branch 'develop' into fix/doh-failing\r\n- Better wording for failed DoH request.\r\n- revert commit pushed by mistake\r\n- Fix DoH base64 encoding\r\n- Fix DoH base64 encoding\r\n- Added shutdown request for kext\r\n- Allow single character tld (for internal usage)\r\n- Add support for snap",
-    "prerelease": true,
+    "prerelease": false,
     "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.3",
     "created_at": "2022-12-07T15:13:59Z",
     "date": "2022-12-07",
@@ -80,6 +110,16 @@
     "repo": "spn"
   },
   {
+    "name": "portmaster-v0.4.2",
+    "tag_name": "portmaster-v0.4.2",
+    "body": "\r\n\r\n- Hide SPN tunnel info for LAN and localhost connections\r\n- Fix settings not being saved and the SPN feature carousel leaking CSS",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.2",
+    "created_at": "2022-10-19T09:30:15Z",
+    "date": "2022-10-19",
+    "repo": "portmaster-ui"
+  },
+  {
     "name": "notifier-v0.3.5",
     "tag_name": "notifier-v0.3.5",
     "body": "\r\n\r\n- initialize library on startup, lib api update\r\n",
@@ -125,6 +165,16 @@
     "body": "",
     "prerelease": true,
     "html_url": "https://github.com/safing/portmaster-ui/releases/tag/assets-v0.3.1",
+    "created_at": "2022-10-13T13:33:45Z",
+    "date": "2022-10-13",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "notifier-v0.3.4",
+    "tag_name": "notifier-v0.3.4",
+    "body": "\r\n\r\n- Remove security level code\r\n- Added ActionInvoked check on linux notifications\r\n- Fix notification event handling\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.3.4",
     "created_at": "2022-10-13T13:33:45Z",
     "date": "2022-10-13",
     "repo": "portmaster-ui"
@@ -770,16 +820,6 @@
     "repo": "portmaster-ui"
   },
   {
-    "name": "v0.8.0",
-    "tag_name": "v0.8.0",
-    "body": "\r\n\r\n- Add notification if IPv6 network integration fails\r\n- Fix nameserver takeover loop\r\n- Fix nameserver listener restarts\r\n- Improve empty list matching\r\n- Fix incoming rules for system resolver\r\n- Add profile descriptions for all internal profiles and apply them with the metadata\r\n- Remove deprecated ApproxLastUsed field of profile\r\n- Use period time format for all workflow labels\r\n- Remove broken network key prefix check\r\n- Don't allow wildcard suffix domain rules that look like an address range rule\r\n- Fix fast-tracking non-echo ICMP/v6 messages\r\n- Fix tests and linters\r\n- Update test script, config and workflow",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.0",
-    "created_at": "2022-02-14T13:25:22Z",
-    "date": "2022-02-14",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.3.19",
     "tag_name": "v0.3.19",
     "body": "\r\n\r\n- Increase queue sizes",
@@ -788,26 +828,6 @@
     "created_at": "2022-01-31T10:06:30Z",
     "date": "2022-01-31",
     "repo": "spn"
-  },
-  {
-    "name": "app-electron-v0.2.3",
-    "tag_name": "app-electron-v0.2.3",
-    "body": "\r\n\r\n- Upgrade electron to v16\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/app-electron-v0.2.3",
-    "created_at": "2022-01-26T14:49:55Z",
-    "date": "2022-01-26",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "assets-v0.2.5",
-    "tag_name": "assets-v0.2.5",
-    "body": "\r\n\r\n- Add libraries for graph rendering\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/assets-v0.2.5",
-    "created_at": "2022-01-26T14:49:55Z",
-    "date": "2022-01-26",
-    "repo": "portmaster-ui"
   },
   {
     "name": "notifier-v0.2.4",
@@ -878,25 +898,5 @@
     "created_at": "2022-01-19T10:25:59Z",
     "date": "2022-01-19",
     "repo": "spn"
-  },
-  {
-    "name": "v0.3.13",
-    "tag_name": "v0.3.13",
-    "body": "\r\n\r\n- Disable min measurements for smoother migration to new hub version\r\n- Add yaml parser dependency\r\n- Add sysctl for server configuration\r\n- Improve simulation test setup\r\n- Enable and switch to kcp by default\r\n- Improve stats with new measurements\r\n- Delete obsolete Hubs from database\r\n- Improve latency and capacity ops\r\n- Improve network optimization with measurements\r\n- Improve Terminal errors\r\n- Add measurements framework\r\n- Improve maintain status function signature\r\n- Add InfoOverrides to the Intel data and switch to new source\r\n- Add Offline state to Pin\r\n- Update location proximity to use a float\r\n- Fix and improve initial metrics\r\n- Send offline status message when shutting down",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.13",
-    "created_at": "2022-01-18T14:55:33Z",
-    "date": "2022-01-18",
-    "repo": "spn"
-  },
-  {
-    "name": "portmaster-v0.1.24",
-    "tag_name": "portmaster-v0.1.24",
-    "body": "\r\n\r\n- Remove SPN plan override\r\n- Add new no-icon icon",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.1.24",
-    "created_at": "2021-12-23T14:10:33Z",
-    "date": "2021-12-23",
-    "repo": "portmaster-ui"
   }
 ]
