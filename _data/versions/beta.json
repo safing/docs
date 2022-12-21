@@ -1,13 +1,17 @@
 {
  "Channel": "beta",
- "Published": "2022-12-12T14:30:58Z",
+ "Published": "2022-12-21T10:40:17Z",
  "Releases": {
-  "all/ui/modules/portmaster.zip": "0.4.5",
-  "darwin_amd64/core/portmaster-core": "1.0.4",
-  "darwin_arm64/core/portmaster-core": "1.0.4",
-  "linux_amd64/core/portmaster-core": "1.0.4",
-  "linux_arm64/core/portmaster-core": "1.0.4",
-  "windows_amd64/core/portmaster-core.exe": "1.0.4",
-  "windows_arm64/core/portmaster-core.exe": "1.0.4"
+  "darwin_amd64/core/portmaster-core": "1.0.5",
+  "darwin_amd64/hub/spn-hub": "0.6.0",
+  "darwin_arm64/core/portmaster-core": "1.0.5",
+  "linux_amd64/core/portmaster-core": "1.0.5",
+  "linux_amd64/hub/spn-hub": "0.6.0",
+  "linux_arm64/core/portmaster-core": "1.0.5",
+  "windows_amd64/core/portmaster-core.exe": "1.0.5",
+  "windows_amd64/hub/spn-hub.exe": "0.6.0",
+  "windows_amd64/kext/portmaster-kext.pdb": "1.0.17",
+  "windows_amd64/kext/portmaster-kext.sys": "1.0.17",
+  "windows_arm64/core/portmaster-core.exe": "1.0.5"
  }
 }

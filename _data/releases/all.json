@@ -1,5 +1,25 @@
 [
   {
+    "name": "v1.0.5",
+    "tag_name": "v1.0.5",
+    "body": "\r\n\r\n- Migrate puddle lib to new version\r\n- Update deps, including SPN",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.5",
+    "created_at": "2022-12-21T10:34:18Z",
+    "date": "2022-12-21",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.0",
+    "tag_name": "v0.6.0",
+    "body": "\r\n\r\n- Improve usage of context and timeouts\r\n- Enable ui module for SPN Hub.\r\n- Improve naming of Unit methods\r\n- Implement review suggestions\r\n- Fix rate limiting\r\n- Improve unit scheduler\r\n- Fix new operation init\r\n- Improve terminal error handling, stick to idiomatic Go\r\n- Add different scheduling config for clients\r\n- Fix and improve scheduling config\r\n- Add unit scheduling metrics\r\n- Add epochs to unit slot scheduler\r\n- Give clearance to all units when stopping\r\n- Add unit leak debugger and fix unit leaks\r\n- Update connect request tags\r\n- Remove submit control and improve terminal\r\n- Apply unit scheduling to remaining operations\r\n- Fix crane destruction and expansion terminal init\r\n- Apply new unit scheduling and terminal interfaces to docks\r\n- Expose unit scheduler state snapshot\r\n- Improve unit scheduler\r\n- Improve terminal and terminal bases, including unit handling\r\n- Improve operation and operation bases\r\n- Simplify terminal interfacing and sending upstream\r\n- Apply unit scheduling to terminal and operation bases\r\n- Move scheduler to struct and improve documentation\r\n- Add unit: a packet focused scheduling approach",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.0",
+    "created_at": "2022-12-20T16:13:53Z",
+    "date": "2022-12-20",
+    "repo": "spn"
+  },
+  {
     "name": "portmaster-v0.4.5",
     "tag_name": "portmaster-v0.4.5",
     "body": "\r\n\r\n- Fix account showing switches",
@@ -13,7 +33,7 @@
     "name": "v1.0.4",
     "tag_name": "v1.0.4",
     "body": "\r\n\r\n- Improve rule doc\r\n- Add update versions debug data",
-    "prerelease": true,
+    "prerelease": false,
     "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.4",
     "created_at": "2022-12-12T14:12:36Z",
     "date": "2022-12-12",
@@ -790,16 +810,6 @@
     "repo": "portmaster"
   },
   {
-    "name": "v0.8.1",
-    "tag_name": "v0.8.1",
-    "body": "\r\n\r\n- Bump versions\r\n- Update deps\r\n- Fix go build flags",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.1",
-    "created_at": "2022-02-14T15:32:39Z",
-    "date": "2022-02-14",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.1",
     "tag_name": "v0.4.1",
     "body": "\r\n\r\n- Update deps",
@@ -887,16 +897,6 @@
     "html_url": "https://github.com/safing/spn/releases/tag/v0.3.15",
     "created_at": "2022-01-20T08:52:04Z",
     "date": "2022-01-20",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.3.14",
-    "tag_name": "v0.3.14",
-    "body": "\r\n\r\n- Decrease allowed Hub name lengths\r\n- Fix application of intel overrides\r\n- Add crane traffic stats\r\n- Permit user-level localhost API access",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.14",
-    "created_at": "2022-01-19T10:25:59Z",
-    "date": "2022-01-19",
     "repo": "spn"
   }
 ]

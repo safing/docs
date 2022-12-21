@@ -209,7 +209,7 @@
   {
     "title": "FAQ: How can I help testing Portmaster?",
     "html_url": "https://github.com/safing/portmaster/issues/717",
-    "body": "If you want to help testing Portmaster and want to give earlier feedback on new features, you can switch to the [\"Beta\" Release Channel](https://docs.safing.io/portmaster/settings#core/releaseChannel).\r\n\r\n__Please be sure to always report problems that arise, so we can quickly find and fix them!__\r\n__Also, general feedback on changes are always very welcome!__\r\n\r\nIf you experience problems, you can always switch back to \"Stable\".\r\n\r\n---\r\n\r\nKeywords: testing, test, new\r\n\r\nCategories: Guides",
+    "body": "If you want to help testing Portmaster and want to give earlier feedback on new features, you can switch to the [\"Beta\" Release Channel](https://docs.safing.io/portmaster/settings#core/releaseChannel):\r\n\r\n- Open Portmaster\r\n- Go to the Global Settings\r\n- Search for `release` in the search bar on top\r\n- Set the \"Release Channel\" setting to \"Beta\" in the dropdown menu\r\n- Wait for the \"Update Check Successful\" notification\r\n- Click \"Restart\" on the warning on the setting or use the power menu in the bottom left\r\n- After Portmaster restarted, click the tools menu to check the current version and release channel\r\n\r\n__Please be sure to always report problems that arise, so we can quickly find and fix them!__\r\n__Also, general feedback on changes are always very welcome!__\r\n\r\nIf you experience problems, you can always switch back to \"Stable\".\r\n\r\n---\r\n\r\nKeywords: testing, test, new\r\n\r\nCategories: Guides",
     "keywords": [
       "testing",
       "test",
