@@ -1,5 +1,25 @@
 [
   {
+    "name": "v1.0.6",
+    "tag_name": "v1.0.6",
+    "body": "\r\n\r\n- Disable prompting when re-evaluating connections\r\n- Send DNS queries to special domain only to local resolvers\r\n- Add resolvers in device's network to LAN resolvers\r\n- Force resolvers to reconnect after connecting to SPN\r\n- Android support for getting network addresses and interfaces (#1056)",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.6",
+    "created_at": "2023-01-30T13:53:45Z",
+    "date": "2023-01-30",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.1",
+    "tag_name": "v0.6.1",
+    "body": "\r\n\r\n- Update account subscription data\r\n- Fix advisory rule application\r\n- Use public docker image for simple testnet\r\n- Expose SPN connected event\r\n- Improve invalid device HTTP status\r\n- Add patrol module to check network connectivity on hubs and react and client\r\n- Add cli flag for unit scheduler debugging\r\n- Fix proper shutdown of connect ops\r\n- Fix 32 bit support and add desktop client config. (#148)",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.1",
+    "created_at": "2023-01-30T13:41:57Z",
+    "date": "2023-01-30",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.5",
     "tag_name": "v1.0.5",
     "body": "\r\n\r\n- Migrate puddle lib to new version\r\n- Update deps, including SPN",
@@ -800,16 +820,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.8.2",
-    "tag_name": "v0.8.2",
-    "body": "\r\n\r\n- Add setting category to network rating setting\r\n- Improve handling of layered profile on profile update\r\n- Fix profile config parsing\r\n- Fix deleting profiles\r\n- Remove deprecated MarkUsed functions",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.2",
-    "created_at": "2022-02-16T10:18:39Z",
-    "date": "2022-02-16",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.1",
     "tag_name": "v0.4.1",
     "body": "\r\n\r\n- Update deps",
@@ -887,16 +897,6 @@
     "html_url": "https://github.com/safing/spn/releases/tag/v0.3.16",
     "created_at": "2022-01-21T15:15:17Z",
     "date": "2022-01-21",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.3.15",
-    "tag_name": "v0.3.15",
-    "body": "\r\n\r\n- Improve and stabilize sorting with geo proximity and Hub ID\r\n- Add geoip proximity to measurements\r\n- Fix intel data loading after SPN module restart\r\n- Enable waiting for measurements\r\n- Improve measurement intervals\r\n- Switch default back to TCP",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.15",
-    "created_at": "2022-01-20T08:52:04Z",
-    "date": "2022-01-20",
     "repo": "spn"
   }
 ]
