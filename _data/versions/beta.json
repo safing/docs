@@ -1,19 +1,5 @@
 {
  "Channel": "beta",
- "Published": "2023-01-30T14:29:04Z",
- "Releases": {
-  "all/intel/geoip/geoipv4.mmdb.gz": "20230102.9.32",
-  "all/intel/geoip/geoipv6.mmdb.gz": "20230102.13.14",
-  "darwin_amd64/core/portmaster-core": "1.0.6",
-  "darwin_amd64/hub/spn-hub": "0.6.1",
-  "darwin_arm64/core/portmaster-core": "1.0.6",
-  "linux_amd64/core/portmaster-core": "1.0.6",
-  "linux_amd64/hub/spn-hub": "0.6.1",
-  "linux_arm64/core/portmaster-core": "1.0.6",
-  "windows_amd64/core/portmaster-core.exe": "1.0.6",
-  "windows_amd64/hub/spn-hub.exe": "0.6.1",
-  "windows_amd64/kext/portmaster-kext.pdb": "1.0.17",
-  "windows_amd64/kext/portmaster-kext.sys": "1.0.17",
-  "windows_arm64/core/portmaster-core.exe": "1.0.6"
- }
+ "Published": "2023-02-23T08:39:34Z",
+ "Releases": {}
 }
