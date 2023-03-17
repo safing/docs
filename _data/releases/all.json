@@ -1,9 +1,49 @@
 [
   {
+    "name": "v1.0.9",
+    "tag_name": "v1.0.9",
+    "body": "\r\n\r\n- Update SPN\r\n- Warn when query fails\r\n- Improve network proximity thresholds\r\n- Fix traceroute location checking",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.9",
+    "created_at": "2023-03-17T08:27:43Z",
+    "date": "2023-03-17",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.4 (lib only)",
+    "tag_name": "v0.6.4",
+    "body": "\r\n\r\n- Fix findnearest test\r\n- Fix connect op in/out data histogram\r\n- Add connect op TTCR and TTFB metrics\r\n- Improve home hub errors and home hub routing handling\r\n- Lower destination cost for better balance in routing\r\n- Randomize top nearby pins and routes for load balancing\r\n- Switch to cost-based calculation for finding nearest pins, include more cost data\r\n- Use new ping op for pinging Home Hub\r\n- Fix hub comparison for superseding",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.4",
+    "created_at": "2023-03-17T08:10:20Z",
+    "date": "2023-03-17",
+    "repo": "spn"
+  },
+  {
+    "name": "v1.0.8",
+    "tag_name": "v1.0.8",
+    "body": "\r\n\r\n- Update SPN + deps\r\n- Move log cleaner from core to base module\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.8",
+    "created_at": "2023-03-13T15:40:01Z",
+    "date": "2023-03-13",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.3",
+    "tag_name": "v0.6.3",
+    "body": "\r\n\r\n- Initialize and reset slot pace stats correctly\r\n- Improve unit scheduler debugging\r\n- Test IPv4 and IPv6 connectivity separately\r\n- Simplify and stabilize unit scheduling\r\n- Increase the timeout for initial auth and ping checks\r\n- Merge multiple bootstrap transports from same hub\r\n- Build hub for arm64\r\n- Avoid only Hub, not full country if connection fails\r\n- Add timeout to DFQ flush\r\n- Measure less often\r\n- Fix handling of 1 byte crane messages",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.3",
+    "created_at": "2023-03-13T15:30:45Z",
+    "date": "2023-03-13",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.7",
     "tag_name": "v1.0.7",
     "body": "Changelog\r\n\r\n- Bump core version\r\n- Update deps (including SPN)\r\n- Add technical introduction to Portmaster README",
-    "prerelease": true,
+    "prerelease": false,
     "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.7",
     "created_at": "2023-02-21T15:10:03Z",
     "date": "2023-02-21",
@@ -780,16 +820,6 @@
     "repo": "portmaster-ui"
   },
   {
-    "name": "v0.8.5",
-    "tag_name": "v0.8.5",
-    "body": "\r\n\r\n- Improve dns / exit policy and routing alg interaction\r\n- Update SPN settings order\r\n- Integrate SPN route manipulation settings\r\n- Add per app SPN settings\r\n- Add endpoint list validation regex and function\r\n- Add config option annotation key for verdict names\r\n- Simplify secure DNS bypass message creation\r\n- Update portbase to v0.14.0\r\n- Improve secure DNS bypass notification\r\n- Enable build for arm64 platform\r\n- Add validation for DNS server config\r\n- Stop useless updating of app compat warning\r\n- Fix verdicts of DNS request connections\r\n- Only hide successful queries of the system resolver\r\n- Fix bypass detection to correctly attribute encrypted DNS bypassing",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.5",
-    "created_at": "2022-03-02T09:10:22Z",
-    "date": "2022-03-02",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.3",
     "tag_name": "v0.4.3",
     "body": "Changelog\r\n\r\n- Abort crane msg submitting when crane is shutting down\r\n- Add function to check if any hub policies are set\r\n- Improve and add home / dns exit hub policy parsing\r\n- Fix and improve session path checking\r\n- Update SPN settings order\r\n- Check existing hub route before using in new route\r\n- Integrate SPN route manipulation settings\r\n- Add home and DNS exit node rules",
@@ -798,16 +828,6 @@
     "created_at": "2022-03-02T08:58:32Z",
     "date": "2022-03-02",
     "repo": "spn"
-  },
-  {
-    "name": "v0.8.4",
-    "tag_name": "v0.8.4",
-    "body": "Changelog v0.8.4:\r\n\r\n- Update SPN to v0.4.2",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.4",
-    "created_at": "2022-02-24T09:06:26Z",
-    "date": "2022-02-24",
-    "repo": "portmaster"
   },
   {
     "name": "portmaster-v0.2.1",
@@ -878,25 +898,5 @@
     "created_at": "2022-01-26T14:49:55Z",
     "date": "2022-01-26",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.3.18",
-    "tag_name": "v0.3.18",
-    "body": "Changelog\r\n\r\n- Improve hub validation and fix locking in import\r\n- Abort hub import earlier when received messages don't match expected Hub\r\n- Add virtual network support\r\n- Remove test logging\r\n- Improve terminal errors to eliminate special space\r\n- Fix hub forwarding on import\r\n- Increase costs of unmeasured connections\r\n- Use correct logging lib\r\n- Add stopping time for api table outputs\r\n- Remove unused variables\r\n- Add regions for optimization\r\n- Raise hub costs to better match lane costs\r\n- Increase capacity test volume to 50MB again\r\n- Add time limit to stopping cranes\r\n- Don't die when the intel update fails on startup\r\n- Disable kcp until we find a replacement\r\n- Update QueueSize to uint32 and increase controller queue size\r\n- Sync crane status to connected Hub\r\n- Remove unnecessary check\r\n- Reduce default capacity test volume to 25MB\r\n- Make measurement TTL dynamic to save bandwidth\r\n- Improve pin update order\r\n- Increase timeouts related to verifying Hubs",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.18",
-    "created_at": "2022-01-26T14:37:53Z",
-    "date": "2022-01-26",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.3.17",
-    "tag_name": "v0.3.17",
-    "body": "\r\n\r\n- Add support for discontinued Hubs, fix Hub deletion",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.17",
-    "created_at": "2022-01-25T15:15:36Z",
-    "date": "2022-01-25",
-    "repo": "spn"
   }
 ]
