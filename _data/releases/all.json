@@ -1,5 +1,55 @@
 [
   {
+    "name": "portmaster-v0.4.6",
+    "tag_name": "portmaster-v0.4.6",
+    "body": "Changelog\r\n\r\n- Show subscription plans correctly\r\n- Adapt to new process key",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.4.6",
+    "created_at": "2023-03-30T14:24:36Z",
+    "date": "2023-03-30",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.0.11",
+    "tag_name": "v1.0.11",
+    "body": "\r\n\r\n- Improve lookup tries for network state\r\n- Fix getting updated tables immediately\r\n- Ignore if parent process does not exist\r\n- Improve network state caching\r\n- Fix parent process key an refactoring\r\n- Fix process identification key\r\n- Fix matching TCP connections\r\n- Improve support for disabled IPv6 stack\r\n- Downgrade gvisor",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.11",
+    "created_at": "2023-03-30T14:21:12Z",
+    "date": "2023-03-30",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.6",
+    "tag_name": "v0.6.6",
+    "body": "\r\n\r\n- Fix no activity terminal shutdown and improve flushing timeouts\r\n",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.6",
+    "created_at": "2023-03-29T17:56:41Z",
+    "date": "2023-03-29",
+    "repo": "spn"
+  },
+  {
+    "name": "v1.0.10",
+    "tag_name": "v1.0.10",
+    "body": "\r\n\r\n- Update SPN\r\n- Add geoip regions to improve distance estimation\r\n- Add current time to broadcast matching data",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.10",
+    "created_at": "2023-03-23T15:52:16Z",
+    "date": "2023-03-23",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.5",
+    "tag_name": "v0.6.5",
+    "body": "\r\n\r\n- Collect findnearest debug data and add api to test routing\r\n- Improve routing conditions\r\n- Retry to initialize map from DB if it fails\r\n- Ignore session to failing hubs and reset failings when re-connecting\r\n- Check routes for failed hubs before building\r\n- Fix ensuring matching IP stacks when finding nearest pins\r\n- Fix scheduler slot skew and improve stats/metrics\r\n- Add ConnectAfterlogin flag option",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.5",
+    "created_at": "2023-03-23T15:48:27Z",
+    "date": "2023-03-23",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.9",
     "tag_name": "v1.0.9",
     "body": "\r\n\r\n- Update SPN\r\n- Warn when query fails\r\n- Improve network proximity thresholds\r\n- Fix traceroute location checking",
@@ -740,16 +790,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.8.7",
-    "tag_name": "v0.8.7",
-    "body": "\r\n\r\n- Update SPN",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.7",
-    "created_at": "2022-03-24T14:48:36Z",
-    "date": "2022-03-24",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.5",
     "tag_name": "v0.4.5",
     "body": "\r\n\r\n- Reset crane update hook when stopping SPN\r\n- Stop SPN client manager correctly when not yet connected\r\n",
@@ -788,16 +828,6 @@
     "created_at": "2022-03-23T16:01:03Z",
     "date": "2022-03-23",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.8.6",
-    "tag_name": "v0.8.6",
-    "body": "\r\n\r\n- Fix metrics for connections going through SPN\r\n- Show system notification when fixing electron sandbox fails\r\n- Always apply electron sandbox SUID fix\r\n- Mark config options as sensitive\r\n- Add debug interfaces for wfp and iptables\r\n- Set recursion available flag on nameserver responses\r\n- Validate resolver config for unknown parameters\r\n- Add documentation for new parameters\r\n- Expand special service TLDs\r\n- Add support for search-only resolvers\r\n- Improve search scope validation and add configuration support\r\n- Split unattributed connections into to Unidentified App and Network Noise\r\n- Exempt IPv6 LAN (broadcast domain only) from SPN\r\n- Fix checking if existing pid-lock process is portmaster-start",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.6",
-    "created_at": "2022-03-23T15:04:43Z",
-    "date": "2022-03-23",
-    "repo": "portmaster"
   },
   {
     "name": "v0.4.4",
@@ -850,16 +880,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.4.1",
-    "tag_name": "v0.4.1",
-    "body": "\r\n\r\n- Update deps",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.1",
-    "created_at": "2022-02-14T15:20:33Z",
-    "date": "2022-02-14",
-    "repo": "spn"
-  },
-  {
     "name": "portmaster-v0.2.0",
     "tag_name": "portmaster-v0.2.0",
     "body": "\r\n\r\n- Change order of icons and add small border\r\n- Show message if no apps match the search term\r\n- Fix tip up anchor size in app settings\r\n- Show app description and add warning to details tab name\r\n- Fix spacing in app overview\r\n- Remove deprecated ApproxLastUsed\r\n- Add tab component and rework app settings to new app-centric design\r\n- Implement changes as discussed in review\r\n- Move \"Reset to\" label in settings to the right\r\n- Add blue line to setting if it was changed by the user\r\n- Add space at the end of the settings list\r\n- Change color of settings key and remove commented code\r\n- Increase toggle-switch size a bit\r\n- Fix disabled state not working for dropdown\r\n- Allow settings to be changed even when locked and unlock automatically\r\n- Update app settings component to enable user-changed markers for config settings\r\n- Update config view component to new style and support collapsible categories\r\n- Update styling of generic settings component\r\n- Update styling for ordered list settings and remove use of legacy color names\r\n- Update styling for rule list settings and remove use of legacy color names\r\n- Update basic settings component for better input focus UX\r\n- Update security level switch to use toggle-switch in on/off mode\r\n- Update multi-switch box and spacing to allow better centering\r\n- Update styling of drop-down component and remove use of legacy color names\r\n- Menu component should have the same minimum width than it's trigger\r\n- Removed testing code in support-page that should not have been merged\r\n- Improved tip up components to handle stacking and support dynamic tip up contents\r\n- Update styling of text inputs and search highlighting\r\n- Create dedicated toggle-switch component instead of using (ab)using multi-switch\r\n- Update tailwindcss configuration for better color support",
@@ -867,26 +887,6 @@
     "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.2.0",
     "created_at": "2022-02-14T13:29:45Z",
     "date": "2022-02-14",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.3.19",
-    "tag_name": "v0.3.19",
-    "body": "\r\n\r\n- Increase queue sizes",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.3.19",
-    "created_at": "2022-01-31T10:06:30Z",
-    "date": "2022-01-31",
-    "repo": "spn"
-  },
-  {
-    "name": "notifier-v0.2.4",
-    "tag_name": "notifier-v0.2.4",
-    "body": "\r\n\r\n- Update notifier deps\r\n- Use warning color when restarting\r\n- Cleanup app resources properly\r\n- Don't hide status message\r\n- Shorten status message\r\n- Update notifier to wait for connection loss in shutdown/restart\r\n- Hide network rating buttons in notifier according to setting\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.2.4",
-    "created_at": "2022-01-26T14:49:55Z",
-    "date": "2022-01-26",
     "repo": "portmaster-ui"
   },
   {

@@ -480,6 +480,14 @@
     "Description": "Returns a list of pins on the map."
   },
   {
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/route/to/{destination:[a-z0-9_\\.:-]{1,255}}",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Calculate Route through SPN",
+    "Description": "Returns a textual representation of the routing process."
+  },
+  {
     "Path": "spn/reinit",
     "MimeType": "text/plain",
     "Write": 3,
