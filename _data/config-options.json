@@ -2,7 +2,7 @@
   {
     "Name": "API Keys",
     "Key": "core/apiKeys",
-    "Description": "Define API keys for priviledged access to the API. Every entry is a separate API key with respective permissions. Format is `\u003ckey\u003e?read=\u003cperm\u003e\u0026write=\u003cperm\u003e`. Permissions are `anyone`, `user` and `admin`, and may be omitted.",
+    "Description": "Define API keys for privileged access to the API. Every entry is a separate API key with respective permissions. Format is `\u003ckey\u003e?read=\u003cperm\u003e\u0026write=\u003cperm\u003e`. Permissions are `anyone`, `user` and `admin`, and may be omitted.",
     "Help": "",
     "Sensitive": true,
     "OptType": 2,
@@ -17,9 +17,26 @@
     }
   },
   {
-    "Name": "Automatic Updates",
+    "Name": "Automatic Intelligence Data Updates",
+    "Key": "core/automaticIntelUpdates",
+    "Description": "Automatically check for and download intelligence data updates. This includes filter lists, geo-ip data, and more. Does not include software updates.",
+    "Help": "",
+    "Sensitive": false,
+    "OptType": 4,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": true,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Updates",
+      "safing/portbase:ui:order": -11
+    }
+  },
+  {
+    "Name": "Automatic Software Updates",
     "Key": "core/automaticUpdates",
-    "Description": "Enable automatic checking, downloading and applying of updates. This affects all kinds of updates, including intelligence feeds and broadcast notifications.",
+    "Description": "Automatically check for and download software updates. This does not include intelligence data updates.",
     "Help": "",
     "Sensitive": false,
     "OptType": 4,

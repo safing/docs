@@ -1,5 +1,12 @@
 {
  "Channel": "beta",
- "Published": "2023-04-03T11:40:37Z",
- "Releases": {}
+ "Published": "2023-04-11T10:42:14Z",
+ "Releases": {
+    "darwin_amd64/core/portmaster-core": "1.0.12",
+    "darwin_arm64/core/portmaster-core": "1.0.12",
+    "linux_amd64/core/portmaster-core": "1.0.12",
+    "linux_arm64/core/portmaster-core": "1.0.12",
+    "windows_amd64/core/portmaster-core.exe": "1.0.12",
+    "windows_arm64/core/portmaster-core.exe": "1.0.12"
+ }
 }

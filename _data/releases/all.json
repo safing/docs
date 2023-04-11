@@ -1,5 +1,25 @@
 [
   {
+    "name": "v1.0.12",
+    "tag_name": "v1.0.12",
+    "body": "\r\n\r\n- Update SPN and portbase\r\n- Improve portmaster-start update logging\r\n- Expose network change check trigger\r\n- Fix special process loading\r\n- Split auto update settings and add support for registry state",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.12",
+    "created_at": "2023-04-06T14:31:28Z",
+    "date": "2023-04-06",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.7 (lib only)",
+    "tag_name": "v0.6.7",
+    "body": "\r\n\r\n- Only use IPv6 to connect to Hub when client has IPv6 enabled\r\n- Trigger network change detection if remote IP is detected in sluice",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.7",
+    "created_at": "2023-04-06T14:11:23Z",
+    "date": "2023-04-06",
+    "repo": "spn"
+  },
+  {
     "name": "portmaster-v0.4.6",
     "tag_name": "portmaster-v0.4.6",
     "body": "Changelog\r\n\r\n- Show subscription plans correctly\r\n- Adapt to new process key",
@@ -13,7 +33,7 @@
     "name": "v1.0.11",
     "tag_name": "v1.0.11",
     "body": "\r\n\r\n- Improve lookup tries for network state\r\n- Fix getting updated tables immediately\r\n- Ignore if parent process does not exist\r\n- Improve network state caching\r\n- Fix parent process key an refactoring\r\n- Fix process identification key\r\n- Fix matching TCP connections\r\n- Improve support for disabled IPv6 stack\r\n- Downgrade gvisor",
-    "prerelease": true,
+    "prerelease": false,
     "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.11",
     "created_at": "2023-03-30T14:21:12Z",
     "date": "2023-03-30",
@@ -770,16 +790,6 @@
     "repo": "portmaster-ui"
   },
   {
-    "name": "v0.8.8",
-    "tag_name": "v0.8.8",
-    "body": "\r\n\r\n- Improve IP scope classification\r\n- Reset device locations when network changes\r\n- Only fix chrome sandbox permission when needed\r\n- Add intel-only flag for initializing intel data only\r\n- Ignore comments on rule parsing\r\n- Only warn when registry cleanup fails\r\n- Improve wording on block bypassing notification and setting\r\n- Raise dns/nameservers config to expertise level user\r\n- Improve prevented bypass attempt notification\r\n- Fix connection locking in firewall packet handler\r\n- Add notify threshold for app related notification\r\n- Fix secure DNS bypass notification to reflect reality\r\n- Increase self-check timeouts and threshold\r\n- Improve resolver config for intro slides\r\n- Clear DNS cache when DNS resolver config changes in any way",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.8",
-    "created_at": "2022-04-13T09:55:59Z",
-    "date": "2022-04-13",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.6",
     "tag_name": "v0.4.6",
     "body": "\r\n\r\n- Bump hub version\r\n- Update deps\r\n- Stick destinations to Hubs or avoid them in case pure network error\r\n- Increase sluice request expiry\r\n- Fix index error in region optimizer\r\n- Fix broken controller stop message\r\n- Improve SPN graph rendering with new data\r\n- Synchronize stopping state\r\n- Improve hub installer",
@@ -868,16 +878,6 @@
     "created_at": "2022-02-24T08:59:35Z",
     "date": "2022-02-24",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.4.2",
-    "tag_name": "v0.4.2",
-    "body": "\r\n\r\n- Remove test phase button from SPN status notification\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.2",
-    "created_at": "2022-02-23T10:00:38Z",
-    "date": "2022-02-23",
-    "repo": "spn"
   },
   {
     "name": "portmaster-v0.2.0",
