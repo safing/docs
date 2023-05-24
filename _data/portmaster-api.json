@@ -138,6 +138,14 @@
     "Description": "Shut down the Portmaster Core Service and all UI components."
   },
   {
+    "Path": "customlists/update",
+    "MimeType": "text/plain",
+    "Write": 2,
+    "WriteMethod": "POST",
+    "Name": "Update custom filter list",
+    "Description": "Reload the filter list from the configured file."
+  },
+  {
     "Path": "debug/allocs",
     "MimeType": "text/plain",
     "Read": 1,
@@ -292,6 +300,14 @@
     "ReadMethod": "GET",
     "Name": "Export API Endpoints",
     "Description": "Returns a list of all registered endpoints and their metadata."
+  },
+  {
+    "Path": "intel/geoip/country-centers",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get Geographic Country Centers",
+    "Description": "Returns a map of country centers indexed by ISO-A2 country code"
   },
   {
     "Path": "modules/status",

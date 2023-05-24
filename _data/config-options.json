@@ -462,13 +462,13 @@
     }
   },
   {
-    "Name": "Retry Timeout",
+    "Name": "Ignore Failing DNS Servers Duration",
     "Key": "dns/nameserverRetryRate",
-    "Description": "Timeout between retries when a DNS server fails.",
+    "Description": "Duration in seconds how long a failing DNS server should not be retried.",
     "Help": "",
     "Sensitive": false,
     "OptType": 3,
-    "ExpertiseLevel": 1,
+    "ExpertiseLevel": 2,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": 300,
@@ -526,7 +526,7 @@
         {
           "Name": "Foundation for Applied Privacy",
           "Value": [
-            "dot://dot1.applied-privacy.net?ip=94.130.106.88\u0026name=AppliedPrivacy"
+            "dot://dot1.applied-privacy.net?ip=146.255.56.98\u0026name=AppliedPrivacy"
           ],
           "Action": "replace"
         }
@@ -655,7 +655,7 @@
     "Annotations": {
       "safing/portbase:ui:category": "Resolving",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 3
+      "safing/portbase:ui:order": 4
     }
   },
   {
@@ -690,7 +690,7 @@
     "Annotations": {
       "safing/portbase:ui:category": "Resolving",
       "safing/portbase:ui:display-hint": "security level",
-      "safing/portbase:ui:order": 2,
+      "safing/portbase:ui:order": 3,
       "self:detail:multicastDomains": [
         ".local.",
         ".254.169.in-addr.arpa.",
@@ -699,6 +699,23 @@
         ".a.e.f.ip6.arpa.",
         ".b.e.f.ip6.arpa."
       ]
+    }
+  },
+  {
+    "Name": "Always Use DNS Cache",
+    "Key": "dns/useStaleCache",
+    "Description": "Always use the DNS cache, even if entries have expired. Expired entries are refreshed afterwards in the background. This can improve DNS resolving performance a lot, but may lead to occasional connection errors due to outdated DNS records.",
+    "Help": "",
+    "Sensitive": false,
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Resolving",
+      "safing/portbase:ui:order": 2
     }
   },
   {
@@ -1110,7 +1127,7 @@
     "Name": "Outgoing Rules",
     "Key": "filter/endpoints",
     "Description": "Rules that apply to outgoing network connections. Cannot overrule Network Scopes and Connection Types (see above).",
-    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n\nPro Tip: You can use `#` to add a comment to a rule.\n",
     "Sensitive": true,
     "OptType": 2,
     "ExpertiseLevel": 0,
@@ -1373,7 +1390,7 @@
     "Name": "Incoming Rules",
     "Key": "filter/serviceEndpoints",
     "Description": "Rules that apply to incoming network connections. Cannot overrule Network Scopes and Connection Types (see above).",
-    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n\nPro Tip: You can use `#` to add a comment to a rule.\n",
     "Sensitive": true,
     "OptType": 2,
     "ExpertiseLevel": 1,
@@ -1756,7 +1773,7 @@
     "Name": "SPN Rules",
     "Key": "spn/usagePolicy",
     "Description": "Customize which websites should or should not be routed through the SPN. Only active if \"Use SPN\" is enabled.",
-    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match:\n\n- By address: `192.168.0.1`\n- By network: `192.168.0.1/24`\n- By network scope: `Localhost`, `LAN` or `Internet`\n- By domain:\n\t- Matching a distinct domain: `example.com`\n\t- Matching a domain with subdomains: `.example.com`\n\t- Matching with a wildcard prefix: `*xample.com`\n\t- Matching with a wildcard suffix: `example.*`\n\t- Matching domains containing text: `*example*`\n- By country (based on IP): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- By AS number: `AS123456`\n- By filter list - use the filterlist ID prefixed with `L:`: `L:MAL`\n- Match anything: `*`\n\nAdditionally, you may supply a protocol and port using this format: `\u003chost\u003e \u003cIP protocol\u003e/\u003cport\u003e`.\n\nProtocols and ports may be specified using numbers (`6/80`) or names (`TCP/HTTP`).  \nPort ranges are defined by using a hyphen (`TCP/1-1024`). Omit the port to match any.  \nUse a `*` for matching any protocol. If matching ports with any protocol, protocols without ports will not match.  \nRules with protocol and port definitions only match if the protocol and port also match.  \nPorts are always compared to the destination port, thus, the local listening port for incoming connections.  \n\nExamples:\n- `192.168.0.1 TCP/HTTP`\n- `LAN UDP/50000-55000`\n- `example.com */HTTPS`\n- `1.1.1.1 ICMP`\n\nImportant: DNS Requests are only matched against domain and filter list rules, all others require an IP address and are checked only with the following IP connection.\n\nPro Tip: You can use `#` to add a comment to a rule.\n",
     "Sensitive": true,
     "OptType": 2,
     "ExpertiseLevel": 0,

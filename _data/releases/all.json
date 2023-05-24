@@ -1,5 +1,55 @@
 [
   {
+    "name": "v1.1.0",
+    "tag_name": "v1.1.0",
+    "body": "\r\n\r\n- Improve debug info order\r\n- Add API endpoint to retrieve a list of country center coordinates\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.1.0",
+    "created_at": "2023-05-24T08:52:26Z",
+    "date": "2023-05-24",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.5.0",
+    "tag_name": "portmaster-v0.5.0",
+    "body": "\r\n\r\n- Update country center API path\r\n- Show Mbit/s instead of MB/s\r\n- Minor improvements to SPN page\r\n- Implement review suggestions, add \"logout completely\" button and only show prompt icon when globally enabled or pending prompts are available\r\n- Finished migration to angular 16\r\n- Finished update to angular@16\r\n- Partial upgrade to angular@15\r\n- Update typescript to 4.8\r\n- Major SPN map revamp\r\n- Use observable directly\r\n- Always show setting labels when in developer UI mode\r\n- Fix SPN missing info message",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.5.0",
+    "created_at": "2023-05-24T08:46:00Z",
+    "date": "2023-05-24",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.0.14",
+    "tag_name": "v1.0.14",
+    "body": "\r\n\r\n- Fix slow queries sensor value calculation\r\n- Update IP of Applied Privacy DNS preset\r\n- Improve test suite\r\n- Calibrate process lookup times for Windows\r\n- Improve compatibility issue notifications",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.14",
+    "created_at": "2023-05-08T14:05:25Z",
+    "date": "2023-05-08",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v1.0.13",
+    "tag_name": "v1.0.13",
+    "body": "\r\n\r\n- Add binary path to integration test utiltool\r\n- Add integrationtest utility\r\n- Suggest using stale DNS cache when queries are slow\r\n- Improve rules config description\r\n- Add flags to specify custom update server\r\n- Add config option to always use stale DNS cache entries\r\n- Reduce running of background tasks on sleep mode\r\n- Add check for special android ip in online status check\r\n- Increase max state table lookup time window\r\n- Fix closing nf conntrack session when stopping during start\r\n- Improve user agents\r\n- Fix custom filter list load\r\n- Fix android update system",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.0.13",
+    "created_at": "2023-04-25T12:49:45Z",
+    "date": "2023-04-25",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.8 (lib only)",
+    "tag_name": "v0.6.8",
+    "body": "\r\n\r\n- Update portbase\r\n- Reduce health check time tick in sleep mode\r\n- Fix golang-ci linter in CI\r\n- Improve user agent",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.8",
+    "created_at": "2023-04-25T12:14:56Z",
+    "date": "2023-04-25",
+    "repo": "spn"
+  },
+  {
     "name": "v1.0.12",
     "tag_name": "v1.0.12",
     "body": "\r\n\r\n- Update SPN and portbase\r\n- Improve portmaster-start update logging\r\n- Expose network change check trigger\r\n- Fix special process loading\r\n- Split auto update settings and add support for registry state",
@@ -710,26 +760,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.8.11",
-    "tag_name": "v0.8.11",
-    "body": "\r\n\r\n- Use alternative approach to fix nfqueue closing process",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.11",
-    "created_at": "2022-05-18T11:26:46Z",
-    "date": "2022-05-18",
-    "repo": "portmaster"
-  },
-  {
-    "name": "v0.8.10",
-    "tag_name": "v0.8.10",
-    "body": "\r\n\r\n- Increase supported size of windows network state table entries\r\n- Fix shutting down nfq interception with go-nfqueue v1.3.1\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.10",
-    "created_at": "2022-05-16T07:17:46Z",
-    "date": "2022-05-16",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.4.9",
     "tag_name": "v0.4.9",
     "body": "\r\n\r\n- Enable submit control system and add default terminal options\r\n",
@@ -758,16 +788,6 @@
     "created_at": "2022-05-05T09:16:59Z",
     "date": "2022-05-05",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.8.9",
-    "tag_name": "v0.8.9",
-    "body": "\r\n\r\n- Add MatchMulti function to match endpoints list against multiple entities\r\n- Only warn about unexpected parent process when not in dev mode\r\n- Resolve to real file paths before checking path based API access\r\n- Use more verbose names for iptables chains\r\n- Show notification about manual DNS setup instead of compatibility notice\r\n- Block DNS requests if bypass prevention is active\r\n- Add config option to disable dns query interception",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.8.9",
-    "created_at": "2022-05-05T09:13:34Z",
-    "date": "2022-05-05",
-    "repo": "portmaster"
   },
   {
     "name": "v0.4.7",
@@ -860,16 +880,6 @@
     "repo": "portmaster-ui"
   },
   {
-    "name": "v0.4.3",
-    "tag_name": "v0.4.3",
-    "body": "Changelog\r\n\r\n- Abort crane msg submitting when crane is shutting down\r\n- Add function to check if any hub policies are set\r\n- Improve and add home / dns exit hub policy parsing\r\n- Fix and improve session path checking\r\n- Update SPN settings order\r\n- Check existing hub route before using in new route\r\n- Integrate SPN route manipulation settings\r\n- Add home and DNS exit node rules",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.3",
-    "created_at": "2022-03-02T08:58:32Z",
-    "date": "2022-03-02",
-    "repo": "spn"
-  },
-  {
     "name": "portmaster-v0.2.1",
     "tag_name": "portmaster-v0.2.1",
     "body": "\r\n\r\n- Only show interfering settings for SPN quick setting button when SPN is enabled\r\n- Fix \"Use SPN\" not correctly detecting disabled state\r\n- Only show interfering settings for SPN quick setting button when enabled\r\n- Implement review suggestions\r\n- Use default shadow in app-view statistics due to visual gliches\r\n- Add support for custom rule list verdict names\r\n- Use correct settings key for use-spn interfering settings detection\r\n- Add quick settings support for Internet and Use SPN\r\n- Fix global value not being displayed for toggle-switches in app settings\r\n- Support jumping to the global setting from an app-settings tooltip\r\n- Add rich tooltip support and keep open when hovering the tooltip content\r\n- Update Accordion components to use sfng prefix\r\n- Remove obsolete debug components\r\n- Rename AppSettingsPageComponent to AppViewComponent to better match the new purpose\r\n- Rename app-settings to app-view to match new purpose\r\n- Cleanup MutationObserver in tooltip on destroy\r\n- Add tooltip component for small inline-help\r\n- Update issue manager workflow",
@@ -887,16 +897,6 @@
     "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.2.0",
     "created_at": "2022-02-14T13:29:45Z",
     "date": "2022-02-14",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "portmaster-v0.1.25",
-    "tag_name": "portmaster-v0.1.25",
-    "body": "\r\n\r\n- Display alive connection count in developer mode and add dbl-click to SPN page\r\n- Add shutdown/restart overlays\r\n- Update UI dependencies to latest patch version\r\n- Use hostname instead of a hardcoded localhost for websocket connections\r\n- Hide network rating buttons in notifier according to setting\r\n- Use on/off toggles instead of security level switch if network rating is disabled",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.1.25",
-    "created_at": "2022-01-26T14:49:55Z",
-    "date": "2022-01-26",
     "repo": "portmaster-ui"
   }
 ]
