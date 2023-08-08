@@ -1064,7 +1064,7 @@
     "ValidationRegex": "",
     "Annotations": {
       "safing/portbase:ui:category": "Advanced",
-      "safing/portbase:ui:order": 97
+      "safing/portbase:ui:order": 81
     }
   },
   {
@@ -1263,7 +1263,7 @@
     "ValidationRegex": "",
     "Annotations": {
       "safing/portbase:ui:category": "Advanced",
-      "safing/portbase:ui:order": 96
+      "safing/portbase:ui:order": 80
     }
   },
   {
@@ -1452,6 +1452,24 @@
         "+": "Allow",
         "-": "Block"
       }
+    }
+  },
+  {
+    "Name": "Enable Connection History",
+    "Key": "history/enable",
+    "Description": "Save connections in a database (on disk) in order to view and search them later. Changes might take a couple minutes to apply to all connections.",
+    "Help": "",
+    "Sensitive": false,
+    "OptType": 4,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": false,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "History",
+      "safing/portbase:ui:order": 96,
+      "safing/portmaster:ui:config:requires-feature": "history"
     }
   },
   {

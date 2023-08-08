@@ -1,5 +1,13 @@
 [
   {
+    "Path": "account/features",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET",
+    "Name": "Get Account Features",
+    "Description": "Returns all account features."
+  },
+  {
     "Path": "app/auth",
     "MimeType": "application/json",
     "Read": 1,
@@ -328,12 +336,18 @@
   {
     "Path": "netquery/charts/connection-active",
     "MimeType": "application/json",
-    "Read": 2,
-    "ReadMethod": "GET",
     "Write": 2,
     "WriteMethod": "POST",
     "Name": "Active Connections Chart",
     "Description": "Query the in-memory sqlite connection database and return a chart of active connections."
+  },
+  {
+    "Path": "netquery/history/clear",
+    "MimeType": "application/json",
+    "Write": 2,
+    "WriteMethod": "POST",
+    "Name": "Remove connections from profile history",
+    "Description": "Remove all connections from the history database for one or more profiles"
   },
   {
     "Path": "netquery/query",
