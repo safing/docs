@@ -366,6 +366,29 @@ sudo sv up portmaster
 
 Artix Linux users can find the [portmaster-runit](https://aur.archlinux.org/packages/portmaster-runit/) package in the AUR
 
+#### Start Portmaster Automatically with Dinit
+__6.__ Start it on boot (Runit)
+
+In order to get the Portmaster Core Service to automatically start when booting, you need to create a dinit service file at `/etc/dinit.d/portmaster`.
+The following service file works, but may need to be apdated to your distribution as they do not all ship the same services.
+```sh
+type = process
+command = /opt/safing/portmaster/portmaster-start --data /opt/safing/portmaster core 
+depends-on = NetworkManager
+pid-file=/opt/safing/portmaster/core-lock.pid
+restart = yes
+restart-delay = 10
+working-dir = /opt/safing/portmaster
+```
+By default Dinit ships an environment file located at `/etc/dinit/environment`, make sure it exists and that it exports the PATH environment viariable, otherwise Portmaster Core won't be able to find the `iptables` binary
+It may look like that this (but can be different):
+```
+PATH=/usr/bin
+```
+Finnally enable and start the Portmaster: `sudo dinitctl enable portmaster`
+
+Artix Linux users can find the [portmaster-dinit](https://aur.archlinux.org/packages/portmaster-dinit) package in the AUR
+
 ### Frequently Asked Questions
 
 You can find solutions to common problems in the [FAQ]({{ site.faq_url }})
