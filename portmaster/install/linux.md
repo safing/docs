@@ -138,7 +138,7 @@ __6.__ Start it on boot
 
 In case you are not using `systemd` as your init system - you most likely know if that is the case - these guides contributed by the community will get you started:
 - [Runit](#start-portmaster-automatically-with-runit)
-
+- [Dinit](#start-portmaster-automatically-with-dinit)
 In order to get the Portmaster Core Service to automatically start when booting, you need to create a systemd service unit at `/etc/systemd/system/portmaster.service`.
 The following unit file works but excludes most of the security relevant settings. For a more restricted version [use this portmaster.service file](https://github.com/safing/portmaster-packaging/blob/master/linux/portmaster.service).
 
