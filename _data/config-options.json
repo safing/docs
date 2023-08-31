@@ -482,16 +482,16 @@
   {
     "Name": "DNS Servers",
     "Key": "dns/nameservers",
-    "Description": "DNS Servers to use for resolving DNS requests.",
-    "Help": "DNS Servers are used in the order as entered. The first one will be used as the primary DNS Server. Only if it fails, will the other servers be used as a fallback - in their respective order. If all fail, or if no DNS Server is configured here, the Portmaster will use the one configured in your system or network.\n\nAdditionally, if it is more likely that the DNS Server of your system or network has a (better) answer to a request, they will be asked first. This will be the case for special local domains and domain spaces announced on the current network.\n\nDNS Servers are configured in a URL format. This allows you to specify special settings for a resolver. If you just want to use a resolver at IP 10.2.3.4, please enter: `dns://10.2.3.4`  \nThe format is: `protocol://ip:port?parameter=value\u0026parameter=value`  \n\n- Protocol\n\t- `dot`: DNS-over-TLS (recommended)  \n\t- `dns`: plain old DNS  \n\t- `tcp`: plain old DNS over TCP\n- IP: always use the IP address and _not_ the domain name!\n- Port: optionally define a custom port\n- Parameters:\n\t- `name`: give your DNS Server a name that is used for messages and logs\n\t- `verify`: domain name to verify for `dot`, required and only valid for protocol `dot`\n\t- `blockedif`: detect if the name server blocks a query, options:\n\t\t- `empty`: server replies with NXDomain status, but without any other record in any section\n\t\t- `refused`: server replies with Refused status\n\t\t- `zeroip`: server replies with an IP address, but it is zero\n\t- `search`: specify prioritized domains/TLDs for this resolver (delimited by `,`)\n\t- `search-only`: use this resolver for domains in the `search` parameter only (no value)\n",
+    "Description": "DNS servers to use for resolving DNS requests.",
+    "Help": "DNS servers are used in the order as entered. The first one will be used as the primary DNS Server. Only if it fails, will the other servers be used as a fallback - in their respective order. If all fail, or if no DNS Server is configured here, the Portmaster will use the one configured in your system or network.\n\nAdditionally, if it is more likely that the DNS server of your system or network has a (better) answer to a request, they will be asked first. This will be the case for special local domains and domain spaces announced on the current network.\n\nDNS servers are configured in a URL format. This allows you to specify special settings for a resolver. If you just want to use a resolver at IP 10.2.3.4, please enter: `dns://10.2.3.4`  \nThe format is: `protocol://host:port?parameter=value\u0026parameter=value`  \n\nFor DoH servers, you can also just paste the URL given by the DNS provider.  \nWhen referring to the DNS server using a domain name, as with DoH, it is highly recommended to also specify the IP address using the `ip` parameter, so Portmaster does not have to resolve it.\n\n- Protocol\n\t- `dot`: DNS-over-TLS (or `tls`; recommended)  \n\t- `doh`: DNS-over-HTTPS (or `https`)\n\t- `dns`: plain old DNS  \n\t- `tcp`: plain old DNS over TCP\n- Host: specify the domain or IP of the resolver\n- Port: optionally define a custom port\n- Parameters:\n\t- `name`: give your DNS Server a name that is used for messages and logs\n\t- `verify`: domain name to verify for `dot`, only valid for `dot` and `doh`\n\t- `ip`: IP address (if using a domain), so Portmaster does not need to resolve it using the system resolver - this is highly recommended\n\t- `blockedif`: detect if the name server blocks a query, options:\n\t\t- `empty`: server replies with NXDomain status, but without any other record in any section\n\t\t- `refused`: server replies with Refused status\n\t\t- `zeroip`: server replies with an IP address, but it is zero\n\t- `search`: specify prioritized domains/TLDs for this resolver (delimited by `,`)\n\t- `search-only`: use this resolver for domains in the `search` parameter only (no value)\n",
     "Sensitive": true,
     "OptType": 2,
     "ExpertiseLevel": 0,
     "ReleaseLevel": 0,
     "RequiresRestart": false,
     "DefaultValue": [
-      "dot://1.1.1.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip",
-      "dot://1.0.0.2:853?verify=cloudflare-dns.com\u0026name=Cloudflare\u0026blockedif=zeroip"
+      "dot://cloudflare-dns.com?ip=1.1.1.2\u0026name=Cloudflare\u0026blockedif=zeroip",
+      "dot://cloudflare-dns.com?ip=1.0.0.2\u0026name=Cloudflare\u0026blockedif=zeroip"
     ],
     "ValidationRegex": "^(dot|doh|dns|tcp|https|tls)://.*",
     "Annotations": {
@@ -500,7 +500,7 @@
       "safing/portbase:ui:order": 0,
       "safing/portbase:ui:quick-setting": [
         {
-          "Name": "Cloudflare (with Malware Filter)",
+          "Name": "Set Cloudflare (with Malware Filter)",
           "Value": [
             "dot://cloudflare-dns.com?ip=1.1.1.2\u0026name=Cloudflare\u0026blockedif=zeroip",
             "dot://cloudflare-dns.com?ip=1.0.0.2\u0026name=Cloudflare\u0026blockedif=zeroip"
@@ -508,7 +508,7 @@
           "Action": "replace"
         },
         {
-          "Name": "Quad9",
+          "Name": "Set Quad9",
           "Value": [
             "dot://dns.quad9.net?ip=9.9.9.9\u0026name=Quad9\u0026blockedif=empty",
             "dot://dns.quad9.net?ip=149.112.112.112\u0026name=Quad9\u0026blockedif=empty"
@@ -516,7 +516,7 @@
           "Action": "replace"
         },
         {
-          "Name": "AdGuard",
+          "Name": "Set AdGuard",
           "Value": [
             "dot://dns.adguard.com?ip=94.140.14.14\u0026name=AdGuard\u0026blockedif=zeroip",
             "dot://dns.adguard.com?ip=94.140.15.15\u0026name=AdGuard\u0026blockedif=zeroip"
@@ -524,11 +524,19 @@
           "Action": "replace"
         },
         {
-          "Name": "Foundation for Applied Privacy",
+          "Name": "Set Foundation for Applied Privacy",
           "Value": [
             "dot://dot1.applied-privacy.net?ip=146.255.56.98\u0026name=AppliedPrivacy"
           ],
           "Action": "replace"
+        },
+        {
+          "Name": "Add Cloudflare (as fallback)",
+          "Value": [
+            "dot://cloudflare-dns.com?ip=1.1.1.1\u0026name=Cloudflare\u0026blockedif=zeroip",
+            "dot://cloudflare-dns.com?ip=1.0.0.1\u0026name=Cloudflare\u0026blockedif=zeroip"
+          ],
+          "Action": "merge-bottom"
         }
       ],
       "self:detail:connectivityDomains": [
@@ -978,7 +986,7 @@
   {
     "Name": "Default Network Action",
     "Key": "filter/defaultAction",
-    "Description": "The default network action is applied when nothing else allows or blocks an outgoing connection. Incoming connections are always blocked by default.",
+    "Description": "The default network action is applied when nothing else allows or blocks a connection. This affects both outgoing and incoming connections. This setting is the weakest of all and is commonly overruled by Force Block settings or Rules.",
     "Help": "",
     "Sensitive": false,
     "OptType": 1,
@@ -1108,14 +1116,14 @@
     }
   },
   {
-    "Name": "Privacy Filter Module",
+    "Name": "Enable Privacy Filter",
     "Key": "filter/enable",
-    "Description": "Start the Privacy Filter module. If turned off, all privacy filter protections are fully disabled on this device.",
+    "Description": "Enable the Privacy Filter. If turned off, all privacy filter protections are fully disabled on this device. Not meant to be disabled in production - only turn off for testing.",
     "Help": "",
     "Sensitive": false,
     "OptType": 4,
     "ExpertiseLevel": 2,
-    "ReleaseLevel": 0,
+    "ReleaseLevel": 2,
     "RequiresRestart": false,
     "DefaultValue": true,
     "ValidationRegex": "",
@@ -1455,9 +1463,9 @@
     }
   },
   {
-    "Name": "Enable Connection History",
+    "Name": "Enable Network History",
     "Key": "history/enable",
-    "Description": "Save connections in a database (on disk) in order to view and search them later. Changes might take a couple minutes to apply to all connections.",
+    "Description": "Save connections in a database (on disk) in order to view and search them later. Changes might take a couple minutes to apply to all connections.\n\nIn order to reduce noise optimize performance, internal and device-only (localhost) connections are not saved to history.",
     "Help": "",
     "Sensitive": false,
     "OptType": 4,
@@ -1467,8 +1475,27 @@
     "DefaultValue": false,
     "ValidationRegex": "",
     "Annotations": {
-      "safing/portbase:ui:category": "History",
+      "safing/portbase:ui:category": "General",
       "safing/portbase:ui:order": 96,
+      "safing/portmaster:ui:config:requires-feature": "history"
+    }
+  },
+  {
+    "Name": "Keep Network History",
+    "Key": "history/keep",
+    "Description": "Specify how many days the network history data should be kept. Please keep in mind that more available history data makes reports (coming soon) a lot more useful.\n\t\t\nOlder data is deleted in intervals and cleared from the database continually. If in a hurry, shutdown or restart Portmaster to clear deleted entries immediately.\n\nSet to 0 days to keep network history forever. Depending on your device, this might affect performance.",
+    "Help": "",
+    "Sensitive": false,
+    "OptType": 3,
+    "ExpertiseLevel": 0,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": 30,
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "General",
+      "safing/portbase:ui:order": 97,
+      "safing/portbase:ui:unit": "Days",
       "safing/portmaster:ui:config:requires-feature": "history"
     }
   },
@@ -1487,61 +1514,12 @@
     "Annotations": {
       "safing/portbase:ui:category": "Routing",
       "safing/portbase:ui:display-hint": "endpoint list",
-      "safing/portbase:ui:order": 147,
+      "safing/portbase:ui:order": 148,
       "safing/portbase:ui:quick-setting": [
         {
-          "Name": "Exclude Canada (CA)",
+          "Name": "Loading...",
           "Value": [
-            "- CA"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Finland (FI)",
-          "Value": [
-            "- FI"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude France (FR)",
-          "Value": [
-            "- FR"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Germany (DE)",
-          "Value": [
-            "- DE"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Israel (IL)",
-          "Value": [
-            "- IL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Poland (PL)",
-          "Value": [
-            "- PL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United Kingdom (GB)",
-          "Value": [
-            "- GB"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United States of America (US)",
-          "Value": [
-            "- US"
+            ""
           ],
           "Action": "merge-top"
         }
@@ -1585,61 +1563,12 @@
       "safing/portbase:options:stackable": true,
       "safing/portbase:ui:category": "Routing",
       "safing/portbase:ui:display-hint": "endpoint list",
-      "safing/portbase:ui:order": 146,
+      "safing/portbase:ui:order": 147,
       "safing/portbase:ui:quick-setting": [
         {
-          "Name": "Exclude Canada (CA)",
+          "Name": "Loading...",
           "Value": [
-            "- CA"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Finland (FI)",
-          "Value": [
-            "- FI"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude France (FR)",
-          "Value": [
-            "- FR"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Germany (DE)",
-          "Value": [
-            "- DE"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Israel (IL)",
-          "Value": [
-            "- IL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Poland (PL)",
-          "Value": [
-            "- PL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United Kingdom (GB)",
-          "Value": [
-            "- GB"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United States of America (US)",
-          "Value": [
-            "- US"
+            ""
           ],
           "Action": "merge-top"
         }
@@ -1668,58 +1597,9 @@
       "safing/portbase:ui:order": 145,
       "safing/portbase:ui:quick-setting": [
         {
-          "Name": "Exclude Canada (CA)",
+          "Name": "Loading...",
           "Value": [
-            "- CA"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Finland (FI)",
-          "Value": [
-            "- FI"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude France (FR)",
-          "Value": [
-            "- FR"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Germany (DE)",
-          "Value": [
-            "- DE"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Israel (IL)",
-          "Value": [
-            "- IL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude Poland (PL)",
-          "Value": [
-            "- PL"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United Kingdom (GB)",
-          "Value": [
-            "- GB"
-          ],
-          "Action": "merge-top"
-        },
-        {
-          "Name": "Exclude United States of America (US)",
-          "Value": [
-            "- US"
+            ""
           ],
           "Action": "merge-top"
         }
@@ -1788,6 +1668,55 @@
     }
   },
   {
+    "Name": "Transit Node Rules",
+    "Key": "spn/transitHubPolicy",
+    "Description": "Customize which countries should or should not be used as Transit Nodes. Transit Nodes are used to transit the SPN from your Home to your Exit Node.",
+    "Help": "Rules are checked from top to bottom, stopping after the first match. They can match the following attributes of SPN Nodes:\n\n- Country (based on IPs): `US` (two-letter country codes according to ISO 3166-1 alpha-2)\n- AS number: `AS123456`\n- Address: `192.168.0.1`\n- Network: `192.168.0.1/24`\n- Anything: `*`\n",
+    "Sensitive": true,
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "^(\\+|\\-) (! +)?[A-z0-9\\.:\\-*/]+( [A-z0-9*]+(/[A-z0-9]+(\\-[A-z0-9]+)?)?)?( +#.*)?",
+    "Annotations": {
+      "safing/portbase:options:stackable": true,
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:display-hint": "endpoint list",
+      "safing/portbase:ui:order": 146,
+      "safing/portbase:ui:quick-setting": [
+        {
+          "Name": "Loading...",
+          "Value": [
+            ""
+          ],
+          "Action": "merge-top"
+        }
+      ],
+      "safing/portmaster:ui:endpoint-list:verdict-names": {
+        "+": "Allow",
+        "-": "Exclude"
+      }
+    }
+  },
+  {
+    "Name": "Trust Nodes",
+    "Key": "spn/trustNodes",
+    "Description": "Specify which community nodes to additionally trust. These nodes may then also be used as a Home Node, as well as an Exit Node for unencrypted connections.",
+    "Help": "You can specify nodes by their ID or their verified operator.",
+    "Sensitive": true,
+    "OptType": 2,
+    "ExpertiseLevel": 1,
+    "ReleaseLevel": 0,
+    "RequiresRestart": false,
+    "DefaultValue": [],
+    "ValidationRegex": "",
+    "Annotations": {
+      "safing/portbase:ui:category": "Routing",
+      "safing/portbase:ui:order": 150
+    }
+  },
+  {
     "Name": "SPN Rules",
     "Key": "spn/usagePolicy",
     "Description": "Customize which websites should or should not be routed through the SPN. Only active if \"Use SPN\" is enabled.",
@@ -1841,7 +1770,7 @@
     "ValidationRegex": "",
     "Annotations": {
       "safing/portbase:ui:category": "Routing",
-      "safing/portbase:ui:order": 148
+      "safing/portbase:ui:order": 149
     }
   }
 ]

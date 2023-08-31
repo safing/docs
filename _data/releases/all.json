@@ -1,5 +1,175 @@
 [
   {
+    "name": "portmaster-v0.7.6",
+    "tag_name": "portmaster-v0.7.6",
+    "body": "\r\n\r\n- Fix settings not being sync to the quick-settings toggles\r\n",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.6",
+    "created_at": "2023-08-30T17:48:18Z",
+    "date": "2023-08-30",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "portmaster-v0.7.5",
+    "tag_name": "portmaster-v0.7.5",
+    "body": "\r\n\r\n- Update to new country info\r\n- Improve country selection list for exit node selection quick setting\r\n- Improve feature hints in app view\r\n- feature-scout: Improve SPN connecting state in\r\n- Improve app view layout\r\n- Improve quick settings rendering\r\n- Add SPN exit country quick setting\r\n- spn: improve map rendering and initial positioning\r\n- Save network scout sort order in UI state\r\n- Apply default values in UIStateService\r\n- Re-fix memory leak fix in accordion\r\n- network-scout: change sort icon\r\n- dashboard: Improve map rendering\r\n- Add bandwidth statistics to app view\r\n- Improve edited settings indicator in app list\r\n- Fix rendering html in tip up titles\r\n- Improve feature scout and add it for dev ui only for testing\r\n- api/profiles: use a local cache for watchAppProfile streams to reduce the number of backend subscriptions\r\n- dashboard: fix country map to better fit the available widget size\r\n- ui/network-scout: add support for sorting apps\r\n- api/netquery: add bandwidth data to IProfileStats and use a cache to avoid re-fetching app profiles\r\n- ui/select: add support to render select inline instead of using a dropdown\r\n- Disable electron spellchecker to avoid connections for downloading spellcheck dictionary. Fixes #392\r\n- Fix bug in process details when no environment varaiables are available. Fixes #399\r\n- Auto-focus the search bar in the application overview. Fixes #419\r\n- Fix rxjs deprecation warnings\r\n- Add support to copy connection attributes to clipboard by pressing and holding CTRL. Fixes #425\r\n- Show a yellow dot for each app that has custom settings. Fixes #442\r\n- Fix unsubscription in SPN profile watch\r\n- Fix Memory Leak",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.5",
+    "created_at": "2023-08-28T14:10:55Z",
+    "date": "2023-08-28",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.4.5",
+    "tag_name": "v1.4.5",
+    "body": "\r\n\r\n- Update SPN + deps\r\n- Add support for matching continents\r\n- Unify and improve country info",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.5",
+    "created_at": "2023-08-28T14:00:28Z",
+    "date": "2023-08-28",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.17 (lib only)",
+    "tag_name": "v0.6.17",
+    "body": "\r\n\r\n- Improve account status wording and checking times\r\n- Add quick setting data for selecting country\r\n- Add connected country to SPN status\r\n- Update to new country struct of Portmaster",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.17",
+    "created_at": "2023-08-28T13:48:55Z",
+    "date": "2023-08-28",
+    "repo": "spn"
+  },
+  {
+    "name": "v1.4.4",
+    "tag_name": "v1.4.4",
+    "body": "\r\n\r\n- Update SPN + deps\r\n- Remove config option from privacy filter subsystem\r\n- Implement review suggestions\r\n- Combine geoip country info and add country names\r\n- Update format of default DNS resolvers\r\n- Remove unused parameter from resolver URL\r\n- Update DNS resolver config help\r\n- Add setting to specify transit node rules\r\n- Expose tunnel options creation and split tunnel options\r\n- Update README",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.4",
+    "created_at": "2023-08-24T07:56:03Z",
+    "date": "2023-08-24",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.16 (lib only)",
+    "tag_name": "v0.6.16",
+    "body": "\r\n\r\n- Update SPN rule quick setting countries on SPN connect\r\n- Add support for just global setting in routing simulation\r\n- Add option to apply profile settings to route simulation\r\n- Add config option to manually trust nodes\r\n- Split up navigator options into Hub types",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.16",
+    "created_at": "2023-08-24T07:31:44Z",
+    "date": "2023-08-24",
+    "repo": "spn"
+  },
+  {
+    "name": "v1.4.3",
+    "tag_name": "v1.4.3",
+    "body": "\r\n\r\n- Ignore DNS request connection from kernel",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.3",
+    "created_at": "2023-08-19T11:59:56Z",
+    "date": "2023-08-19",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.7.4",
+    "tag_name": "portmaster-v0.7.4",
+    "body": "\r\n\r\n- Reset spn account loading flag on init",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.4",
+    "created_at": "2023-08-19T11:58:14Z",
+    "date": "2023-08-19",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.4.2",
+    "tag_name": "v1.4.2",
+    "body": "\r\n\r\n- Recompile ebpf programs\r\n- Improve bandwidth update logging\r\n- Update special profile upgrade date\r\n- Fix network history clear API\r\n- Update network state tables if state is older than given packet\r\n- Use DNS request connections to attribute DNS requests\r\n- Remove check for self-communication (allowed by default)\r\n- Fix ebpf tcp ipv6",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.2",
+    "created_at": "2023-08-18T15:04:58Z",
+    "date": "2023-08-18",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.7.3",
+    "tag_name": "portmaster-v0.7.3",
+    "body": "\r\n\r\n- Bump portmaster module version\r\n- Fix country flag URL\r\n- Fix user profile subscriptions when no account is present or is deleted\r\n- Update clean history response parsing",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.3",
+    "created_at": "2023-08-18T14:55:56Z",
+    "date": "2023-08-18",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "portmaster-v0.7.2",
+    "tag_name": "portmaster-v0.7.2",
+    "body": "\r\n\r\n- Improve account and map display\r\n- Fix account purging",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.2",
+    "created_at": "2023-08-16T14:53:56Z",
+    "date": "2023-08-16",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.4.1",
+    "tag_name": "v1.4.1",
+    "body": "\r\n\r\n- Update internal profile settings\r\n- Stop firewall handler earlier\r\n- Do not add internal and localhost connections to history\r\n- Disable connection self-check as it uses the old process detection\r\n- Improve performance when custom lists are not loaded\r\n- Correctly finalize DNS requests if filtered",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.1",
+    "created_at": "2023-08-11T10:33:13Z",
+    "date": "2023-08-11",
+    "repo": "portmaster"
+  },
+  {
+    "name": "portmaster-v0.7.1",
+    "tag_name": "portmaster-v0.7.1",
+    "body": "\r\n\r\n- Fix notifcations not disappearing immediately when acted upon\r\n- Improve Dashboard Tip Up\r\n- Add feature scout\r\n- Improve wording and logging\r\n- Improve map rendering\r\n- Fix notification height\r\n- Improve dashboard queries\r\n- Add Dashboard intro tip up\r\n- Fix and improve bandwidth display",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.1",
+    "created_at": "2023-08-11T10:30:31Z",
+    "date": "2023-08-11",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v0.6.15 (lib only)",
+    "tag_name": "v0.6.15",
+    "body": "\r\n\r\n- Disable beta flag on network history",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.15",
+    "created_at": "2023-08-11T10:26:42Z",
+    "date": "2023-08-11",
+    "repo": "spn"
+  },
+  {
+    "name": "portmaster-v0.7.0",
+    "tag_name": "portmaster-v0.7.0",
+    "body": "\r\n\r\n- Bump portmaster module version\r\n- Improve network history cleanup wording\r\n- Use updated function methods in notifier\r\n- Touch up dashboard and related changes\r\n- Add support to trigger history data retention\r\n- Redirect to dashboard when the app is opened\r\n- Finish dashboard implementation\r\n- Add first working dashboard version\r\n- Start work on dashboard",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.7.0",
+    "created_at": "2023-08-09T13:28:29Z",
+    "date": "2023-08-09",
+    "repo": "portmaster-ui"
+  },
+  {
+    "name": "v1.4.0",
+    "tag_name": "v1.4.0",
+    "body": "\r\n\r\n- Bump core version\r\n- Improve logging and naming\r\n- Improve clear network history API endpoint\r\n- Add Cloudflare DNS as fallback quick setting\r\n- Udpate SPN lib\r\n- Improve history purging\r\n- Move history settings from profile to layered profile\r\n- Add support for history data retention\r\n- Add support for SUM in netquery",
+    "prerelease": true,
+    "html_url": "https://github.com/safing/portmaster/releases/tag/v1.4.0",
+    "created_at": "2023-08-09T13:22:44Z",
+    "date": "2023-08-09",
+    "repo": "portmaster"
+  },
+  {
+    "name": "v0.6.14 (lib only)",
+    "tag_name": "v0.6.14",
+    "body": "\r\n\r\n- Improve features\r\n- Add feature definitions",
+    "prerelease": false,
+    "html_url": "https://github.com/safing/spn/releases/tag/v0.6.14",
+    "created_at": "2023-08-09T12:38:03Z",
+    "date": "2023-08-09",
+    "repo": "spn"
+  },
+  {
     "name": "v1.3.6",
     "tag_name": "v1.3.6",
     "body": "\r\n\r\n- Fix cleaning up incomplete connections\r\n- Fix updating feature flags",
@@ -540,16 +710,6 @@
     "repo": "portmaster"
   },
   {
-    "name": "v0.9.11",
-    "tag_name": "v0.9.11",
-    "body": "\r\n\r\n- Update unidentified profile name\r\n- Allow any own local connection\r\n- Explicitly allow all connections of Portmaster Core Service\r\n- Use constants for default action values\r\n- Improve logging\r\n- Switch to FilterConnection as main decision function\r\n- Fix profile migration iteration error handling and only warn, not fail\r\n- Integrate special profiles into regular profile fetching for correct profile udpates\r\n- Classify unidentified localhost connections as unidentified instead of unsolicited\r\n- Make restart and shutdown APIs work without module",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.11",
-    "created_at": "2022-10-13T13:41:11Z",
-    "date": "2022-10-13",
-    "repo": "portmaster"
-  },
-  {
     "name": "assets-v0.3.1",
     "tag_name": "assets-v0.3.1",
     "body": "",
@@ -580,16 +740,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.9.10",
-    "tag_name": "v0.9.10",
-    "body": "\r\n\r\n- Check if active profile is outdated before using\r\n- Improve logging and context usage\r\n- Use interception config only when ready\r\n- Use per-user lock file when unlocking\r\n- Fix fs error handling",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.10",
-    "created_at": "2022-10-11T12:58:03Z",
-    "date": "2022-10-11",
-    "repo": "portmaster"
-  },
-  {
     "name": "v0.5.3 (lib only)",
     "tag_name": "v0.5.3",
     "body": "\r\n\r\n- Fix fs error handling",
@@ -608,26 +758,6 @@
     "created_at": "2022-10-11T07:20:23Z",
     "date": "2022-10-11",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.9.9",
-    "tag_name": "v0.9.9",
-    "body": "\r\n\r\n- Add support for cmdline matching and add basic interpreter support\r\n- Add default icon for Windows services\r\n- Add migration for profiles\r\n- Improve profile metadata handling\r\n- Expose registered process tags via API\r\n- Check all regex fingerprint matches\r\n- Improve network tags for external requests\r\n- Add support for Windows Store tags\r\n- Use new profile functions in firewall\r\n- Add first tag handlers for svchost, app image, net\r\n- Collect env, tags and and matching path for processes\r\n- Move from LinkedPath to Fingerprints and PresentationPath\r\n- Fix darwin build",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.9",
-    "created_at": "2022-10-11T07:06:41Z",
-    "date": "2022-10-11",
-    "repo": "portmaster"
-  },
-  {
-    "name": "v0.9.8",
-    "tag_name": "v0.9.8",
-    "body": "\r\n\r\n- replaced snoretoast with wintoast\r\n- Update SPN dep\r\n- Update deps\r\n- Fix rebase error and clean up\r\n- Allow verdict to change from initial non-allow state\r\n- Improve use of packet in connection decision making\r\n- Improve logging\r\n- Stop tunnels if they are not needed anymore due to verdict change\r\n- Improve verdict handling and switch to immediate re-evaluation\r\n- fix array allocation\r\n- add defer to unlock\r\n- preallocate array\r\n- better wording for log\r\n- Small fixes\r\n- Refactoring\r\n- Fixes\r\n- fix linter errors\r\n- Windows implementation\r\n- Removed comments\r\n- Fix merge error\r\n- Refactoring\r\n- Tunnel flag bugfix and refactoring\r\n- issue new verdict on configuration change\r\n- Reset connection PoC",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.8",
-    "created_at": "2022-10-10T14:19:33Z",
-    "date": "2022-10-10",
-    "repo": "portmaster"
   },
   {
     "name": "notifier-v0.3.3",
@@ -650,16 +780,6 @@
     "repo": "spn"
   },
   {
-    "name": "v0.9.7",
-    "tag_name": "v0.9.7",
-    "body": "\r\n\r\n- Add per-user locking option to portmaster-start run cmds\r\n- Improve and fix verification and fixing\r\n- Start with same verification config on all channels\r\n- Move all filter/interception config to interception module\r\n- Add verify cmd to portmaster-start\r\n- Improve signing with updatemgr\r\n- Add signature support to updatemgr\r\n- Enable signature checking in beta and staging release channels\r\n- Add support for signed updates",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.7",
-    "created_at": "2022-09-29T13:09:22Z",
-    "date": "2022-09-29",
-    "repo": "portmaster"
-  },
-  {
     "name": "portmaster-v0.3.6",
     "tag_name": "portmaster-v0.3.6",
     "body": "\r\n\r\n- Don't group by app by default. Load results chart after the first page has been loaded\r\n- Show tooltip with allow/block reason when hoving the verdict color indicator. Fixes #298\r\n- Fix different values for boolean allowed filter. Fixes safing/portmaster#804\r\n- Fix whitespace break in connection reason. Fixes #287\r\n- Increase button hit box in network scout and correctly handle developermode\r\n- Fix SPN account state handling in account details and login page\r\n- Trim whitespace from ordered list before saving. Fixes #221\r\n- Add inidcation that sub-filter lists are selected. Fixes #296\r\n- Fix change detection not being triggered correctly in app-icon\r\n- Reverse collapse/expand button for SPN hub details\r\n- Reverse the side-dash button in the navigation\r\n- Fix scrolling when side-dash overflows the app height\r\n- Apply user-supplied query in exide-node profile stats\r\n- Fix dialog styles not being applied correctly\r\n- Fix sfng-select incorrectly adding an empty option\r\n- Allow bulk deletion of rules and ask for confirmation. Save on enter. Fixes safing/portmaster#806. fixes #220\r\n- Decrease polling timeout and use correct command to stop on windows. Fixes #234",
@@ -668,16 +788,6 @@
     "created_at": "2022-09-23T08:21:52Z",
     "date": "2022-09-23",
     "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.9.6",
-    "tag_name": "v0.9.6",
-    "body": "\r\n\r\n- Add exit code for controlled failures\r\n- Add search domain info to resolver debug info\r\n- Fix repeating broadcast notifications\r\n- Improve incoming rules quick actions\r\n- Remove default incoming rules\r\n- Implement review suggestion\r\n- incoming: force block by default, apply default action and allow LAN per rules\r\n- Reset connection handling channel when firewall handler is stopped\r\n- Fix feature links in README",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/portmaster/releases/tag/v0.9.6",
-    "created_at": "2022-09-22T14:49:52Z",
-    "date": "2022-09-22",
-    "repo": "portmaster"
   },
   {
     "name": "v0.5.1",
@@ -770,16 +880,6 @@
     "repo": "portmaster-ui"
   },
   {
-    "name": "portmaster-v0.3.1",
-    "tag_name": "portmaster-v0.3.1",
-    "body": "\r\n\r\n- Bump portmaster module version\r\n- Add notice if all connections of a group have been garbage collected\r\n- Fix app settings being reset on graph update\r\n- Remove deprecated field spn_used and switch to tunneled instead\r\n- Save and re-use the filter for the global network activity viewer\r\n- Show loading indicator in select-boxes and support presetting the netquery filter\r\n- Lighten up the background color of the searchbar overlay\r\n- Improve disabled state handling for select items\r\n- Set default connection group-by to profile\r\n- Fix default sort order in network activity monitor\r\n- Fix rediction to app settings not working\r\n- Fix broken styling of overlay-stepper\r\n- Accept \"no\" and \"yes\" for boolean values\r\n- Implement various small changes based on first user feedback\r\n- Refactored portmaster API related code to @safing/portmaster-api",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.3.1",
-    "created_at": "2022-08-03T07:07:45Z",
-    "date": "2022-08-03",
-    "repo": "portmaster-ui"
-  },
-  {
     "name": "v0.4.14",
     "tag_name": "v0.4.14",
     "body": "\r\n\r\n- Improve op capacity test\r\n- Improve module dependencies and context usage\r\n- Update deps\r\n- Update portbase and portmaster\r\n- Disable nolintlint linter\r\n- Add current main intel as test file\r\n- Increase health check timeout to mitigate flow bug a little\r\n- Consolidate Hub related intel and add VerifiedOwner\r\n- Use JSON and CBOR for introducing tags instead\r\n- Improve find nearest error handling\r\n- Fix access tests\r\n- Improve unknown op logging\r\n- Add more prioritized scheduling\r\n- Add MsgTypePriorityData and scheduling via prioritized microtasks\r\n- Fix logging prefixes",
@@ -798,105 +898,5 @@
     "created_at": "2022-07-19T14:55:52Z",
     "date": "2022-07-19",
     "repo": "spn"
-  },
-  {
-    "name": "portmaster-v0.3.0",
-    "tag_name": "portmaster-v0.3.0",
-    "body": "\r\n\r\nThis version includes the new Network Activity view, which is responsible for most commits:\r\n\r\n- Strip FAQ prefix and flex-grow collision\r\n- Fix codelyzer dependency\r\n- Add FAQs to support page\r\n- Fix build errors due to incorrect rebasing/merging of feature branches\r\n- Fix showing default stackable config values\r\n- Fix opening tip-up link in new tab in browser\r\n- Add reset broadcast notification state debug button\r\n- Add broadcast notification styling\r\n- Merge branch 'feature/safing-ui-lib' into develop\r\n- Implement review suggestions\r\n- Upgrade all other packages and fix linting errors due to stricter angular/rxjs types\r\n- Fix linter errors due to stricter Angular 14 template checking\r\n- Updated to Angular@14\r\n- Partial broken upgrade to angular@13\r\n- Ditch ngx-build-plus as tailwind has native support in angular now\r\n- Ditch ngx-build-plus as tailwind has native support in angular now\r\n- Fix tailwind configuration and move component scss out of @layers for now\r\n- Run \"Organize Imports\" on all files\r\n- Switch from app- prefix to sfng- prefix in tab components\r\n- Migrated toggle-switch and overlay-stepper to new @safing/ui\r\n- Migrated most shared common components to a new @safing/ui library\r\n- Minor changes to imports and build config\r\n- Add \"more\" dropdown with additional filters to netquery viewer and update stylign\r\n- Add more translations for connection fields\r\n- Update tag-bar styling\r\n- Add missing provider to searchbar overlay\r\n- Add groupby/orderby support to netquery searchbar and update styling\r\n- Update connection details component styling\r\n- Update connection details component stylign\r\n- Add missing animation declaration to network-activity-widget\r\n- Use fixed width for connection counter\r\n- Fix focus component not running after the view has been initialized\r\n- Add group-by and order-by support to text query language\r\n- Remove version info bar in settings and add new menus in navigation\r\n- Fix redirect to settings action to open the correct tab\r\n- Add dedicated module for app-icon\r\n- Fix button outline class in pagination component\r\n- Refactor select component styling\r\n- Add menu component inputs that proxy through to the dropdown\r\n- Upgrade tailwind version\r\n- Add additional allowed position and offset-x support to dropdown\r\n- Add pagination support to new netquery viewer\r\n- Various improvements to the new netquery/network monitor search system\r\n- Bump notifier version\r\n- Auto-scale icons to better size for tray\r\n- Update systray lib to include fix for setting icon\r\n- Add new basic netquery viewer using the new query interface. Includes various refactoring\r\n- Move network overview from monitor to dedicated widget\r\n- Move icon changer to own goroutine in icon test program\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.3.0",
-    "created_at": "2022-07-19T14:49:57Z",
-    "date": "2022-07-19",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.4.12",
-    "tag_name": "v0.4.12",
-    "body": "\r\n\r\n- Fix SPN reinit api permission\r\n- Update dependencies\r\n- Add safeguard to stop uncontrolled operation\r\n- Add captain.GetSPNStatus to export the current SPN status\r\n- Remove incorrect config annotations\r\n- Make navigator wait for the geoip databases to load before starting\r\n- Add safeguards and improve logging\r\n- Add api endpoint to re-initialize the SPN",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.12",
-    "created_at": "2022-06-22T14:54:09Z",
-    "date": "2022-06-22",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.4.11",
-    "tag_name": "v0.4.11",
-    "body": "\r\n\r\n- Improve error usage and wording\r\n- Lower log level for expansion terminal OK errors\r\n- Allow OpEnd to change the sent error message\r\n- Remove bootstrap flag from client state",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.11",
-    "created_at": "2022-06-01T11:50:42Z",
-    "date": "2022-06-01",
-    "repo": "spn"
-  },
-  {
-    "name": "notifier-v0.3.2",
-    "tag_name": "notifier-v0.3.2",
-    "body": "\r\n\r\n- Update fyne.io/systray in notifier\r\n- Enable notifier arm64 builds for Windows and Linux",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.3.2",
-    "created_at": "2022-05-20T06:57:38Z",
-    "date": "2022-05-20",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "v0.4.10",
-    "tag_name": "v0.4.10",
-    "body": "\r\n\r\n- Do not special UDP socket options on windows\r\n- Add nil guards to crane hooks",
-    "prerelease": false,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.10",
-    "created_at": "2022-05-19T09:27:44Z",
-    "date": "2022-05-19",
-    "repo": "spn"
-  },
-  {
-    "name": "v0.4.9",
-    "tag_name": "v0.4.9",
-    "body": "\r\n\r\n- Enable submit control system and add default terminal options\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/spn/releases/tag/v0.4.9",
-    "created_at": "2022-05-16T07:14:57Z",
-    "date": "2022-05-16",
-    "repo": "spn"
-  },
-  {
-    "name": "notifier-v0.3.1",
-    "tag_name": "notifier-v0.3.1",
-    "body": "\r\n\r\n- Auto-scale icons to better size for tray\r\n- Update systray lib to include fix for setting icon\r\n- Move icon changer to own goroutine in icon test program\r\n- Fix status handling\r\n- Switch to fyne.io/systray",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.3.1",
-    "created_at": "2022-05-05T09:16:59Z",
-    "date": "2022-05-05",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "portmaster-v0.2.4",
-    "tag_name": "portmaster-v0.2.4",
-    "body": "\r\n\r\n- Remove y-offset in intro drop-downs\r\n- Finish intro screen steps for MVP\r\n- Update code to use new modules and component selectors\r\n- Fix background color of dialogs\r\n- Create dedicated module for config components and add more customization support to generic-component\r\n- Create dedicated modules for shared components\r\n- Change current menu to be based on new dropdown module\r\n- Split drop-down and select into different modules with multiple changes\r\n- wip: Use OverlayStepper to display intro MVP on page load. Still needs refactoring\r\n- Add first version of the intro MVP using the new OverlayStepper\r\n- Add OverlayStepper module that supports wizard-like stepping through pages\r\n- Workaround for button hover with blue background. Still needs a proper fix\r\n- Fix dialog typings and allow access to dialog content reference\r\n- Add DialogModule as a depdendency to tip-up and fix imports\r\n- Disable electron's internal secure DNS system\r\n- Create dedicated module for dialog service\r\n- Add arm64 building for electron",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.2.4",
-    "created_at": "2022-04-13T10:14:17Z",
-    "date": "2022-04-13",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "notifier-v0.3.0",
-    "tag_name": "notifier-v0.3.0",
-    "body": "\r\n\r\n- Switch to new embedded icon\r\n- Add SPN status support\r\n- Refactor notifier icons, copy to go source tree for embedding\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/notifier-v0.3.0",
-    "created_at": "2022-03-23T16:01:03Z",
-    "date": "2022-03-23",
-    "repo": "portmaster-ui"
-  },
-  {
-    "name": "portmaster-v0.2.3",
-    "tag_name": "portmaster-v0.2.3",
-    "body": "\r\n\r\n- Always use \"view all\" as the defautl for app settings\r\n- Show blue dots for settings-subsystems as well\r\n",
-    "prerelease": true,
-    "html_url": "https://github.com/safing/portmaster-ui/releases/tag/portmaster-v0.2.3",
-    "created_at": "2022-03-23T16:01:03Z",
-    "date": "2022-03-23",
-    "repo": "portmaster-ui"
   }
 ]

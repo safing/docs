@@ -1,17 +1,21 @@
 [
   {
+    "Name": "Get Account Features",
+    "Description": "Returns all account features.",
     "Path": "account/features",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Account Features",
-    "Description": "Returns all account features."
+    "ReadMethod": "GET"
   },
   {
-    "Path": "app/auth",
-    "MimeType": "application/json",
-    "Read": 1,
-    "ReadMethod": "GET",
+    "Name": "Returns the image of the featuare",
+    "Description": "",
+    "Path": "account/features/{id:[A-Za-z0-9_-]+}/icon",
+    "MimeType": "image/svg+xml",
+    "Read": 2,
+    "ReadMethod": "GET"
+  },
+  {
     "Name": "Request an authentication token with a given set of permissions. The user will be prompted to either authorize or deny the request. Used for external or third-party tool integrations.",
     "Description": "",
     "Parameters": [
@@ -39,69 +43,69 @@
         "Value": "",
         "Description": "The time-to-live for the new access token. Defaults to 24h"
       }
-    ]
+    ],
+    "Path": "app/auth",
+    "MimeType": "application/json",
+    "Read": 1,
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get the ID of the calling profile",
+    "Description": "",
     "Path": "app/profile",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get the ID of the calling profile",
-    "Description": ""
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Request HTTP Basic Auth",
+    "Description": "Returns an HTTP Basic Auth request, if not authenticated.",
     "Path": "auth/basic",
     "MimeType": "text/plain",
     "Read": -1,
-    "ReadMethod": "GET",
-    "Name": "Request HTTP Basic Auth",
-    "Description": "Returns an HTTP Basic Auth request, if not authenticated."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Request HTTP Bearer Auth",
+    "Description": "Returns an HTTP Bearer Auth request, if not authenticated.",
     "Path": "auth/bearer",
     "MimeType": "text/plain",
     "Read": -1,
-    "ReadMethod": "GET",
-    "Name": "Request HTTP Bearer Auth",
-    "Description": "Returns an HTTP Bearer Auth request, if not authenticated."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "View Current Permissions",
+    "Description": "Returns the current permissions assigned to the request.",
     "Path": "auth/permissions",
     "MimeType": "application/json",
     "Read": -1,
-    "ReadMethod": "GET",
-    "Name": "View Current Permissions",
-    "Description": "Returns the current permissions assigned to the request."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Reset Authenticated Session",
+    "Description": "Resets authentication status internally and in the browser.",
     "Path": "auth/reset",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Reset Authenticated Session",
-    "Description": "Resets authentication status internally and in the browser."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Broadcast Notifications Matching Data",
+    "Description": "Returns the data used by the broadcast notifications to match the instance.",
     "Path": "broadcasts/matching-data",
     "MimeType": "application/json",
     "Read": 3,
-    "ReadMethod": "GET",
-    "Name": "Get Broadcast Notifications Matching Data",
-    "Description": "Returns the data used by the broadcast notifications to match the instance."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Resets the Broadcast Notification States",
+    "Description": "Delete the cache of Broadcast Notifications, making them appear again.",
     "Path": "broadcasts/reset-state",
     "MimeType": "text/plain",
     "Write": 3,
-    "WriteMethod": "POST",
-    "Name": "Resets the Broadcast Notification States",
-    "Description": "Delete the cache of Broadcast Notifications, making them appear again."
+    "WriteMethod": "POST"
   },
   {
-    "Path": "broadcasts/simulate",
-    "MimeType": "text/plain",
-    "Write": 3,
-    "WriteMethod": "POST",
     "Name": "Simulate Broadcast Notifications",
     "Description": "Test broadcast notifications by sending a valid source file in the body.",
     "Parameters": [
@@ -111,61 +115,61 @@
         "Value": "true",
         "Description": "Check against state when deciding to display a broadcast notification. Acknowledgements are always saved."
       }
-    ]
+    ],
+    "Path": "broadcasts/simulate",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Run Integration Self-Check",
+    "Description": "Runs a couple integration self-checks in order to see if the system integration works.",
     "Path": "compat/self-check",
     "MimeType": "text/plain",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Run Integration Self-Check",
-    "Description": "Runs a couple integration self-checks in order to see if the system integration works."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Export Configuration Options",
+    "Description": "Returns a list of all registered configuration options and their metadata. This does not include the current active or default settings.",
     "Path": "config/options",
     "MimeType": "application/json",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Export Configuration Options",
-    "Description": "Returns a list of all registered configuration options and their metadata. This does not include the current active or default settings."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Restart Portmaster",
+    "Description": "Restart the Portmaster Core Service.",
     "Path": "core/restart",
     "MimeType": "text/plain",
     "Write": 3,
-    "WriteMethod": "POST",
-    "Name": "Restart Portmaster",
-    "Description": "Restart the Portmaster Core Service."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Shut Down Portmaster",
+    "Description": "Shut down the Portmaster Core Service and all UI components.",
     "Path": "core/shutdown",
     "MimeType": "text/plain",
     "Write": 4,
-    "WriteMethod": "POST",
-    "Name": "Shut Down Portmaster",
-    "Description": "Shut down the Portmaster Core Service and all UI components."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Update custom filter list",
+    "Description": "Reload the filter list from the configured file.",
     "Path": "customlists/update",
     "MimeType": "text/plain",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Update custom filter list",
-    "Description": "Reload the filter list from the configured file."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Get Allocs Profile",
+    "Description": "Gather and return the memory allocation profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/allocs`\n\t\t",
     "Path": "debug/allocs",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Get Allocs Profile",
-    "Description": "Gather and return the memory allocation profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/allocs`\n\t\t"
+    "ReadMethod": "GET"
   },
   {
-    "Path": "debug/core",
-    "MimeType": "text/plain",
-    "Read": 1,
-    "ReadMethod": "GET",
     "Name": "Get Debug Information",
     "Description": "Returns network debugging information, similar to debug/info, but with system status data.",
     "Parameters": [
@@ -175,13 +179,13 @@
         "Value": "github",
         "Description": "Specify the formatting style. The default is simple markdown formatting."
       }
-    ]
-  },
-  {
-    "Path": "debug/cpu",
+    ],
+    "Path": "debug/core",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
+    "ReadMethod": "GET"
+  },
+  {
     "Name": "Get CPU Profile",
     "Description": "Gather and return the CPU profile.\nThis data needs to gathered over a period of time, which is specified using the duration parameter.\n\nYou can easily view this data in your browser with this command (with Go installed):\n`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/cpu`\n",
     "Parameters": [
@@ -191,21 +195,21 @@
         "Value": "10s",
         "Description": "Specify the formatting style. The default is simple markdown formatting."
       }
-    ]
+    ],
+    "Path": "debug/cpu",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Heap Profile",
+    "Description": "Gather and return the heap memory profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/heap`\n\t\t",
     "Path": "debug/heap",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Get Heap Profile",
-    "Description": "Gather and return the heap memory profile.\n\t\t\n\t\tYou can easily view this data in your browser with this command (with Go installed):\n\t\t`go tool pprof -http :8888 http://127.0.0.1:817/api/v1/debug/heap`\n\t\t"
+    "ReadMethod": "GET"
   },
   {
-    "Path": "debug/info",
-    "MimeType": "text/plain",
-    "Read": 1,
-    "ReadMethod": "GET",
     "Name": "Get Debug Information",
     "Description": "Returns debugging information, including the version and platform info, errors, logs and the current goroutine stack.",
     "Parameters": [
@@ -215,13 +219,13 @@
         "Value": "github",
         "Description": "Specify the formatting style. The default is simple markdown formatting."
       }
-    ]
+    ],
+    "Path": "debug/info",
+    "MimeType": "text/plain",
+    "Read": 1,
+    "ReadMethod": "GET"
   },
   {
-    "Path": "debug/network",
-    "MimeType": "text/plain",
-    "Read": 2,
-    "ReadMethod": "GET",
     "Name": "Get Network Debug Information",
     "Description": "Returns network debugging information, similar to debug/core, but with connection data.",
     "Parameters": [
@@ -243,37 +247,37 @@
         "Value": "\u003cquery\u003e",
         "Description": "Specify a query to limit the connections included in the report. The default is to include all connections."
       }
-    ]
+    ],
+    "Path": "debug/network",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Network State Table Data",
+    "Description": "Returns the current network state tables from the OS.",
     "Path": "debug/network/state",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Network State Table Data",
-    "Description": "Returns the current network state tables from the OS."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Goroutine Stack",
+    "Description": "Returns the current goroutine stack.",
     "Path": "debug/stack",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Get Goroutine Stack",
-    "Description": "Returns the current goroutine stack."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Print Goroutine Stack",
+    "Description": "Prints the current goroutine stack to stdout.",
     "Path": "debug/stack/print",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Print Goroutine Stack",
-    "Description": "Prints the current goroutine stack to stdout."
+    "ReadMethod": "GET"
   },
   {
-    "Path": "dns/cache/{query:[a-z0-9\\.-]{0,512}\\.[A-Z]{1,32}}",
-    "MimeType": "application/json",
-    "Read": 2,
-    "ReadMethod": "GET",
     "Name": "Get DNS Record from Cache",
     "Description": "Returns cached dns records from the internal cache.",
     "Parameters": [
@@ -283,135 +287,143 @@
         "Value": "fqdn and query type",
         "Description": "Specify the query like this: `example.com.A`."
       }
-    ]
+    ],
+    "Path": "dns/cache/{query:[a-z0-9\\.-]{0,512}\\.[A-Z]{1,32}}",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Clear cached DNS records",
+    "Description": "Deletes all saved DNS records from the database.",
     "Path": "dns/clear",
     "MimeType": "text/plain",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Clear cached DNS records",
-    "Description": "Deletes all saved DNS records from the database."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "List DNS Resolvers",
+    "Description": "List currently configured DNS resolvers and their status.",
     "Path": "dns/resolvers",
     "MimeType": "application/json",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "List DNS Resolvers",
-    "Description": "List currently configured DNS resolvers and their status."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Export API Endpoints",
+    "Description": "Returns a list of all registered endpoints and their metadata.",
     "Path": "endpoints",
     "MimeType": "application/json",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Export API Endpoints",
-    "Description": "Returns a list of all registered endpoints and their metadata."
+    "ReadMethod": "GET"
   },
   {
-    "Path": "intel/geoip/country-centers",
+    "Name": "Get Country Information",
+    "Description": "Returns a map of country information centers indexed by ISO-A2 country code",
+    "Path": "intel/geoip/countries",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Geographic Country Centers",
-    "Description": "Returns a map of country centers indexed by ISO-A2 country code"
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Module Status",
+    "Description": "Returns status information of all modules.",
     "Path": "modules/status",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Module Status",
-    "Description": "Returns status information of all modules."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Trigger Event",
+    "Description": "Triggers an event of an internal module.",
     "Path": "modules/{moduleName:.+}/trigger/{eventName:.+}",
     "MimeType": "text/plain",
     "Write": 4,
-    "WriteMethod": "POST",
-    "Name": "Trigger Event",
-    "Description": "Triggers an event of an internal module."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Active Connections Chart",
+    "Description": "Query the in-memory sqlite connection database and return a chart of active connections.",
     "Path": "netquery/charts/connection-active",
     "MimeType": "application/json",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Active Connections Chart",
-    "Description": "Query the in-memory sqlite connection database and return a chart of active connections."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Apply connection history retention threshold",
+    "Description": "",
+    "Path": "netquery/history/cleanup",
+    "MimeType": "text/plain",
+    "Write": 2,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Remove connections from profile history",
+    "Description": "Remove all connections from the history database for one or more profiles",
     "Path": "netquery/history/clear",
     "MimeType": "application/json",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Remove connections from profile history",
-    "Description": "Remove all connections from the history database for one or more profiles"
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Query Connections",
+    "Description": "Query the in-memory sqlite connection database.",
     "Path": "netquery/query",
     "MimeType": "application/json",
     "Read": 2,
     "ReadMethod": "GET",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Query Connections",
-    "Description": "Query the in-memory sqlite connection database."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Get Default Gateways",
+    "Description": "Returns the current active default gateways of the network.",
     "Path": "network/gateways",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Default Gateways",
-    "Description": "Returns the current active default gateways of the network."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Approximate Internet Location",
+    "Description": "Returns an approximation of where the device is on the Internet.",
     "Path": "network/location",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Approximate Internet Location",
-    "Description": "Returns an approximation of where the device is on the Internet."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get Approximate Internet Location via Traceroute",
+    "Description": "Returns an approximation of where the device is on the Internet using a the traceroute technique.",
     "Path": "network/location/traceroute",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get Approximate Internet Location via Traceroute",
-    "Description": "Returns an approximation of where the device is on the Internet using a the traceroute technique."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get System Nameservers",
+    "Description": "Returns the currently configured nameservers on the OS.",
     "Path": "network/nameservers",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get System Nameservers",
-    "Description": "Returns the currently configured nameservers on the OS."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Ping",
+    "Description": "Pong.",
     "Path": "ping",
     "MimeType": "text/plain",
     "Read": 1,
-    "ReadMethod": "GET",
-    "Name": "Ping",
-    "Description": "Pong."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "SPN Login",
+    "Description": "Log into your SPN account.",
     "Path": "spn/account/login",
     "MimeType": "text/plain",
     "Write": 3,
-    "WriteMethod": "POST",
-    "Name": "SPN Login",
-    "Description": "Log into your SPN account."
+    "WriteMethod": "POST"
   },
   {
-    "Path": "spn/account/logout",
-    "MimeType": "text/plain",
-    "Write": 3,
-    "WriteMethod": "DELETE",
     "Name": "SPN Logout",
     "Description": "Logout from your SPN account.",
     "Parameters": [
@@ -421,13 +433,13 @@
         "Value": "",
         "Description": "If set, account data is purged. Otherwise, the username and device ID are kept in order to log into the same device when logging in with the same user again."
       }
-    ]
+    ],
+    "Path": "spn/account/logout",
+    "MimeType": "text/plain",
+    "Write": 3,
+    "WriteMethod": "DELETE"
   },
   {
-    "Path": "spn/account/user/profile",
-    "MimeType": "application/json",
-    "Read": 2,
-    "ReadMethod": "GET",
     "Name": "SPN User Profile",
     "Description": "Get the user profile of the logged in SPN account.",
     "Parameters": [
@@ -437,13 +449,13 @@
         "Value": "",
         "Description": "If set, the user profile is freshly fetched from the account server."
       }
-    ]
+    ],
+    "Path": "spn/account/user/profile",
+    "MimeType": "application/json",
+    "Read": 2,
+    "ReadMethod": "GET"
   },
   {
-    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/graph{format:\\.[a-z]{2,4}}",
-    "MimeType": "text/plain",
-    "Read": 2,
-    "ReadMethod": "GET",
     "Name": "Get SPN map graph",
     "Description": "Returns a graph of the given SPN map.",
     "Parameters": [
@@ -459,86 +471,104 @@
         "Value": "file type",
         "Description": "Specify the format you want to get the map in. Available values: `dot`, `html`. Please note that the html format is only available in development mode."
       }
-    ]
+    ],
+    "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/graph{format:\\.[a-z]{2,4}}",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Update map intelligence.",
+    "Description": "Updates the intel data of the map.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/intel/update",
     "MimeType": "text/plain",
     "Write": 4,
-    "WriteMethod": "POST",
-    "Name": "Update map intelligence.",
-    "Description": "Updates the intel data of the map."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Get SPN map measurements",
+    "Description": "Returns the measurements of the map.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/measurements",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get SPN map measurements",
-    "Description": "Returns the measurements of the map."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get SPN map measurements as a table",
+    "Description": "Returns the measurements of the map as a table.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/measurements/table",
     "MimeType": "text/plain",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get SPN map measurements as a table",
-    "Description": "Returns the measurements of the map as a table."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get SPN map optimization",
+    "Description": "Returns the calculated optimization for the map.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/optimization",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get SPN map optimization",
-    "Description": "Returns the calculated optimization for the map."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get SPN map optimization as a table",
+    "Description": "Returns the calculated optimization for the map as a table.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/optimization/table",
     "MimeType": "text/plain",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get SPN map optimization as a table",
-    "Description": "Returns the calculated optimization for the map as a table."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Get SPN map pins",
+    "Description": "Returns a list of pins on the map.",
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/pins",
     "MimeType": "application/json",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Get SPN map pins",
-    "Description": "Returns a list of pins on the map."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Calculate Route through SPN",
+    "Description": "Returns a textual representation of the routing process.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "profile",
+        "Value": "\u003cid\u003e|global",
+        "Description": "Specify a profile ID to load more settings for simulation."
+      },
+      {
+        "Method": "GET",
+        "Field": "encrypted",
+        "Value": "true",
+        "Description": "Specify to signify that the simulated connection should be regarded as encrypted. Only valid with a profile."
+      }
+    ],
     "Path": "spn/map/{map:[A-Za-z0-9]{1,255}}/route/to/{destination:[a-z0-9_\\.:-]{1,255}}",
     "MimeType": "text/plain",
     "Read": 2,
-    "ReadMethod": "GET",
-    "Name": "Calculate Route through SPN",
-    "Description": "Returns a textual representation of the routing process."
+    "ReadMethod": "GET"
   },
   {
+    "Name": "Re-initialize SPN",
+    "Description": "Stops the SPN, resets all caches and starts it again. The SPN account and settings are not changed.",
     "Path": "spn/reinit",
     "MimeType": "text/plain",
     "Write": 3,
-    "WriteMethod": "POST",
-    "Name": "Re-initialize SPN",
-    "Description": "Stops the SPN, resets all caches and starts it again. The SPN account and settings are not changed."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Reload UI Assets",
+    "Description": "Removes all assets from the cache and reloads the current (possibly updated) version from disk when requested.",
     "Path": "ui/reload",
     "MimeType": "text/plain",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Reload UI Assets",
-    "Description": "Removes all assets from the cache and reloads the current (possibly updated) version from disk when requested."
+    "WriteMethod": "POST"
   },
   {
+    "Name": "Check for Updates",
+    "Description": "Triggers checking for updates.",
     "Path": "updates/check",
     "MimeType": "text/plain",
     "Write": 2,
-    "WriteMethod": "POST",
-    "Name": "Check for Updates",
-    "Description": "Triggers checking for updates."
+    "WriteMethod": "POST"
   }
 ]
