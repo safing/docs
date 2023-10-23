@@ -342,6 +342,14 @@
     "WriteMethod": "POST"
   },
   {
+    "Name": "Bandwidth Chart",
+    "Description": "Query the in-memory sqlite connection database and return a chart of bytes sent/received.",
+    "Path": "netquery/charts/bandwidth",
+    "MimeType": "application/json",
+    "Write": 2,
+    "WriteMethod": "POST"
+  },
+  {
     "Name": "Active Connections Chart",
     "Description": "Query the in-memory sqlite connection database and return a chart of active connections.",
     "Path": "netquery/charts/connection-active",
@@ -575,10 +583,26 @@
   },
   {
     "Name": "Check for Updates",
-    "Description": "Triggers checking for updates.",
+    "Description": "Checks if new versions are available. If automatic updates are enabled, they are also downloaded and applied.",
+    "Parameters": [
+      {
+        "Method": "POST",
+        "Field": "download",
+        "Value": "",
+        "Description": "Force downloading and applying of all updates, regardless of auto-update settings."
+      }
+    ],
     "Path": "updates/check",
     "MimeType": "text/plain",
     "Write": 2,
     "WriteMethod": "POST"
+  },
+  {
+    "Name": "Get Resource",
+    "Description": "Returns the requested resource from the udpate system",
+    "Path": "updates/get/{identifier:[A-Za-z0-9/\\.\\-_]{1,255}}",
+    "MimeType": "text/plain",
+    "Read": 2,
+    "ReadMethod": "GET"
   }
 ]

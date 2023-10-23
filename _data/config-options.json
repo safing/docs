@@ -492,9 +492,9 @@
     }
   },
   {
-    "Name": "Ignore Failing DNS Servers Duration",
+    "Name": "Retry Failing DNS Servers",
     "Key": "dns/nameserverRetryRate",
-    "Description": "Duration in seconds how long a failing DNS server should not be retried.",
+    "Description": "Duration in seconds how often failing DNS server should be retried. This is done continuously in the background.",
     "Help": "",
     "Sensitive": false,
     "OptType": 3,
@@ -1305,9 +1305,9 @@
     }
   },
   {
-    "Name": "Block Bypassing",
+    "Name": "Block Secure DNS Bypassing",
     "Key": "filter/preventBypassing",
-    "Description": "Prevent apps from bypassing Portmaster's privacy protections.  \nIf Block Bypassing is disabled, Portmaster can no longer protect you or filter connections from the affected applications.\n\nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers\n\nPlease note that if you are using the system resolver, bypass attempts might be additionally blocked there too.",
+    "Description": "Prevent apps from bypassing Portmaster's Secure DNS resolver.\nIf disabled, Portmaster might have reduced information to correctly enforce rules and filter lists.\nImportant: Portmaster's firewall itself cannot be bypassed.\n\nCurrent Features:  \n- Disable Firefox' internal DNS-over-HTTPs resolver\n- Block direct access to public DNS resolvers\n\nPlease note that DNS bypass attempts might be additionally blocked in the Sytem D there too.",
     "Help": "",
     "Sensitive": false,
     "OptType": 3,

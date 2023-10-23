@@ -1,13 +1,13 @@
 {
  "Channel": "beta",
- "Published": "2023-09-27T13:01:50Z",
+ "Published": "2023-10-18T14:51:51Z",
  "Releases": {
-  "all/ui/modules/portmaster.zip": "0.7.10",
-  "darwin_amd64/core/portmaster-core": "1.4.8",
-  "darwin_arm64/core/portmaster-core": "1.4.8",
-  "linux_amd64/core/portmaster-core": "1.4.8",
-  "linux_arm64/core/portmaster-core": "1.4.8",
-  "windows_amd64/core/portmaster-core.exe": "1.4.8",
-  "windows_arm64/core/portmaster-core.exe": "1.4.8"
+  "all/ui/modules/portmaster.zip": "0.7.13",
+  "darwin_amd64/core/portmaster-core": "1.5.1",
+  "darwin_arm64/core/portmaster-core": "1.5.1",
+  "linux_amd64/core/portmaster-core": "1.5.1",
+  "linux_arm64/core/portmaster-core": "1.5.1",
+  "windows_amd64/core/portmaster-core.exe": "1.5.1",
+  "windows_arm64/core/portmaster-core.exe": "1.5.1"
  }
 }
