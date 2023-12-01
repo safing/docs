@@ -574,6 +574,174 @@
     "WriteMethod": "POST"
   },
   {
+    "Name": "Export App Profile",
+    "Description": "Exports app fingerprints, settings and metadata in a share-able format.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "id",
+        "Value": "",
+        "Description": "Specify scoped profile ID to export."
+      }
+    ],
+    "Path": "sync/profile/export",
+    "MimeType": "text/plain",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Import App Profile",
+    "Description": "Imports full app profiles, including fingerprints, setting and metadata from the share-able format.",
+    "Parameters": [
+      {
+        "Method": "POST",
+        "Field": "allowReplace",
+        "Value": "",
+        "Description": "Allow replacing existing profiles."
+      },
+      {
+        "Method": "POST",
+        "Field": "validate",
+        "Value": "",
+        "Description": "Validate only."
+      },
+      {
+        "Method": "POST",
+        "Field": "reset",
+        "Value": "",
+        "Description": "Replace all existing settings."
+      },
+      {
+        "Method": "POST",
+        "Field": "allowUnknown",
+        "Value": "",
+        "Description": "Allow importing of unknown values."
+      }
+    ],
+    "Path": "sync/profile/import",
+    "MimeType": "application/json",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Export Settings",
+    "Description": "Exports settings in a share-able format.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "from",
+        "Value": "",
+        "Description": "Specify where to export from."
+      },
+      {
+        "Method": "GET",
+        "Field": "key",
+        "Value": "",
+        "Description": "Optionally select a single setting to export. Repeat to export selection."
+      }
+    ],
+    "Path": "sync/settings/export",
+    "MimeType": "text/plain",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Import Settings",
+    "Description": "Imports settings from the share-able format.",
+    "Parameters": [
+      {
+        "Method": "POST",
+        "Field": "to",
+        "Value": "",
+        "Description": "Specify where to import to."
+      },
+      {
+        "Method": "POST",
+        "Field": "validate",
+        "Value": "",
+        "Description": "Validate only."
+      },
+      {
+        "Method": "POST",
+        "Field": "reset",
+        "Value": "",
+        "Description": "Replace all existing settings."
+      },
+      {
+        "Method": "POST",
+        "Field": "allowUnknown",
+        "Value": "",
+        "Description": "Allow importing of unknown values."
+      }
+    ],
+    "Path": "sync/settings/import",
+    "MimeType": "application/json",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Export Single Setting",
+    "Description": "Exports a single setting in a share-able format.",
+    "Parameters": [
+      {
+        "Method": "GET",
+        "Field": "from",
+        "Value": "",
+        "Description": "Specify where to export from."
+      },
+      {
+        "Method": "GET",
+        "Field": "key",
+        "Value": "",
+        "Description": "Specify which settings key to export."
+      }
+    ],
+    "Path": "sync/single-setting/export",
+    "MimeType": "text/plain",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
+    "Name": "Import Single Setting",
+    "Description": "Imports a single setting from the share-able format.",
+    "Parameters": [
+      {
+        "Method": "POST",
+        "Field": "to",
+        "Value": "",
+        "Description": "Specify where to import to."
+      },
+      {
+        "Method": "POST",
+        "Field": "key",
+        "Value": "",
+        "Description": "Specify which setting key to import."
+      },
+      {
+        "Method": "POST",
+        "Field": "validate",
+        "Value": "",
+        "Description": "Validate only."
+      }
+    ],
+    "Path": "sync/single-setting/import",
+    "MimeType": "application/json",
+    "Read": 3,
+    "ReadMethod": "GET",
+    "Write": 3,
+    "WriteMethod": "POST"
+  },
+  {
     "Name": "Reload UI Assets",
     "Description": "Removes all assets from the cache and reloads the current (possibly updated) version from disk when requested.",
     "Path": "ui/reload",
