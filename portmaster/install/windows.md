@@ -7,6 +7,7 @@ This page covers how to install and uninstall the Portmaster on Windows 7, 8, 10
 
 - [Download installer]({{ site.download_windows_url }})
 - Use winget: `winget install -i portmaster`
+- Use scoop: `scoop bucket add nonportable; scoop install portmaster-np`
 
 Please note that we currently only support the 64bit CPU Architecture, which is the current main standard. In case of Windows 7, you  require the 2015 security update KB3033929 for correctly verifying driver signatures.
 
