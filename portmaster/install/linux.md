@@ -339,7 +339,7 @@ sudo yum remove portmaster
 ###### Arch
 
 ```sh
-sudo pacman -Rnsu portmaster
+sudo pacman -Rnsu portmaster-stub-bin
 ```
 
 ### Community Contributions
