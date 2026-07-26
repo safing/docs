@@ -81,7 +81,7 @@ The Portmaster Core Service is compatible with the Linux Kernel as of version 2.
 
 Dependencies:
 
-- [Network Manager](https://wiki.gnome.org/Projects/NetworkManager) - for better integration (_optional, but recommended_)
+- [Network Manager](https://networkmanager.dev/docs/) - for better integration (_optional, but recommended_)
 - _We managed to remove all other dependencies!_ 🎉
 
 ### Manual Install and Launching
