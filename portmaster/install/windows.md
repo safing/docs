@@ -6,7 +6,7 @@ layout: base
 This page covers how to install and uninstall the Portmaster on Windows 7, 8, 10 and 11. The install process is the same for all supported Windows versions:
 
 - [Download installer]({{ site.download_windows_url }})
-- Use winget: `winget install -i portmaster`
+- Use winget: `winget install -i --id Safing.Portmaster`
 
 Please note that we currently only support the 64bit CPU Architecture, which is the current main standard. In case of Windows 7, you  require the 2015 security update KB3033929 for correctly verifying driver signatures.
 
