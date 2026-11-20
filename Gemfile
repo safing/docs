@@ -14,3 +14,9 @@ end
 
 
 gem "webrick"
+
+# Removed from Ruby's default gems in Ruby 3.4+ but still required by Jekyll 4.2.
+gem "base64"
+gem "bigdecimal"
+gem "csv"
+gem "logger"
