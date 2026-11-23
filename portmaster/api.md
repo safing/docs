@@ -28,30 +28,6 @@ For development, you may also enable the {% include setting/ref.html key="core/d
 
 <div class="settingslist">
 
-  <!-- Static entry for the database API. -->  
-  <div class="setting">
-    <h5 id="database/v1" class="header">
-      <span class="second header-anchor hide-no-js"
-        onclick="navigator.clipboard.writeText('[Database Websocket API]({{ site.url }}{{ site.portmaster_api_url }}#database/v1)')">
-        <i class="fab fa-markdown hide-no-js"></i>
-      </span>
-      Database Websocket API
-      <small>
-        <span class="setting-badge key"><i class="fa fa-key"></i> Admin</span>
-      </small>
-    </h5>
-
-    <p style="background: #eee; padding: 7px; border-radius: 2px;">
-      <code>[WEBSOCKET] /api/database/v1</code>
-      <br>
-    </p>
-
-    <p>
-      The websocket interface is not yet documented in a processable format. Please refer to the Portmaster Console App for more information and testing:<br>
-      <a href="http://127.0.0.1:817/ui/modules/console/">http://127.0.0.1:817/ui/modules/console/</a> (Requires {% include setting/ref.html key="core/devMode" %})
-    </p>
-  </div>
-
 {% for endpoint in site.data.portmaster-api %}
   <div class="setting">
     <h5 id="v1/{{ endpoint.Path }}" class="header">
